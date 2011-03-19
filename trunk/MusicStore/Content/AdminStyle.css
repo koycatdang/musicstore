@@ -1,0 +1,18 @@
+﻿/*---------- GLOBAL ----------*/
+*
+{
+	margin: 0;
+	padding: 0;
+}
+body
+{
+	font-family: Arial;
+	font-size: 12px;
+}
+#tableMain
+{
+	margin: auto;
+	border: 0;
+	width: 960px;
+	min-height: 500px;
+}
