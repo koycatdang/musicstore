@@ -16,3 +16,328 @@ body
 	width: 960px;
 	min-height: 500px;
 }
+a, a:visited, a:hover
+{
+	text-decoration: none;
+}
+
+input:hover, #Reset:hover
+{
+	border-color: ActiveBorder;
+}
+/*---------- Header ----------*/
+#banner
+{
+	background: url(../img/Adminbanner.jpg) no-repeat;
+}
+#header
+{
+	height: 120px;
+}
+#header h2
+{
+	float: left;
+	margin-top: 20px;
+	width: 670px;
+	height: 25px;
+}
+#header #lblWelcome
+{
+	float: right;
+	margin-top: 95px;
+	background: transparent url(../img/form_mix.gif) repeat-x top;
+	width: 250px;
+	height: 25px;
+	padding: 0;
+	line-height: 10px;
+}
+#topmenu
+{
+	margin-top: 95px;
+}
+#topmenu ul
+{
+	list-style: none;
+	line-height: 25px;
+}
+#topmenu li
+{
+	display: inline;
+}
+#topmenu ul li a, #topmenu ul li a:hover, #topmenu ul li a:visited
+{
+	padding: 5px 12px 5px 12px;
+	font-weight: bold;
+}
+/*---------- End of Header ----------*/
+/*---------- Content ----------*/
+/*---------- End of Content ----------*/
+#content
+{
+	width: 790px;
+	vertical-align: top;
+	background: #FFF;
+}
+/*---------- SideBar ----------*/
+#sideBar
+{
+	width: 150px;
+	vertical-align: top;
+	margin: 10px 0 0 0;
+	background: #FFF;
+}
+#sideBar ul
+{
+	list-style: none;
+	line-height: 22px;
+}
+#sideBar ul li a, #sidebar ul li a:visited
+{
+	padding-left: 18px;
+	display: block;
+}
+#sideBar ul li ul li
+{
+	margin-left: 20px;
+}
+#sideBar h3
+{
+	padding: 2px;
+	font-size: 14px;
+}
+/*---------- End of SideBar ----------*/
+/*---------- Footer ----------*/
+#footer
+{
+	background: #FFF;
+}
+#credits
+{
+	clear: both;
+	font-weight: bold;
+}
+#styleswitcher
+{
+	clear: both;
+	float: right;
+}
+#styleswitcher ul
+{
+	list-style: none;
+}
+#styleswitcher li
+{
+	display: inline;
+}
+a#mixSwitch
+{
+	width: 20px;
+	height: 15px;
+	margin: 3px 0 3px 0;
+	background-color: #294145;
+	color: #294145;
+	display: inline-block;
+}
+a#blueSwitch
+{
+	width: 20px;
+	height: 15px;
+	margin: 3px 0 3px 0;
+	background-color: #375b91;
+	color: #375b91;
+	display: inline-block;
+}
+a#greenSwitch
+{
+	width: 20px;
+	height: 15px;
+	margin: 3px 0 3px 0;
+	background-color: #d0e0b8;
+	color: #d0e0b8;
+	display: inline-block;
+}
+a#brownSwitch
+{
+	width: 20px;
+	height: 15px;
+	margin: 3px 0 3px 0;
+	background-color: #654322;
+	color: #654322;
+	display: inline-block;
+}
+a#maroonSwitch
+{
+	width: 20px;
+	height: 15px;
+	margin: 3px 0 3px 0;
+	background-color: #bd3f09;
+	color: #bd3f09;
+	display: inline-block;
+}
+/*---------- End of Footer ----------*/
+/*---------- Web User Control ----------*/
+.tableSub
+{
+	width: 790px;
+}
+.header
+{
+	padding-top: 10px;
+	text-align: center;
+	font-family: Times New Roman;
+	font-weight: bold;
+}
+.title
+{
+	padding: 7px 0 0 2px;
+	height: 25px;
+	font-weight: bold;
+}
+.nullCol
+{
+	width: 20px;
+}
+.textCol
+{
+	width: 180px;
+	height: 35px;
+}
+.toolBoxCol
+{
+	width: 270px;
+}
+.back
+{
+	font-weight: bold;
+	background: transparent url(../img/icons/back.gif) no-repeat left;
+	padding-left: 30px;
+	width: 40px;
+}
+.label
+{
+	padding: 20px 0 0 35px;
+	background: transparent url(../img/icons/msg.gif) no-repeat left;
+	vertical-align: middle;
+	color: Red;
+}
+.validationSummary
+{
+	margin-left: 50px;
+	padding: 5px 0 0 30px;
+	height: 100px;
+}
+.title
+{
+	padding: 7px 0 0 2px;
+	height: 25px;
+	font-weight: bold;
+}
+.gvHeader
+{
+	height: 50px;
+	font-size: medium;
+}
+.gvHeaderDT
+{
+	height: 70px;
+	font-size: medium;
+}
+.gvRow
+{
+	height: 30px;
+	vertical-align: middle;
+}
+.gvRowDT
+{
+	height: 100px;
+	vertical-align: middle;
+}
+.gvFooter
+{
+	height: 30px;
+	font-style: italic;
+	font-weight: bold;
+}
+.validationSummary
+{
+	margin: 10px 0 0 15px;
+	height: 100px;
+	width: 750px;
+}
+.next
+{
+	float: right;
+	background: transparent url(../img/icons/next.jpg) no-repeat right;
+	padding-right: 30px;
+	margin-top: 20px;
+	font-weight: bold;
+	text-align: right;
+	width: 105px;
+}
+.img
+{
+	width: 80px;
+	height: 100px;
+}
+/*------ Trang chủ admin ------ */
+.titleMain
+{
+	width: 260px;
+	padding: 6px 0 0 33px;
+	height: 35px;
+	font-weight: bold;
+	background: transparent url(../img/icons/dasboard.gif) no-repeat left;
+	font-family:Papyrus;
+	font-size:x-large;
+}
+.number
+{
+	font-family: Georgia;
+	font-size: 16px;
+	color: Red;
+}
+.foreachRow
+{
+	height: 28px;
+}
+/*------ End of Trang chủ admin ------ */
+/*---------- End of Web User Control ----------*/
+/*---------- Include Icons ----------*/
+.manager
+{
+	background: transparent url(../img/icons/bricks.png) no-repeat left;
+}
+.user
+{
+	background: transparent url(../img/icons/user.png) no-repeat left;
+}
+.addUser
+{
+	background: transparent url(../img/icons/user_add.png) no-repeat left;
+}
+.add
+{
+	background: transparent url(../img/icons/add.png) no-repeat left;
+}
+.find
+{
+	background: transparent url(../img/icons/magnifier.png) no-repeat left;
+}
+.userOnline
+{
+	background: transparent url(../img/icons/world.png) no-repeat left;
+}
+.company
+{
+	background: transparent url(../img/icons/house.png) no-repeat left;
+}
+.mobile
+{
+	background: transparent url(../img/icons/dienthoai.gif) no-repeat left;
+}
+.mobileGroup
+{
+	background: transparent url(../img/icons/loai.gif) no-repeat left;
+}
+/*---------- End Include Icons ----------*/
+/*---------- END OF CSS ----------*/
