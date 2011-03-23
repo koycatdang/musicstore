@@ -22,12 +22,12 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_CHITIETALBUM_ALBUM", "ALBUM", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.ALBUM), "CHITIETALBUM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.CHITIETALBUM), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_BAIHAT_CASI", "CASI", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.CASI), "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.BAIHAT), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_BAIHAT_CHATLUONGAMTHANH", "CHATLUONGAMTHANH", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.CHATLUONGAMTHANH), "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.BAIHAT), true)]
-[assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_BAIHAT_COMMENT", "COMMENT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.COMMENT), "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.BAIHAT), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_BAIHAT_NHACSI", "NHACSI", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.NHACSI), "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.BAIHAT), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_BAIHAT_THELOAI", "THELOAI", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.THELOAI), "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.BAIHAT), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_BAIHAT_TINHTRANGBAIHAT", "TINHTRANGBAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.TINHTRANGBAIHAT), "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.BAIHAT), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_CHITIETALBUM_BAIHAT", "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.BAIHAT), "CHITIETALBUM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.CHITIETALBUM), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_CHITIETPLAYLIST_BAIHAT", "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.BAIHAT), "CHITIETPLAYLIST", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.CHITIETPLAYLIST), true)]
+[assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_COMMENT_BAIHAT", "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.BAIHAT), "COMMENT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.COMMENT), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_DIEM_BAIHAT", "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MusicStore.Models.BAIHAT), "DIEM", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.DIEM), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_BANNICK_NGUOIDUNG", "NGUOIDUNG", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MusicStore.Models.NGUOIDUNG), "BANNICK", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.BANNICK), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_CASI_QUOCGIA", "QUOCGIA", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.QUOCGIA), "CASI", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.CASI), true)]
@@ -1043,30 +1043,6 @@ namespace MusicStore.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> MaComment
-        {
-            get
-            {
-                return _MaComment;
-            }
-            set
-            {
-                OnMaCommentChanging(value);
-                ReportPropertyChanging("MaComment");
-                _MaComment = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("MaComment");
-                OnMaCommentChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _MaComment;
-        partial void OnMaCommentChanging(Nullable<global::System.Int32> value);
-        partial void OnMaCommentChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public Nullable<global::System.DateTime> NgayTiepNhan
         {
             get
@@ -1268,44 +1244,6 @@ namespace MusicStore.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("db_MusicStoreModel", "FK_BAIHAT_COMMENT", "COMMENT")]
-        public COMMENT COMMENT
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<COMMENT>("db_MusicStoreModel.FK_BAIHAT_COMMENT", "COMMENT").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<COMMENT>("db_MusicStoreModel.FK_BAIHAT_COMMENT", "COMMENT").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<COMMENT> COMMENTReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<COMMENT>("db_MusicStoreModel.FK_BAIHAT_COMMENT", "COMMENT");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<COMMENT>("db_MusicStoreModel.FK_BAIHAT_COMMENT", "COMMENT", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("db_MusicStoreModel", "FK_BAIHAT_NHACSI", "NHACSI")]
         public NHACSI NHACSI
         {
@@ -1454,6 +1392,28 @@ namespace MusicStore.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CHITIETPLAYLIST>("db_MusicStoreModel.FK_CHITIETPLAYLIST_BAIHAT", "CHITIETPLAYLIST", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MusicStoreModel", "FK_COMMENT_BAIHAT", "COMMENT")]
+        public EntityCollection<COMMENT> COMMENTs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<COMMENT>("db_MusicStoreModel.FK_COMMENT_BAIHAT", "COMMENT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<COMMENT>("db_MusicStoreModel.FK_COMMENT_BAIHAT", "COMMENT", value);
                 }
             }
         }
@@ -2413,6 +2373,30 @@ namespace MusicStore.Models
         private global::System.String _MaNguoiDung;
         partial void OnMaNguoiDungChanging(global::System.String value);
         partial void OnMaNguoiDungChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MaBaiHat
+        {
+            get
+            {
+                return _MaBaiHat;
+            }
+            set
+            {
+                OnMaBaiHatChanging(value);
+                ReportPropertyChanging("MaBaiHat");
+                _MaBaiHat = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MaBaiHat");
+                OnMaBaiHatChanged();
+            }
+        }
+        private global::System.String _MaBaiHat;
+        partial void OnMaBaiHatChanging(global::System.String value);
+        partial void OnMaBaiHatChanged();
 
         #endregion
     
@@ -2424,18 +2408,34 @@ namespace MusicStore.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("db_MusicStoreModel", "FK_BAIHAT_COMMENT", "BAIHAT")]
-        public EntityCollection<BAIHAT> BAIHATs
+        [EdmRelationshipNavigationPropertyAttribute("db_MusicStoreModel", "FK_COMMENT_BAIHAT", "BAIHAT")]
+        public BAIHAT BAIHAT
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BAIHAT>("db_MusicStoreModel.FK_BAIHAT_COMMENT", "BAIHAT");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BAIHAT>("db_MusicStoreModel.FK_COMMENT_BAIHAT", "BAIHAT").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BAIHAT>("db_MusicStoreModel.FK_COMMENT_BAIHAT", "BAIHAT").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<BAIHAT> BAIHATReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BAIHAT>("db_MusicStoreModel.FK_COMMENT_BAIHAT", "BAIHAT");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BAIHAT>("db_MusicStoreModel.FK_BAIHAT_COMMENT", "BAIHAT", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BAIHAT>("db_MusicStoreModel.FK_COMMENT_BAIHAT", "BAIHAT", value);
                 }
             }
         }

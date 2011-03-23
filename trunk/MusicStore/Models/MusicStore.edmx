@@ -53,10 +53,6 @@
             <End Role="CHATLUONGAMTHANH" EntitySet="CHATLUONGAMTHANH" />
             <End Role="BAIHAT" EntitySet="BAIHAT" />
           </AssociationSet>
-          <AssociationSet Name="FK_BAIHAT_COMMENT" Association="db_MusicStoreModel.Store.FK_BAIHAT_COMMENT">
-            <End Role="COMMENT" EntitySet="COMMENT" />
-            <End Role="BAIHAT" EntitySet="BAIHAT" />
-          </AssociationSet>
           <AssociationSet Name="FK_BAIHAT_NHACSI" Association="db_MusicStoreModel.Store.FK_BAIHAT_NHACSI">
             <End Role="NHACSI" EntitySet="NHACSI" />
             <End Role="BAIHAT" EntitySet="BAIHAT" />
@@ -96,6 +92,10 @@
           <AssociationSet Name="FK_CHITIETPLAYLIST_PLAYLIST" Association="db_MusicStoreModel.Store.FK_CHITIETPLAYLIST_PLAYLIST">
             <End Role="PLAYLIST" EntitySet="PLAYLIST" />
             <End Role="CHITIETPLAYLIST" EntitySet="CHITIETPLAYLIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMMENT_BAIHAT" Association="db_MusicStoreModel.Store.FK_COMMENT_BAIHAT">
+            <End Role="BAIHAT" EntitySet="BAIHAT" />
+            <End Role="COMMENT" EntitySet="COMMENT" />
           </AssociationSet>
           <AssociationSet Name="FK_COMMENT_NGUOIDUNG" Association="db_MusicStoreModel.Store.FK_COMMENT_NGUOIDUNG">
             <End Role="NGUOIDUNG" EntitySet="NGUOIDUNG" />
@@ -146,7 +146,6 @@
           <Property Name="SoLuotDownload" Type="float" />
           <Property Name="SoLuongNghe" Type="float" />
           <Property Name="MaCaSiTrinhBay" Type="int" />
-          <Property Name="MaComment" Type="int" />
           <Property Name="NgayTiepNhan" Type="date" />
           <Property Name="MaChatLuongAmThanh" Type="int" />
           <Property Name="MaTheLoai" Type="int" />
@@ -199,6 +198,7 @@
           <Property Name="MaComment" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NoiDung" Type="nvarchar" MaxLength="256" />
           <Property Name="MaNguoiDung" Type="varchar" MaxLength="15" />
+          <Property Name="MaBaiHat" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="DIEM">
           <Key>
@@ -266,7 +266,7 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'db_MusicStore.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\CAOPHUNG\DESKTOP\MUSICSTORE\MUSICSTORE\APP_DATA\DB_MUSICSTORE.MDF.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="THAMSO">
           <Key>
@@ -373,18 +373,6 @@
             </Principal>
             <Dependent Role="BAIHAT">
               <PropertyRef Name="MaChatLuongAmThanh" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BAIHAT_COMMENT">
-          <End Role="COMMENT" Type="db_MusicStoreModel.Store.COMMENT" Multiplicity="0..1" />
-          <End Role="BAIHAT" Type="db_MusicStoreModel.Store.BAIHAT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMMENT">
-              <PropertyRef Name="MaComment" />
-            </Principal>
-            <Dependent Role="BAIHAT">
-              <PropertyRef Name="MaComment" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -505,6 +493,18 @@
             </Principal>
             <Dependent Role="CHITIETPLAYLIST">
               <PropertyRef Name="MaPlaylist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMMENT_BAIHAT">
+          <End Role="BAIHAT" Type="db_MusicStoreModel.Store.BAIHAT" Multiplicity="0..1" />
+          <End Role="COMMENT" Type="db_MusicStoreModel.Store.COMMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAIHAT">
+              <PropertyRef Name="MaBaiHat" />
+            </Principal>
+            <Dependent Role="COMMENT">
+              <PropertyRef Name="MaBaiHat" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -668,10 +668,6 @@
             <End Role="CHATLUONGAMTHANH" EntitySet="CHATLUONGAMTHANHs" />
             <End Role="BAIHAT" EntitySet="BAIHATs" />
           </AssociationSet>
-          <AssociationSet Name="FK_BAIHAT_COMMENT" Association="db_MusicStoreModel.FK_BAIHAT_COMMENT">
-            <End Role="COMMENT" EntitySet="COMMENTs" />
-            <End Role="BAIHAT" EntitySet="BAIHATs" />
-          </AssociationSet>
           <AssociationSet Name="FK_BAIHAT_NHACSI" Association="db_MusicStoreModel.FK_BAIHAT_NHACSI">
             <End Role="NHACSI" EntitySet="NHACSIs" />
             <End Role="BAIHAT" EntitySet="BAIHATs" />
@@ -691,6 +687,10 @@
           <AssociationSet Name="FK_CHITIETPLAYLIST_BAIHAT" Association="db_MusicStoreModel.FK_CHITIETPLAYLIST_BAIHAT">
             <End Role="BAIHAT" EntitySet="BAIHATs" />
             <End Role="CHITIETPLAYLIST" EntitySet="CHITIETPLAYLISTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMMENT_BAIHAT" Association="db_MusicStoreModel.FK_COMMENT_BAIHAT">
+            <End Role="BAIHAT" EntitySet="BAIHATs" />
+            <End Role="COMMENT" EntitySet="COMMENTs" />
           </AssociationSet>
           <AssociationSet Name="FK_DIEM_BAIHAT" Association="db_MusicStoreModel.FK_DIEM_BAIHAT">
             <End Role="BAIHAT" EntitySet="BAIHATs" />
@@ -759,7 +759,6 @@
           <Property Name="SoLuotDownload" Type="Double" />
           <Property Name="SoLuongNghe" Type="Double" />
           <Property Name="MaCaSiTrinhBay" Type="Int32" />
-          <Property Name="MaComment" Type="Int32" />
           <Property Name="NgayTiepNhan" Type="DateTime" />
           <Property Name="MaChatLuongAmThanh" Type="Int32" />
           <Property Name="MaTheLoai" Type="Int32" />
@@ -767,12 +766,12 @@
           <Property Name="Diem" Type="Double" />
           <NavigationProperty Name="CASI" Relationship="db_MusicStoreModel.FK_BAIHAT_CASI" FromRole="BAIHAT" ToRole="CASI" />
           <NavigationProperty Name="CHATLUONGAMTHANH" Relationship="db_MusicStoreModel.FK_BAIHAT_CHATLUONGAMTHANH" FromRole="BAIHAT" ToRole="CHATLUONGAMTHANH" />
-          <NavigationProperty Name="COMMENT" Relationship="db_MusicStoreModel.FK_BAIHAT_COMMENT" FromRole="BAIHAT" ToRole="COMMENT" />
           <NavigationProperty Name="NHACSI" Relationship="db_MusicStoreModel.FK_BAIHAT_NHACSI" FromRole="BAIHAT" ToRole="NHACSI" />
           <NavigationProperty Name="THELOAI" Relationship="db_MusicStoreModel.FK_BAIHAT_THELOAI" FromRole="BAIHAT" ToRole="THELOAI" />
           <NavigationProperty Name="TINHTRANGBAIHAT" Relationship="db_MusicStoreModel.FK_BAIHAT_TINHTRANGBAIHAT" FromRole="BAIHAT" ToRole="TINHTRANGBAIHAT" />
           <NavigationProperty Name="CHITIETALBUMs" Relationship="db_MusicStoreModel.FK_CHITIETALBUM_BAIHAT" FromRole="BAIHAT" ToRole="CHITIETALBUM" />
           <NavigationProperty Name="CHITIETPLAYLISTs" Relationship="db_MusicStoreModel.FK_CHITIETPLAYLIST_BAIHAT" FromRole="BAIHAT" ToRole="CHITIETPLAYLIST" />
+          <NavigationProperty Name="COMMENTs" Relationship="db_MusicStoreModel.FK_COMMENT_BAIHAT" FromRole="BAIHAT" ToRole="COMMENT" />
           <NavigationProperty Name="DIEM1" Relationship="db_MusicStoreModel.FK_DIEM_BAIHAT" FromRole="BAIHAT" ToRole="DIEM" />
         </EntityType>
         <EntityType Name="BANNICK">
@@ -830,7 +829,8 @@
           <Property Name="MaComment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NoiDung" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
           <Property Name="MaNguoiDung" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="BAIHATs" Relationship="db_MusicStoreModel.FK_BAIHAT_COMMENT" FromRole="COMMENT" ToRole="BAIHAT" />
+          <Property Name="MaBaiHat" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="BAIHAT" Relationship="db_MusicStoreModel.FK_COMMENT_BAIHAT" FromRole="COMMENT" ToRole="BAIHAT" />
           <NavigationProperty Name="NGUOIDUNG" Relationship="db_MusicStoreModel.FK_COMMENT_NGUOIDUNG" FromRole="COMMENT" ToRole="NGUOIDUNG" />
         </EntityType>
         <EntityType Name="DIEM">
@@ -1038,18 +1038,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_BAIHAT_COMMENT">
-          <End Role="COMMENT" Type="db_MusicStoreModel.COMMENT" Multiplicity="0..1" />
-          <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMMENT">
-              <PropertyRef Name="MaComment" />
-            </Principal>
-            <Dependent Role="BAIHAT">
-              <PropertyRef Name="MaComment" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_BAIHAT_NHACSI">
           <End Role="NHACSI" Type="db_MusicStoreModel.NHACSI" Multiplicity="0..1" />
           <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="*" />
@@ -1106,6 +1094,18 @@
               <PropertyRef Name="MaBaiHat" />
             </Principal>
             <Dependent Role="CHITIETPLAYLIST">
+              <PropertyRef Name="MaBaiHat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMMENT_BAIHAT">
+          <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="0..1" />
+          <End Role="COMMENT" Type="db_MusicStoreModel.COMMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BAIHAT">
+              <PropertyRef Name="MaBaiHat" />
+            </Principal>
+            <Dependent Role="COMMENT">
               <PropertyRef Name="MaBaiHat" />
             </Dependent>
           </ReferentialConstraint>
@@ -1262,7 +1262,6 @@
             <ScalarProperty Name="SoLuotDownload" ColumnName="SoLuotDownload" />
             <ScalarProperty Name="SoLuongNghe" ColumnName="SoLuongNghe" />
             <ScalarProperty Name="MaCaSiTrinhBay" ColumnName="MaCaSiTrinhBay" />
-            <ScalarProperty Name="MaComment" ColumnName="MaComment" />
             <ScalarProperty Name="NgayTiepNhan" ColumnName="NgayTiepNhan" />
             <ScalarProperty Name="MaChatLuongAmThanh" ColumnName="MaChatLuongAmThanh" />
             <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
@@ -1297,6 +1296,7 @@
             <ScalarProperty Name="MaComment" ColumnName="MaComment" />
             <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
             <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+            <ScalarProperty Name="MaBaiHat" ColumnName="MaBaiHat" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="DIEMs"><EntityTypeMapping TypeName="db_MusicStoreModel.DIEM"><MappingFragment StoreEntitySet="DIEM">
             <ScalarProperty Name="MaBaiHat" ColumnName="MaBaiHat" />
@@ -1402,150 +1402,156 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="MussicStore">
-        <EntityTypeShape EntityType="db_MusicStoreModel.ALBUM" Width="1.5" PointX="7.5" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.BAIHAT" Width="1.5" PointX="7.5" PointY="5" Height="5.4417122395833308" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.BANNICK" Width="1.5" PointX="5.25" PointY="4.375" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.CASI" Width="1.5" PointX="5.25" PointY="14.625" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.CHATLUONGAMTHANH" Width="1.5" PointX="5.25" PointY="18.5" Height="1.595683593749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.CHITIETALBUM" Width="1.5" PointX="9.75" PointY="6.75" Height="1.9802864583333308" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.CHITIETPLAYLIST" Width="1.5" PointX="12.75" PointY="7.625" Height="1.9802864583333308" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.COMMENT" Width="1.5" PointX="5.25" PointY="6.75" Height="1.9802864583333308" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.DIEM" Width="1.5" PointX="9.75" PointY="12.25" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.LOAINGUOIDUNG" Width="1.5" PointX="0.75" PointY="7.5" Height="1.5956835937499987" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.NGUOIDUNG" Width="1.5" PointX="3" PointY="6.5" Height="3.5186979166666683" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.NHACSI" Width="1.5" PointX="5.25" PointY="20.875" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.PLAYLIST" Width="1.5" PointX="5.25" PointY="9.5" Height="2.749492187499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.QUOCGIA" Width="1.5" PointX="3" PointY="13.875" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.THAMSO" Width="1.5" PointX="9.75" PointY="1" Height="2.7494921875000031" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.THELOAI" Width="1.5" PointX="5.25" PointY="23.625" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGALBUM" Width="1.5" PointX="5.25" PointY="1.125" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGBAIHAT" Width="1.5" PointX="5.25" PointY="26.375" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGCASI" Width="1.5" PointX="3" PointY="16.25" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGNGUOIDUNG" Width="1.5" PointX="0.75" PointY="4.5" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGNHACSI" Width="1.5" PointX="3" PointY="21.125" Height="1.595683593749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGTHELOAI" Width="1.5" PointX="3" PointY="23.875" Height="1.595683593749996" IsExpanded="true" />
+      <Diagram Name="MusicStore">
+        <EntityTypeShape EntityType="db_MusicStoreModel.ALBUM" Width="1.5" PointX="5.25" PointY="22.375" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.BAIHAT" Width="1.5" PointX="5.25" PointY="3.75" Height="5.2494108072916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.BANNICK" Width="1.5" PointX="5.25" PointY="15.625" Height="1.5956835937499978" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.CASI" Width="1.5" PointX="3" PointY="5.25" Height="2.3648893229166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.CHATLUONGAMTHANH" Width="1.5" PointX="3" PointY="1.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.CHITIETALBUM" Width="1.5" PointX="7.5" PointY="5.375" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.CHITIETPLAYLIST" Width="1.5" PointX="7.5" PointY="2.375" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.COMMENT" Width="1.5" PointX="7.5" PointY="8.375" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.DIEM" Width="1.5" PointX="7.5" PointY="13.875" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.LOAINGUOIDUNG" Width="1.5" PointX="0.75" PointY="17.5" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.NGUOIDUNG" Width="1.5" PointX="3" PointY="17.625" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.NHACSI" Width="1.5" PointX="3" PointY="9.125" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.PLAYLIST" Width="1.5" PointX="5.25" PointY="18" Height="2.749492187499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.QUOCGIA" Width="1.5" PointX="0.75" PointY="5.625" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.THAMSO" Width="1.5" PointX="9.75" PointY="3.75" Height="2.7494921875000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.THELOAI" Width="1.5" PointX="3" PointY="11.75" Height="1.9802864583333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGALBUM" Width="1.5" PointX="3" PointY="22.625" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGBAIHAT" Width="1.5" PointX="3" PointY="14.5" Height="1.5956835937500049" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGCASI" Width="1.5" PointX="0.75" PointY="2.625" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGNGUOIDUNG" Width="1.5" PointX="0.75" PointY="19.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGNHACSI" Width="1.5" PointX="0.75" PointY="9.25" Height="1.595683593749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGTHELOAI" Width="1.5" PointX="0.75" PointY="12" Height="1.595683593749996" IsExpanded="true" />
         <AssociationConnector Association="db_MusicStoreModel.FK_ALBUM_TINHTRANGALBUM" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="1.9228417968750016" />
-          <ConnectorPoint PointX="7.5" PointY="1.9228417968750016" />
+          <ConnectorPoint PointX="4.5" PointY="23.422841796875" />
+          <ConnectorPoint PointX="5.25" PointY="23.422841796875" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_CHITIETALBUM_ALBUM" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="2.7291316121794873" />
-          <ConnectorPoint PointX="9.375" PointY="3.1041316121794873" />
-          <ConnectorPoint PointX="9.375" PointY="7.7401432291666659" />
-          <ConnectorPoint PointX="9.75" PointY="7.7401432291666659" />
+          <ConnectorPoint PointX="6.75" PointY="22.376152846153843" />
+          <ConnectorPoint PointX="7.125" PointY="22.001152846153843" />
+          <ConnectorPoint PointX="7.125" PointY="6.3651432291666659" />
+          <ConnectorPoint PointX="7.5" PointY="6.3651432291666659" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_BAIHAT_CASI" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="15.807444661458334" />
-          <ConnectorPoint PointX="7.5572879166666675" PointY="15.807444661458334" />
-          <ConnectorPoint PointX="7.7239545833333336" PointY="15.807444661458334" />
-          <ConnectorPoint PointX="7.7604141666666671" PointY="15.807444661458334" />
-          <ConnectorPoint PointX="7.9270808333333331" PointY="15.807444661458334" />
-          <ConnectorPoint PointX="7.9635404166666666" PointY="15.807444661458334" />
-          <ConnectorPoint PointX="8.1302070833333335" PointY="15.807444661458334" />
-          <ConnectorPoint PointX="8.25" PointY="15.807444661458334" />
-          <ConnectorPoint PointX="8.25" PointY="10.441712239583332" />
+          <ConnectorPoint PointX="4.5" PointY="6.4324446614583328" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="6.4324446614583319" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="6.4324446614583328" />
+          <ConnectorPoint PointX="5.25" PointY="6.4324446614583328" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_BAIHAT_CHATLUONGAMTHANH" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="19.297841796874998" />
-          <ConnectorPoint PointX="7.5572879166666675" PointY="19.297841796874998" />
-          <ConnectorPoint PointX="7.7239545833333336" PointY="19.297841796874998" />
-          <ConnectorPoint PointX="7.8437475" PointY="19.297841796874998" />
-          <ConnectorPoint PointX="7.8437475" PointY="10.441712239583332" />
-        </AssociationConnector>
-        <AssociationConnector Association="db_MusicStoreModel.FK_BAIHAT_COMMENT" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="7.7401432291666659" />
-          <ConnectorPoint PointX="7.5" PointY="7.7401432291666659" />
+          <ConnectorPoint PointX="4.5" PointY="2.547841796875" />
+          <ConnectorPoint PointX="6" PointY="2.547841796875" />
+          <ConnectorPoint PointX="6" PointY="3.75" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_BAIHAT_NHACSI" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="21.865143229166666" />
-          <ConnectorPoint PointX="7.5572879166666675" PointY="21.865143229166666" />
-          <ConnectorPoint PointX="7.7239545833333336" PointY="21.865143229166666" />
-          <ConnectorPoint PointX="7.9635404166666666" PointY="21.865143229166666" />
-          <ConnectorPoint PointX="8.1302070833333335" PointY="21.865143229166666" />
-          <ConnectorPoint PointX="8.6562525" PointY="21.865143229166666" />
-          <ConnectorPoint PointX="8.6562525" PointY="10.441712239583332" />
+          <ConnectorPoint PointX="4.5" PointY="10.115143229166666" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="10.115143229166664" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="10.115143229166666" />
+          <ConnectorPoint PointX="5.5104141666666671" PointY="10.115143229166666" />
+          <ConnectorPoint PointX="5.6770808333333331" PointY="10.115143229166666" />
+          <ConnectorPoint PointX="6" PointY="10.115143229166666" />
+          <ConnectorPoint PointX="6" PointY="8.9994108072916674" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_BAIHAT_THELOAI" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="24.615143229166669" />
-          <ConnectorPoint PointX="7.6406212500000006" PointY="24.615143229166669" />
-          <ConnectorPoint PointX="7.6406212500000006" PointY="10.441712239583332" />
+          <ConnectorPoint PointX="4.5" PointY="12.740143229166669" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="12.740143229166668" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="12.740143229166669" />
+          <ConnectorPoint PointX="5.5937475" PointY="12.740143229166669" />
+          <ConnectorPoint PointX="5.5937475" PointY="8.9994108072916674" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_BAIHAT_TINHTRANGBAIHAT" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="27.172841796875" />
-          <ConnectorPoint PointX="8.04687375" PointY="27.172841796875" />
-          <ConnectorPoint PointX="8.04687375" PointY="10.441712239583332" />
+          <ConnectorPoint PointX="4.5" PointY="14.501152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="14.126152846153847" />
+          <ConnectorPoint PointX="4.875" PointY="5.0599703307291657" />
+          <ConnectorPoint PointX="5.25" PointY="5.0599703307291657" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_CHITIETALBUM_BAIHAT" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="7.1825716145833329" />
-          <ConnectorPoint PointX="9.2916666666666661" PointY="7.182571614583332" />
-          <ConnectorPoint PointX="9.4583333333333339" PointY="7.1825716145833329" />
-          <ConnectorPoint PointX="9.75" PointY="7.1825716145833329" />
+          <ConnectorPoint PointX="6.75" PointY="5.8075716145833329" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="5.807571614583332" />
+          <ConnectorPoint PointX="7.270833333333333" PointY="5.8075716145833329" />
+          <ConnectorPoint PointX="7.5" PointY="5.8075716145833329" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_CHITIETPLAYLIST_BAIHAT" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="9.1990364583333317" />
-          <ConnectorPoint PointX="12.75" PointY="9.1990364583333317" />
+          <ConnectorPoint PointX="6.75" PointY="4.0526432291666659" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="4.052643229166665" />
+          <ConnectorPoint PointX="7.270833333333333" PointY="4.0526432291666659" />
+          <ConnectorPoint PointX="7.5" PointY="4.0526432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_MusicStoreModel.FK_COMMENT_BAIHAT" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="8.6872054036458337" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="8.6872054036458337" />
+          <ConnectorPoint PointX="7.270833333333333" PointY="8.6872054036458337" />
+          <ConnectorPoint PointX="7.5" PointY="8.6872054036458337" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_DIEM_BAIHAT" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.8593787500000012" PointY="10.441712239583332" />
-          <ConnectorPoint PointX="8.8593787500000012" PointY="13.143992513020834" />
-          <ConnectorPoint PointX="9.75" PointY="13.143992513020834" />
+          <ConnectorPoint PointX="6.75" PointY="8.9371021149839756" />
+          <ConnectorPoint PointX="7.0660744349011217" PointY="9.2531765498850955" />
+          <ConnectorPoint PointX="7.2464255650988791" PointY="9.4335276800828538" />
+          <ConnectorPoint PointX="7.3125" PointY="9.4996021149839756" />
+          <ConnectorPoint PointX="7.3125" PointY="14.768992513020834" />
+          <ConnectorPoint PointX="7.5" PointY="14.768992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_BANNICK_NGUOIDUNG" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="6.5" />
-          <ConnectorPoint PointX="3.75" PointY="5.172841796875" />
-          <ConnectorPoint PointX="5.25" PointY="5.172841796875" />
+          <ConnectorPoint PointX="4.5" PointY="17.65153746153846" />
+          <ConnectorPoint PointX="4.875" PointY="17.27653746153846" />
+          <ConnectorPoint PointX="4.875" PointY="17.596836439903839" />
+          <ConnectorPoint PointX="5.2511528461538424" PointY="17.220683593749996" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_CASI_QUOCGIA" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="15.047841796875002" />
-          <ConnectorPoint PointX="5.25" PointY="15.047841796875002" />
+          <ConnectorPoint PointX="2.25" PointY="6.4228417968750016" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="6.4228417968750007" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="6.4228417968750016" />
+          <ConnectorPoint PointX="3" PointY="6.4228417968750016" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_CASI_TINHTRANGCASI" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="16.619944661458334" />
-          <ConnectorPoint PointX="5.25" PointY="16.619944661458334" />
+          <ConnectorPoint PointX="2.25" PointY="4.2206835937500031" />
+          <ConnectorPoint PointX="2.625" PointY="4.5956835937500031" />
+          <ConnectorPoint PointX="2.625" PointY="7.0501175598958348" />
+          <ConnectorPoint PointX="3" PointY="7.0501175598958348" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_CHITIETPLAYLIST_PLAYLIST" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="7.5572879166666675" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="7.7239545833333336" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="7.7604141666666671" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="7.9270808333333331" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="7.9635404166666666" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="8.1302070833333335" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="8.1666666666666661" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="8.3333333333333339" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="8.5729191666666669" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="8.7395858333333347" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="8.7760454166666673" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="8.9427120833333351" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="13.5" PointY="11.376852213541664" />
-          <ConnectorPoint PointX="13.5" PointY="9.6052864583333317" />
+          <ConnectorPoint PointX="6.75" PointY="18.063460538461534" />
+          <ConnectorPoint PointX="7.0660744349011209" PointY="17.747386103560412" />
+          <ConnectorPoint PointX="7.1839255650988791" PointY="17.629534973362656" />
+          <ConnectorPoint PointX="7.1875" PointY="17.625960538461534" />
+          <ConnectorPoint PointX="7.1875" PointY="3.1825696145833322" />
+          <ConnectorPoint PointX="7.5" PointY="3.1825696145833322" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_COMMENT_NGUOIDUNG" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="7.7401432291666659" />
-          <ConnectorPoint PointX="5.25" PointY="7.7401432291666659" />
+          <ConnectorPoint PointX="4.5" PointY="17.63307592307692" />
+          <ConnectorPoint PointX="5.03125" PointY="17.10182592307692" />
+          <ConnectorPoint PointX="5.03125" PointY="9.5885270182291666" />
+          <ConnectorPoint PointX="5.5104141666666671" PointY="9.5885270182291666" />
+          <ConnectorPoint PointX="5.6770808333333331" PointY="9.5885270182291666" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="9.5885270182291666" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="9.5885270182291666" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="9.5885270182291649" />
+          <ConnectorPoint PointX="7.395833333333333" PointY="9.5885270182291666" />
+          <ConnectorPoint PointX="7.5" PointY="9.5885270182291666" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_NGUOIDUNG_LOAINGUOIDUNG" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="8.297841796875" />
-          <ConnectorPoint PointX="3" PointY="8.297841796875" />
+          <ConnectorPoint PointX="2.25" PointY="18.360341796874998" />
+          <ConnectorPoint PointX="3" PointY="18.360341796874998" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_NGUOIDUNG_TINHTRANGNGUOIDUNG" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.6342626953125015" />
-          <ConnectorPoint PointX="3.3437475" PointY="5.6342626953125015" />
-          <ConnectorPoint PointX="3.3437475" PointY="6.5" />
+          <ConnectorPoint PointX="2.25" PointY="20.446848958333334" />
+          <ConnectorPoint PointX="3" PointY="20.446848958333334" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_PLAYLIST_NGUOIDUNG" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="9.7593489583333337" />
-          <ConnectorPoint PointX="5.25" PointY="9.7593489583333337" />
+          <ConnectorPoint PointX="4.5" PointY="19.374746093749998" />
+          <ConnectorPoint PointX="5.25" PointY="19.374746093749998" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_NHACSI_TINHTRANGNHACSI" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="21.922841796874998" />
-          <ConnectorPoint PointX="5.25" PointY="21.922841796874998" />
+          <ConnectorPoint PointX="2.25" PointY="10.047841796874998" />
+          <ConnectorPoint PointX="3" PointY="10.047841796874998" />
         </AssociationConnector>
         <AssociationConnector Association="db_MusicStoreModel.FK_THELOAI_TINHTRANGTHELOAI" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="24.672841796874998" />
-          <ConnectorPoint PointX="5.25" PointY="24.672841796874998" />
+          <ConnectorPoint PointX="2.25" PointY="12.797841796874998" />
+          <ConnectorPoint PointX="3" PointY="12.797841796874998" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
