@@ -56,7 +56,6 @@ body{
 }
 #left{
 	float:left;
-	height:500px;
 	width:170px;
 }
 #mod-left{
@@ -86,7 +85,6 @@ body{
 	border-bottom:1px solid #ddd;
 }
 #m-c-content{
-	height:200px;
 }
 #right{
 	float:right;
@@ -103,7 +101,6 @@ body{
 	border-bottom:1px solid #ddd;
 }
 #m-r-content{
-	height:200px;
 }
 /* Footer */
 #footer-outer{

@@ -77,9 +77,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\themes\user\images\12.swf" />
     <Content Include="Content\themes\user\images\3.swf" />
-    <Content Include="Content\themes\user\images\81.swf" />
     <Content Include="Content\themes\user\images\banner.jpg" />
     <Content Include="Content\themes\user\images\bg.jpg" />
     <Content Include="Content\themes\user\images\logo.png" />
