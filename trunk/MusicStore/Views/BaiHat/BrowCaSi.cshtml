@@ -1,54 +1,26 @@
 ﻿@model IEnumerable<MusicStore.Models.BAIHAT>
+
 @{
-    ViewBag.Title = "Danh sách bài hát | ";
+    ViewBag.Title = "BrowCaSi";
 }
-<h2>
-    Danh sách bài hát </h2>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table border="1">
+
+<h2>BrowCaSi</h2>
+
+<table>
+@foreach (var item in Model) {
     <tr>
-        <th>
-            Tên bài hát
-        </th>
-        <th>
-            LinkDownload
-        </th>
-        <th>
-            Số lượt Download
-        </th>
-        <th>
-            Số lượng Nghe
-        </th>
-        <th>
-            Nhạc sĩ
-        </th>
-        <th>
-            Điểm
-        </th>
+        <td>
+            <div>
+                <h2>
+                    <a href="/BaiHat/Detail/@item.MaBaiHat">
+                        @item.TenBaiHat
+                    </a>
+                </h2>
+                <h3>@item.CASI.TenCaSi</h3>
+                <hr />
+            </div>
+        </td>
     </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @item.TenBaiHat
-            </td>
-            <td>
-                @item.LinkDownload
-            </td>
-            <td>
-                @String.Format("{0:F}", item.SoLuotDownload)
-            </td>
-            <td>
-                @String.Format("{0:F}", item.SoLuongNghe)
-            </td>
-            <td>
-                @item.TenBaiHat
-            </td>
-            <td>
-                @String.Format("{0:F}", item.Diem)
-            </td>
-        </tr>
-    }
+}
 </table>
+

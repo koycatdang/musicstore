@@ -69,22 +69,39 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+<<<<<<< .mine
+    <Compile Include="Models\ModelMusicStore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMusicStore.edmx</DependentUpon>
+    </Compile>
+=======
     <Compile Include="Models\MusicStore.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MusicStore.edmx</DependentUpon>
     </Compile>
+>>>>>>> .r15
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< .mine
+    <Content Include="Content\images\3.swf" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\menu-bg.jpg" />
+=======
     <Content Include="Content\themes\user\images\3.swf" />
     <Content Include="Content\themes\user\images\banner.jpg" />
     <Content Include="Content\themes\user\images\bg.jpg" />
     <Content Include="Content\themes\user\images\logo.png" />
     <Content Include="Content\themes\user\images\menu-bg.jpg" />
+>>>>>>> .r15
     <Content Include="Content\themes\user\css\Site.css" />
     <Content Include="EFCodeFirstReadMe.txt" />
     <Content Include="Global.asax" />
+    <Content Include="MusicFiles\NuHonGio.mp3" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -127,17 +144,36 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< .mine
+    <EntityDeploy Include="Models\ModelMusicStore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMusicStore.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+=======
     <EntityDeploy Include="Models\MusicStore.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MusicStore.Designer.cs</LastGenOutput>
     </EntityDeploy>
+>>>>>>> .r15
   </ItemGroup>
+<<<<<<< .mine
   <ItemGroup>
     <Content Include="Views\CaSi\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\BaiHat\BrowCaSi.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BaiHat\Detail.cshtml" />
+  </ItemGroup>
+=======
+  <ItemGroup>
+    <Content Include="Views\CaSi\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BaiHat\BrowCaSi.cshtml" />
+  </ItemGroup>
+>>>>>>> .r15
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

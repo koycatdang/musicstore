@@ -9,7 +9,8 @@ namespace MusicStore.Controllers
 {
     public class CaSiController : Controller
     {
-        Models.db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
+        Models.db_MusicStoreEntities dbEntity = new Models.db_MusicStoreEntities();
+ 
         //
         // GET: /CaSi/
 
@@ -18,14 +19,11 @@ namespace MusicStore.Controllers
             return View();
         }
 
-        //
-        // Liệt kệ menu Ca sĩ
         [ChildActionOnly]
         public ActionResult List()
         {
             var lstCaSi = dbEntity.CASIs.ToList();
             return PartialView(lstCaSi);
         }
-
     }
 }

@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_MusicStoreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="db_MusicStoreEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ALBUMs" EntityType="db_MusicStoreModel.ALBUM" />
+    <EntitySet Name="BAIHATs" EntityType="db_MusicStoreModel.BAIHAT" />
+    <EntitySet Name="BANNICKs" EntityType="db_MusicStoreModel.BANNICK" />
+    <EntitySet Name="CASIs" EntityType="db_MusicStoreModel.CASI" />
+    <EntitySet Name="CHATLUONGAMTHANHs" EntityType="db_MusicStoreModel.CHATLUONGAMTHANH" />
+    <EntitySet Name="CHITIETALBUMs" EntityType="db_MusicStoreModel.CHITIETALBUM" />
+    <EntitySet Name="CHITIETPLAYLISTs" EntityType="db_MusicStoreModel.CHITIETPLAYLIST" />
+    <EntitySet Name="COMMENTs" EntityType="db_MusicStoreModel.COMMENT" />
+    <EntitySet Name="DIEMs" EntityType="db_MusicStoreModel.DIEM" />
+    <EntitySet Name="LOAINGUOIDUNGs" EntityType="db_MusicStoreModel.LOAINGUOIDUNG" />
+    <EntitySet Name="NGUOIDUNGs" EntityType="db_MusicStoreModel.NGUOIDUNG" />
+    <EntitySet Name="NHACSIs" EntityType="db_MusicStoreModel.NHACSI" />
+    <EntitySet Name="PLAYLISTs" EntityType="db_MusicStoreModel.PLAYLIST" />
+    <EntitySet Name="QUOCGIAs" EntityType="db_MusicStoreModel.QUOCGIA" />
+    <EntitySet Name="THAMSOes" EntityType="db_MusicStoreModel.THAMSO" />
+    <EntitySet Name="THELOAIs" EntityType="db_MusicStoreModel.THELOAI" />
+    <EntitySet Name="TINHTRANGALBUMs" EntityType="db_MusicStoreModel.TINHTRANGALBUM" />
+    <EntitySet Name="TINHTRANGBAIHATs" EntityType="db_MusicStoreModel.TINHTRANGBAIHAT" />
+    <EntitySet Name="TINHTRANGCASIs" EntityType="db_MusicStoreModel.TINHTRANGCASI" />
+    <EntitySet Name="TINHTRANGNGUOIDUNGs" EntityType="db_MusicStoreModel.TINHTRANGNGUOIDUNG" />
+    <EntitySet Name="TINHTRANGNHACSIs" EntityType="db_MusicStoreModel.TINHTRANGNHACSI" />
+    <EntitySet Name="TINHTRANGTHELOAIs" EntityType="db_MusicStoreModel.TINHTRANGTHELOAI" />
+    <AssociationSet Name="FK_ALBUM_TINHTRANGALBUM" Association="db_MusicStoreModel.FK_ALBUM_TINHTRANGALBUM">
+      <End Role="TINHTRANGALBUM" EntitySet="TINHTRANGALBUMs" />
+      <End Role="ALBUM" EntitySet="ALBUMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETALBUM_ALBUM" Association="db_MusicStoreModel.FK_CHITIETALBUM_ALBUM">
+      <End Role="ALBUM" EntitySet="ALBUMs" />
+      <End Role="CHITIETALBUM" EntitySet="CHITIETALBUMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BAIHAT_CASI" Association="db_MusicStoreModel.FK_BAIHAT_CASI">
+      <End Role="CASI" EntitySet="CASIs" />
+      <End Role="BAIHAT" EntitySet="BAIHATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BAIHAT_CHATLUONGAMTHANH" Association="db_MusicStoreModel.FK_BAIHAT_CHATLUONGAMTHANH">
+      <End Role="CHATLUONGAMTHANH" EntitySet="CHATLUONGAMTHANHs" />
+      <End Role="BAIHAT" EntitySet="BAIHATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BAIHAT_COMMENT" Association="db_MusicStoreModel.FK_BAIHAT_COMMENT">
+      <End Role="COMMENT" EntitySet="COMMENTs" />
+      <End Role="BAIHAT" EntitySet="BAIHATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BAIHAT_NHACSI" Association="db_MusicStoreModel.FK_BAIHAT_NHACSI">
+      <End Role="NHACSI" EntitySet="NHACSIs" />
+      <End Role="BAIHAT" EntitySet="BAIHATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BAIHAT_THELOAI" Association="db_MusicStoreModel.FK_BAIHAT_THELOAI">
+      <End Role="THELOAI" EntitySet="THELOAIs" />
+      <End Role="BAIHAT" EntitySet="BAIHATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BAIHAT_TINHTRANGBAIHAT" Association="db_MusicStoreModel.FK_BAIHAT_TINHTRANGBAIHAT">
+      <End Role="TINHTRANGBAIHAT" EntitySet="TINHTRANGBAIHATs" />
+      <End Role="BAIHAT" EntitySet="BAIHATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETALBUM_BAIHAT" Association="db_MusicStoreModel.FK_CHITIETALBUM_BAIHAT">
+      <End Role="BAIHAT" EntitySet="BAIHATs" />
+      <End Role="CHITIETALBUM" EntitySet="CHITIETALBUMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETPLAYLIST_BAIHAT" Association="db_MusicStoreModel.FK_CHITIETPLAYLIST_BAIHAT">
+      <End Role="BAIHAT" EntitySet="BAIHATs" />
+      <End Role="CHITIETPLAYLIST" EntitySet="CHITIETPLAYLISTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DIEM_BAIHAT" Association="db_MusicStoreModel.FK_DIEM_BAIHAT">
+      <End Role="BAIHAT" EntitySet="BAIHATs" />
+      <End Role="DIEM" EntitySet="DIEMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANNICK_NGUOIDUNG" Association="db_MusicStoreModel.FK_BANNICK_NGUOIDUNG">
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+      <End Role="BANNICK" EntitySet="BANNICKs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASI_QUOCGIA" Association="db_MusicStoreModel.FK_CASI_QUOCGIA">
+      <End Role="QUOCGIA" EntitySet="QUOCGIAs" />
+      <End Role="CASI" EntitySet="CASIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CASI_TINHTRANGCASI" Association="db_MusicStoreModel.FK_CASI_TINHTRANGCASI">
+      <End Role="TINHTRANGCASI" EntitySet="TINHTRANGCASIs" />
+      <End Role="CASI" EntitySet="CASIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETPLAYLIST_PLAYLIST" Association="db_MusicStoreModel.FK_CHITIETPLAYLIST_PLAYLIST">
+      <End Role="PLAYLIST" EntitySet="PLAYLISTs" />
+      <End Role="CHITIETPLAYLIST" EntitySet="CHITIETPLAYLISTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COMMENT_NGUOIDUNG" Association="db_MusicStoreModel.FK_COMMENT_NGUOIDUNG">
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+      <End Role="COMMENT" EntitySet="COMMENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NGUOIDUNG_LOAINGUOIDUNG" Association="db_MusicStoreModel.FK_NGUOIDUNG_LOAINGUOIDUNG">
+      <End Role="LOAINGUOIDUNG" EntitySet="LOAINGUOIDUNGs" />
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NGUOIDUNG_TINHTRANGNGUOIDUNG" Association="db_MusicStoreModel.FK_NGUOIDUNG_TINHTRANGNGUOIDUNG">
+      <End Role="TINHTRANGNGUOIDUNG" EntitySet="TINHTRANGNGUOIDUNGs" />
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PLAYLIST_NGUOIDUNG" Association="db_MusicStoreModel.FK_PLAYLIST_NGUOIDUNG">
+      <End Role="NGUOIDUNG" EntitySet="NGUOIDUNGs" />
+      <End Role="PLAYLIST" EntitySet="PLAYLISTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHACSI_TINHTRANGNHACSI" Association="db_MusicStoreModel.FK_NHACSI_TINHTRANGNHACSI">
+      <End Role="TINHTRANGNHACSI" EntitySet="TINHTRANGNHACSIs" />
+      <End Role="NHACSI" EntitySet="NHACSIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THELOAI_TINHTRANGTHELOAI" Association="db_MusicStoreModel.FK_THELOAI_TINHTRANGTHELOAI">
+      <End Role="TINHTRANGTHELOAI" EntitySet="TINHTRANGTHELOAIs" />
+      <End Role="THELOAI" EntitySet="THELOAIs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ALBUM">
+    <Key>
+      <PropertyRef Name="MaAlbum" />
+    </Key>
+    <Property Name="MaAlbum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenAlbum" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="MaTinhTrangAlbum" Type="Int32" />
+    <NavigationProperty Name="TINHTRANGALBUM" Relationship="db_MusicStoreModel.FK_ALBUM_TINHTRANGALBUM" FromRole="ALBUM" ToRole="TINHTRANGALBUM" />
+    <NavigationProperty Name="CHITIETALBUMs" Relationship="db_MusicStoreModel.FK_CHITIETALBUM_ALBUM" FromRole="ALBUM" ToRole="CHITIETALBUM" />
+  </EntityType>
+  <EntityType Name="BAIHAT">
+    <Key>
+      <PropertyRef Name="MaBaiHat" />
+    </Key>
+    <Property Name="MaBaiHat" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="TenBaiHat" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="MaNhacSi" Type="Int32" />
+    <Property Name="MaTinhTrangBaiHat" Type="Int32" />
+    <Property Name="LinkDownload" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+    <Property Name="SoLuotDownload" Type="Double" />
+    <Property Name="SoLuongNghe" Type="Double" />
+    <Property Name="MaCaSiTrinhBay" Type="Int32" />
+    <Property Name="MaComment" Type="Int32" />
+    <Property Name="NgayTiepNhan" Type="DateTime" />
+    <Property Name="MaChatLuongAmThanh" Type="Int32" />
+    <Property Name="MaTheLoai" Type="Int32" />
+    <Property Name="MaAlbum" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Diem" Type="Double" />
+    <NavigationProperty Name="CASI" Relationship="db_MusicStoreModel.FK_BAIHAT_CASI" FromRole="BAIHAT" ToRole="CASI" />
+    <NavigationProperty Name="CHATLUONGAMTHANH" Relationship="db_MusicStoreModel.FK_BAIHAT_CHATLUONGAMTHANH" FromRole="BAIHAT" ToRole="CHATLUONGAMTHANH" />
+    <NavigationProperty Name="COMMENT" Relationship="db_MusicStoreModel.FK_BAIHAT_COMMENT" FromRole="BAIHAT" ToRole="COMMENT" />
+    <NavigationProperty Name="NHACSI" Relationship="db_MusicStoreModel.FK_BAIHAT_NHACSI" FromRole="BAIHAT" ToRole="NHACSI" />
+    <NavigationProperty Name="THELOAI" Relationship="db_MusicStoreModel.FK_BAIHAT_THELOAI" FromRole="BAIHAT" ToRole="THELOAI" />
+    <NavigationProperty Name="TINHTRANGBAIHAT" Relationship="db_MusicStoreModel.FK_BAIHAT_TINHTRANGBAIHAT" FromRole="BAIHAT" ToRole="TINHTRANGBAIHAT" />
+    <NavigationProperty Name="CHITIETALBUMs" Relationship="db_MusicStoreModel.FK_CHITIETALBUM_BAIHAT" FromRole="BAIHAT" ToRole="CHITIETALBUM" />
+    <NavigationProperty Name="CHITIETPLAYLISTs" Relationship="db_MusicStoreModel.FK_CHITIETPLAYLIST_BAIHAT" FromRole="BAIHAT" ToRole="CHITIETPLAYLIST" />
+    <NavigationProperty Name="DIEM1" Relationship="db_MusicStoreModel.FK_DIEM_BAIHAT" FromRole="BAIHAT" ToRole="DIEM" />
+  </EntityType>
+  <EntityType Name="BANNICK">
+    <Key>
+      <PropertyRef Name="MaNguoiDung" />
+    </Key>
+    <Property Name="MaNguoiDung" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="NgayHetHan" Type="DateTime" />
+    <NavigationProperty Name="NGUOIDUNG" Relationship="db_MusicStoreModel.FK_BANNICK_NGUOIDUNG" FromRole="BANNICK" ToRole="NGUOIDUNG" />
+  </EntityType>
+  <EntityType Name="CASI">
+    <Key>
+      <PropertyRef Name="MaCaSi" />
+    </Key>
+    <Property Name="MaCaSi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenCaSi" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="MaTinhTrangCaSi" Type="Int32" />
+    <Property Name="MaQuocGia" Type="Int32" />
+    <NavigationProperty Name="BAIHATs" Relationship="db_MusicStoreModel.FK_BAIHAT_CASI" FromRole="CASI" ToRole="BAIHAT" />
+    <NavigationProperty Name="QUOCGIA" Relationship="db_MusicStoreModel.FK_CASI_QUOCGIA" FromRole="CASI" ToRole="QUOCGIA" />
+    <NavigationProperty Name="TINHTRANGCASI" Relationship="db_MusicStoreModel.FK_CASI_TINHTRANGCASI" FromRole="CASI" ToRole="TINHTRANGCASI" />
+  </EntityType>
+  <EntityType Name="CHATLUONGAMTHANH">
+    <Key>
+      <PropertyRef Name="MaChatLuongAmThanh" />
+    </Key>
+    <Property Name="MaChatLuongAmThanh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenChatLuongAmThanh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="BAIHATs" Relationship="db_MusicStoreModel.FK_BAIHAT_CHATLUONGAMTHANH" FromRole="CHATLUONGAMTHANH" ToRole="BAIHAT" />
+  </EntityType>
+  <EntityType Name="CHITIETALBUM">
+    <Key>
+      <PropertyRef Name="MaChiTietAlbum" />
+    </Key>
+    <Property Name="MaChiTietAlbum" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="MaAlbum" Type="Int32" />
+    <Property Name="MaBaiHat" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ALBUM" Relationship="db_MusicStoreModel.FK_CHITIETALBUM_ALBUM" FromRole="CHITIETALBUM" ToRole="ALBUM" />
+    <NavigationProperty Name="BAIHAT" Relationship="db_MusicStoreModel.FK_CHITIETALBUM_BAIHAT" FromRole="CHITIETALBUM" ToRole="BAIHAT" />
+  </EntityType>
+  <EntityType Name="CHITIETPLAYLIST">
+    <Key>
+      <PropertyRef Name="MaChiTietPlayList" />
+    </Key>
+    <Property Name="MaChiTietPlayList" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="MaBaiHat" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="MaPlaylist" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="BAIHAT" Relationship="db_MusicStoreModel.FK_CHITIETPLAYLIST_BAIHAT" FromRole="CHITIETPLAYLIST" ToRole="BAIHAT" />
+    <NavigationProperty Name="PLAYLIST" Relationship="db_MusicStoreModel.FK_CHITIETPLAYLIST_PLAYLIST" FromRole="CHITIETPLAYLIST" ToRole="PLAYLIST" />
+  </EntityType>
+  <EntityType Name="COMMENT">
+    <Key>
+      <PropertyRef Name="MaComment" />
+    </Key>
+    <Property Name="MaComment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NoiDung" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="MaNguoiDung" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="BAIHATs" Relationship="db_MusicStoreModel.FK_BAIHAT_COMMENT" FromRole="COMMENT" ToRole="BAIHAT" />
+    <NavigationProperty Name="NGUOIDUNG" Relationship="db_MusicStoreModel.FK_COMMENT_NGUOIDUNG" FromRole="COMMENT" ToRole="NGUOIDUNG" />
+  </EntityType>
+  <EntityType Name="DIEM">
+    <Key>
+      <PropertyRef Name="MaBaiHat" />
+    </Key>
+    <Property Name="MaBaiHat" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Diem1" Type="Double" />
+    <Property Name="SoLuotDanhGia" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="BAIHAT" Relationship="db_MusicStoreModel.FK_DIEM_BAIHAT" FromRole="DIEM" ToRole="BAIHAT" />
+  </EntityType>
+  <EntityType Name="LOAINGUOIDUNG">
+    <Key>
+      <PropertyRef Name="MaLoaiNguoiDung" />
+    </Key>
+    <Property Name="MaLoaiNguoiDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiNguoiDung" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="NGUOIDUNGs" Relationship="db_MusicStoreModel.FK_NGUOIDUNG_LOAINGUOIDUNG" FromRole="LOAINGUOIDUNG" ToRole="NGUOIDUNG" />
+  </EntityType>
+  <EntityType Name="NGUOIDUNG">
+    <Key>
+      <PropertyRef Name="MaNguoiDung" />
+    </Key>
+    <Property Name="MaNguoiDung" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="TenNguoiDung" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="NgaySinh" Type="DateTime" />
+    <Property Name="NoiSong" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="PassWord" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="MaLoaiNguoiDung" Type="Int32" />
+    <Property Name="MaTinhTrangNguoiDung" Type="Int32" />
+    <NavigationProperty Name="BANNICK" Relationship="db_MusicStoreModel.FK_BANNICK_NGUOIDUNG" FromRole="NGUOIDUNG" ToRole="BANNICK" />
+    <NavigationProperty Name="COMMENTs" Relationship="db_MusicStoreModel.FK_COMMENT_NGUOIDUNG" FromRole="NGUOIDUNG" ToRole="COMMENT" />
+    <NavigationProperty Name="LOAINGUOIDUNG" Relationship="db_MusicStoreModel.FK_NGUOIDUNG_LOAINGUOIDUNG" FromRole="NGUOIDUNG" ToRole="LOAINGUOIDUNG" />
+    <NavigationProperty Name="TINHTRANGNGUOIDUNG" Relationship="db_MusicStoreModel.FK_NGUOIDUNG_TINHTRANGNGUOIDUNG" FromRole="NGUOIDUNG" ToRole="TINHTRANGNGUOIDUNG" />
+    <NavigationProperty Name="PLAYLISTs" Relationship="db_MusicStoreModel.FK_PLAYLIST_NGUOIDUNG" FromRole="NGUOIDUNG" ToRole="PLAYLIST" />
+  </EntityType>
+  <EntityType Name="NHACSI">
+    <Key>
+      <PropertyRef Name="MaNhacSi" />
+    </Key>
+    <Property Name="MaNhacSi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhacSi" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="MaTinhTrangNhacSi" Type="Int32" />
+    <NavigationProperty Name="BAIHATs" Relationship="db_MusicStoreModel.FK_BAIHAT_NHACSI" FromRole="NHACSI" ToRole="BAIHAT" />
+    <NavigationProperty Name="TINHTRANGNHACSI" Relationship="db_MusicStoreModel.FK_NHACSI_TINHTRANGNHACSI" FromRole="NHACSI" ToRole="TINHTRANGNHACSI" />
+  </EntityType>
+  <EntityType Name="PLAYLIST">
+    <Key>
+      <PropertyRef Name="MaPlaylist" />
+    </Key>
+    <Property Name="MaPlaylist" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="TenPlaylist" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="NgayTao" Type="DateTime" />
+    <Property Name="MaNguoiDung" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="SoLuotNghe" Type="Double" />
+    <Property Name="SoLuongBaiHat" Type="Int32" />
+    <Property Name="SoLuotDownload" Type="Int32" />
+    <NavigationProperty Name="CHITIETPLAYLISTs" Relationship="db_MusicStoreModel.FK_CHITIETPLAYLIST_PLAYLIST" FromRole="PLAYLIST" ToRole="CHITIETPLAYLIST" />
+    <NavigationProperty Name="NGUOIDUNG" Relationship="db_MusicStoreModel.FK_PLAYLIST_NGUOIDUNG" FromRole="PLAYLIST" ToRole="NGUOIDUNG" />
+  </EntityType>
+  <EntityType Name="QUOCGIA">
+    <Key>
+      <PropertyRef Name="MaQuocGia" />
+    </Key>
+    <Property Name="MaQuocGia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenQuocGia" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="CASIs" Relationship="db_MusicStoreModel.FK_CASI_QUOCGIA" FromRole="QUOCGIA" ToRole="CASI" />
+  </EntityType>
+  <EntityType Name="THAMSO">
+    <Key>
+      <PropertyRef Name="QuyDinhSoNgayBanNickToiDa" />
+      <PropertyRef Name="SoLuongPlaylistDuocTaoToiDa" />
+      <PropertyRef Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" />
+      <PropertyRef Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" />
+      <PropertyRef Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" />
+      <PropertyRef Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" />
+      <PropertyRef Name="SoLuongBaiHatLietKeMoiTrangToiDa" />
+      <PropertyRef Name="SoLuongBaiHatDuocTimThayToiDa" />
+      <PropertyRef Name="SoGiayChoDownloadToiThieu" />
+    </Key>
+    <Property Name="QuyDinhSoNgayBanNickToiDa" Type="Int32" Nullable="false" />
+    <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="Int16" Nullable="false" />
+    <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="Int16" Nullable="false" />
+    <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="Int16" Nullable="false" />
+    <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="Int16" Nullable="false" />
+    <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="Int16" Nullable="false" />
+    <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="Int16" Nullable="false" />
+    <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="Int16" Nullable="false" />
+    <Property Name="SoGiayChoDownloadToiThieu" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="THELOAI">
+    <Key>
+      <PropertyRef Name="MaTheLoai" />
+    </Key>
+    <Property Name="MaTheLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTheLoai" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MaTinhTrangTheLoai" Type="Int32" />
+    <NavigationProperty Name="BAIHATs" Relationship="db_MusicStoreModel.FK_BAIHAT_THELOAI" FromRole="THELOAI" ToRole="BAIHAT" />
+    <NavigationProperty Name="TINHTRANGTHELOAI" Relationship="db_MusicStoreModel.FK_THELOAI_TINHTRANGTHELOAI" FromRole="THELOAI" ToRole="TINHTRANGTHELOAI" />
+  </EntityType>
+  <EntityType Name="TINHTRANGALBUM">
+    <Key>
+      <PropertyRef Name="MaTinhTrangAlbum" />
+    </Key>
+    <Property Name="MaTinhTrangAlbum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTinhTrangAlbum" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ALBUMs" Relationship="db_MusicStoreModel.FK_ALBUM_TINHTRANGALBUM" FromRole="TINHTRANGALBUM" ToRole="ALBUM" />
+  </EntityType>
+  <EntityType Name="TINHTRANGBAIHAT">
+    <Key>
+      <PropertyRef Name="MaTinhTrangBaiHat" />
+    </Key>
+    <Property Name="MaTinhTrangBaiHat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTinhTrangBaiHat" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="BAIHATs" Relationship="db_MusicStoreModel.FK_BAIHAT_TINHTRANGBAIHAT" FromRole="TINHTRANGBAIHAT" ToRole="BAIHAT" />
+  </EntityType>
+  <EntityType Name="TINHTRANGCASI">
+    <Key>
+      <PropertyRef Name="MaTinhTrangCaSi" />
+    </Key>
+    <Property Name="MaTinhTrangCaSi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTinhTrangCaSi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="CASIs" Relationship="db_MusicStoreModel.FK_CASI_TINHTRANGCASI" FromRole="TINHTRANGCASI" ToRole="CASI" />
+  </EntityType>
+  <EntityType Name="TINHTRANGNGUOIDUNG">
+    <Key>
+      <PropertyRef Name="MaTinhTrangNguoiDung" />
+    </Key>
+    <Property Name="MaTinhTrangNguoiDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTinhTrangNguoiDung" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="NGUOIDUNGs" Relationship="db_MusicStoreModel.FK_NGUOIDUNG_TINHTRANGNGUOIDUNG" FromRole="TINHTRANGNGUOIDUNG" ToRole="NGUOIDUNG" />
+  </EntityType>
+  <EntityType Name="TINHTRANGNHACSI">
+    <Key>
+      <PropertyRef Name="MaTinhTrangNhacSi" />
+    </Key>
+    <Property Name="MaTinhTrangNhacSi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTinhTrangNhacSi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="NHACSIs" Relationship="db_MusicStoreModel.FK_NHACSI_TINHTRANGNHACSI" FromRole="TINHTRANGNHACSI" ToRole="NHACSI" />
+  </EntityType>
+  <EntityType Name="TINHTRANGTHELOAI">
+    <Key>
+      <PropertyRef Name="MaTinhTrangTheLoai" />
+    </Key>
+    <Property Name="MaTinhTrangTheLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTinhTrangTheLoai" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="THELOAIs" Relationship="db_MusicStoreModel.FK_THELOAI_TINHTRANGTHELOAI" FromRole="TINHTRANGTHELOAI" ToRole="THELOAI" />
+  </EntityType>
+  <Association Name="FK_ALBUM_TINHTRANGALBUM">
+    <End Role="TINHTRANGALBUM" Type="db_MusicStoreModel.TINHTRANGALBUM" Multiplicity="0..1" />
+    <End Role="ALBUM" Type="db_MusicStoreModel.ALBUM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINHTRANGALBUM">
+        <PropertyRef Name="MaTinhTrangAlbum" />
+      </Principal>
+      <Dependent Role="ALBUM">
+        <PropertyRef Name="MaTinhTrangAlbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETALBUM_ALBUM">
+    <End Role="ALBUM" Type="db_MusicStoreModel.ALBUM" Multiplicity="0..1" />
+    <End Role="CHITIETALBUM" Type="db_MusicStoreModel.CHITIETALBUM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ALBUM">
+        <PropertyRef Name="MaAlbum" />
+      </Principal>
+      <Dependent Role="CHITIETALBUM">
+        <PropertyRef Name="MaAlbum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BAIHAT_CASI">
+    <End Role="CASI" Type="db_MusicStoreModel.CASI" Multiplicity="0..1" />
+    <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CASI">
+        <PropertyRef Name="MaCaSi" />
+      </Principal>
+      <Dependent Role="BAIHAT">
+        <PropertyRef Name="MaCaSiTrinhBay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BAIHAT_CHATLUONGAMTHANH">
+    <End Role="CHATLUONGAMTHANH" Type="db_MusicStoreModel.CHATLUONGAMTHANH" Multiplicity="0..1" />
+    <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHATLUONGAMTHANH">
+        <PropertyRef Name="MaChatLuongAmThanh" />
+      </Principal>
+      <Dependent Role="BAIHAT">
+        <PropertyRef Name="MaChatLuongAmThanh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BAIHAT_COMMENT">
+    <End Role="COMMENT" Type="db_MusicStoreModel.COMMENT" Multiplicity="0..1" />
+    <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMMENT">
+        <PropertyRef Name="MaComment" />
+      </Principal>
+      <Dependent Role="BAIHAT">
+        <PropertyRef Name="MaComment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BAIHAT_NHACSI">
+    <End Role="NHACSI" Type="db_MusicStoreModel.NHACSI" Multiplicity="0..1" />
+    <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHACSI">
+        <PropertyRef Name="MaNhacSi" />
+      </Principal>
+      <Dependent Role="BAIHAT">
+        <PropertyRef Name="MaNhacSi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BAIHAT_THELOAI">
+    <End Role="THELOAI" Type="db_MusicStoreModel.THELOAI" Multiplicity="0..1" />
+    <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="THELOAI">
+        <PropertyRef Name="MaTheLoai" />
+      </Principal>
+      <Dependent Role="BAIHAT">
+        <PropertyRef Name="MaTheLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BAIHAT_TINHTRANGBAIHAT">
+    <End Role="TINHTRANGBAIHAT" Type="db_MusicStoreModel.TINHTRANGBAIHAT" Multiplicity="0..1" />
+    <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINHTRANGBAIHAT">
+        <PropertyRef Name="MaTinhTrangBaiHat" />
+      </Principal>
+      <Dependent Role="BAIHAT">
+        <PropertyRef Name="MaTinhTrangBaiHat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETALBUM_BAIHAT">
+    <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="0..1" />
+    <End Role="CHITIETALBUM" Type="db_MusicStoreModel.CHITIETALBUM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIHAT">
+        <PropertyRef Name="MaBaiHat" />
+      </Principal>
+      <Dependent Role="CHITIETALBUM">
+        <PropertyRef Name="MaBaiHat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETPLAYLIST_BAIHAT">
+    <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="0..1" />
+    <End Role="CHITIETPLAYLIST" Type="db_MusicStoreModel.CHITIETPLAYLIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIHAT">
+        <PropertyRef Name="MaBaiHat" />
+      </Principal>
+      <Dependent Role="CHITIETPLAYLIST">
+        <PropertyRef Name="MaBaiHat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DIEM_BAIHAT">
+    <End Role="BAIHAT" Type="db_MusicStoreModel.BAIHAT" Multiplicity="1" />
+    <End Role="DIEM" Type="db_MusicStoreModel.DIEM" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="BAIHAT">
+        <PropertyRef Name="MaBaiHat" />
+      </Principal>
+      <Dependent Role="DIEM">
+        <PropertyRef Name="MaBaiHat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANNICK_NGUOIDUNG">
+    <End Role="NGUOIDUNG" Type="db_MusicStoreModel.NGUOIDUNG" Multiplicity="1" />
+    <End Role="BANNICK" Type="db_MusicStoreModel.BANNICK" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIDUNG">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="BANNICK">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASI_QUOCGIA">
+    <End Role="QUOCGIA" Type="db_MusicStoreModel.QUOCGIA" Multiplicity="0..1" />
+    <End Role="CASI" Type="db_MusicStoreModel.CASI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QUOCGIA">
+        <PropertyRef Name="MaQuocGia" />
+      </Principal>
+      <Dependent Role="CASI">
+        <PropertyRef Name="MaQuocGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CASI_TINHTRANGCASI">
+    <End Role="TINHTRANGCASI" Type="db_MusicStoreModel.TINHTRANGCASI" Multiplicity="0..1" />
+    <End Role="CASI" Type="db_MusicStoreModel.CASI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINHTRANGCASI">
+        <PropertyRef Name="MaTinhTrangCaSi" />
+      </Principal>
+      <Dependent Role="CASI">
+        <PropertyRef Name="MaTinhTrangCaSi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETPLAYLIST_PLAYLIST">
+    <End Role="PLAYLIST" Type="db_MusicStoreModel.PLAYLIST" Multiplicity="0..1" />
+    <End Role="CHITIETPLAYLIST" Type="db_MusicStoreModel.CHITIETPLAYLIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLAYLIST">
+        <PropertyRef Name="MaPlaylist" />
+      </Principal>
+      <Dependent Role="CHITIETPLAYLIST">
+        <PropertyRef Name="MaPlaylist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COMMENT_NGUOIDUNG">
+    <End Role="NGUOIDUNG" Type="db_MusicStoreModel.NGUOIDUNG" Multiplicity="0..1" />
+    <End Role="COMMENT" Type="db_MusicStoreModel.COMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIDUNG">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="COMMENT">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NGUOIDUNG_LOAINGUOIDUNG">
+    <End Role="LOAINGUOIDUNG" Type="db_MusicStoreModel.LOAINGUOIDUNG" Multiplicity="0..1" />
+    <End Role="NGUOIDUNG" Type="db_MusicStoreModel.NGUOIDUNG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAINGUOIDUNG">
+        <PropertyRef Name="MaLoaiNguoiDung" />
+      </Principal>
+      <Dependent Role="NGUOIDUNG">
+        <PropertyRef Name="MaLoaiNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NGUOIDUNG_TINHTRANGNGUOIDUNG">
+    <End Role="TINHTRANGNGUOIDUNG" Type="db_MusicStoreModel.TINHTRANGNGUOIDUNG" Multiplicity="0..1" />
+    <End Role="NGUOIDUNG" Type="db_MusicStoreModel.NGUOIDUNG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINHTRANGNGUOIDUNG">
+        <PropertyRef Name="MaTinhTrangNguoiDung" />
+      </Principal>
+      <Dependent Role="NGUOIDUNG">
+        <PropertyRef Name="MaTinhTrangNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PLAYLIST_NGUOIDUNG">
+    <End Role="NGUOIDUNG" Type="db_MusicStoreModel.NGUOIDUNG" Multiplicity="0..1" />
+    <End Role="PLAYLIST" Type="db_MusicStoreModel.PLAYLIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUOIDUNG">
+        <PropertyRef Name="MaNguoiDung" />
+      </Principal>
+      <Dependent Role="PLAYLIST">
+        <PropertyRef Name="MaNguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHACSI_TINHTRANGNHACSI">
+    <End Role="TINHTRANGNHACSI" Type="db_MusicStoreModel.TINHTRANGNHACSI" Multiplicity="0..1" />
+    <End Role="NHACSI" Type="db_MusicStoreModel.NHACSI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINHTRANGNHACSI">
+        <PropertyRef Name="MaTinhTrangNhacSi" />
+      </Principal>
+      <Dependent Role="NHACSI">
+        <PropertyRef Name="MaTinhTrangNhacSi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THELOAI_TINHTRANGTHELOAI">
+    <End Role="TINHTRANGTHELOAI" Type="db_MusicStoreModel.TINHTRANGTHELOAI" Multiplicity="0..1" />
+    <End Role="THELOAI" Type="db_MusicStoreModel.THELOAI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TINHTRANGTHELOAI">
+        <PropertyRef Name="MaTinhTrangTheLoai" />
+      </Principal>
+      <Dependent Role="THELOAI">
+        <PropertyRef Name="MaTinhTrangTheLoai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

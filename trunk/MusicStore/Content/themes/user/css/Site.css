@@ -26,12 +26,12 @@ body{
 }
 #back{
 	width:100%;
-	background:url(../images/bg.jpg) no-repeat center 148px;
+	background:url(../../../images/bg.jpg) no-repeat center 148px;
 	margin:auto;
 }
 #header-outer{
 	height:148px;
-	background:url(../images/banner.jpg) no-repeat center;
+	background:url(../../../images/banner.jpg) no-repeat center;
 }
 #header{
 	width:1000px;
@@ -40,7 +40,7 @@ body{
 #logo{
 	width:181px;
 	height:148px;
-	background:url(../images/logo.png) no-repeat center;
+	background:url(../../../images/logo.png) no-repeat center;
 }
 #banner{
 }
@@ -81,7 +81,7 @@ body{
 }
 #m-c-title{
 	height:26px;
-	background:url(../images/menu-bg.jpg);
+	background:url(../../../images/menu-bg.jpg);
 	border-bottom:1px solid #ddd;
 }
 #m-c-content{
@@ -97,7 +97,7 @@ body{
 }
 #m-r-title{
 	height:26px;
-	background:url(../images/menu-bg.jpg);
+	background:url(../../../images/menu-bg.jpg);
 	border-bottom:1px solid #ddd;
 }
 #m-r-content{
