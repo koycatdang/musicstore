@@ -19,3 +19,10 @@ C:\Users\Duc Huy\Desktop\MusicStore\MusicStore\bin\EntityFramework.xml
 C:\Users\Duc Huy\Desktop\MusicStore\MusicStore\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Duc Huy\Desktop\MusicStore\MusicStore\obj\Debug\MusicStore.dll
 C:\Users\Duc Huy\Desktop\MusicStore\MusicStore\obj\Debug\MusicStore.pdb
+C:\Users\CaoPhung\Desktop\DoAnCuoiKiASPNET\MusicStore\bin\MusicStore.dll
+C:\Users\CaoPhung\Desktop\DoAnCuoiKiASPNET\MusicStore\bin\MusicStore.pdb
+C:\Users\CaoPhung\Desktop\DoAnCuoiKiASPNET\MusicStore\bin\EntityFramework.dll
+C:\Users\CaoPhung\Desktop\DoAnCuoiKiASPNET\MusicStore\bin\EntityFramework.xml
+C:\Users\CaoPhung\Desktop\DoAnCuoiKiASPNET\MusicStore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CaoPhung\Desktop\DoAnCuoiKiASPNET\MusicStore\obj\Debug\MusicStore.dll
+C:\Users\CaoPhung\Desktop\DoAnCuoiKiASPNET\MusicStore\obj\Debug\MusicStore.pdb
