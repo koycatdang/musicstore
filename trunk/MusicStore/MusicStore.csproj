@@ -81,12 +81,12 @@
     <Content Include="App_Data\db_MusicStore_log.ldf">
       <DependentUpon>db_MusicStore.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\StyleUser\Css\Site.css" />
     <Content Include="Content\StyleUser\Images\3.swf" />
     <Content Include="Content\StyleUser\Images\banner.jpg" />
     <Content Include="Content\StyleUser\Images\bg.jpg" />
     <Content Include="Content\StyleUser\Images\logo.png" />
     <Content Include="Content\StyleUser\Images\menu-bg.jpg" />
-    <Content Include="Content\StyleUser\Css\Site.css" />
     <Content Include="EFCodeFirstReadMe.txt" />
     <Content Include="Global.asax" />
     <Content Include="MusicFiles\NuHonGio.mp3" />
