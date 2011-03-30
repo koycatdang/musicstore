@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MusicStore.Models.CASI>
+
+@foreach (var item in Model) {
+    <p>
+        <a href="/BaiHat/BrowCaSi/@item.MaCaSi">@item.TenCaSi</a>
+    </p>
+}    
+
+

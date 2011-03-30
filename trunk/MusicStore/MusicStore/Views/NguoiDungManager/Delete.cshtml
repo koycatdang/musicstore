@@ -1,0 +1,17 @@
+﻿@model MusicStore.Models.NGUOIDUNG
+@{
+    ViewBag.Title = "Delete User";
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Delete</h2>
+<h3>
+    Are you sure you want to delete user with name @Model.TenNguoiDung?</h3>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" />
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
