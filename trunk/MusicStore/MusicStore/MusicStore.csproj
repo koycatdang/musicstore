@@ -214,6 +214,7 @@
     <Content Include="Views\GenreManager\Edit.cshtml" />
     <Content Include="Views\GenreManager\Delete.cshtml" />
     <Content Include="Views\GenreManager\Deleted.cshtml" />
+    <None Include="MusicStore.idc" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
