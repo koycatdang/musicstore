@@ -1,100 +1,91 @@
 ﻿@model IEnumerable<MusicStore.Models.BAIHAT>
-
 @{
-    ViewBag.Title = "Song Manager";
+    ViewBag.Title = "Quản lí bài hát";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
 }
-
-<h2>Index</h2>
-
+<h2>
+    Quản lí bài hát</h2>
 <p>
-    @Html.ActionLink("Create New Songs", "Create")
+    @Html.ActionLink("Tạo bài hát mới", "Create")
 </p>
 <table>
     <tr>
-        <th></th>
         <th>
-            Song Name
         </th>
         <th>
-            MaNhacSi
+            Tên bài hát:
         </th>
         <th>
-            Song status:
+            Nhạc sĩ sáng tác:
         </th>
         <th>
-            LinkDownload
+            Tình trạng bài hát
         </th>
         <th>
-            SoLuotDownload
+            LinkDownload:
         </th>
         <th>
-            SoLuongNghe
+            Số lượt download
         </th>
         <th>
-            Singer
+            Số lượt nghe:
         </th>
         <th>
-            NgayTiepNhan
+            Ca sĩ trình bày
         </th>
         <th>
-            MaChatLuongAmThanh
+            Ngày tiếp nhận:
         </th>
         <th>
-            Genre:
+            Chất lượng âm thanh:
         </th>
         <th>
-            MaAlbum
+            Thể loại:
         </th>
         <th>
-            Point:
+            Điểm:
         </th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaBaiHat }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaBaiHat })
-        </td>
-        <td>
-            @item.TenBaiHat
-        </td>
-        <td>
-            @item.NHACSI.TenNhacSi
-        </td>
-        <td>
-            @item.TINHTRANGBAIHAT.TenTinhTrangBaiHat
-        </td>
-        <td>
-            @item.LinkDownload
-        </td>
-        <td>
-            @String.Format("{0:F}", item.SoLuotDownload)
-        </td>
-        <td>
-            @String.Format("{0:F}", item.SoLuongNghe)
-        </td>
-        <td>
-            @item.CASI.TenCaSi
-        </td>
-        <td>
-            @String.Format("{0:g}", item.NgayTiepNhan)
-        </td>
-        <td>
-            @item.CHATLUONGAMTHANH.TenChatLuongAmThanh
-        </td>
-        <td>
-            @item.THELOAI.TenTheLoai
-        </td>
-        <td>
-            @item.MaAlbum
-        </td>
-        <td>
-            @String.Format("{0:F}", item.Diem)
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaBaiHat }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaBaiHat })
+            </td>
+            <td>
+                @item.TenBaiHat
+            </td>
+            <td>
+                @item.NHACSI.TenNhacSi
+            </td>
+            <td>
+                @item.TINHTRANGBAIHAT.TenTinhTrangBaiHat
+            </td>
+            <td>
+                @item.LinkDownload
+            </td>
+            <td>
+                @String.Format("{0:F}", item.SoLuotDownload)
+            </td>
+            <td>
+                @String.Format("{0:F}", item.SoLuongNghe)
+            </td>
+            <td>
+                @item.CASI.TenCaSi
+            </td>
+            <td>
+                @String.Format("{0:g}", item.NgayTiepNhan)
+            </td>
+            <td>
+                @item.CHATLUONGAMTHANH.TenChatLuongAmThanh
+            </td>
+            <td>
+                @item.THELOAI.TenTheLoai
+            </td>
+            <td>
+                @String.Format("{0:F}", item.Diem)
+            </td>
+        </tr>
+    }
 </table>
-

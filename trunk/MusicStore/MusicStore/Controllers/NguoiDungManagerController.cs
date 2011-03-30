@@ -12,7 +12,6 @@ namespace MusicStore.Controllers
         db_MusicStoreEntities StoreDB = new db_MusicStoreEntities();
         //
         // GET: /NguoiDungManager/
-
         public ActionResult Index()
         {
             var _nguoiDung = StoreDB.NGUOIDUNGs.ToList();
@@ -21,7 +20,6 @@ namespace MusicStore.Controllers
 
         //
         // GET: /NguoiDungManager/Create
-
         public ActionResult Create()
         {
             ViewBag.LoaiNguoiDung = StoreDB.LOAINGUOIDUNGs.OrderBy(lnd => lnd.TenLoaiNguoiDung).ToList();
@@ -34,7 +32,6 @@ namespace MusicStore.Controllers
 
         //
         // POST: /NguoiDungManager/Create
-
         [HttpPost]
         public ActionResult Create(NGUOIDUNG _nguoiDung)
         {
@@ -55,7 +52,6 @@ namespace MusicStore.Controllers
 
         //
         // GET: /NguoiDungManager/Edit/
-
         public ActionResult Edit(int id)
         {
             ViewBag.LoaiNguoiDung = StoreDB.LOAINGUOIDUNGs.OrderBy(lnd => lnd.TenLoaiNguoiDung).ToList();

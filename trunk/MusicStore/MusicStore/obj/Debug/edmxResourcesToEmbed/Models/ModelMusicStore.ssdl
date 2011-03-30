@@ -131,7 +131,7 @@
       <PropertyRef Name="MaAlbum" />
     </Key>
     <Property Name="MaAlbum" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="TenAlbum" Type="nvarchar" MaxLength="200" />
+    <Property Name="TenAlbum" Type="nvarchar(max)" />
     <Property Name="MaTinhTrangAlbum" Type="int" />
   </EntityType>
   <EntityType Name="BAIHAT">
@@ -139,17 +139,16 @@
       <PropertyRef Name="MaBaiHat" />
     </Key>
     <Property Name="MaBaiHat" Type="int" Nullable="false" />
-    <Property Name="TenBaiHat" Type="nvarchar" MaxLength="200" />
+    <Property Name="TenBaiHat" Type="nvarchar(max)" />
     <Property Name="MaNhacSi" Type="int" />
     <Property Name="MaTinhTrangBaiHat" Type="int" />
-    <Property Name="LinkDownload" Type="varchar" MaxLength="255" />
-    <Property Name="SoLuotDownload" Type="float" />
-    <Property Name="SoLuongNghe" Type="float" />
+    <Property Name="LinkDownload" Type="varchar(max)" />
+    <Property Name="SoLuotDownload" Type="int" />
+    <Property Name="SoLuongNghe" Type="int" />
     <Property Name="MaCaSiTrinhBay" Type="int" />
     <Property Name="NgayTiepNhan" Type="date" />
     <Property Name="MaChatLuongAmThanh" Type="int" />
     <Property Name="MaTheLoai" Type="int" />
-    <Property Name="MaAlbum" Type="varchar" MaxLength="15" />
     <Property Name="Diem" Type="float" />
   </EntityType>
   <EntityType Name="BANNICK">

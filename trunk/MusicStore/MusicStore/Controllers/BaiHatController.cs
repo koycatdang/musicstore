@@ -31,7 +31,7 @@ namespace MusicStore.Controllers
         public ActionResult Detail(int id)
         {
             var baihat = dbEntity.BAIHATs.Single(bh => bh.MaBaiHat == id);
-                return View(baihat);
+            return View(baihat);
         }
     }
 }

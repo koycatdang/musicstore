@@ -24,7 +24,6 @@
           <ScalarProperty Name="NgayTiepNhan" ColumnName="NgayTiepNhan" />
           <ScalarProperty Name="MaChatLuongAmThanh" ColumnName="MaChatLuongAmThanh" />
           <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
-          <ScalarProperty Name="MaAlbum" ColumnName="MaAlbum" />
           <ScalarProperty Name="Diem" ColumnName="Diem" />
         </MappingFragment>
       </EntityTypeMapping>

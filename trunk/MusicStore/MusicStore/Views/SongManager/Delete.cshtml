@@ -1,12 +1,12 @@
-﻿@model MusicStore.Models.NGUOIDUNG
+﻿@model MusicStore.Models.BAIHAT
 @{
-    ViewBag.Title = "Xóa người dùng | " + @Model.TenNguoiDung;
+    ViewBag.Title = "Xóa bài hát | " + @Model.TenBaiHat;
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
 }
 <h2>
-    Xóa người dùng</h2>
+    Xóa bài hát</h2>
 <h3>
-    Bạn có chắc muốn xóa người dùng với tên là @Model.TenNguoiDung?</h3>
+    Bạn có chắc muốn xóa bài hát với tên là @Model.TenBaiHat?</h3>
 @using (Html.BeginForm())
 {
     <p>

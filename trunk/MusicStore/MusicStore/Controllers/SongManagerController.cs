@@ -19,89 +19,95 @@ namespace MusicStore.Controllers
         }
 
         //
-        // GET: /SongManager/Details/5
-
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        //
         // GET: /SongManager/Create
-
         public ActionResult Create()
         {
-            return View();
+            ViewBag.TinhTrangBaiHat = StoreDB.TINHTRANGBAIHATs.OrderBy(ttbh => ttbh.TenTinhTrangBaiHat).ToList();
+            ViewBag.TheLoai = StoreDB.THELOAIs.OrderBy(tl => tl.TenTheLoai).ToList();
+            ViewBag.Album = StoreDB.ALBUMs.OrderBy(a => a.TenAlbum).ToList();
+            ViewBag.ChatLuongAmThanh = StoreDB.CHATLUONGAMTHANHs.OrderBy(clat => clat.MaChatLuongAmThanh).ToList();
+            ViewBag.CaSi = StoreDB.CASIs.OrderBy(cs => cs.MaCaSi).ToList();
+            ViewBag.NhacSi = StoreDB.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
+
+            var _song = new BAIHAT();
+            
+            return View(_song);
         } 
 
         //
         // POST: /SongManager/Create
-
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(BAIHAT _baiHat)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                _baiHat.NgayTiepNhan = DateTime.Now;
+                StoreDB.BAIHATs.AddObject(_baiHat);
+                StoreDB.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            //Invalid
+            ViewBag.TinhTrangBaiHat = StoreDB.TINHTRANGBAIHATs.OrderBy(ttbh => ttbh.TenTinhTrangBaiHat).ToList();
+            ViewBag.TheLoai = StoreDB.THELOAIs.OrderBy(tl => tl.TenTheLoai).ToList();
+            ViewBag.Album = StoreDB.ALBUMs.OrderBy(a => a.TenAlbum).ToList();
+            ViewBag.ChatLuongAmThanh = StoreDB.CHATLUONGAMTHANHs.OrderBy(clat => clat.MaChatLuongAmThanh).ToList();
+            ViewBag.CaSi = StoreDB.CASIs.OrderBy(cs => cs.MaCaSi).ToList();
+            ViewBag.NhacSi = StoreDB.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
+
+            return View(_baiHat);
         }
         
         //
         // GET: /SongManager/Edit/5
- 
         public ActionResult Edit(int id)
         {
-            return View();
+            ViewBag.TinhTrangBaiHat = StoreDB.TINHTRANGBAIHATs.OrderBy(ttbh => ttbh.TenTinhTrangBaiHat).ToList();
+            ViewBag.TheLoai = StoreDB.THELOAIs.OrderBy(tl => tl.TenTheLoai).ToList();
+            ViewBag.Album = StoreDB.ALBUMs.OrderBy(a => a.TenAlbum).ToList();
+            ViewBag.ChatLuongAmThanh = StoreDB.CHATLUONGAMTHANHs.OrderBy(clat => clat.MaChatLuongAmThanh).ToList();
+            ViewBag.CaSi = StoreDB.CASIs.OrderBy(cs => cs.MaCaSi).ToList();
+            ViewBag.NhacSi = StoreDB.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
+
+            var _baiHat = StoreDB.BAIHATs.Single(bh => bh.MaBaiHat == id);
+
+            return View(_baiHat);
         }
 
         //
         // POST: /SongManager/Edit/5
-
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
+            var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
+
+            if (TryUpdateModel(_baiHat))
             {
-                // TODO: Add update logic here
- 
+                StoreDB.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            else
+                return View(_baiHat);
         }
 
         //
         // GET: /SongManager/Delete/5
- 
         public ActionResult Delete(int id)
         {
-            return View();
+            var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
+            return View(_baiHat);
         }
 
         //
         // POST: /SongManager/Delete/5
-
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
+
+            StoreDB.BAIHATs.DeleteObject(_baiHat);
+            StoreDB.SaveChanges();
+            return View("Deleted");
         }
     }
 }

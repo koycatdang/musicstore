@@ -1,12 +1,12 @@
 ﻿@model IEnumerable<MusicStore.Models.NGUOIDUNG>
 @{
-    ViewBag.Title = "User Manager";
+    ViewBag.Title = "Quản lí người dùng";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
 }
 <h2>
-    User Manager</h2>
+    Quản lí người dùng</h2>
 <p>
-    @Html.ActionLink("Create New User", "Create")
+    @Html.ActionLink("Tạo người dùng mới", "Create")
 </p>
 <table border="1" rules="all">
     <tr>
@@ -16,10 +16,10 @@
             Họ tên
         </th>
         <th>
-            UserName
+            Tên tài khoản
         </th>
         <th>
-            PassWord
+            Mật khẩu
         </th>
         <th>
             Ngày sinh
@@ -38,8 +38,8 @@
     {
         <tr>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaNguoiDung }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaNguoiDung })
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaNguoiDung }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaNguoiDung })
             </td>
             <td>
                 @item.TenNguoiDung

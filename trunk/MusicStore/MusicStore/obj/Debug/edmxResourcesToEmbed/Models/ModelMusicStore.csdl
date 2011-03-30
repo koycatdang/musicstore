@@ -114,7 +114,7 @@
       <PropertyRef Name="MaAlbum" />
     </Key>
     <Property Name="MaAlbum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="TenAlbum" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="TenAlbum" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="MaTinhTrangAlbum" Type="Int32" />
     <NavigationProperty Name="TINHTRANGALBUM" Relationship="db_MusicStoreModel.FK_ALBUM_TINHTRANGALBUM" FromRole="ALBUM" ToRole="TINHTRANGALBUM" />
     <NavigationProperty Name="CHITIETALBUMs" Relationship="db_MusicStoreModel.FK_CHITIETALBUM_ALBUM" FromRole="ALBUM" ToRole="CHITIETALBUM" />
@@ -124,17 +124,16 @@
       <PropertyRef Name="MaBaiHat" />
     </Key>
     <Property Name="MaBaiHat" Type="Int32" Nullable="false" />
-    <Property Name="TenBaiHat" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="TenBaiHat" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="MaNhacSi" Type="Int32" />
     <Property Name="MaTinhTrangBaiHat" Type="Int32" />
-    <Property Name="LinkDownload" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
-    <Property Name="SoLuotDownload" Type="Double" />
-    <Property Name="SoLuongNghe" Type="Double" />
+    <Property Name="LinkDownload" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="SoLuotDownload" Type="Int32" />
+    <Property Name="SoLuongNghe" Type="Int32" />
     <Property Name="MaCaSiTrinhBay" Type="Int32" />
     <Property Name="NgayTiepNhan" Type="DateTime" />
     <Property Name="MaChatLuongAmThanh" Type="Int32" />
     <Property Name="MaTheLoai" Type="Int32" />
-    <Property Name="MaAlbum" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
     <Property Name="Diem" Type="Double" />
     <NavigationProperty Name="CASI" Relationship="db_MusicStoreModel.FK_BAIHAT_CASI" FromRole="BAIHAT" ToRole="CASI" />
     <NavigationProperty Name="CHATLUONGAMTHANH" Relationship="db_MusicStoreModel.FK_BAIHAT_CHATLUONGAMTHANH" FromRole="BAIHAT" ToRole="CHATLUONGAMTHANH" />
