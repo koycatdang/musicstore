@@ -31,7 +31,12 @@
       [THAMSO].[SoLuongBaiHatCungCaSiDuocLietKeToiDa] AS [SoLuongBaiHatCungCaSiDuocLietKeToiDa], 
       [THAMSO].[SoLuongBaiHatLietKeMoiTrangToiDa] AS [SoLuongBaiHatLietKeMoiTrangToiDa], 
       [THAMSO].[SoLuongBaiHatDuocTimThayToiDa] AS [SoLuongBaiHatDuocTimThayToiDa], 
-      [THAMSO].[SoGiayChoDownloadToiThieu] AS [SoGiayChoDownloadToiThieu]
+      [THAMSO].[SoGiayChoDownloadToiThieu] AS [SoGiayChoDownloadToiThieu], 
+      [THAMSO].[TenLogo] AS [TenLogo], 
+      [THAMSO].[GioiThieu] AS [GioiThieu], 
+      [THAMSO].[NgonNgu] AS [NgonNgu], 
+      [THAMSO].[ThonTinLienLac] AS [ThonTinLienLac], 
+      [THAMSO].[Flash] AS [Flash]
       FROM [dbo].[THAMSO] AS [THAMSO]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="THELOAI" EntityType="db_MusicStoreModel.Store.THELOAI" store:Type="Tables" Schema="dbo" />
@@ -266,29 +271,26 @@
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\CAOPHUNG\DESKTOP\DOANCUOIKY\MUSICSTORE\APP_DATA\DB_MUSICSTORE.MDF.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\CAOPHUNG\DESKTOP\MUSICSTORE\MUSICSTORE\APP_DATA\DB_MUSICSTORE.MDF.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="THAMSO">
           <Key>
             <PropertyRef Name="QuyDinhSoNgayBanNickToiDa" />
-            <PropertyRef Name="SoLuongPlaylistDuocTaoToiDa" />
-            <PropertyRef Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" />
-            <PropertyRef Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" />
-            <PropertyRef Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" />
-            <PropertyRef Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" />
-            <PropertyRef Name="SoLuongBaiHatLietKeMoiTrangToiDa" />
-            <PropertyRef Name="SoLuongBaiHatDuocTimThayToiDa" />
-            <PropertyRef Name="SoGiayChoDownloadToiThieu" />
           </Key>
           <Property Name="QuyDinhSoNgayBanNickToiDa" Type="int" Nullable="false" />
-          <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="smallint" Nullable="false" />
-          <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="smallint" Nullable="false" />
-          <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="smallint" Nullable="false" />
-          <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="smallint" Nullable="false" />
-          <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="smallint" Nullable="false" />
-          <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="smallint" Nullable="false" />
-          <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="smallint" Nullable="false" />
-          <Property Name="SoGiayChoDownloadToiThieu" Type="smallint" Nullable="false" />
+          <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="smallint" />
+          <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="smallint" />
+          <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="smallint" />
+          <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="smallint" />
+          <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="smallint" />
+          <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="smallint" />
+          <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="smallint" />
+          <Property Name="SoGiayChoDownloadToiThieu" Type="smallint" />
+          <Property Name="TenLogo" Type="varchar" MaxLength="50" />
+          <Property Name="GioiThieu" Type="nvarchar(max)" />
+          <Property Name="NgonNgu" Type="varchar" MaxLength="50" />
+          <Property Name="ThonTinLienLac" Type="nvarchar(max)" />
+          <Property Name="Flash" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>
@@ -913,24 +915,21 @@
         <EntityType Name="THAMSO">
           <Key>
             <PropertyRef Name="QuyDinhSoNgayBanNickToiDa" />
-            <PropertyRef Name="SoLuongPlaylistDuocTaoToiDa" />
-            <PropertyRef Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" />
-            <PropertyRef Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" />
-            <PropertyRef Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" />
-            <PropertyRef Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" />
-            <PropertyRef Name="SoLuongBaiHatLietKeMoiTrangToiDa" />
-            <PropertyRef Name="SoLuongBaiHatDuocTimThayToiDa" />
-            <PropertyRef Name="SoGiayChoDownloadToiThieu" />
           </Key>
           <Property Name="QuyDinhSoNgayBanNickToiDa" Type="Int32" Nullable="false" />
-          <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="Int16" Nullable="false" />
-          <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="Int16" Nullable="false" />
-          <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="Int16" Nullable="false" />
-          <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="Int16" Nullable="false" />
-          <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="Int16" Nullable="false" />
-          <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="Int16" Nullable="false" />
-          <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="Int16" Nullable="false" />
-          <Property Name="SoGiayChoDownloadToiThieu" Type="Int16" Nullable="false" />
+          <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="Int16" />
+          <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="Int16" />
+          <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="Int16" />
+          <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="Int16" />
+          <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="Int16" />
+          <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="Int16" />
+          <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="Int16" />
+          <Property Name="SoGiayChoDownloadToiThieu" Type="Int16" />
+          <Property Name="TenLogo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="GioiThieu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="NgonNgu" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ThonTinLienLac" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Flash" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>
@@ -1352,6 +1351,11 @@
             <ScalarProperty Name="SoLuongBaiHatLietKeMoiTrangToiDa" ColumnName="SoLuongBaiHatLietKeMoiTrangToiDa" />
             <ScalarProperty Name="SoLuongBaiHatDuocTimThayToiDa" ColumnName="SoLuongBaiHatDuocTimThayToiDa" />
             <ScalarProperty Name="SoGiayChoDownloadToiThieu" ColumnName="SoGiayChoDownloadToiThieu" />
+            <ScalarProperty Name="TenLogo" ColumnName="TenLogo" />
+            <ScalarProperty Name="GioiThieu" ColumnName="GioiThieu" />
+            <ScalarProperty Name="NgonNgu" ColumnName="NgonNgu" />
+            <ScalarProperty Name="ThonTinLienLac" ColumnName="ThonTinLienLac" />
+            <ScalarProperty Name="Flash" ColumnName="Flash" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="THELOAIs"><EntityTypeMapping TypeName="db_MusicStoreModel.THELOAI"><MappingFragment StoreEntitySet="THELOAI">
             <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
@@ -1418,7 +1422,7 @@
         <EntityTypeShape EntityType="db_MusicStoreModel.NHACSI" Width="1.5" PointX="3" PointY="9.125" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.PLAYLIST" Width="1.5" PointX="5.25" PointY="18" Height="2.749492187499996" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.THAMSO" Width="1.5" PointX="9.75" PointY="3.75" Height="2.7494921875000031" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.THAMSO" Width="1.5" PointX="9.75" PointY="3.75" Height="3.7109993489583388" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.THELOAI" Width="1.5" PointX="3" PointY="11.75" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGALBUM" Width="1.5" PointX="3" PointY="22.625" Height="1.5956835937500031" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGBAIHAT" Width="1.5" PointX="3" PointY="14.5" Height="1.5956835937500014" IsExpanded="true" />

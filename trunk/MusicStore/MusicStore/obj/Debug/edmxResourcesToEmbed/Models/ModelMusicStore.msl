@@ -167,6 +167,11 @@
           <ScalarProperty Name="SoLuongBaiHatLietKeMoiTrangToiDa" ColumnName="SoLuongBaiHatLietKeMoiTrangToiDa" />
           <ScalarProperty Name="SoLuongBaiHatDuocTimThayToiDa" ColumnName="SoLuongBaiHatDuocTimThayToiDa" />
           <ScalarProperty Name="SoGiayChoDownloadToiThieu" ColumnName="SoGiayChoDownloadToiThieu" />
+          <ScalarProperty Name="TenLogo" ColumnName="TenLogo" />
+          <ScalarProperty Name="GioiThieu" ColumnName="GioiThieu" />
+          <ScalarProperty Name="NgonNgu" ColumnName="NgonNgu" />
+          <ScalarProperty Name="ThonTinLienLac" ColumnName="ThonTinLienLac" />
+          <ScalarProperty Name="Flash" ColumnName="Flash" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

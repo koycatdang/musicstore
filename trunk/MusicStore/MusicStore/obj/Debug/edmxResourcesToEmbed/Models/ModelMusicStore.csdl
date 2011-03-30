@@ -285,24 +285,21 @@
   <EntityType Name="THAMSO">
     <Key>
       <PropertyRef Name="QuyDinhSoNgayBanNickToiDa" />
-      <PropertyRef Name="SoLuongPlaylistDuocTaoToiDa" />
-      <PropertyRef Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" />
-      <PropertyRef Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" />
-      <PropertyRef Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" />
-      <PropertyRef Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" />
-      <PropertyRef Name="SoLuongBaiHatLietKeMoiTrangToiDa" />
-      <PropertyRef Name="SoLuongBaiHatDuocTimThayToiDa" />
-      <PropertyRef Name="SoGiayChoDownloadToiThieu" />
     </Key>
     <Property Name="QuyDinhSoNgayBanNickToiDa" Type="Int32" Nullable="false" />
-    <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="Int16" Nullable="false" />
-    <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="Int16" Nullable="false" />
-    <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="Int16" Nullable="false" />
-    <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="Int16" Nullable="false" />
-    <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="Int16" Nullable="false" />
-    <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="Int16" Nullable="false" />
-    <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="Int16" Nullable="false" />
-    <Property Name="SoGiayChoDownloadToiThieu" Type="Int16" Nullable="false" />
+    <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="Int16" />
+    <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="Int16" />
+    <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="Int16" />
+    <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="Int16" />
+    <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="Int16" />
+    <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="Int16" />
+    <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="Int16" />
+    <Property Name="SoGiayChoDownloadToiThieu" Type="Int16" />
+    <Property Name="TenLogo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="GioiThieu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="NgonNgu" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ThonTinLienLac" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Flash" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
   </EntityType>
   <EntityType Name="THELOAI">
     <Key>

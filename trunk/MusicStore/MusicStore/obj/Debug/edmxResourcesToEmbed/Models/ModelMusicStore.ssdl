@@ -26,7 +26,12 @@
       [THAMSO].[SoLuongBaiHatCungCaSiDuocLietKeToiDa] AS [SoLuongBaiHatCungCaSiDuocLietKeToiDa], 
       [THAMSO].[SoLuongBaiHatLietKeMoiTrangToiDa] AS [SoLuongBaiHatLietKeMoiTrangToiDa], 
       [THAMSO].[SoLuongBaiHatDuocTimThayToiDa] AS [SoLuongBaiHatDuocTimThayToiDa], 
-      [THAMSO].[SoGiayChoDownloadToiThieu] AS [SoGiayChoDownloadToiThieu]
+      [THAMSO].[SoGiayChoDownloadToiThieu] AS [SoGiayChoDownloadToiThieu], 
+      [THAMSO].[TenLogo] AS [TenLogo], 
+      [THAMSO].[GioiThieu] AS [GioiThieu], 
+      [THAMSO].[NgonNgu] AS [NgonNgu], 
+      [THAMSO].[ThonTinLienLac] AS [ThonTinLienLac], 
+      [THAMSO].[Flash] AS [Flash]
       FROM [dbo].[THAMSO] AS [THAMSO]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="THELOAI" EntityType="db_MusicStoreModel.Store.THELOAI" store:Type="Tables" Schema="dbo" />
@@ -261,29 +266,26 @@
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\CAOPHUNG\DESKTOP\DOANCUOIKY\MUSICSTORE\APP_DATA\DB_MUSICSTORE.MDF.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      warning 6002: The table/view 'C:\USERS\CAOPHUNG\DESKTOP\MUSICSTORE\MUSICSTORE\APP_DATA\DB_MUSICSTORE.MDF.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="THAMSO">
     <Key>
       <PropertyRef Name="QuyDinhSoNgayBanNickToiDa" />
-      <PropertyRef Name="SoLuongPlaylistDuocTaoToiDa" />
-      <PropertyRef Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" />
-      <PropertyRef Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" />
-      <PropertyRef Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" />
-      <PropertyRef Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" />
-      <PropertyRef Name="SoLuongBaiHatLietKeMoiTrangToiDa" />
-      <PropertyRef Name="SoLuongBaiHatDuocTimThayToiDa" />
-      <PropertyRef Name="SoGiayChoDownloadToiThieu" />
     </Key>
     <Property Name="QuyDinhSoNgayBanNickToiDa" Type="int" Nullable="false" />
-    <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="smallint" Nullable="false" />
-    <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="smallint" Nullable="false" />
-    <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="smallint" Nullable="false" />
-    <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="smallint" Nullable="false" />
-    <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="smallint" Nullable="false" />
-    <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="smallint" Nullable="false" />
-    <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="smallint" Nullable="false" />
-    <Property Name="SoGiayChoDownloadToiThieu" Type="smallint" Nullable="false" />
+    <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="smallint" />
+    <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="smallint" />
+    <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="smallint" />
+    <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="smallint" />
+    <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="smallint" />
+    <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="smallint" />
+    <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="smallint" />
+    <Property Name="SoGiayChoDownloadToiThieu" Type="smallint" />
+    <Property Name="TenLogo" Type="varchar" MaxLength="50" />
+    <Property Name="GioiThieu" Type="nvarchar(max)" />
+    <Property Name="NgonNgu" Type="varchar" MaxLength="50" />
+    <Property Name="ThonTinLienLac" Type="nvarchar(max)" />
+    <Property Name="Flash" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="THELOAI">
     <Key>
