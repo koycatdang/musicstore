@@ -45,54 +45,51 @@ using System.Runtime.Serialization;
 namespace MusicStore.Models
 {
     #region Contexts
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
     public partial class db_MusicStoreEntities : ObjectContext
     {
         #region Constructors
-
+    
         /// <summary>
         /// Initializes a new db_MusicStoreEntities object using the connection string found in the 'db_MusicStoreEntities' section of the application configuration file.
         /// </summary>
-        public db_MusicStoreEntities()
-            : base("name=db_MusicStoreEntities", "db_MusicStoreEntities")
+        public db_MusicStoreEntities() : base("name=db_MusicStoreEntities", "db_MusicStoreEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
+    
         /// <summary>
         /// Initialize a new db_MusicStoreEntities object.
         /// </summary>
-        public db_MusicStoreEntities(string connectionString)
-            : base(connectionString, "db_MusicStoreEntities")
+        public db_MusicStoreEntities(string connectionString) : base(connectionString, "db_MusicStoreEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
+    
         /// <summary>
         /// Initialize a new db_MusicStoreEntities object.
         /// </summary>
-        public db_MusicStoreEntities(EntityConnection connection)
-            : base(connection, "db_MusicStoreEntities")
+        public db_MusicStoreEntities(EntityConnection connection) : base(connection, "db_MusicStoreEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-
+    
         #endregion
-
+    
         #region Partial Methods
-
+    
         partial void OnContextCreated();
-
+    
         #endregion
-
+    
         #region ObjectSet Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -108,7 +105,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<ALBUM> _ALBUMs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -124,7 +121,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<BAIHAT> _BAIHATs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -140,7 +137,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<BANNICK> _BANNICKs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -156,7 +153,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<CASI> _CASIs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -172,7 +169,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<CHATLUONGAMTHANH> _CHATLUONGAMTHANHs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -188,7 +185,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<CHITIETALBUM> _CHITIETALBUMs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -204,7 +201,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<CHITIETPLAYLIST> _CHITIETPLAYLISTs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -220,7 +217,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<COMMENT> _COMMENTs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -236,7 +233,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<DIEM> _DIEMs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -252,7 +249,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<KHUVUC> _KHUVUCs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -268,7 +265,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<LOAINGUOIDUNG> _LOAINGUOIDUNGs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -284,7 +281,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<NGUOIDUNG> _NGUOIDUNGs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -300,7 +297,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<NHACSI> _NHACSIs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -316,7 +313,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<PLAYLIST> _PLAYLISTs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -332,7 +329,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<sysdiagram> _sysdiagrams;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -348,7 +345,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<THAMSO> _THAMSOes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -364,7 +361,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<THELOAI> _THELOAIs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -380,7 +377,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<TINHTRANGALBUM> _TINHTRANGALBUMs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -396,7 +393,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<TINHTRANGBAIHAT> _TINHTRANGBAIHATs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -412,7 +409,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<TINHTRANGCASI> _TINHTRANGCASIs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -428,7 +425,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<TINHTRANGNGUOIDUNG> _TINHTRANGNGUOIDUNGs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -444,7 +441,7 @@ namespace MusicStore.Models
             }
         }
         private ObjectSet<TINHTRANGNHACSI> _TINHTRANGNHACSIs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -463,7 +460,7 @@ namespace MusicStore.Models
 
         #endregion
         #region AddTo Methods
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the ALBUMs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -471,7 +468,7 @@ namespace MusicStore.Models
         {
             base.AddObject("ALBUMs", aLBUM);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the BAIHATs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -479,7 +476,7 @@ namespace MusicStore.Models
         {
             base.AddObject("BAIHATs", bAIHAT);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the BANNICKs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -487,7 +484,7 @@ namespace MusicStore.Models
         {
             base.AddObject("BANNICKs", bANNICK);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CASIs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -495,7 +492,7 @@ namespace MusicStore.Models
         {
             base.AddObject("CASIs", cASI);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CHATLUONGAMTHANHs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -503,7 +500,7 @@ namespace MusicStore.Models
         {
             base.AddObject("CHATLUONGAMTHANHs", cHATLUONGAMTHANH);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CHITIETALBUMs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -511,7 +508,7 @@ namespace MusicStore.Models
         {
             base.AddObject("CHITIETALBUMs", cHITIETALBUM);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CHITIETPLAYLISTs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -519,7 +516,7 @@ namespace MusicStore.Models
         {
             base.AddObject("CHITIETPLAYLISTs", cHITIETPLAYLIST);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the COMMENTs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -527,7 +524,7 @@ namespace MusicStore.Models
         {
             base.AddObject("COMMENTs", cOMMENT);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the DIEMs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -535,7 +532,7 @@ namespace MusicStore.Models
         {
             base.AddObject("DIEMs", dIEM);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the KHUVUCs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -543,7 +540,7 @@ namespace MusicStore.Models
         {
             base.AddObject("KHUVUCs", kHUVUC);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the LOAINGUOIDUNGs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -551,7 +548,7 @@ namespace MusicStore.Models
         {
             base.AddObject("LOAINGUOIDUNGs", lOAINGUOIDUNG);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the NGUOIDUNGs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -559,7 +556,7 @@ namespace MusicStore.Models
         {
             base.AddObject("NGUOIDUNGs", nGUOIDUNG);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the NHACSIs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -567,7 +564,7 @@ namespace MusicStore.Models
         {
             base.AddObject("NHACSIs", nHACSI);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the PLAYLISTs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -575,7 +572,7 @@ namespace MusicStore.Models
         {
             base.AddObject("PLAYLISTs", pLAYLIST);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -583,7 +580,7 @@ namespace MusicStore.Models
         {
             base.AddObject("sysdiagrams", sysdiagram);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the THAMSOes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -591,7 +588,7 @@ namespace MusicStore.Models
         {
             base.AddObject("THAMSOes", tHAMSO);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the THELOAIs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -599,7 +596,7 @@ namespace MusicStore.Models
         {
             base.AddObject("THELOAIs", tHELOAI);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TINHTRANGALBUMs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -607,7 +604,7 @@ namespace MusicStore.Models
         {
             base.AddObject("TINHTRANGALBUMs", tINHTRANGALBUM);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TINHTRANGBAIHATs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -615,7 +612,7 @@ namespace MusicStore.Models
         {
             base.AddObject("TINHTRANGBAIHATs", tINHTRANGBAIHAT);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TINHTRANGCASIs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -623,7 +620,7 @@ namespace MusicStore.Models
         {
             base.AddObject("TINHTRANGCASIs", tINHTRANGCASI);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TINHTRANGNGUOIDUNGs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -631,7 +628,7 @@ namespace MusicStore.Models
         {
             base.AddObject("TINHTRANGNGUOIDUNGs", tINHTRANGNGUOIDUNG);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TINHTRANGNHACSIs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -639,7 +636,7 @@ namespace MusicStore.Models
         {
             base.AddObject("TINHTRANGNHACSIs", tINHTRANGNHACSI);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TINHTRANGTHELOAIs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -650,22 +647,22 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
 
     #endregion
-
+    
     #region Entities
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "ALBUM")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="ALBUM")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class ALBUM : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new ALBUM object.
         /// </summary>
@@ -679,11 +676,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaAlbum
         {
@@ -706,11 +703,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaAlbum;
         partial void OnMaAlbumChanging(global::System.Int32 value);
         partial void OnMaAlbumChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenAlbum
         {
@@ -730,11 +727,11 @@ namespace MusicStore.Models
         private global::System.String _TenAlbum;
         partial void OnTenAlbumChanging(global::System.String value);
         partial void OnTenAlbumChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaTinhTrangAlbum
         {
@@ -756,9 +753,9 @@ namespace MusicStore.Models
         partial void OnMaTinhTrangAlbumChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -796,7 +793,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -821,17 +818,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "BAIHAT")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="BAIHAT")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class BAIHAT : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new BAIHAT object.
         /// </summary>
@@ -845,11 +842,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaBaiHat
         {
@@ -872,11 +869,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaBaiHat;
         partial void OnMaBaiHatChanging(global::System.Int32 value);
         partial void OnMaBaiHatChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenBaiHat
         {
@@ -896,11 +893,11 @@ namespace MusicStore.Models
         private global::System.String _TenBaiHat;
         partial void OnTenBaiHatChanging(global::System.String value);
         partial void OnTenBaiHatChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaNhacSi
         {
@@ -920,11 +917,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaNhacSi;
         partial void OnMaNhacSiChanging(Nullable<global::System.Int32> value);
         partial void OnMaNhacSiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaTinhTrangBaiHat
         {
@@ -944,11 +941,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaTinhTrangBaiHat;
         partial void OnMaTinhTrangBaiHatChanging(Nullable<global::System.Int32> value);
         partial void OnMaTinhTrangBaiHatChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String LinkDownload
         {
@@ -968,11 +965,11 @@ namespace MusicStore.Models
         private global::System.String _LinkDownload;
         partial void OnLinkDownloadChanging(global::System.String value);
         partial void OnLinkDownloadChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> SoLuotDownload
         {
@@ -992,11 +989,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _SoLuotDownload;
         partial void OnSoLuotDownloadChanging(Nullable<global::System.Int32> value);
         partial void OnSoLuotDownloadChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> SoLuongNghe
         {
@@ -1016,11 +1013,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _SoLuongNghe;
         partial void OnSoLuongNgheChanging(Nullable<global::System.Int32> value);
         partial void OnSoLuongNgheChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaCaSiTrinhBay
         {
@@ -1040,11 +1037,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaCaSiTrinhBay;
         partial void OnMaCaSiTrinhBayChanging(Nullable<global::System.Int32> value);
         partial void OnMaCaSiTrinhBayChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> NgayTiepNhan
         {
@@ -1064,11 +1061,11 @@ namespace MusicStore.Models
         private Nullable<global::System.DateTime> _NgayTiepNhan;
         partial void OnNgayTiepNhanChanging(Nullable<global::System.DateTime> value);
         partial void OnNgayTiepNhanChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaChatLuongAmThanh
         {
@@ -1088,11 +1085,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaChatLuongAmThanh;
         partial void OnMaChatLuongAmThanhChanging(Nullable<global::System.Int32> value);
         partial void OnMaChatLuongAmThanhChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaTheLoai
         {
@@ -1112,11 +1109,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaTheLoai;
         partial void OnMaTheLoaiChanging(Nullable<global::System.Int32> value);
         partial void OnMaTheLoaiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> Diem
         {
@@ -1138,9 +1135,9 @@ namespace MusicStore.Models
         partial void OnDiemChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1178,7 +1175,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1216,7 +1213,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1254,7 +1251,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1292,7 +1289,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1330,7 +1327,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1352,7 +1349,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1374,7 +1371,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1396,7 +1393,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1437,17 +1434,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "BANNICK")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="BANNICK")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class BANNICK : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new BANNICK object.
         /// </summary>
@@ -1461,11 +1458,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaNguoiDung
         {
@@ -1488,11 +1485,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaNguoiDung;
         partial void OnMaNguoiDungChanging(global::System.Int32 value);
         partial void OnMaNguoiDungChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> NgayHetHan
         {
@@ -1514,9 +1511,9 @@ namespace MusicStore.Models
         partial void OnNgayHetHanChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1557,17 +1554,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "CASI")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="CASI")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CASI : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CASI object.
         /// </summary>
@@ -1581,11 +1578,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaCaSi
         {
@@ -1608,11 +1605,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaCaSi;
         partial void OnMaCaSiChanging(global::System.Int32 value);
         partial void OnMaCaSiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenCaSi
         {
@@ -1632,11 +1629,11 @@ namespace MusicStore.Models
         private global::System.String _TenCaSi;
         partial void OnTenCaSiChanging(global::System.String value);
         partial void OnTenCaSiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaTinhTrangCaSi
         {
@@ -1656,11 +1653,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaTinhTrangCaSi;
         partial void OnMaTinhTrangCaSiChanging(Nullable<global::System.Int32> value);
         partial void OnMaTinhTrangCaSiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaKhuVuc
         {
@@ -1682,9 +1679,9 @@ namespace MusicStore.Models
         partial void OnMaKhuVucChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1706,7 +1703,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1744,7 +1741,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1785,17 +1782,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "CHATLUONGAMTHANH")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="CHATLUONGAMTHANH")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CHATLUONGAMTHANH : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CHATLUONGAMTHANH object.
         /// </summary>
@@ -1809,11 +1806,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaChatLuongAmThanh
         {
@@ -1836,11 +1833,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaChatLuongAmThanh;
         partial void OnMaChatLuongAmThanhChanging(global::System.Int32 value);
         partial void OnMaChatLuongAmThanhChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenChatLuongAmThanh
         {
@@ -1862,9 +1859,9 @@ namespace MusicStore.Models
         partial void OnTenChatLuongAmThanhChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1889,17 +1886,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "CHITIETALBUM")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="CHITIETALBUM")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CHITIETALBUM : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CHITIETALBUM object.
         /// </summary>
@@ -1913,11 +1910,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String MaChiTietAlbum
         {
@@ -1940,11 +1937,11 @@ namespace MusicStore.Models
         private global::System.String _MaChiTietAlbum;
         partial void OnMaChiTietAlbumChanging(global::System.String value);
         partial void OnMaChiTietAlbumChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaAlbum
         {
@@ -1964,11 +1961,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaAlbum;
         partial void OnMaAlbumChanging(Nullable<global::System.Int32> value);
         partial void OnMaAlbumChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaBaiHat
         {
@@ -1990,9 +1987,9 @@ namespace MusicStore.Models
         partial void OnMaBaiHatChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2030,7 +2027,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2071,17 +2068,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "CHITIETPLAYLIST")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="CHITIETPLAYLIST")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CHITIETPLAYLIST : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CHITIETPLAYLIST object.
         /// </summary>
@@ -2095,11 +2092,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaChiTietPlayList
         {
@@ -2122,11 +2119,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaChiTietPlayList;
         partial void OnMaChiTietPlayListChanging(global::System.Int32 value);
         partial void OnMaChiTietPlayListChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaBaiHat
         {
@@ -2146,11 +2143,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaBaiHat;
         partial void OnMaBaiHatChanging(Nullable<global::System.Int32> value);
         partial void OnMaBaiHatChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaPlaylist
         {
@@ -2172,9 +2169,9 @@ namespace MusicStore.Models
         partial void OnMaPlaylistChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2212,7 +2209,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2253,17 +2250,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "COMMENT")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="COMMENT")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class COMMENT : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new COMMENT object.
         /// </summary>
@@ -2277,11 +2274,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaComment
         {
@@ -2304,11 +2301,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaComment;
         partial void OnMaCommentChanging(global::System.Int32 value);
         partial void OnMaCommentChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NoiDung
         {
@@ -2328,11 +2325,11 @@ namespace MusicStore.Models
         private global::System.String _NoiDung;
         partial void OnNoiDungChanging(global::System.String value);
         partial void OnNoiDungChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaNguoiDung
         {
@@ -2352,11 +2349,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaNguoiDung;
         partial void OnMaNguoiDungChanging(Nullable<global::System.Int32> value);
         partial void OnMaNguoiDungChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaBaiHat
         {
@@ -2378,9 +2375,9 @@ namespace MusicStore.Models
         partial void OnMaBaiHatChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2418,7 +2415,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2459,17 +2456,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "DIEM")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="DIEM")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class DIEM : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new DIEM object.
         /// </summary>
@@ -2483,11 +2480,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaBaiHat
         {
@@ -2510,11 +2507,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaBaiHat;
         partial void OnMaBaiHatChanging(global::System.Int32 value);
         partial void OnMaBaiHatChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> Diem1
         {
@@ -2534,11 +2531,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Double> _Diem1;
         partial void OnDiem1Changing(Nullable<global::System.Double> value);
         partial void OnDiem1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String SoLuotDanhGia
         {
@@ -2560,9 +2557,9 @@ namespace MusicStore.Models
         partial void OnSoLuotDanhGiaChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2603,17 +2600,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "KHUVUC")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="KHUVUC")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class KHUVUC : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new KHUVUC object.
         /// </summary>
@@ -2627,11 +2624,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaKhuVuc
         {
@@ -2654,11 +2651,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaKhuVuc;
         partial void OnMaKhuVucChanging(global::System.Int32 value);
         partial void OnMaKhuVucChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenKhuVuc
         {
@@ -2680,9 +2677,9 @@ namespace MusicStore.Models
         partial void OnTenKhuVucChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2707,17 +2704,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "LOAINGUOIDUNG")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="LOAINGUOIDUNG")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class LOAINGUOIDUNG : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new LOAINGUOIDUNG object.
         /// </summary>
@@ -2731,11 +2728,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaLoaiNguoiDung
         {
@@ -2758,11 +2755,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaLoaiNguoiDung;
         partial void OnMaLoaiNguoiDungChanging(global::System.Int32 value);
         partial void OnMaLoaiNguoiDungChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenLoaiNguoiDung
         {
@@ -2784,9 +2781,9 @@ namespace MusicStore.Models
         partial void OnTenLoaiNguoiDungChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2811,17 +2808,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "NGUOIDUNG")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="NGUOIDUNG")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class NGUOIDUNG : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new NGUOIDUNG object.
         /// </summary>
@@ -2839,11 +2836,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaNguoiDung
         {
@@ -2866,11 +2863,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaNguoiDung;
         partial void OnMaNguoiDungChanging(global::System.Int32 value);
         partial void OnMaNguoiDungChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenNguoiDung
         {
@@ -2890,11 +2887,11 @@ namespace MusicStore.Models
         private global::System.String _TenNguoiDung;
         partial void OnTenNguoiDungChanging(global::System.String value);
         partial void OnTenNguoiDungChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> NgaySinh
         {
@@ -2914,11 +2911,11 @@ namespace MusicStore.Models
         private Nullable<global::System.DateTime> _NgaySinh;
         partial void OnNgaySinhChanging(Nullable<global::System.DateTime> value);
         partial void OnNgaySinhChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NoiSong
         {
@@ -2938,11 +2935,11 @@ namespace MusicStore.Models
         private global::System.String _NoiSong;
         partial void OnNoiSongChanging(global::System.String value);
         partial void OnNoiSongChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String UserName
         {
@@ -2962,11 +2959,11 @@ namespace MusicStore.Models
         private global::System.String _UserName;
         partial void OnUserNameChanging(global::System.String value);
         partial void OnUserNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String PassWord
         {
@@ -2986,11 +2983,11 @@ namespace MusicStore.Models
         private global::System.String _PassWord;
         partial void OnPassWordChanging(global::System.String value);
         partial void OnPassWordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaLoaiNguoiDung
         {
@@ -3010,11 +3007,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaLoaiNguoiDung;
         partial void OnMaLoaiNguoiDungChanging(Nullable<global::System.Int32> value);
         partial void OnMaLoaiNguoiDungChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaTinhTrangNguoiDung
         {
@@ -3036,9 +3033,9 @@ namespace MusicStore.Models
         partial void OnMaTinhTrangNguoiDungChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3076,7 +3073,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3098,7 +3095,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3136,7 +3133,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3174,7 +3171,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3199,17 +3196,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "NHACSI")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="NHACSI")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class NHACSI : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new NHACSI object.
         /// </summary>
@@ -3223,11 +3220,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaNhacSi
         {
@@ -3250,11 +3247,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaNhacSi;
         partial void OnMaNhacSiChanging(global::System.Int32 value);
         partial void OnMaNhacSiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenNhacSi
         {
@@ -3274,11 +3271,11 @@ namespace MusicStore.Models
         private global::System.String _TenNhacSi;
         partial void OnTenNhacSiChanging(global::System.String value);
         partial void OnTenNhacSiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaTinhTrangNhacSi
         {
@@ -3300,9 +3297,9 @@ namespace MusicStore.Models
         partial void OnMaTinhTrangNhacSiChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3324,7 +3321,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3365,17 +3362,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "PLAYLIST")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="PLAYLIST")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class PLAYLIST : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new PLAYLIST object.
         /// </summary>
@@ -3389,11 +3386,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaPlaylist
         {
@@ -3416,11 +3413,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaPlaylist;
         partial void OnMaPlaylistChanging(global::System.Int32 value);
         partial void OnMaPlaylistChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenPlaylist
         {
@@ -3440,11 +3437,11 @@ namespace MusicStore.Models
         private global::System.String _TenPlaylist;
         partial void OnTenPlaylistChanging(global::System.String value);
         partial void OnTenPlaylistChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> NgayTao
         {
@@ -3464,11 +3461,11 @@ namespace MusicStore.Models
         private Nullable<global::System.DateTime> _NgayTao;
         partial void OnNgayTaoChanging(Nullable<global::System.DateTime> value);
         partial void OnNgayTaoChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaNguoiDung
         {
@@ -3488,11 +3485,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaNguoiDung;
         partial void OnMaNguoiDungChanging(Nullable<global::System.Int32> value);
         partial void OnMaNguoiDungChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> SoLuotNghe
         {
@@ -3512,11 +3509,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Double> _SoLuotNghe;
         partial void OnSoLuotNgheChanging(Nullable<global::System.Double> value);
         partial void OnSoLuotNgheChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> SoLuongBaiHat
         {
@@ -3536,11 +3533,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _SoLuongBaiHat;
         partial void OnSoLuongBaiHatChanging(Nullable<global::System.Int32> value);
         partial void OnSoLuongBaiHatChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> SoLuotDownload
         {
@@ -3562,9 +3559,9 @@ namespace MusicStore.Models
         partial void OnSoLuotDownloadChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3586,7 +3583,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3627,17 +3624,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "sysdiagram")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="sysdiagram")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class sysdiagram : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new sysdiagram object.
         /// </summary>
@@ -3655,11 +3652,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String name
         {
@@ -3679,11 +3676,11 @@ namespace MusicStore.Models
         private global::System.String _name;
         partial void OnnameChanging(global::System.String value);
         partial void OnnameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 principal_id
         {
@@ -3703,11 +3700,11 @@ namespace MusicStore.Models
         private global::System.Int32 _principal_id;
         partial void Onprincipal_idChanging(global::System.Int32 value);
         partial void Onprincipal_idChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 diagram_id
         {
@@ -3730,11 +3727,11 @@ namespace MusicStore.Models
         private global::System.Int32 _diagram_id;
         partial void Ondiagram_idChanging(global::System.Int32 value);
         partial void Ondiagram_idChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> version
         {
@@ -3754,11 +3751,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _version;
         partial void OnversionChanging(Nullable<global::System.Int32> value);
         partial void OnversionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.Byte[] definition
         {
@@ -3780,19 +3777,19 @@ namespace MusicStore.Models
         partial void OndefinitionChanged();
 
         #endregion
-
+    
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "THAMSO")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="THAMSO")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class THAMSO : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new THAMSO object.
         /// </summary>
@@ -3806,11 +3803,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 QuyDinhSoNgayBanNickToiDa
         {
@@ -3833,11 +3830,11 @@ namespace MusicStore.Models
         private global::System.Int32 _QuyDinhSoNgayBanNickToiDa;
         partial void OnQuyDinhSoNgayBanNickToiDaChanging(global::System.Int32 value);
         partial void OnQuyDinhSoNgayBanNickToiDaChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> SoLuongPlaylistDuocTaoToiDa
         {
@@ -3857,11 +3854,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int16> _SoLuongPlaylistDuocTaoToiDa;
         partial void OnSoLuongPlaylistDuocTaoToiDaChanging(Nullable<global::System.Int16> value);
         partial void OnSoLuongPlaylistDuocTaoToiDaChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa
         {
@@ -3881,11 +3878,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int16> _SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa;
         partial void OnSoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDaChanging(Nullable<global::System.Int16> value);
         partial void OnSoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDaChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> SoLuongBaiHatMoiNhatDuocLietKeToiDa
         {
@@ -3905,11 +3902,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int16> _SoLuongBaiHatMoiNhatDuocLietKeToiDa;
         partial void OnSoLuongBaiHatMoiNhatDuocLietKeToiDaChanging(Nullable<global::System.Int16> value);
         partial void OnSoLuongBaiHatMoiNhatDuocLietKeToiDaChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa
         {
@@ -3929,11 +3926,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int16> _SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa;
         partial void OnSoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDaChanging(Nullable<global::System.Int16> value);
         partial void OnSoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDaChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> SoLuongBaiHatCungCaSiDuocLietKeToiDa
         {
@@ -3953,11 +3950,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int16> _SoLuongBaiHatCungCaSiDuocLietKeToiDa;
         partial void OnSoLuongBaiHatCungCaSiDuocLietKeToiDaChanging(Nullable<global::System.Int16> value);
         partial void OnSoLuongBaiHatCungCaSiDuocLietKeToiDaChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> SoLuongBaiHatLietKeMoiTrangToiDa
         {
@@ -3977,11 +3974,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int16> _SoLuongBaiHatLietKeMoiTrangToiDa;
         partial void OnSoLuongBaiHatLietKeMoiTrangToiDaChanging(Nullable<global::System.Int16> value);
         partial void OnSoLuongBaiHatLietKeMoiTrangToiDaChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> SoLuongBaiHatDuocTimThayToiDa
         {
@@ -4001,11 +3998,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int16> _SoLuongBaiHatDuocTimThayToiDa;
         partial void OnSoLuongBaiHatDuocTimThayToiDaChanging(Nullable<global::System.Int16> value);
         partial void OnSoLuongBaiHatDuocTimThayToiDaChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int16> SoGiayChoDownloadToiThieu
         {
@@ -4025,11 +4022,11 @@ namespace MusicStore.Models
         private Nullable<global::System.Int16> _SoGiayChoDownloadToiThieu;
         partial void OnSoGiayChoDownloadToiThieuChanging(Nullable<global::System.Int16> value);
         partial void OnSoGiayChoDownloadToiThieuChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenLogo
         {
@@ -4049,11 +4046,11 @@ namespace MusicStore.Models
         private global::System.String _TenLogo;
         partial void OnTenLogoChanging(global::System.String value);
         partial void OnTenLogoChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String GioiThieu
         {
@@ -4073,11 +4070,11 @@ namespace MusicStore.Models
         private global::System.String _GioiThieu;
         partial void OnGioiThieuChanging(global::System.String value);
         partial void OnGioiThieuChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NgonNgu
         {
@@ -4097,35 +4094,35 @@ namespace MusicStore.Models
         private global::System.String _NgonNgu;
         partial void OnNgonNguChanging(global::System.String value);
         partial void OnNgonNguChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String ThonTinLienLac
+        public global::System.String ThongTinLienLac
         {
             get
             {
-                return _ThonTinLienLac;
+                return _ThongTinLienLac;
             }
             set
             {
-                OnThonTinLienLacChanging(value);
-                ReportPropertyChanging("ThonTinLienLac");
-                _ThonTinLienLac = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ThonTinLienLac");
-                OnThonTinLienLacChanged();
+                OnThongTinLienLacChanging(value);
+                ReportPropertyChanging("ThongTinLienLac");
+                _ThongTinLienLac = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ThongTinLienLac");
+                OnThongTinLienLacChanged();
             }
         }
-        private global::System.String _ThonTinLienLac;
-        partial void OnThonTinLienLacChanging(global::System.String value);
-        partial void OnThonTinLienLacChanged();
-
+        private global::System.String _ThongTinLienLac;
+        partial void OnThongTinLienLacChanging(global::System.String value);
+        partial void OnThongTinLienLacChanged();
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Flash
         {
@@ -4145,21 +4142,93 @@ namespace MusicStore.Models
         private global::System.String _Flash;
         partial void OnFlashChanging(global::System.String value);
         partial void OnFlashChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SoLuongTheLoaiDuocLietKetTrenMenu
+        {
+            get
+            {
+                return _SoLuongTheLoaiDuocLietKetTrenMenu;
+            }
+            set
+            {
+                OnSoLuongTheLoaiDuocLietKetTrenMenuChanging(value);
+                ReportPropertyChanging("SoLuongTheLoaiDuocLietKetTrenMenu");
+                _SoLuongTheLoaiDuocLietKetTrenMenu = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SoLuongTheLoaiDuocLietKetTrenMenu");
+                OnSoLuongTheLoaiDuocLietKetTrenMenuChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SoLuongTheLoaiDuocLietKetTrenMenu;
+        partial void OnSoLuongTheLoaiDuocLietKetTrenMenuChanging(Nullable<global::System.Int32> value);
+        partial void OnSoLuongTheLoaiDuocLietKetTrenMenuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SoLuongCaSiLietKeTrenMenu
+        {
+            get
+            {
+                return _SoLuongCaSiLietKeTrenMenu;
+            }
+            set
+            {
+                OnSoLuongCaSiLietKeTrenMenuChanging(value);
+                ReportPropertyChanging("SoLuongCaSiLietKeTrenMenu");
+                _SoLuongCaSiLietKeTrenMenu = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SoLuongCaSiLietKeTrenMenu");
+                OnSoLuongCaSiLietKeTrenMenuChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SoLuongCaSiLietKeTrenMenu;
+        partial void OnSoLuongCaSiLietKeTrenMenuChanging(Nullable<global::System.Int32> value);
+        partial void OnSoLuongCaSiLietKeTrenMenuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SoLuongPlaylistXemNhieuNhatTrenMenu
+        {
+            get
+            {
+                return _SoLuongPlaylistXemNhieuNhatTrenMenu;
+            }
+            set
+            {
+                OnSoLuongPlaylistXemNhieuNhatTrenMenuChanging(value);
+                ReportPropertyChanging("SoLuongPlaylistXemNhieuNhatTrenMenu");
+                _SoLuongPlaylistXemNhieuNhatTrenMenu = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SoLuongPlaylistXemNhieuNhatTrenMenu");
+                OnSoLuongPlaylistXemNhieuNhatTrenMenuChanged();
+            }
+        }
+        private global::System.String _SoLuongPlaylistXemNhieuNhatTrenMenu;
+        partial void OnSoLuongPlaylistXemNhieuNhatTrenMenuChanging(global::System.String value);
+        partial void OnSoLuongPlaylistXemNhieuNhatTrenMenuChanged();
 
         #endregion
-
+    
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "THELOAI")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="THELOAI")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class THELOAI : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new THELOAI object.
         /// </summary>
@@ -4173,11 +4242,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaTheLoai
         {
@@ -4200,11 +4269,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaTheLoai;
         partial void OnMaTheLoaiChanging(global::System.Int32 value);
         partial void OnMaTheLoaiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenTheLoai
         {
@@ -4224,11 +4293,11 @@ namespace MusicStore.Models
         private global::System.String _TenTheLoai;
         partial void OnTenTheLoaiChanging(global::System.String value);
         partial void OnTenTheLoaiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> MaTinhTrangTheLoai
         {
@@ -4250,9 +4319,9 @@ namespace MusicStore.Models
         partial void OnMaTinhTrangTheLoaiChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4274,7 +4343,7 @@ namespace MusicStore.Models
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4315,17 +4384,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "TINHTRANGALBUM")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="TINHTRANGALBUM")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TINHTRANGALBUM : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TINHTRANGALBUM object.
         /// </summary>
@@ -4339,11 +4408,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaTinhTrangAlbum
         {
@@ -4366,11 +4435,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaTinhTrangAlbum;
         partial void OnMaTinhTrangAlbumChanging(global::System.Int32 value);
         partial void OnMaTinhTrangAlbumChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenTinhTrangAlbum
         {
@@ -4392,9 +4461,9 @@ namespace MusicStore.Models
         partial void OnTenTinhTrangAlbumChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4419,17 +4488,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "TINHTRANGBAIHAT")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="TINHTRANGBAIHAT")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TINHTRANGBAIHAT : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TINHTRANGBAIHAT object.
         /// </summary>
@@ -4443,11 +4512,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaTinhTrangBaiHat
         {
@@ -4470,11 +4539,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaTinhTrangBaiHat;
         partial void OnMaTinhTrangBaiHatChanging(global::System.Int32 value);
         partial void OnMaTinhTrangBaiHatChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenTinhTrangBaiHat
         {
@@ -4496,9 +4565,9 @@ namespace MusicStore.Models
         partial void OnTenTinhTrangBaiHatChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4523,17 +4592,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "TINHTRANGCASI")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="TINHTRANGCASI")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TINHTRANGCASI : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TINHTRANGCASI object.
         /// </summary>
@@ -4547,11 +4616,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaTinhTrangCaSi
         {
@@ -4574,11 +4643,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaTinhTrangCaSi;
         partial void OnMaTinhTrangCaSiChanging(global::System.Int32 value);
         partial void OnMaTinhTrangCaSiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenTinhTrangCaSi
         {
@@ -4600,9 +4669,9 @@ namespace MusicStore.Models
         partial void OnTenTinhTrangCaSiChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4627,17 +4696,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "TINHTRANGNGUOIDUNG")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="TINHTRANGNGUOIDUNG")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TINHTRANGNGUOIDUNG : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TINHTRANGNGUOIDUNG object.
         /// </summary>
@@ -4651,11 +4720,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaTinhTrangNguoiDung
         {
@@ -4678,11 +4747,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaTinhTrangNguoiDung;
         partial void OnMaTinhTrangNguoiDungChanging(global::System.Int32 value);
         partial void OnMaTinhTrangNguoiDungChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenTinhTrangNguoiDung
         {
@@ -4704,9 +4773,9 @@ namespace MusicStore.Models
         partial void OnTenTinhTrangNguoiDungChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4731,17 +4800,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "TINHTRANGNHACSI")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="TINHTRANGNHACSI")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TINHTRANGNHACSI : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TINHTRANGNHACSI object.
         /// </summary>
@@ -4755,11 +4824,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaTinhTrangNhacSi
         {
@@ -4782,11 +4851,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaTinhTrangNhacSi;
         partial void OnMaTinhTrangNhacSiChanging(global::System.Int32 value);
         partial void OnMaTinhTrangNhacSiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenTinhTrangNhacSi
         {
@@ -4808,9 +4877,9 @@ namespace MusicStore.Models
         partial void OnTenTinhTrangNhacSiChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4835,17 +4904,17 @@ namespace MusicStore.Models
 
         #endregion
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "db_MusicStoreModel", Name = "TINHTRANGTHELOAI")]
+    [EdmEntityTypeAttribute(NamespaceName="db_MusicStoreModel", Name="TINHTRANGTHELOAI")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TINHTRANGTHELOAI : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TINHTRANGTHELOAI object.
         /// </summary>
@@ -4859,11 +4928,11 @@ namespace MusicStore.Models
 
         #endregion
         #region Primitive Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaTinhTrangTheLoai
         {
@@ -4886,11 +4955,11 @@ namespace MusicStore.Models
         private global::System.Int32 _MaTinhTrangTheLoai;
         partial void OnMaTinhTrangTheLoaiChanging(global::System.Int32 value);
         partial void OnMaTinhTrangTheLoaiChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TenTinhTrangTheLoai
         {
@@ -4912,9 +4981,9 @@ namespace MusicStore.Models
         partial void OnTenTinhTrangTheLoaiChanged();
 
         #endregion
-
+    
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4941,5 +5010,5 @@ namespace MusicStore.Models
     }
 
     #endregion
-
+    
 }

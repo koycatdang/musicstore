@@ -30,8 +30,11 @@
       [THAMSO].[TenLogo] AS [TenLogo], 
       [THAMSO].[GioiThieu] AS [GioiThieu], 
       [THAMSO].[NgonNgu] AS [NgonNgu], 
-      [THAMSO].[ThonTinLienLac] AS [ThonTinLienLac], 
-      [THAMSO].[Flash] AS [Flash]
+      [THAMSO].[ThongTinLienLac] AS [ThongTinLienLac], 
+      [THAMSO].[Flash] AS [Flash], 
+      [THAMSO].[SoLuongTheLoaiDuocLietKetTrenMenu] AS [SoLuongTheLoaiDuocLietKetTrenMenu], 
+      [THAMSO].[SoLuongCaSiLietKeTrenMenu] AS [SoLuongCaSiLietKeTrenMenu], 
+      [THAMSO].[SoLuongPlaylistXemNhieuNhatTrenMenu] AS [SoLuongPlaylistXemNhieuNhatTrenMenu]
       FROM [dbo].[THAMSO] AS [THAMSO]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="THELOAI" EntityType="db_MusicStoreModel.Store.THELOAI" store:Type="Tables" Schema="dbo" />
@@ -283,8 +286,11 @@
     <Property Name="TenLogo" Type="varchar" MaxLength="50" />
     <Property Name="GioiThieu" Type="nvarchar(max)" />
     <Property Name="NgonNgu" Type="varchar" MaxLength="50" />
-    <Property Name="ThonTinLienLac" Type="nvarchar(max)" />
+    <Property Name="ThongTinLienLac" Type="nvarchar(max)" />
     <Property Name="Flash" Type="varchar" MaxLength="50" />
+    <Property Name="SoLuongTheLoaiDuocLietKetTrenMenu" Type="int" />
+    <Property Name="SoLuongCaSiLietKeTrenMenu" Type="int" />
+    <Property Name="SoLuongPlaylistXemNhieuNhatTrenMenu" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="THELOAI">
     <Key>

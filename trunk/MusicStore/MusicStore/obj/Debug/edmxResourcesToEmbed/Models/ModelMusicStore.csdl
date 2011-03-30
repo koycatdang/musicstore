@@ -297,8 +297,11 @@
     <Property Name="TenLogo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="GioiThieu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="NgonNgu" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-    <Property Name="ThonTinLienLac" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="ThongTinLienLac" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="Flash" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SoLuongTheLoaiDuocLietKetTrenMenu" Type="Int32" />
+    <Property Name="SoLuongCaSiLietKeTrenMenu" Type="Int32" />
+    <Property Name="SoLuongPlaylistXemNhieuNhatTrenMenu" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
   </EntityType>
   <EntityType Name="THELOAI">
     <Key>

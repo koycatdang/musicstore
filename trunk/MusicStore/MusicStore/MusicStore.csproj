@@ -194,14 +194,14 @@
     <Content Include="Views\SongManager\Index.cshtml" />
     <Content Include="Views\NguoiDungManager\Delete.cshtml" />
     <Content Include="Views\NguoiDungManager\Deleted.cshtml" />
-    <EntityDeploy Include="Models\ModelMusicStore.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelMusicStore.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Views\SongManager\Create.cshtml" />
     <Content Include="Views\SongManager\Edit.cshtml" />
     <Content Include="Views\SongManager\Delete.cshtml" />
     <Content Include="Views\SongManager\Deleted.cshtml" />
+    <EntityDeploy Include="Models\ModelMusicStore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMusicStore.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
