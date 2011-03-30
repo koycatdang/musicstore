@@ -1,0 +1,91 @@
+﻿@model IEnumerable<MusicStore.Models.BAIHAT>
+@{
+    ViewBag.Title = "Quản lí bài hát";
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Quản lí bài hát</h2>
+<p>
+    @Html.ActionLink("Thêm bài hát", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+        </th>
+        <th>
+            Tên bài hát:
+        </th>
+        <th>
+            Nhạc sĩ sáng tác:
+        </th>
+        <th>
+            Tình trạng bài hát
+        </th>
+        <th>
+            LinkDownload:
+        </th>
+        <th>
+            Số lượt download
+        </th>
+        <th>
+            Số lượt nghe:
+        </th>
+        <th>
+            Ca sĩ trình bày
+        </th>
+        <th>
+            Ngày tiếp nhận:
+        </th>
+        <th>
+            Chất lượng âm thanh:
+        </th>
+        <th>
+            Thể loại:
+        </th>
+        <th>
+            Điểm:
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaBaiHat }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaBaiHat })
+            </td>
+            <td>
+                @item.TenBaiHat
+            </td>
+            <td>
+                @item.NHACSI.TenNhacSi
+            </td>
+            <td>
+                @item.TINHTRANGBAIHAT.TenTinhTrangBaiHat
+            </td>
+            <td>
+                @item.LinkDownload
+            </td>
+            <td>
+                @String.Format("{0:F}", item.SoLuotDownload)
+            </td>
+            <td>
+                @String.Format("{0:F}", item.SoLuongNghe)
+            </td>
+            <td>
+                @item.CASI.TenCaSi
+            </td>
+            <td>
+                @String.Format("{0:g}", item.NgayTiepNhan)
+            </td>
+            <td>
+                @item.CHATLUONGAMTHANH.TenChatLuongAmThanh
+            </td>
+            <td>
+                @item.THELOAI.TenTheLoai
+            </td>
+            <td>
+                @String.Format("{0:F}", item.Diem)
+            </td>
+        </tr>
+    }
+</table>

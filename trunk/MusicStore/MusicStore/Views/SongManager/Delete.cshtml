@@ -1,0 +1,18 @@
+﻿@model MusicStore.Models.BAIHAT
+@{
+    ViewBag.Title = "Xóa bài hát | " + @Model.TenBaiHat;
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Xóa bài hát</h2>
+<h3>
+    Bạn có chắc muốn xóa bài hát với tên là @Model.TenBaiHat?</h3>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Xóa" />
+    </p>
+    <p>
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+}

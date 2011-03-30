@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MusicStore.Models.NGUOIDUNG>
+@{
+    ViewBag.Title = "Quản lí người dùng";
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Quản lí người dùng</h2>
+<p>
+    @Html.ActionLink("Thêm người dùng", "Create")
+</p>
+<table border="1" rules="all">
+    <tr>
+        <th>
+        </th>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Tên tài khoản
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Nơi sống
+        </th>
+        <th>
+            Loại người dùng
+        </th>
+        <th>
+            Tình trạng người dùng
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.MaNguoiDung }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.MaNguoiDung })
+            </td>
+            <td>
+                @item.TenNguoiDung
+            </td>
+            <td>
+                @item.UserName
+            </td>
+            <td>
+                @item.PassWord
+            </td>
+            <td>
+                @item.NgaySinh
+            </td>
+            <td>
+                @item.NoiSong
+            </td>
+            <td>
+                @item.LOAINGUOIDUNG.TenLoaiNguoiDung
+            </td>
+            <td>
+                @item.TINHTRANGNGUOIDUNG.TenTinhTrangNguoiDung
+            </td>
+        </tr>
+    }
+</table>
