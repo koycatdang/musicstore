@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MusicStore.Models;
+using System.Xml;
+using System.Data;
 
 namespace MusicStore.Controllers
 {
@@ -22,8 +24,11 @@ namespace MusicStore.Controllers
         // Get: /BaiHat/BrowCaSi/2
         public ActionResult BrowCaSi(int id)
         {
+
             var lstBaiHat = dbEntity.BAIHATs.Where(bh => bh.CASI.MaCaSi == id).ToList();
             return View(lstBaiHat);
+
+            
         }
 
         //
