@@ -42,24 +42,28 @@
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.NgaySinh)
+            @Html.ValidationMessageFor(model => model.NgaySinh)
         </div>
         <div class="editor-label">
             Nơi sống:
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.NoiSong)
+            @Html.ValidationMessageFor(model => model.NoiSong)
         </div>
         <div class="editor-label">
             Loại người dùng:
         </div>
         <div class="editor-field">
-            @Html.DropDownList("MaLoaiNguoiDung", new SelectList(ViewBag.LoaiNguoiDung as System.Collections.IEnumerable, "MaLoaiNguoiDung", "TenLoaiNguoiDung", Model.MaLoaiNguoiDung))
+            @Html.DropDownList("MaLoaiNguoiDung", new SelectList(ViewBag.LoaiNguoiDung as System.Collections.IEnumerable, "MaLoaiNguoiDung", "TenLoaiNguoiDung", Model.MaLoaiNguoiDung), "--SELECT ONE--")
+            @Html.ValidationMessageFor(model => model.MaLoaiNguoiDung)
         </div>
         <div class="editor-label">
             Tình trạng người dùng:
         </div>
         <div class="editor-field">
-            @Html.DropDownList("MaTinhTrangNguoiDung", new SelectList(ViewBag.TinhTrangNguoiDung as System.Collections.IEnumerable, "MaTinhTrangNguoiDung", "TenTinhTrangNguoiDung", Model.MaTinhTrangNguoiDung))
+            @Html.DropDownList("MaTinhTrangNguoiDung", new SelectList(ViewBag.TinhTrangNguoiDung as System.Collections.IEnumerable, "MaTinhTrangNguoiDung", "TenTinhTrangNguoiDung", Model.MaTinhTrangNguoiDung), "--SELECT ONE--")
+            @Html.ValidationMessageFor(model => model.MaTinhTrangNguoiDung)
         </div>
         <p>
             <input type="submit" value="Tạo" />

@@ -49,7 +49,7 @@ namespace MusicStore.Controllers
         public ActionResult Edit(int id)
         {
             ViewBag.TinhTrangTheLoai = StoreDB.TINHTRANGTHELOAIs.OrderBy(tttl => tttl.MaTinhTrangTheLoai).ToList();
-            var _genre = new THELOAI();
+            var _genre = StoreDB.THELOAIs.Single(tl => tl.MaTheLoai == id);
             return View(_genre);
         }
 
