@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BaiHatController.cs" />
     <Compile Include="Controllers\CaSiController.cs" />
+    <Compile Include="Controllers\GenreManagerController.cs" />
     <Compile Include="Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\HomeUserController.cs" />
     <Compile Include="Controllers\NguoiDungManagerController.cs" />
@@ -202,6 +203,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelMusicStore.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Views\GenreManager\Index.cshtml" />
+    <Content Include="Views\GenreManager\Edit.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

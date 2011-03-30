@@ -1,90 +1,117 @@
-﻿@model MusicStore.Models.BAIHAT
+﻿@model MusicStore.Models.THELOAI
+
 @{
-    ViewBag.Title = "Tạo bài hát";
+    ViewBag.Title = "Cập nhật thể loại | " + @Model.TenTheLoai;
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
 }
-<h2>Thêm bài hát</h2>
+
+<h2>Edit</h2>
+
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-@using (Html.BeginForm())
-{
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Thông tin bài hát</legend>
+        <legend>BAIHAT</legend>
+
+        @Html.HiddenFor(model => model.MaBaiHat)
+
         <div class="editor-label">
-            Tên bài hát:
+            @Html.LabelFor(model => model.TenBaiHat)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.TenBaiHat)
             @Html.ValidationMessageFor(model => model.TenBaiHat)
         </div>
+
         <div class="editor-label">
-            Nhạc sĩ sáng tác:
+            @Html.LabelFor(model => model.MaNhacSi)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("MaNhacSi", new SelectList(ViewBag.NhacSi as System.Collections.IEnumerable, "MaNhacSi", "TenNhacSi", Model.MaNhacSi))
+            @Html.EditorFor(model => model.MaNhacSi)
             @Html.ValidationMessageFor(model => model.MaNhacSi)
         </div>
+
         <div class="editor-label">
-            Tình trạng bài hát:
+            @Html.LabelFor(model => model.MaTinhTrangBaiHat)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("MaTinhTrangBaiHat", new SelectList(ViewBag.TinhTrangBaiHat as System.Collections.IEnumerable, "MaTinhTrangBaiHat", "TenTinhTrangBaiHat", Model.MaTinhTrangBaiHat))
+            @Html.EditorFor(model => model.MaTinhTrangBaiHat)
             @Html.ValidationMessageFor(model => model.MaTinhTrangBaiHat)
         </div>
+
         <div class="editor-label">
-            LinkDownload:
+            @Html.LabelFor(model => model.LinkDownload)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.LinkDownload)
             @Html.ValidationMessageFor(model => model.LinkDownload)
         </div>
+
         <div class="editor-label">
-            Số lượt Download:
+            @Html.LabelFor(model => model.SoLuotDownload)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.SoLuotDownload)
             @Html.ValidationMessageFor(model => model.SoLuotDownload)
         </div>
+
         <div class="editor-label">
-            Số lượt nghe:
+            @Html.LabelFor(model => model.SoLuongNghe)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.SoLuongNghe)
             @Html.ValidationMessageFor(model => model.SoLuongNghe)
         </div>
+
         <div class="editor-label">
-            Ca sĩ trình bày:
+            @Html.LabelFor(model => model.MaCaSiTrinhBay)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("MaCaSiTrinhBay", new SelectList(ViewBag.CaSi as System.Collections.IEnumerable, "MaCaSi", "TenCaSi", Model.MaCaSiTrinhBay))
+            @Html.EditorFor(model => model.MaCaSiTrinhBay)
             @Html.ValidationMessageFor(model => model.MaCaSiTrinhBay)
         </div>
+
         <div class="editor-label">
-            Date:
+            @Html.LabelFor(model => model.NgayTiepNhan)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("MaChatLuongAmThanh", new SelectList(ViewBag.ChatLuongAmThanh as System.Collections.IEnumerable, "MaChatLuongAmThanh", "TenChatLuongAmThanh", Model.MaChatLuongAmThanh))
+            @Html.EditorFor(model => model.NgayTiepNhan)
+            @Html.ValidationMessageFor(model => model.NgayTiepNhan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaChatLuongAmThanh)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaChatLuongAmThanh)
             @Html.ValidationMessageFor(model => model.MaChatLuongAmThanh)
         </div>
+
         <div class="editor-label">
-            Genre:
+            @Html.LabelFor(model => model.MaTheLoai)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("MaTheLoai", new SelectList(ViewBag.TheLoai as System.Collections.IEnumerable, "MaTheLoai", "TenTheLoai", Model.MaTheLoai))
+            @Html.EditorFor(model => model.MaTheLoai)
             @Html.ValidationMessageFor(model => model.MaTheLoai)
         </div>
+
         <div class="editor-label">
-            Point:
+            @Html.LabelFor(model => model.Diem)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Diem)
             @Html.ValidationMessageFor(model => model.Diem)
         </div>
+
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 }
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
