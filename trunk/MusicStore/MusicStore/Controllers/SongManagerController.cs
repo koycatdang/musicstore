@@ -111,24 +111,40 @@ namespace MusicStore.Controllers
             // Xóa BAIHAT <Cập nhật trạng thái thành Delete)
             if (TryUpdateModel(_baiHat))
             {
-                StoreDB.SaveChanges();
-
                 // DELETE COMMENT
-                if (StoreDB.COMMENTs.Where(cm => cm.MaBaiHat == id).Count() != 0)
-                {
-                    var _comment = StoreDB.COMMENTs.Select(cm => cm.MaBaiHat == id).ToList();
-                    for (int i = 0; i < _comment.Count(); i++)
-                        StoreDB.DeleteObject(_comment[i]);
-                }
+                var _comment = StoreDB.COMMENTs.Select(cm => cm.MaBaiHat == id).ToList();
+                for (int i = 0; i < _comment.Count(); i++)
+                    StoreDB.DeleteObject(_comment[i]);
+                
 
                 //DELETE DIEM
-                if (StoreDB.DIEMs.Where(d => d.MaBaiHat == id).Count() != 0)
+                var _diem = StoreDB.DIEMs.Select(d => d.MaBaiHat == id).ToList();
+                for (int i = 0; i < _diem.Count(); i++)
+                    StoreDB.DeleteObject(_diem[i]);
+                
+                // DELETE CHITIETALBUM
+                var _chiTietAlbum = StoreDB.CHITIETALBUMs.Select(cta => cta.MaBaiHat == id).ToList();
+                for (int i = 0; i < _chiTietAlbum.Count(); i++)
+                    StoreDB.DeleteObject(_chiTietAlbum[i]);
+                
+                // DELETE CHITIETPLAYLIST & Cập nhật số lượng bài hát ở PLAYLIST
+                var _chiTietPlatlist = from ctpl in StoreDB.CHITIETPLAYLISTs
+                                       where ctpl.MaBaiHat.Equals(id)
+                                       select ctpl;
+                foreach (var item in _chiTietPlatlist)
                 {
-                    var _diem = StoreDB.DIEMs.Select(d => d.MaBaiHat == id).ToList();
-                    for (int i = 0; i < _diem.Count(); i++)
-                        StoreDB.DeleteObject(_diem[i]);
-                }
+                    // Cập số lượng bài hát trong Playlist
+                    var _playList = StoreDB.PLAYLISTs.First(pl => pl.MaPlaylist == item.MaPlaylist);
+                    _playList.SoLuongBaiHat--;
+                    TryUpdateModel(_playList);
 
+                    // DELETE CHITIETPLAYLIST
+                    StoreDB.DeleteObject(item);
+                }
+                
+               
+
+                StoreDB.SaveChanges();
                 return View("Deleted");
             }
             else

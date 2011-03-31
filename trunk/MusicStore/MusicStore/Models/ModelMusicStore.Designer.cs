@@ -1901,7 +1901,7 @@ namespace MusicStore.Models
         /// Create a new CHITIETALBUM object.
         /// </summary>
         /// <param name="maChiTietAlbum">Initial value of the MaChiTietAlbum property.</param>
-        public static CHITIETALBUM CreateCHITIETALBUM(global::System.String maChiTietAlbum)
+        public static CHITIETALBUM CreateCHITIETALBUM(global::System.Int32 maChiTietAlbum)
         {
             CHITIETALBUM cHITIETALBUM = new CHITIETALBUM();
             cHITIETALBUM.MaChiTietAlbum = maChiTietAlbum;
@@ -1916,7 +1916,7 @@ namespace MusicStore.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String MaChiTietAlbum
+        public global::System.Int32 MaChiTietAlbum
         {
             get
             {
@@ -1928,14 +1928,14 @@ namespace MusicStore.Models
                 {
                     OnMaChiTietAlbumChanging(value);
                     ReportPropertyChanging("MaChiTietAlbum");
-                    _MaChiTietAlbum = StructuralObject.SetValidValue(value, false);
+                    _MaChiTietAlbum = StructuralObject.SetValidValue(value);
                     ReportPropertyChanged("MaChiTietAlbum");
                     OnMaChiTietAlbumChanged();
                 }
             }
         }
-        private global::System.String _MaChiTietAlbum;
-        partial void OnMaChiTietAlbumChanging(global::System.String value);
+        private global::System.Int32 _MaChiTietAlbum;
+        partial void OnMaChiTietAlbumChanging(global::System.Int32 value);
         partial void OnMaChiTietAlbumChanged();
     
         /// <summary>

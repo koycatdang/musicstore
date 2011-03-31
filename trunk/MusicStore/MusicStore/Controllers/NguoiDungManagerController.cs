@@ -98,8 +98,8 @@ namespace MusicStore.Controllers
                         _banNick.MaNguoiDung = _nguoiDung.MaNguoiDung;
 
                         // Lấy số lượng ngày bị bannick
-                        var _soNgayBanNick = (from ts in StoreDB.THAMSOes
-                                              select new { ts.QuyDinhSoNgayBanNickToiDa });
+                        var _soNgayBanNick = from ts in StoreDB.THAMSOes
+                                             select new { ts.QuyDinhSoNgayBanNickToiDa };
 
                         foreach (var item in _soNgayBanNick)
                         {
@@ -110,7 +110,7 @@ namespace MusicStore.Controllers
                         StoreDB.BANNICKs.AddObject(_banNick);
                     }
                 }
-                else 
+                else
                 {
                     if (_nguoiDung.MaTinhTrangNguoiDung != 2)
                     {
@@ -142,30 +142,22 @@ namespace MusicStore.Controllers
         public ActionResult Delete(int id, FormCollection collection)
         {
             var _nguoiDung = StoreDB.NGUOIDUNGs.First(nd => nd.MaNguoiDung == id);
-            
+
             // DELETE CHITIETPLAYLIST
-            if (StoreDB.CHITIETPLAYLISTs.Where(ctpl => ctpl.PLAYLIST.MaNguoiDung == id).Count() != 0)
-            {
-                var _chiTietPlayList = StoreDB.CHITIETPLAYLISTs.Select(ctpl => ctpl.PLAYLIST.MaNguoiDung == id).ToList();
-                for (int i = 0; i < _chiTietPlayList.Count(); i++)
-                    StoreDB.DeleteObject(_chiTietPlayList[i]);
-            }
-            
+            var _chiTietPlayList = StoreDB.CHITIETPLAYLISTs.Select(ctpl => ctpl.PLAYLIST.MaNguoiDung == id).ToList();
+            for (int i = 0; i < _chiTietPlayList.Count(); i++)
+                StoreDB.DeleteObject(_chiTietPlayList[i]);
+
             // DELETE PLAYLIST
-            if (StoreDB.PLAYLISTs.Where(pl => pl.MaNguoiDung == id).Count() != 0)
-            {
-                var _playList = StoreDB.PLAYLISTs.Select(pl => pl.MaNguoiDung == id).ToList();
-                for (int i = 0; i < _playList.Count(); i++)
-                    StoreDB.DeleteObject(_playList[i]);
-            }
+            var _playList = StoreDB.PLAYLISTs.Select(pl => pl.MaNguoiDung == id).ToList();
+            for (int i = 0; i < _playList.Count(); i++)
+                StoreDB.DeleteObject(_playList[i]);
 
             // DELETE COMMENT
-            if (StoreDB.COMMENTs.Where(cm => cm.MaNguoiDung == id).Count() != 0)
-            {
-                var _comment = StoreDB.COMMENTs.Select(cm => cm.MaNguoiDung == id).ToList();
-                for (int i = 0; i < _comment.Count(); i++)
-                    StoreDB.DeleteObject(_comment[i]);
-            }
+            var _comment = StoreDB.COMMENTs.Select(cm => cm.MaNguoiDung == id).ToList();
+            for (int i = 0; i < _comment.Count(); i++)
+                StoreDB.DeleteObject(_comment[i]);
+
 
             // DELETE BANNICK
             if (_nguoiDung.MaLoaiNguoiDung == 2)

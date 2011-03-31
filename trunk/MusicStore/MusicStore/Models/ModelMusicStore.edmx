@@ -166,7 +166,7 @@
           <Key>
             <PropertyRef Name="MaChiTietAlbum" />
           </Key>
-          <Property Name="MaChiTietAlbum" Type="varchar" Nullable="false" MaxLength="15" />
+          <Property Name="MaChiTietAlbum" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MaAlbum" Type="int" />
           <Property Name="MaBaiHat" Type="int" />
         </EntityType>
@@ -174,7 +174,7 @@
           <Key>
             <PropertyRef Name="MaChiTietPlayList" />
           </Key>
-          <Property Name="MaChiTietPlayList" Type="int" Nullable="false" />
+          <Property Name="MaChiTietPlayList" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MaBaiHat" Type="int" />
           <Property Name="MaPlaylist" Type="int" />
         </EntityType>
@@ -790,7 +790,7 @@
           <Key>
             <PropertyRef Name="MaChiTietAlbum" />
           </Key>
-          <Property Name="MaChiTietAlbum" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="MaChiTietAlbum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaAlbum" Type="Int32" />
           <Property Name="MaBaiHat" Type="Int32" />
           <NavigationProperty Name="ALBUM" Relationship="db_MusicStoreModel.FK_CHITIETALBUM_ALBUM" FromRole="CHITIETALBUM" ToRole="ALBUM" />
@@ -800,7 +800,7 @@
           <Key>
             <PropertyRef Name="MaChiTietPlayList" />
           </Key>
-          <Property Name="MaChiTietPlayList" Type="Int32" Nullable="false" />
+          <Property Name="MaChiTietPlayList" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaBaiHat" Type="Int32" />
           <Property Name="MaPlaylist" Type="Int32" />
           <NavigationProperty Name="BAIHAT" Relationship="db_MusicStoreModel.FK_CHITIETPLAYLIST_BAIHAT" FromRole="CHITIETPLAYLIST" ToRole="BAIHAT" />
