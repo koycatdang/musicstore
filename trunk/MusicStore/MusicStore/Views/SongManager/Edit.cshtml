@@ -69,7 +69,7 @@
             @Html.ValidationMessageFor(model => model.NgayTiepNhan)
         </div>
         <div class="editor-label">
-            Ngày tiếp nhận:
+            Chất lượng âm thanh:
         </div>
         <div class="editor-field">
             @Html.DropDownList("MaChatLuongAmThanh", new SelectList(ViewBag.ChatLuongAmThanh as System.Collections.IEnumerable, "MaChatLuongAmThanh", "TenChatLuongAmThanh", Model.MaChatLuongAmThanh), "--SELECT ONE--")

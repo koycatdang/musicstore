@@ -1,40 +1,38 @@
 ﻿@model IEnumerable<MusicStore.Models.THELOAI>
-
 @{
     ViewBag.Title = "Quản lí thể loại bài hát";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+    var grid = new WebGrid(source: Model, canSort: true, canPage: true, rowsPerPage: 10);
 }
-
-<h2>Quản lí thể loại bài hát</h2>
-
+<h2>
+    Quản lí thể loại bài hát</h2>
 <p>
     @Html.ActionLink("Thêm thể loại bài hát", "Create")
 </p>
-<table>
-    <tr>
-        <th></th>
-        <th>
-            Tên thể loại
-        </th>
-        <th>
-            Tình trạng thể loại
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaTheLoai }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaTheLoai })
-        </td>
-        <td>
-            @item.TenTheLoai
-        </td>
-        <td>
-            @item.TINHTRANGTHELOAI.TenTinhTrangTheLoai
-        </td>
-    </tr>
+Tổng số thể loại nhạc hiện tại: @Html.Encode(grid.TotalRowCount)
+<br />
+@grid.GetHtml(
+    tableStyle: "webgrid-table",
+    headerStyle: "webgrid-header",
+    footerStyle: "paging-number",
+    alternatingRowStyle: "webgrid-alternatingRow",
+    rowStyle: "webgrid-row",
+    columns: grid.Columns(
+        grid.Column(
+            header: "",
+            style: "",
+            format: (item) => new HtmlString(Html.ActionLink("Sửa", "Edit", new { id = item.MaTheLoai }).ToString() +
+                                             Html.ActionLink("Xóa", "Delete", new { id = item.MaTheLoai }).ToString())
+        ),
+        grid.Column("TenTheLoai", "Tên thể loại"),
+        grid.Column("MaTinhTrangTheLoai", "Mã tình trạng thể loại")
+    )
+)
+@{
+    if (!string.IsNullOrWhiteSpace(grid.SortColumn))
+    {
+    <script type="text/javascript">
+        $('thead > tr > th > a[href*="sort=@grid.SortColumn"]').parent().append('@(grid.SortDirection == SortDirection.Ascending ? "^" : "v")');
+    </script>
+    }
 }
-
-</table>
-

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Quản lí nhạc sĩ";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+    var grid = new WebGrid(source: Model, canSort: true, canPage: true, rowsPerPage: 10);
 }
 
 <h2>Quản lí nhạc sĩ</h2>
@@ -10,31 +11,30 @@
 <p>
     @Html.ActionLink("Thêm nhạc sĩ", "Create")
 </p>
-<table>
-    <tr>
-        <th></th>
-        <th>
-            TenNhacSi
-        </th>
-        <th>
-            MaTinhTrangNhacSi
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Sửa", "Edit", new { id=item.MaNhacSi }) |
-            @Html.ActionLink("Xóa", "Delete", new { id=item.MaNhacSi })
-        </td>
-        <td>
-            @item.TenNhacSi
-        </td>
-        <td>
-            @item.MaTinhTrangNhacSi
-        </td>
-    </tr>
+Tổng số nhạc sĩ hiện tại: @Html.Encode(grid.TotalRowCount)
+<br />
+@grid.GetHtml(
+    tableStyle: "webgrid-table",
+    headerStyle: "webgrid-header",
+    footerStyle: "paging-number",
+    alternatingRowStyle: "webgrid-alternatingRow",
+    rowStyle: "webgrid-row",
+    columns: grid.Columns(
+        grid.Column(
+            header: "",
+            style: "",
+            format: (item) => new HtmlString(Html.ActionLink("Sửa", "Edit", new { id = item.MaNhacSi }).ToString() +
+                                             Html.ActionLink("Xóa", "Delete", new { id = item.MaNhacSi }).ToString())
+        ),
+        grid.Column("TenNhacSi", "Tên nhạc sĩ"),
+        grid.Column("MaTinhTrangNhacSi", "Mã tình trạng nhạc sĩ")
+    )
+)
+@{
+    if (!string.IsNullOrWhiteSpace(grid.SortColumn))
+    {
+    <script type="text/javascript">
+        $('thead > tr > th > a[href*="sort=@grid.SortColumn"]').parent().append('@(grid.SortDirection == SortDirection.Ascending ? "^" : "v")');
+    </script>
+    }
 }
-
-</table>
-

@@ -8,6 +8,11 @@ body
     background-repeat: repeat-x;
 }
 
+
+form fieldset
+{
+    padding: 15px 0 15px 20px;
+}
 #logo
 {
     /* Logo DIV */
@@ -866,13 +871,14 @@ h3
 }
 
 
-/***************************************/
-
+/********* GRID VIEW ************/
 .webgrid-table
 {
     width: 100%;
-    border: 1px;
-    border-color:#485dc5;
+    line-height: normal;
+    font-family: Tahoma;
+    font-size: small;
+    padding: 10px 0 10px 0;
 }
 
 .webgrid-table caption
@@ -886,23 +892,21 @@ h3
 
 .webgrid-header
 {
-    background-color:Silver;
-    color: White;
+    background-color: Silver;
+    color: white !important;
     text-align: left;
     vertical-align: middle;
-    font-family:Tahoma;
+    font-weight: bold;
 }
 
 .webgrid-row
 {
-    font-family:Tahoma;
-    background-color: #f4ed52;
+    background-color: #EFF3FB;
 }
 
 .webgrid-alternatingRow
 {
-    background-color: #a0dae8;
-    font-family:Tahoma;
+    background-color: White;
 }
 .paging-number
 {
@@ -922,3 +926,79 @@ h3
     -khtml-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
+/**** end of GRID VIEW */
+/**** Create. Edit */
+.button, input[type=submit]
+{
+	clear: both;
+	display:block;
+	padding: 6px 9px 6px 9px;
+	margin-top: 10px; 
+	border: 1px;
+	background: #5e5b54;
+	color: #fff;
+	font-weight: bold;
+}
+
+.button a
+{
+	color: #fff !important;
+}
+fieldset
+{
+	border: #9b9993 1px solid;
+	padding: 0 10px;
+	margin-bottom: 10px;
+	clear: left;
+}
+
+div.editor-field
+{
+	margin-bottom: 10px;
+}
+
+label
+{
+    display: block;
+    width: 300px;
+    font-family: Tahoma;
+}
+
+input[type=text], input[type=password], select
+{
+	border:1px inset #0d0213;
+	width: 300px;
+	height: 22px;
+}
+input:hover
+{
+    background-color: #d0eaed;
+}
+
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+/*** end of Create Edit ****/

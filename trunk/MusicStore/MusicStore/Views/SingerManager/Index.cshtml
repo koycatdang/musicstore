@@ -2,42 +2,38 @@
 @{
     ViewBag.Title = "Quản lí ca sĩ";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+    var grid = new WebGrid(source: Model, canSort: true, canPage: true, rowsPerPage: 10);
 }
 <h2>
     Quản lí ca sĩ</h2>
 <p>
     @Html.ActionLink("Thêm ca sĩ", "Create")
 </p>
-<table>
-    <tr>
-        <th>
-        </th>
-        <th>
-            TenCaSi
-        </th>
-        <th>
-            MaTinhTrangCaSi
-        </th>
-        <th>
-            MaKhuVuc
-        </th>
-    </tr>
-    @foreach (var item in Model)
+Tổng số ca sĩ hiện tại: @Html.Encode(grid.TotalRowCount)
+<br />
+@grid.GetHtml(
+    tableStyle: "webgrid-table",
+    headerStyle: "webgrid-header",
+    footerStyle: "paging-number",
+    alternatingRowStyle: "webgrid-alternatingRow",
+    rowStyle: "webgrid-row",
+    columns: grid.Columns(
+        grid.Column(
+            header: "",
+            style: "",
+            format: (item) => new HtmlString(Html.ActionLink("Sửa", "Edit", new { id = item.MaCaSi }).ToString() +
+                                             Html.ActionLink("Xóa", "Delete", new { id = item.MaCaSi }).ToString())
+        ),
+        grid.Column("TenCaSi", "Tên ca sĩ"),
+        grid.Column("MaTinhTrangCaSi", "Mã tình trạng ca sĩ"),
+        grid.Column("MaKhuVuc", "Mã khu vực")
+    )
+)
+@{
+    if (!string.IsNullOrWhiteSpace(grid.SortColumn))
     {
-        <tr>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaCaSi }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaCaSi })
-            </td>
-            <td>
-                @item.TenCaSi
-            </td>
-            <td>
-                @item.MaTinhTrangCaSi
-            </td>
-            <td>
-                @item.MaKhuVuc
-            </td>
-        </tr>
+    <script type="text/javascript">
+        $('thead > tr > th > a[href*="sort=@grid.SortColumn"]').parent().append('@(grid.SortDirection == SortDirection.Ascending ? "^" : "v")');
+    </script>
     }
-</table>
+}

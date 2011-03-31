@@ -29,6 +29,26 @@ namespace MusicStore.Controllers
 
             return View(_nguoiDung);
         }
+        
+        // Hàm ban nick
+        private void fnBanNick(NGUOIDUNG _nguoiDung)
+        {
+            BANNICK _banNick = new BANNICK();
+            _banNick.MaNguoiDung = _nguoiDung.MaNguoiDung;
+
+            // Lấy số lượng ngày bị bannick
+            var _soNgayBanNick = (from ts in StoreDB.THAMSOes
+                                  select new { ts.QuyDinhSoNgayBanNickToiDa });
+
+            foreach (var item in _soNgayBanNick)
+            {
+                DateTime dtHetHan = (DateTime.Now).AddDays(item.QuyDinhSoNgayBanNickToiDa);
+                _banNick.NgayHetHan = dtHetHan;
+            }
+
+            // Add BANNICK
+            StoreDB.BANNICKs.AddObject(_banNick);
+        }
 
         //
         // POST: /NguoiDungManager/Create
@@ -39,8 +59,8 @@ namespace MusicStore.Controllers
             {
                 //Save NGUOIDUNG
                 StoreDB.NGUOIDUNGs.AddObject(_nguoiDung);
+                if (_nguoiDung.MaTinhTrangNguoiDung == 2) fnBanNick(_nguoiDung);
                 StoreDB.SaveChanges();
-
                 return RedirectToAction("Index");
             }
             // Invalid – redisplay with errors
@@ -71,6 +91,7 @@ namespace MusicStore.Controllers
 
             if (TryUpdateModel(_nguoiDung))
             {
+                if (_nguoiDung.MaTinhTrangNguoiDung == 2) fnBanNick(_nguoiDung);
                 StoreDB.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -94,8 +115,14 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
+            var _banNick = StoreDB.BANNICKs.First(bn => bn.MaNguoiDung == id);
             var _nguoiDung = StoreDB.NGUOIDUNGs.First(nd => nd.MaNguoiDung == id);
+            var _chiTietPlayList = StoreDB.CHITIETPLAYLISTs.First(ctpl => ctpl.PLAYLIST.MaNguoiDung == id);
+            var _playList = StoreDB.PLAYLISTs.First(pl => pl.MaNguoiDung == id);
 
+            StoreDB.BANNICKs.DeleteObject(_banNick);
+            StoreDB.CHITIETPLAYLISTs.DeleteObject(_chiTietPlayList);
+            StoreDB.PLAYLISTs.DeleteObject(_playList);
             StoreDB.NGUOIDUNGs.DeleteObject(_nguoiDung);
             StoreDB.SaveChanges();
             return View("Deleted");

@@ -4,7 +4,6 @@
     ViewBag.Title = "Quản lí bài hát";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
     var grid = new WebGrid(source: Model, canSort: true, canPage: true, rowsPerPage: 10);
-    var i = Model.ToList();
 }
 <h2>
     Quản lí bài hát</h2>
@@ -13,6 +12,7 @@
 </p>
 Tổng số bài hát hiện có: @Html.Encode(grid.TotalRowCount)
 <br />
+
 @grid.GetHtml(
     tableStyle: "webgrid-table",
     headerStyle: "webgrid-header",

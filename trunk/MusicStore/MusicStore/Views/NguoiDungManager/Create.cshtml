@@ -1,16 +1,16 @@
 ﻿@model MusicStore.Models.NGUOIDUNG
 @{
-    ViewBag.Title = "Tạo người dùng mới";
+    ViewBag.Title = "Thêm người dùng";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
 }
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <h2>
-    Thêm người dùng</h2>
+    THÊM NGƯỜI DÙNG</h2>
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Thông tin người dùng</legend>
+        <legend> Thông tin người dùng </legend>
         <div class="editor-label">
             Họ tên người dùng:
         </div>
@@ -30,12 +30,6 @@
         <div class="editor-field">
             @Html.PasswordFor(model => model.PassWord)
             @Html.ValidationMessageFor(model => model.PassWord)
-        </div>
-        <div class="editor-label">
-            Xác nhận mật khẩu:
-        </div>
-        <div class="editor-field">
-            @Html.Password("PassWord")
         </div>
         <div class="editor-label">
             Ngày sinh:

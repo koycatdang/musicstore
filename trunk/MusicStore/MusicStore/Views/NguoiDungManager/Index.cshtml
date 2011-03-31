@@ -2,66 +2,42 @@
 @{
     ViewBag.Title = "Quản lí người dùng";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+    var grid = new WebGrid(source: Model, canSort: true, canPage: true, rowsPerPage: 10);
 }
 <h2>
     Quản lí người dùng</h2>
 <p>
     @Html.ActionLink("Thêm người dùng", "Create")
 </p>
-<table border="1" rules="all">
-    <tr>
-        <th>
-        </th>
-        <th>
-            Họ tên
-        </th>
-        <th>
-            Tên tài khoản
-        </th>
-        <th>
-            Mật khẩu
-        </th>
-        <th>
-            Ngày sinh
-        </th>
-        <th>
-            Nơi sống
-        </th>
-        <th>
-            Loại người dùng
-        </th>
-        <th>
-            Tình trạng người dùng
-        </th>
-    </tr>
-    @foreach (var item in Model)
+Tổng số người dùng hiện tại: @Html.Encode(grid.TotalRowCount)
+<br />
+@grid.GetHtml(
+    tableStyle: "webgrid-table",
+    headerStyle: "webgrid-header",
+    footerStyle: "paging-number",
+    alternatingRowStyle: "webgrid-alternatingRow",
+    rowStyle: "webgrid-row",
+    columns: grid.Columns(
+        grid.Column("TenNguoiDung", "Họ tên"),
+        grid.Column("UserName", "Tên tài khoản"),
+        grid.Column("Password", "Mật khẩu"),
+        grid.Column("NgaySinh", "Ngày sinh"),
+        grid.Column("NoiSong", "Nơi s"),
+        grid.Column("MaLoaiNguoiDung", "Mã loại người dùng"),
+        grid.Column("MaTinhTrangNguoiDung", "Mã tính trạng người dùng"),
+        grid.Column(
+            header: "",
+            style: "",
+            format: (item) => new HtmlString(Html.ActionLink("Sửa", "Edit", new { id = item.MaNguoiDung }).ToString() + " | " +
+                                                Html.ActionLink("Xóa", "Delete", new { id = item.MaNguoiDung }).ToString())
+        )
+    )
+)
+@{
+    if (!string.IsNullOrWhiteSpace(grid.SortColumn))
     {
-        <tr>
-            <td>
-                @Html.ActionLink("Sửa", "Edit", new { id = item.MaNguoiDung }) |
-                @Html.ActionLink("Xóa", "Delete", new { id = item.MaNguoiDung })
-            </td>
-            <td>
-                @item.TenNguoiDung
-            </td>
-            <td>
-                @item.UserName
-            </td>
-            <td>
-                @item.PassWord
-            </td>
-            <td>
-                @item.NgaySinh
-            </td>
-            <td>
-                @item.NoiSong
-            </td>
-            <td>
-                @item.LOAINGUOIDUNG.TenLoaiNguoiDung
-            </td>
-            <td>
-                @item.TINHTRANGNGUOIDUNG.TenTinhTrangNguoiDung
-            </td>
-        </tr>
+    <script type="text/javascript">
+        $('thead > tr > th > a[href*="sort=@grid.SortColumn"]').parent().append('@(grid.SortDirection == SortDirection.Ascending ? "^" : "v")');
+    </script>
     }
-</table>
+}
