@@ -21,27 +21,7 @@
           <EntitySet Name="NHACSI" EntityType="db_MusicStoreModel.Store.NHACSI" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PLAYLIST" EntityType="db_MusicStoreModel.Store.PLAYLIST" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="db_MusicStoreModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="THAMSO" EntityType="db_MusicStoreModel.Store.THAMSO" store:Type="Tables" store:Schema="dbo" store:Name="THAMSO">
-            <DefiningQuery>SELECT 
-      [THAMSO].[QuyDinhSoNgayBanNickToiDa] AS [QuyDinhSoNgayBanNickToiDa], 
-      [THAMSO].[SoLuongPlaylistDuocTaoToiDa] AS [SoLuongPlaylistDuocTaoToiDa], 
-      [THAMSO].[SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa] AS [SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa], 
-      [THAMSO].[SoLuongBaiHatMoiNhatDuocLietKeToiDa] AS [SoLuongBaiHatMoiNhatDuocLietKeToiDa], 
-      [THAMSO].[SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa] AS [SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa], 
-      [THAMSO].[SoLuongBaiHatCungCaSiDuocLietKeToiDa] AS [SoLuongBaiHatCungCaSiDuocLietKeToiDa], 
-      [THAMSO].[SoLuongBaiHatLietKeMoiTrangToiDa] AS [SoLuongBaiHatLietKeMoiTrangToiDa], 
-      [THAMSO].[SoLuongBaiHatDuocTimThayToiDa] AS [SoLuongBaiHatDuocTimThayToiDa], 
-      [THAMSO].[SoGiayChoDownloadToiThieu] AS [SoGiayChoDownloadToiThieu], 
-      [THAMSO].[TenLogo] AS [TenLogo], 
-      [THAMSO].[GioiThieu] AS [GioiThieu], 
-      [THAMSO].[NgonNgu] AS [NgonNgu], 
-      [THAMSO].[ThongTinLienLac] AS [ThongTinLienLac], 
-      [THAMSO].[Flash] AS [Flash], 
-      [THAMSO].[SoLuongTheLoaiDuocLietKetTrenMenu] AS [SoLuongTheLoaiDuocLietKetTrenMenu], 
-      [THAMSO].[SoLuongCaSiLietKeTrenMenu] AS [SoLuongCaSiLietKeTrenMenu], 
-      [THAMSO].[SoLuongPlaylistXemNhieuNhatTrenMenu] AS [SoLuongPlaylistXemNhieuNhatTrenMenu]
-      FROM [dbo].[THAMSO] AS [THAMSO]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="THAMSO" EntityType="db_MusicStoreModel.Store.THAMSO" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="THELOAI" EntityType="db_MusicStoreModel.Store.THELOAI" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TINHTRANGALBUM" EntityType="db_MusicStoreModel.Store.TINHTRANGALBUM" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TINHTRANGBAIHAT" EntityType="db_MusicStoreModel.Store.TINHTRANGBAIHAT" store:Type="Tables" Schema="dbo" />
@@ -272,12 +252,9 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'C:\USERS\CAOPHUNG\DESKTOP\MUSICSTORE\MUSICSTORE\APP_DATA\DB_MUSICSTORE.MDF.dbo.THAMSO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="THAMSO">
           <Key>
-            <PropertyRef Name="QuyDinhSoNgayBanNickToiDa" />
+            <PropertyRef Name="id" />
           </Key>
           <Property Name="QuyDinhSoNgayBanNickToiDa" Type="int" Nullable="false" />
           <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="smallint" />
@@ -296,6 +273,7 @@
           <Property Name="SoLuongTheLoaiDuocLietKetTrenMenu" Type="int" />
           <Property Name="SoLuongCaSiLietKeTrenMenu" Type="int" />
           <Property Name="SoLuongPlaylistXemNhieuNhatTrenMenu" Type="nchar" MaxLength="10" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>
@@ -918,7 +896,7 @@
         </EntityType>
         <EntityType Name="THAMSO">
           <Key>
-            <PropertyRef Name="QuyDinhSoNgayBanNickToiDa" />
+            <PropertyRef Name="id" />
           </Key>
           <Property Name="QuyDinhSoNgayBanNickToiDa" Type="Int32" Nullable="false" />
           <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="Int16" />
@@ -937,6 +915,7 @@
           <Property Name="SoLuongTheLoaiDuocLietKetTrenMenu" Type="Int32" />
           <Property Name="SoLuongCaSiLietKeTrenMenu" Type="Int32" />
           <Property Name="SoLuongPlaylistXemNhieuNhatTrenMenu" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>
@@ -1365,6 +1344,7 @@
             <ScalarProperty Name="SoLuongTheLoaiDuocLietKetTrenMenu" ColumnName="SoLuongTheLoaiDuocLietKetTrenMenu" />
             <ScalarProperty Name="SoLuongCaSiLietKeTrenMenu" ColumnName="SoLuongCaSiLietKeTrenMenu" />
             <ScalarProperty Name="SoLuongPlaylistXemNhieuNhatTrenMenu" ColumnName="SoLuongPlaylistXemNhieuNhatTrenMenu" />
+            <ScalarProperty Name="id" ColumnName="id" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="THELOAIs"><EntityTypeMapping TypeName="db_MusicStoreModel.THELOAI"><MappingFragment StoreEntitySet="THELOAI">
             <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
@@ -1431,7 +1411,7 @@
         <EntityTypeShape EntityType="db_MusicStoreModel.NHACSI" Width="1.5" PointX="3" PointY="9.125" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.PLAYLIST" Width="1.5" PointX="5.25" PointY="18" Height="2.749492187499996" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
-        <EntityTypeShape EntityType="db_MusicStoreModel.THAMSO" Width="1.5" PointX="9.75" PointY="3.75" Height="4.2879036458333388" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_MusicStoreModel.THAMSO" Width="1.5" PointX="9.75" PointY="3.75" Height="4.4802050781250031" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.THELOAI" Width="1.5" PointX="3" PointY="11.75" Height="1.9802864583333388" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGALBUM" Width="1.5" PointX="3" PointY="22.625" Height="1.5956835937500031" IsExpanded="true" />
         <EntityTypeShape EntityType="db_MusicStoreModel.TINHTRANGBAIHAT" Width="1.5" PointX="3" PointY="14.5" Height="1.5956835937500014" IsExpanded="true" />

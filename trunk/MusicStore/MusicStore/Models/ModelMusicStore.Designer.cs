@@ -3794,10 +3794,12 @@ namespace MusicStore.Models
         /// Create a new THAMSO object.
         /// </summary>
         /// <param name="quyDinhSoNgayBanNickToiDa">Initial value of the QuyDinhSoNgayBanNickToiDa property.</param>
-        public static THAMSO CreateTHAMSO(global::System.Int32 quyDinhSoNgayBanNickToiDa)
+        /// <param name="id">Initial value of the id property.</param>
+        public static THAMSO CreateTHAMSO(global::System.Int32 quyDinhSoNgayBanNickToiDa, global::System.Int32 id)
         {
             THAMSO tHAMSO = new THAMSO();
             tHAMSO.QuyDinhSoNgayBanNickToiDa = quyDinhSoNgayBanNickToiDa;
+            tHAMSO.id = id;
             return tHAMSO;
         }
 
@@ -3807,7 +3809,7 @@ namespace MusicStore.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 QuyDinhSoNgayBanNickToiDa
         {
@@ -3817,14 +3819,11 @@ namespace MusicStore.Models
             }
             set
             {
-                if (_QuyDinhSoNgayBanNickToiDa != value)
-                {
-                    OnQuyDinhSoNgayBanNickToiDaChanging(value);
-                    ReportPropertyChanging("QuyDinhSoNgayBanNickToiDa");
-                    _QuyDinhSoNgayBanNickToiDa = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("QuyDinhSoNgayBanNickToiDa");
-                    OnQuyDinhSoNgayBanNickToiDaChanged();
-                }
+                OnQuyDinhSoNgayBanNickToiDaChanging(value);
+                ReportPropertyChanging("QuyDinhSoNgayBanNickToiDa");
+                _QuyDinhSoNgayBanNickToiDa = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("QuyDinhSoNgayBanNickToiDa");
+                OnQuyDinhSoNgayBanNickToiDaChanged();
             }
         }
         private global::System.Int32 _QuyDinhSoNgayBanNickToiDa;
@@ -4214,6 +4213,33 @@ namespace MusicStore.Models
         private global::System.String _SoLuongPlaylistXemNhieuNhatTrenMenu;
         partial void OnSoLuongPlaylistXemNhieuNhatTrenMenuChanging(global::System.String value);
         partial void OnSoLuongPlaylistXemNhieuNhatTrenMenuChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
 
         #endregion
     

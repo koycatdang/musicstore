@@ -1,81 +1,6 @@
-﻿@model List<MusicStore.Models.BAIHAT>
-@{
-    ViewBag.Title = "Quản lí bài hát";
-    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
-    var grid = new WebGrid(source: Model, canSort: true, canPage: true, rowsPerPage: 15);
-    var i = Model.ToList();
-}
-<h2>
-    Quản lí bài hát</h2>
-<p>
-    @Html.ActionLink("Thêm bài hát", "Create")
-</p>
-PageCount: @Html.Encode(grid.PageCount)
-<br />
-@{
- var grid = new WebGrid(source: Model, canPage: true,
- canSort: true, ajaxUpdateContainerId: "DivGridd", rowsPerPage: 20);
- var i = grid.RowsPerPage * grid.PageIndex;
+﻿@model IEnumerable<MusicStore.Models.BAIHAT>
 
- IList webGridcolumns = new List();
- IDictionary showColumns = ViewData["ShowColumns"] as IDictionary;
-
- webGridcolumns.Add(grid.Column(format: (item) =&gt; (++i).ToString(), header: "S/N"));
-
- if (showColumns.Count &gt; 0)
- {
- foreach (string col in showColumns.Keys)
- {
- webGridcolumns.Add(grid.Column(showColumns[col], col));
- }
- }
-
-    @grid.GetHtml(
-<div id="DivGridd">
-<div class="content-box"> caption: "Search Result:",
-mode: WebGridPagerModes.All,
- firstText: "« First",
- previousText: "« Previous",
- nextText: "Next »",
- lastText: "Last »", 
- numericLinksCount: 10,
- emptyRowCellValue: " ",
- columns: webGridcolumns
- )
-    <div class="webgrid-totalRow">
-        Total Result: @grid.TotalRowCount</div>
-    </div>
-</div>}
-@*TotalRowCount: @Html.Encode(grid.TotalRowCount)
-@grid.GetHtml(columns: grid.Columns(
-                grid.Column(
-                   header: "",
-                   style: "text-align-center",
-                   format: (item) => new HtmlString(Html.ActionLink("Sửa", "Edit", new { id = item.MaBaiHat }).ToString() + " | " +
-                                                    Html.ActionLink("Xóa", "Delete", new { id = item.MaBaiHat }).ToString()
-                                                   )
-                ),
-                grid.Column("TenBaiHat", "Tên bài hát"),
-                grid.Column("MaNhacSi", "Nhạc sĩ sáng tác"),
-                grid.Column("MaCaSiTrinhBay", "Ca sĩ trình bày"),
-                grid.Column("LinkDownload", "Link"),
-                grid.Column("SoLuotDownLoad", "Số lượt Download"),
-                  grid.Column("SoLuongNghe", "Số lượng nghe"),
-                grid.Column("Diem", "Điểm"),
-                grid.Column("NgayTiepNhan", "Ngày tiếp nhận"),
-                grid.Column("MaChatLuongAmThanh", "Chất lượng âm thanh"),
-                grid.Column("MaTinhTrangBaiHat", "Tình trạng bài hát"),
-                grid.Column("MaTheLoai", "Thể loại")
-            )
-)
-@{
-    if (!string.IsNullOrWhiteSpace(grid.SortColumn))
-    {
-    <script type="text/javascript">
-        $('thead > tr > th > a[href*="sort=@grid.SortColumn"]').parent().append('@(grid.SortDirection == SortDirection.Ascending ? "^" : "v")');
-    </script>
-    }
-}*@ @*<table>
+<table>
     <tr>
         <th>
         </th>
@@ -83,41 +8,41 @@ mode: WebGridPagerModes.All,
             Tên bài hát:
         </th>
         <th>
-            Nhạc sĩ sáng tác:
+            Nh?c si sáng tác:
         </th>
         <th>
-            Tình trạng bài hát
+            Tình tr?ng bài hát
         </th>
         <th>
             LinkDownload:
         </th>
         <th>
-            Số lượt download
+            S? lu?t download
         </th>
         <th>
-            Số lượt nghe:
+            S? lu?t nghe:
         </th>
         <th>
-            Ca sĩ trình bày
+            Ca si trình bày
         </th>
         <th>
-            Ngày tiếp nhận:
+            Ngày ti?p nh?n:
         </th>
         <th>
-            Chất lượng âm thanh:
+            Ch?t lu?ng âm thanh:
         </th>
         <th>
-            Thể loại:
+            Th? lo?i:
         </th>
         <th>
-            Điểm:
+            Ði?m:
         </th>
     </tr>
     @foreach (var item in Model.ToList())
     {
         <tr>
             <td>
-                @Html.ActionLink("Sửa", "Edit", new { id = item.MaBaiHat }) |
+                @Html.ActionLink("S?a", "Edit", new { id = item.MaBaiHat }) |
                 @Html.ActionLink("Xóa", "Delete", new { id = item.MaBaiHat })
             </td>
             <td>
@@ -155,4 +80,4 @@ mode: WebGridPagerModes.All,
             </td>
         </tr>
     }
-</table>*@ 
+</table> 
