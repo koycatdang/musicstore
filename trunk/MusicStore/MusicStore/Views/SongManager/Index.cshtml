@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<MusicStore.Models.BAIHAT>
-
 @{
     ViewBag.Title = "Quản lí bài hát";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
@@ -10,9 +9,6 @@
 <p>
     @Html.ActionLink("Thêm bài hát", "Create")
 </p>
-Tổng số bài hát hiện có: @Html.Encode(grid.TotalRowCount)
-<br />
-
 @grid.GetHtml(
     tableStyle: "webgrid-table",
     headerStyle: "webgrid-header",
@@ -29,15 +25,15 @@ Tổng số bài hát hiện có: @Html.Encode(grid.TotalRowCount)
         grid.Column("TenBaiHat", "Tên bài hát"),
         grid.Column("MaNhacSi", "Mã nhạc sĩ"),
         grid.Column("MaCaSiTrinhBay", "Mã ca sĩ trình bày"),
-        grid.Column("LinkDownload", "Link"),
-        grid.Column("SoLuotDownload", "Số lượt Download"),
+        grid.Column("MaTheLoai", "Mã thể loại"),
+        grid.Column("MaTinhTrangBaiHat", "Mã tình trạng bài hát"),
         grid.Column("SoLuongNghe", "Số lượng nghe"),
         grid.Column("MaChatLuongAmThanh", "Mã chất lượng âm thanh"),
         grid.Column("NgayTiepNhan", "Ngày tiếp nhận"),
-        grid.Column("MaTinhTrangBaiHat", "Mã tình trạng bài hát"),
-        grid.Column("MaTheLoai", "Mã thể loại"),
-        grid.Column("Diem", "Điểm")
-    )
+        grid.Column("SoLuotDownload", "Số lượt Download"),
+        grid.Column("Diem", "Điểm"),
+        grid.Column("LinkDownload", "Link")
+        )
 )
 @{
     if (!string.IsNullOrWhiteSpace(grid.SortColumn))
@@ -47,3 +43,5 @@ Tổng số bài hát hiện có: @Html.Encode(grid.TotalRowCount)
     </script>
     }
 }
+<p class="sum">
+    Tổng số bài hát hiện có: <em>@Html.Encode(grid.TotalRowCount)</em></p>

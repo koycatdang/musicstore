@@ -29,26 +29,6 @@ namespace MusicStore.Controllers
 
             return View(_nguoiDung);
         }
-        
-        // Hàm ban nick
-        private void fnBanNick(NGUOIDUNG _nguoiDung)
-        {
-            BANNICK _banNick = new BANNICK();
-            _banNick.MaNguoiDung = _nguoiDung.MaNguoiDung;
-
-            // Lấy số lượng ngày bị bannick
-            var _soNgayBanNick = (from ts in StoreDB.THAMSOes
-                                  select new { ts.QuyDinhSoNgayBanNickToiDa });
-
-            foreach (var item in _soNgayBanNick)
-            {
-                DateTime dtHetHan = (DateTime.Now).AddDays(item.QuyDinhSoNgayBanNickToiDa);
-                _banNick.NgayHetHan = dtHetHan;
-            }
-
-            // Add BANNICK
-            StoreDB.BANNICKs.AddObject(_banNick);
-        }
 
         //
         // POST: /NguoiDungManager/Create
@@ -59,7 +39,24 @@ namespace MusicStore.Controllers
             {
                 //Save NGUOIDUNG
                 StoreDB.NGUOIDUNGs.AddObject(_nguoiDung);
-                if (_nguoiDung.MaTinhTrangNguoiDung == 2) fnBanNick(_nguoiDung);
+                if (_nguoiDung.MaTinhTrangNguoiDung == 2)
+                {
+                    BANNICK _banNick = new BANNICK();
+                    _banNick.MaNguoiDung = _nguoiDung.MaNguoiDung;
+
+                    // Lấy số lượng ngày bị bannick
+                    var _soNgayBanNick = (from ts in StoreDB.THAMSOes
+                                          select new { ts.QuyDinhSoNgayBanNickToiDa });
+
+                    foreach (var item in _soNgayBanNick)
+                    {
+                        DateTime dtHetHan = (DateTime.Now).AddDays(item.QuyDinhSoNgayBanNickToiDa);
+                        _banNick.NgayHetHan = dtHetHan;
+                    }
+
+                    // Add BANNICK
+                    StoreDB.BANNICKs.AddObject(_banNick);
+                }
                 StoreDB.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -91,7 +88,35 @@ namespace MusicStore.Controllers
 
             if (TryUpdateModel(_nguoiDung))
             {
-                if (_nguoiDung.MaTinhTrangNguoiDung == 2) fnBanNick(_nguoiDung);
+                var _bn = StoreDB.BANNICKs.Where(bn => bn.MaNguoiDung == id).ToList();
+                if (_bn.Count == 0)
+                {
+                    if (_nguoiDung.MaTinhTrangNguoiDung == 2)
+                    {
+                        BANNICK _banNick = new BANNICK();
+                        _banNick.MaNguoiDung = _nguoiDung.MaNguoiDung;
+
+                        // Lấy số lượng ngày bị bannick
+                        var _soNgayBanNick = (from ts in StoreDB.THAMSOes
+                                              select new { ts.QuyDinhSoNgayBanNickToiDa });
+
+                        foreach (var item in _soNgayBanNick)
+                        {
+                            DateTime dtHetHan = (DateTime.Now).AddDays(item.QuyDinhSoNgayBanNickToiDa);
+                            _banNick.NgayHetHan = dtHetHan;
+                        }
+                        // Add BANNICK
+                        StoreDB.BANNICKs.AddObject(_banNick);
+                    }
+                }
+                else 
+                {
+                    if (_nguoiDung.MaTinhTrangNguoiDung != 2)
+                    {
+                        var _banNick = StoreDB.BANNICKs.First(bn => bn.MaNguoiDung == id);
+                        StoreDB.BANNICKs.DeleteObject(_banNick);
+                    }
+                }
                 StoreDB.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -115,14 +140,32 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            var _banNick = StoreDB.BANNICKs.First(bn => bn.MaNguoiDung == id);
             var _nguoiDung = StoreDB.NGUOIDUNGs.First(nd => nd.MaNguoiDung == id);
-            var _chiTietPlayList = StoreDB.CHITIETPLAYLISTs.First(ctpl => ctpl.PLAYLIST.MaNguoiDung == id);
-            var _playList = StoreDB.PLAYLISTs.First(pl => pl.MaNguoiDung == id);
+            
+            // DELETE CHITIETPLAYLIST
+            if (StoreDB.CHITIETPLAYLISTs.Where(pl => pl.PLAYLIST.MaNguoiDung == id).Count() != 0)
+            {
+                var _chiTietPlayList = StoreDB.CHITIETPLAYLISTs.Select(ctpl => ctpl.PLAYLIST.MaNguoiDung == id).ToList();
+                for (int i = 0; i < _chiTietPlayList.Count(); i++)
+                    StoreDB.DeleteObject(_chiTietPlayList[i]);
+            }
+            
+            // DELETE PLAYLIST
+            if (StoreDB.PLAYLISTs.Where(pl => pl.MaNguoiDung == id).Count() != 0)
+            {
+                var _playList = StoreDB.PLAYLISTs.Select(pl => pl.MaNguoiDung == id).ToList();
+                for (int i = 0; i < _playList.Count(); i++)
+                    StoreDB.DeleteObject(_playList[i]);
+            }
+           
+            // DELETE BANNICK
+            if (_nguoiDung.MaLoaiNguoiDung == 2)
+            {
+                var _banNick = StoreDB.BANNICKs.First(bn => bn.MaNguoiDung == id);
+                StoreDB.BANNICKs.DeleteObject(_banNick);
+            }
 
-            StoreDB.BANNICKs.DeleteObject(_banNick);
-            StoreDB.CHITIETPLAYLISTs.DeleteObject(_chiTietPlayList);
-            StoreDB.PLAYLISTs.DeleteObject(_playList);
+            // DELETE NGUOIDUNG
             StoreDB.NGUOIDUNGs.DeleteObject(_nguoiDung);
             StoreDB.SaveChanges();
             return View("Deleted");

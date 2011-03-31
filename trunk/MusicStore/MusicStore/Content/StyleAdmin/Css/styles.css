@@ -48,6 +48,10 @@ form fieldset
     top: 9px;
 }
 
+p
+{
+    text-indent: 8px;
+}
 /* Text styling starts */
 
 .bodytext
@@ -268,6 +272,7 @@ h2
     color: #2b7c98;
     padding: 10px 10px 10px 25px;
     letter-spacing: -0.5px;
+    text-transform: uppercase;
 }
 
 h3
@@ -897,6 +902,7 @@ h3
     text-align: left;
     vertical-align: middle;
     font-weight: bold;
+    height: 40px;
 }
 
 .webgrid-row
@@ -930,31 +936,31 @@ h3
 /**** Create. Edit */
 .button, input[type=submit]
 {
-	clear: both;
-	display:block;
-	padding: 6px 9px 6px 9px;
-	margin-top: 10px; 
-	border: 1px;
-	background: #5e5b54;
-	color: #fff;
-	font-weight: bold;
+    clear: both;
+    display: block;
+    padding: 6px 9px 6px 9px;
+    margin-top: 10px;
+    border: 1px;
+    background: #5e5b54;
+    color: #fff;
+    font-weight: bold;
 }
 
 .button a
 {
-	color: #fff !important;
+    color: #fff !important;
 }
 fieldset
 {
-	border: #9b9993 1px solid;
-	padding: 0 10px;
-	margin-bottom: 10px;
-	clear: left;
+    border: #9b9993 1px solid;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    clear: left;
 }
 
 div.editor-field
 {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 label
@@ -966,15 +972,35 @@ label
 
 input[type=text], input[type=password], select
 {
-	border:1px inset #0d0213;
-	width: 300px;
-	height: 22px;
+    border: 1px inset #0d0213;
+    width: 300px;
+    height: 22px;
 }
 input:hover
 {
     background-color: #d0eaed;
 }
-
+.goback
+{
+    text-transform: uppercase;
+    font-family: Tahoma;
+    font-size: x-small;
+    text-indent: 10px;
+}
+.sum
+{
+    clear: right;
+    font-family: Tahoma;
+    font-size:small;
+    color: #180da2;
+    text-align:right;
+}
+.sum em
+{
+    color: Red;
+    font-size:medium;
+    font-weight:bold;
+}
 .field-validation-error
 {
     color: #ff0000;

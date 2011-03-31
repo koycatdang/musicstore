@@ -9,8 +9,6 @@
 <p>
     @Html.ActionLink("Thêm người dùng", "Create")
 </p>
-Tổng số người dùng hiện tại: @Html.Encode(grid.TotalRowCount)
-<br />
 @grid.GetHtml(
     tableStyle: "webgrid-table",
     headerStyle: "webgrid-header",
@@ -22,9 +20,9 @@ Tổng số người dùng hiện tại: @Html.Encode(grid.TotalRowCount)
         grid.Column("UserName", "Tên tài khoản"),
         grid.Column("Password", "Mật khẩu"),
         grid.Column("NgaySinh", "Ngày sinh"),
-        grid.Column("NoiSong", "Nơi s"),
-        grid.Column("MaLoaiNguoiDung", "Mã loại người dùng"),
-        grid.Column("MaTinhTrangNguoiDung", "Mã tính trạng người dùng"),
+        grid.Column("NoiSong", "Nơi sống"),
+        grid.Column("MaLoaiNguoiDung", "Mã loại"),
+        grid.Column("MaTinhTrangNguoiDung", "Mã tính trạng"),
         grid.Column(
             header: "",
             style: "",
@@ -41,3 +39,5 @@ Tổng số người dùng hiện tại: @Html.Encode(grid.TotalRowCount)
     </script>
     }
 }
+<p class="sum">
+    Tổng số người dùng hiện tại:<em> @Html.Encode(grid.TotalRowCount)</em></p>

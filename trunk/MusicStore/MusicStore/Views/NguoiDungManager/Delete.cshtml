@@ -6,13 +6,14 @@
 <h2>
     Xóa người dùng</h2>
 <h3>
-    Bạn có chắc muốn xóa người dùng với tên là @Model.TenNguoiDung?</h3>
+    Bạn có chắc muốn xóa <em>@Model.TenNguoiDung</em> cùng với tất cả thông tin liên quan tới
+    người dùng này?</h3>
 @using (Html.BeginForm())
 {
     <p>
         <input type="submit" value="Xóa" />
     </p>
-    <p>
-        @Html.ActionLink("Quay lại", "Index")
+    <p class="goback">
+        @Html.ActionLink("<<Quay lại", "Index")
     </p>
 }

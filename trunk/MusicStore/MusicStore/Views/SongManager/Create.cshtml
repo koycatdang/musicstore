@@ -1,6 +1,6 @@
 ﻿@model MusicStore.Models.BAIHAT
 @{
-    ViewBag.Title = "Tạo bài hát";
+    ViewBag.Title = "Thêm bài hát";
     Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
 }
 <h2>
@@ -26,11 +26,18 @@
             @Html.ValidationMessageFor(model => model.MaNhacSi)
         </div>
         <div class="editor-label">
-            Tình trạng bài hát:
+            Ca sĩ trình bày:
         </div>
         <div class="editor-field">
-            @Html.DropDownList("MaTinhTrangBaiHat", new SelectList(ViewBag.TinhTrangBaiHat as System.Collections.IEnumerable, "MaTinhTrangBaiHat", "TenTinhTrangBaiHat", Model.MaTinhTrangBaiHat), "--SELECT ONE--")
-            @Html.ValidationMessageFor(model => model.MaTinhTrangBaiHat)
+            @Html.DropDownList("MaCaSiTrinhBay", new SelectList(ViewBag.CaSi as System.Collections.IEnumerable, "MaCaSi", "TenCaSi", Model.MaCaSiTrinhBay), "--SELECT ONE--")
+            @Html.ValidationMessageFor(model => model.MaCaSiTrinhBay)
+        </div>
+        <div class="editor-label">
+            Thể loại:
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MaTheLoai", new SelectList(ViewBag.TheLoai as System.Collections.IEnumerable, "MaTheLoai", "TenTheLoai", Model.MaTheLoai), "--SELECT ONE--")
+            @Html.ValidationMessageFor(model => model.MaTheLoai)
         </div>
         <div class="editor-label">
             LinkDownload:
@@ -40,11 +47,11 @@
             @Html.ValidationMessageFor(model => model.LinkDownload)
         </div>
         <div class="editor-label">
-            Số lượt Download:
+            Chất lượng âm thanh:
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.SoLuotDownload)
-            @Html.ValidationMessageFor(model => model.SoLuotDownload)
+            @Html.DropDownList("MaChatLuongAmThanh", new SelectList(ViewBag.ChatLuongAmThanh as System.Collections.IEnumerable, "MaChatLuongAmThanh", "TenChatLuongAmThanh", Model.MaChatLuongAmThanh), "--SELECT ONE--")
+            @Html.ValidationMessageFor(model => model.MaChatLuongAmThanh)
         </div>
         <div class="editor-label">
             Số lượt nghe:
@@ -54,38 +61,31 @@
             @Html.ValidationMessageFor(model => model.SoLuongNghe)
         </div>
         <div class="editor-label">
-            Ca sĩ trình bày:
+            Tình trạng bài hát:
         </div>
         <div class="editor-field">
-            @Html.DropDownList("MaCaSiTrinhBay", new SelectList(ViewBag.CaSi as System.Collections.IEnumerable, "MaCaSi", "TenCaSi", Model.MaCaSiTrinhBay), "--SELECT ONE--")
-            @Html.ValidationMessageFor(model => model.MaCaSiTrinhBay)
+            @Html.DropDownList("MaTinhTrangBaiHat", new SelectList(ViewBag.TinhTrangBaiHat as System.Collections.IEnumerable, "MaTinhTrangBaiHat", "TenTinhTrangBaiHat", Model.MaTinhTrangBaiHat), "--SELECT ONE--")
+            @Html.ValidationMessageFor(model => model.MaTinhTrangBaiHat)
         </div>
         <div class="editor-label">
-            Date:
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("MaChatLuongAmThanh", new SelectList(ViewBag.ChatLuongAmThanh as System.Collections.IEnumerable, "MaChatLuongAmThanh", "TenChatLuongAmThanh", Model.MaChatLuongAmThanh), "--SELECT ONE--")
-            @Html.ValidationMessageFor(model => model.MaChatLuongAmThanh)
-        </div>
-        <div class="editor-label">
-            Genre:
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("MaTheLoai", new SelectList(ViewBag.TheLoai as System.Collections.IEnumerable, "MaTheLoai", "TenTheLoai", Model.MaTheLoai), "--SELECT ONE--")
-            @Html.ValidationMessageFor(model => model.MaTheLoai)
-        </div>
-        <div class="editor-label">
-            Point:
+            Điểm:
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Diem)
             @Html.ValidationMessageFor(model => model.Diem)
+        </div>
+        <div class="editor-label">
+            Số lượt Download:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuotDownload)
+            @Html.ValidationMessageFor(model => model.SoLuotDownload)
         </div>
         <p>
             <input type="submit" value="Create" />
         </p>
     </fieldset>
 }
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="goback">
+    @Html.ActionLink("<<Quay lại", "Index")
 </div>

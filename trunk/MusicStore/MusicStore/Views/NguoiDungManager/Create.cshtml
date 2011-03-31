@@ -10,7 +10,7 @@
 {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend> Thông tin người dùng </legend>
+        <legend>Thông tin người dùng </legend>
         <div class="editor-label">
             Họ tên người dùng:
         </div>
@@ -60,10 +60,10 @@
             @Html.ValidationMessageFor(model => model.MaTinhTrangNguoiDung)
         </div>
         <p>
-            <input type="submit" value="Tạo" />
+            <input type="submit" value="Thêm" />
         </p>
     </fieldset>
 }
-<div>
-    @Html.ActionLink("Quay lại", "Index")
+<div class="goback">
+    @Html.ActionLink("<<Quay lại", "Index")
 </div>

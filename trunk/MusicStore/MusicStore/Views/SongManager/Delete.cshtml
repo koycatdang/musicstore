@@ -6,13 +6,13 @@
 <h2>
     Xóa bài hát</h2>
 <h3>
-    Bạn có chắc muốn xóa bài hát với tên là @Model.TenBaiHat?</h3>
+    Bạn có chắc muốn xóa bài hát với tên là @Model.TenBaiHat cùng với tất cả thông tin liên quan?</h3>
 @using (Html.BeginForm())
 {
     <p>
         <input type="submit" value="Xóa" />
     </p>
-    <p>
-        @Html.ActionLink("Quay lại", "Index")
+    <p class="goback">
+        @Html.ActionLink("<<Quay lại", "Index")
     </p>
 }
