@@ -84,10 +84,16 @@ namespace MusicStore.Controllers
         public ActionResult Delete(int id, FormCollection collection)
         {
             var _genre = StoreDB.THELOAIs.First(tl => tl.MaTheLoai == id);
-
-            StoreDB.THELOAIs.DeleteObject(_genre);
-            StoreDB.SaveChanges();
-            return View("Deleted");
+            _genre.MaTinhTrangTheLoai = 3;
+            if (TryUpdateModel(_genre))
+            {
+                StoreDB.SaveChanges();
+                return RedirectToAction("Deleted");
+            }
+            else
+            {
+                return View("Index");
+            }
         }
     }
 }

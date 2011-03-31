@@ -1,0 +1,43 @@
+﻿@model MusicStore.Models.CASI
+@{
+    ViewBag.Title = "Cập nhật ca sĩ | " + @Model.TenCaSi;
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Cập nhật ca sĩ</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Thông tin ca sĩ @Model.TenCaSi</legend>
+        @Html.HiddenFor(model => model.MaCaSi)
+        <div class="editor-label">
+            Tên ca sĩ:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenCaSi)
+            @Html.ValidationMessageFor(model => model.TenCaSi)
+        </div>
+        <div class="editor-label">
+            Tình trạng ca sĩ:
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MaTinhTrangCaSi", new SelectList(ViewBag.TinhTrangCaSi as System.Collections.IEnumerable, "MaTinhTrangCaSi", "TenTinhTrangCaSi", Model.MaTinhTrangCaSi), "--SELECT ONE--")
+            @Html.ValidationMessageFor(model => model.MaTinhTrangCaSi)
+        </div>
+        <div class="editor-label">
+            Khu vực:
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MaKhuVuc", new SelectList(ViewBag.KhuVuc as System.Collections.IEnumerable, "MaKhuVuc", "TenKhuVuc", Model.MaKhuVuc), "--SELECT ONE--")
+            @Html.ValidationMessageFor(model => model.MaKhuVuc)
+        </div>
+        <p>
+            <input type="submit" value="Lưu" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Lưu", "Index")
+</div>

@@ -1,0 +1,35 @@
+﻿@model MusicStore.Models.NHACSI
+@{
+    ViewBag.Title = "Cập nhật nhạc sĩ | " + @Model.TenNhacSi;
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Cập nhật nhạc sĩ</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Thông tin nhạc sĩ</legend>
+        @Html.HiddenFor(model => model.MaNhacSi)
+        <div class="editor-label">
+            Tên nhạc sĩ:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenNhacSi)
+            @Html.ValidationMessageFor(model => model.TenNhacSi)
+        </div>
+        <div class="editor-label">
+            Tình trạng nhạc sĩ:
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MaTinhTrangNhacSi", new SelectList(ViewBag.TinhTrangNhacSi as System.Collections.IEnumerable, "MaTinhTrangNhacSi", "TenTinhTrangNhacSi", Model.MaTinhTrangNhacSi))
+            @Html.ValidationMessageFor(model => model.MaTinhTrangNhacSi)
+        </div>
+        <p>
+            <input type="submit" value="Lưu" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

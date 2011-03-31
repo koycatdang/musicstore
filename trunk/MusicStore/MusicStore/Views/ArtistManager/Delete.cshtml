@@ -1,0 +1,18 @@
+﻿@model MusicStore.Models.NHACSI
+@{
+    ViewBag.Title = "Xóa nhạc sĩ | " + @Model.TenNhacSi;
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Xóa nhạc sĩ</h2>
+<h3>
+    Bạn có chắc muốn xóa nhạc sĩ với tên @Model.TenNhacSi</h3>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Xóa" />
+    </p>
+    <p>
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+}

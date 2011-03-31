@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MusicStore.Models.CASI>
+@{
+    ViewBag.Title = "Quản lí ca sĩ";
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Quản lí ca sĩ</h2>
+<p>
+    @Html.ActionLink("Thêm ca sĩ", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+        </th>
+        <th>
+            TenCaSi
+        </th>
+        <th>
+            MaTinhTrangCaSi
+        </th>
+        <th>
+            MaKhuVuc
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaCaSi }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaCaSi })
+            </td>
+            <td>
+                @item.TenCaSi
+            </td>
+            <td>
+                @item.MaTinhTrangCaSi
+            </td>
+            <td>
+                @item.MaKhuVuc
+            </td>
+        </tr>
+    }
+</table>

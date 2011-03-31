@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MusicStore.Models.NHACSI>
+
+@{
+    ViewBag.Title = "Quản lí nhạc sĩ";
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+
+<h2>Quản lí nhạc sĩ</h2>
+
+<p>
+    @Html.ActionLink("Thêm nhạc sĩ", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            TenNhacSi
+        </th>
+        <th>
+            MaTinhTrangNhacSi
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.MaNhacSi }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.MaNhacSi })
+        </td>
+        <td>
+            @item.TenNhacSi
+        </td>
+        <td>
+            @item.MaTinhTrangNhacSi
+        </td>
+    </tr>
+}
+
+</table>
+

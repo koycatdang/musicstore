@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MusicStore.Models;
+using System.Collections;
 
 namespace MusicStore.Controllers
 {
@@ -14,7 +15,15 @@ namespace MusicStore.Controllers
         // GET: /SongManager/
         public ActionResult Index()
         {
+            IDictionary showColumns = new Dictionary();
+
             var _song = StoreDB.BAIHATs.ToList();
+
+            showColumns.Add("TenBaiHat", "TenBaiHat");
+            showColumns.Add("SoLuotDownload", "SoLuotDownload");
+
+            this.ViewData.ShowColumns = showColumns;
+            
             return View(_song);
         }
 
@@ -30,9 +39,9 @@ namespace MusicStore.Controllers
             ViewBag.NhacSi = StoreDB.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
 
             var _song = new BAIHAT();
-            
+
             return View(_song);
-        } 
+        }
 
         //
         // POST: /SongManager/Create
@@ -57,7 +66,7 @@ namespace MusicStore.Controllers
 
             return View(_baiHat);
         }
-        
+
         //
         // GET: /SongManager/Edit/5
         public ActionResult Edit(int id)
@@ -104,10 +113,16 @@ namespace MusicStore.Controllers
         public ActionResult Delete(int id, FormCollection collection)
         {
             var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
+            _baiHat.MaTinhTrangBaiHat = 3;
 
-            StoreDB.BAIHATs.DeleteObject(_baiHat);
-            StoreDB.SaveChanges();
-            return View("Deleted");
+            if (TryUpdateModel(_baiHat))
+            {
+                StoreDB.SaveChanges();
+                return View("Deleted");
+            }
+            else
+                return View("Index");
         }
     }
 }
+;
