@@ -104,16 +104,35 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
+            
             var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
             _baiHat.MaTinhTrangBaiHat = 3;
 
+            // Xóa BAIHAT <Cập nhật trạng thái thành Delete)
             if (TryUpdateModel(_baiHat))
             {
                 StoreDB.SaveChanges();
+
+                // DELETE COMMENT
+                if (StoreDB.COMMENTs.Where(cm => cm.MaBaiHat == id).Count() != 0)
+                {
+                    var _comment = StoreDB.COMMENTs.Select(cm => cm.MaBaiHat == id).ToList();
+                    for (int i = 0; i < _comment.Count(); i++)
+                        StoreDB.DeleteObject(_comment[i]);
+                }
+
+                //DELETE DIEM
+                if (StoreDB.DIEMs.Where(d => d.MaBaiHat == id).Count() != 0)
+                {
+                    var _diem = StoreDB.DIEMs.Select(d => d.MaBaiHat == id).ToList();
+                    for (int i = 0; i < _diem.Count(); i++)
+                        StoreDB.DeleteObject(_diem[i]);
+                }
+
                 return View("Deleted");
             }
             else
-                return View("Index");
+                return View("Index");  
         }
     }
 }

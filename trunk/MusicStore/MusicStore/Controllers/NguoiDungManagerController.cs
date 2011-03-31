@@ -60,6 +60,7 @@ namespace MusicStore.Controllers
                 StoreDB.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             // Invalid – redisplay with errors
             ViewBag.LoaiNguoiDung = StoreDB.LOAINGUOIDUNGs.OrderBy(lnd => lnd.TenLoaiNguoiDung).ToList();
             ViewBag.TinhTrangNguoiDung = StoreDB.TINHTRANGNGUOIDUNGs.OrderBy(ttnd => ttnd.TenTinhTrangNguoiDung).ToList();
@@ -143,7 +144,7 @@ namespace MusicStore.Controllers
             var _nguoiDung = StoreDB.NGUOIDUNGs.First(nd => nd.MaNguoiDung == id);
             
             // DELETE CHITIETPLAYLIST
-            if (StoreDB.CHITIETPLAYLISTs.Where(pl => pl.PLAYLIST.MaNguoiDung == id).Count() != 0)
+            if (StoreDB.CHITIETPLAYLISTs.Where(ctpl => ctpl.PLAYLIST.MaNguoiDung == id).Count() != 0)
             {
                 var _chiTietPlayList = StoreDB.CHITIETPLAYLISTs.Select(ctpl => ctpl.PLAYLIST.MaNguoiDung == id).ToList();
                 for (int i = 0; i < _chiTietPlayList.Count(); i++)
@@ -157,7 +158,15 @@ namespace MusicStore.Controllers
                 for (int i = 0; i < _playList.Count(); i++)
                     StoreDB.DeleteObject(_playList[i]);
             }
-           
+
+            // DELETE COMMENT
+            if (StoreDB.COMMENTs.Where(cm => cm.MaNguoiDung == id).Count() != 0)
+            {
+                var _comment = StoreDB.COMMENTs.Select(cm => cm.MaNguoiDung == id).ToList();
+                for (int i = 0; i < _comment.Count(); i++)
+                    StoreDB.DeleteObject(_comment[i]);
+            }
+
             // DELETE BANNICK
             if (_nguoiDung.MaLoaiNguoiDung == 2)
             {
