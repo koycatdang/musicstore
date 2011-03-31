@@ -1,83 +1,46 @@
 ﻿@model IEnumerable<MusicStore.Models.BAIHAT>
 
-<table>
-    <tr>
-        <th>
-        </th>
-        <th>
-            Tên bài hát:
-        </th>
-        <th>
-            Nh?c si sáng tác:
-        </th>
-        <th>
-            Tình tr?ng bài hát
-        </th>
-        <th>
-            LinkDownload:
-        </th>
-        <th>
-            S? lu?t download
-        </th>
-        <th>
-            S? lu?t nghe:
-        </th>
-        <th>
-            Ca si trình bày
-        </th>
-        <th>
-            Ngày ti?p nh?n:
-        </th>
-        <th>
-            Ch?t lu?ng âm thanh:
-        </th>
-        <th>
-            Th? lo?i:
-        </th>
-        <th>
-            Ði?m:
-        </th>
-    </tr>
-    @foreach (var item in Model.ToList())
+@{
+    ViewBag.Title = "Quản lí bài hát";
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+    var grid = new WebGrid(source: Model, canSort: true, canPage: true, rowsPerPage: 10);
+    var i = Model.ToList();
+}
+<h2>
+    Quản lí bài hát</h2>
+<p>
+    @Html.ActionLink("Thêm bài hát", "Create")
+</p>
+Tổng số bài hát hiện có: @Html.Encode(grid.TotalRowCount)
+<br />
+@grid.GetHtml(
+tableStyle: "webgrid-table",
+headerStyle: "webgrid-header",
+footerStyle: "paging-number",
+columns: grid.Columns(
+                grid.Column(
+                   header: "",
+                   style: "text-align-center",
+                   format: (item) => new HtmlString(Html.ActionLink("Sửa", "Edit", new { id = item.MaBaiHat }).ToString() + " | " +
+                                                    Html.ActionLink("Xóa", "Delete", new { id = item.MaBaiHat }).ToString())),
+                    grid.Column("TenBaiHat", "Tên bài hát"),
+                    grid.Column("MaNhacSi", "Mã nhạc sĩ"),
+                    grid.Column("MaCaSiTrinhBay", "Mã ca sĩ trình bày"),
+                    grid.Column("LinkDownload", "Link"),
+                    grid.Column("SoLuotDownload", "Số lượt Download"),
+                    grid.Column("SoLuongNghe", "Số lượng nghe"),
+                    grid.Column("MaChatLuongAmThanh", "Mã chất lượng âm thanh"),
+                    grid.Column("NgayTiepNhan", "Ngày tiếp nhận"),
+                    grid.Column("MaTinhTrangBaiHat", "Mã tình trạng bài hát"),
+                    grid.Column("MaTheLoai", "Mã thể loại"),
+                    grid.Column("Diem", "Điểm")
+                )
+)
+@{
+    if (!string.IsNullOrWhiteSpace(grid.SortColumn))
     {
-        <tr>
-            <td>
-                @Html.ActionLink("S?a", "Edit", new { id = item.MaBaiHat }) |
-                @Html.ActionLink("Xóa", "Delete", new { id = item.MaBaiHat })
-            </td>
-            <td>
-                @item.TenBaiHat
-            </td>
-            <td>
-                @item.NHACSI.TenNhacSi
-            </td>
-            <td>
-                @item.TINHTRANGBAIHAT.TenTinhTrangBaiHat
-            </td>
-            <td>
-                @item.LinkDownload
-            </td>
-            <td>
-                @String.Format("{0:F}", item.SoLuotDownload)
-            </td>
-            <td>
-                @String.Format("{0:F}", item.SoLuongNghe)
-            </td>
-            <td>
-                @item.CASI.TenCaSi
-            </td>
-            <td>
-                @String.Format("{0:g}", item.NgayTiepNhan)
-            </td>
-            <td>
-                @item.CHATLUONGAMTHANH.TenChatLuongAmThanh
-            </td>
-            <td>
-                @item.THELOAI.TenTheLoai
-            </td>
-            <td>
-                @String.Format("{0:F}", item.Diem)
-            </td>
-        </tr>
+    <script type="text/javascript">
+        $('thead > tr > th > a[href*="sort=@grid.SortColumn"]').parent().append('@(grid.SortDirection == SortDirection.Ascending ? "^" : "v")');
+    </script>
     }
-</table> 
+}

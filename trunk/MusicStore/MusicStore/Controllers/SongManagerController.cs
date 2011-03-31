@@ -15,31 +15,8 @@ namespace MusicStore.Controllers
         // GET: /SongManager/
         public ActionResult Index()
         {
-            //var _song = StoreDB.BAIHATs.ToList();
-            var list = (from bh in StoreDB.BAIHATs
-                       join cs in StoreDB.CASIs
-                       on bh.MaCaSiTrinhBay equals cs.MaCaSi
-                       select new
-                       {
-                           TenBaiHat = bh.TenBaiHat,
-                           CaSiTrinhBay = cs.TenCaSi,
-                           SoLuotDownLoad = bh.SoLuotDownload
-                       }).ToList();
-            IList<BAIHAT> lstbh =  new List<BAIHAT>();
-            foreach (var item in list)
-            {
-                BAIHAT ibh = new BAIHAT();
-                ibh.TenBaiHat = item.TenBaiHat;
-                ibh.SoLuotDownload = item.SoLuotDownLoad;
-            }
-            IList<CASI> lstcs = new List<CASI>();
-            foreach (var item in list)
-            {
-                CASI ics = new CASI();
-                ics.TenCaSi = item.CaSiTrinhBay;
-            }
-
-            return View();
+            var _song = StoreDB.BAIHATs.ToList();
+            return View(_song);
         }
 
         //

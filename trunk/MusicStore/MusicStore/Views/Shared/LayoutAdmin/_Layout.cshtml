@@ -31,10 +31,16 @@
                     <a href="@Url.Content("~/SongManager/")">Bài hát</a>
                 </td>
                 <td valign="middle">
-                    <a href="#">Ca sĩ</a>
+                    <a href="@Url.Content("~/SingerManager/")">Ca sĩ</a>
+                </td>
+                <td valign="middle">
+                    <a href="@Url.Content("~/ArtistManager/")">Nhạc sĩ</a>
                 </td>
                 <td valign="middle">
                     <a href="@Url.Content("~/GenreManager/")">Thể loại</a>
+                </td>
+                <td valign="middle">
+                    <a href="@Url.Content("~/PageManager/")">Trang web</a>
                 </td>
             </tr>
         </table>
@@ -52,7 +58,7 @@
     <div id="arrows">
     </div>
     <div class="bodytext" id="hello">
-        Hello <a href="#">Administrator</a>,
+        Chào bạn: <a href="#">Administrator</a>,
         <img src="/Content/StyleAdmin/Images/icons/user.png" alt="user_icon" width="22" height="25"
             border="0" /><br />
     </div>
@@ -93,7 +99,7 @@
             <span class="toplinks">
                 <br />
                 <br />
-                <a href="#"><span class="toplinks">SETTINGS</span></a></span><br />
+                <a href="@Url.Content("~/PageManager/")"><span class="toplinks">SETTINGS</span></a></span><br />
         </div>
     </div>
     <!--// settings edit ends -->
@@ -121,7 +127,7 @@
                 <li><a href="#">» Edit my Profile</a></li>
                 <li><a href="#">» View User's Comments</a></li>
                 <li><a href="#">» View Statistics</a></li>
-                <li><a href="#">» Manage Homepage</a></li>
+                <li><a href="@Url.Content("~/PageManager/")">» Manage Homepage</a></li>
             </ul>
             </li>
         </ul>
