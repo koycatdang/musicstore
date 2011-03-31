@@ -28,12 +28,13 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_CHITIETALBUM_BAIHAT", "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.BAIHAT), "CHITIETALBUM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.CHITIETALBUM), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_CHITIETPLAYLIST_BAIHAT", "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.BAIHAT), "CHITIETPLAYLIST", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.CHITIETPLAYLIST), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_COMMENT_BAIHAT", "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.BAIHAT), "COMMENT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.COMMENT), true)]
-[assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_DIEM_BAIHAT", "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MusicStore.Models.BAIHAT), "DIEM", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.DIEM), true)]
+[assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_DIEM_BAIHAT", "BAIHAT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.BAIHAT), "DIEM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.DIEM), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_BANNICK_NGUOIDUNG", "NGUOIDUNG", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MusicStore.Models.NGUOIDUNG), "BANNICK", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.BANNICK), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_CASI_QUOCGIA", "KHUVUC", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.KHUVUC), "CASI", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.CASI), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_CASI_TINHTRANGCASI", "TINHTRANGCASI", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.TINHTRANGCASI), "CASI", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.CASI), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_CHITIETPLAYLIST_PLAYLIST", "PLAYLIST", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.PLAYLIST), "CHITIETPLAYLIST", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.CHITIETPLAYLIST), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_COMMENT_NGUOIDUNG", "NGUOIDUNG", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.NGUOIDUNG), "COMMENT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.COMMENT), true)]
+[assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_DIEM_NGUOIDUNG", "NGUOIDUNG", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.NGUOIDUNG), "DIEM", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.DIEM), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_NGUOIDUNG_LOAINGUOIDUNG", "LOAINGUOIDUNG", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.LOAINGUOIDUNG), "NGUOIDUNG", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.NGUOIDUNG), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_NGUOIDUNG_TINHTRANGNGUOIDUNG", "TINHTRANGNGUOIDUNG", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.TINHTRANGNGUOIDUNG), "NGUOIDUNG", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.NGUOIDUNG), true)]
 [assembly: EdmRelationshipAttribute("db_MusicStoreModel", "FK_PLAYLIST_NGUOIDUNG", "NGUOIDUNG", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(MusicStore.Models.NGUOIDUNG), "PLAYLIST", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MusicStore.Models.PLAYLIST), true)]
@@ -1401,33 +1402,17 @@ namespace MusicStore.Models
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("db_MusicStoreModel", "FK_DIEM_BAIHAT", "DIEM")]
-        public DIEM DIEM1
+        public EntityCollection<DIEM> DIEMs
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DIEM>("db_MusicStoreModel.FK_DIEM_BAIHAT", "DIEM").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DIEM>("db_MusicStoreModel.FK_DIEM_BAIHAT", "DIEM").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<DIEM> DIEM1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DIEM>("db_MusicStoreModel.FK_DIEM_BAIHAT", "DIEM");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DIEM>("db_MusicStoreModel.FK_DIEM_BAIHAT", "DIEM");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DIEM>("db_MusicStoreModel.FK_DIEM_BAIHAT", "DIEM", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DIEM>("db_MusicStoreModel.FK_DIEM_BAIHAT", "DIEM", value);
                 }
             }
         }
@@ -2470,11 +2455,11 @@ namespace MusicStore.Models
         /// <summary>
         /// Create a new DIEM object.
         /// </summary>
-        /// <param name="maBaiHat">Initial value of the MaBaiHat property.</param>
-        public static DIEM CreateDIEM(global::System.Int32 maBaiHat)
+        /// <param name="maDanhGia">Initial value of the MaDanhGia property.</param>
+        public static DIEM CreateDIEM(global::System.Int32 maDanhGia)
         {
             DIEM dIEM = new DIEM();
-            dIEM.MaBaiHat = maBaiHat;
+            dIEM.MaDanhGia = maDanhGia;
             return dIEM;
         }
 
@@ -2486,27 +2471,27 @@ namespace MusicStore.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 MaBaiHat
+        public global::System.Int32 MaDanhGia
         {
             get
             {
-                return _MaBaiHat;
+                return _MaDanhGia;
             }
             set
             {
-                if (_MaBaiHat != value)
+                if (_MaDanhGia != value)
                 {
-                    OnMaBaiHatChanging(value);
-                    ReportPropertyChanging("MaBaiHat");
-                    _MaBaiHat = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("MaBaiHat");
-                    OnMaBaiHatChanged();
+                    OnMaDanhGiaChanging(value);
+                    ReportPropertyChanging("MaDanhGia");
+                    _MaDanhGia = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("MaDanhGia");
+                    OnMaDanhGiaChanged();
                 }
             }
         }
-        private global::System.Int32 _MaBaiHat;
-        partial void OnMaBaiHatChanging(global::System.Int32 value);
-        partial void OnMaBaiHatChanged();
+        private global::System.Int32 _MaDanhGia;
+        partial void OnMaDanhGiaChanging(global::System.Int32 value);
+        partial void OnMaDanhGiaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2537,24 +2522,48 @@ namespace MusicStore.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String SoLuotDanhGia
+        public Nullable<global::System.Int32> MaBaiHat
         {
             get
             {
-                return _SoLuotDanhGia;
+                return _MaBaiHat;
             }
             set
             {
-                OnSoLuotDanhGiaChanging(value);
-                ReportPropertyChanging("SoLuotDanhGia");
-                _SoLuotDanhGia = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("SoLuotDanhGia");
-                OnSoLuotDanhGiaChanged();
+                OnMaBaiHatChanging(value);
+                ReportPropertyChanging("MaBaiHat");
+                _MaBaiHat = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MaBaiHat");
+                OnMaBaiHatChanged();
             }
         }
-        private global::System.String _SoLuotDanhGia;
-        partial void OnSoLuotDanhGiaChanging(global::System.String value);
-        partial void OnSoLuotDanhGiaChanged();
+        private Nullable<global::System.Int32> _MaBaiHat;
+        partial void OnMaBaiHatChanging(Nullable<global::System.Int32> value);
+        partial void OnMaBaiHatChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> MaNguoiDung
+        {
+            get
+            {
+                return _MaNguoiDung;
+            }
+            set
+            {
+                OnMaNguoiDungChanging(value);
+                ReportPropertyChanging("MaNguoiDung");
+                _MaNguoiDung = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MaNguoiDung");
+                OnMaNguoiDungChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _MaNguoiDung;
+        partial void OnMaNguoiDungChanging(Nullable<global::System.Int32> value);
+        partial void OnMaNguoiDungChanged();
 
         #endregion
     
@@ -2594,6 +2603,44 @@ namespace MusicStore.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BAIHAT>("db_MusicStoreModel.FK_DIEM_BAIHAT", "BAIHAT", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MusicStoreModel", "FK_DIEM_NGUOIDUNG", "NGUOIDUNG")]
+        public NGUOIDUNG NGUOIDUNG
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NGUOIDUNG>("db_MusicStoreModel.FK_DIEM_NGUOIDUNG", "NGUOIDUNG").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NGUOIDUNG>("db_MusicStoreModel.FK_DIEM_NGUOIDUNG", "NGUOIDUNG").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<NGUOIDUNG> NGUOIDUNGReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<NGUOIDUNG>("db_MusicStoreModel.FK_DIEM_NGUOIDUNG", "NGUOIDUNG");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<NGUOIDUNG>("db_MusicStoreModel.FK_DIEM_NGUOIDUNG", "NGUOIDUNG", value);
                 }
             }
         }
@@ -3092,6 +3139,28 @@ namespace MusicStore.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<COMMENT>("db_MusicStoreModel.FK_COMMENT_NGUOIDUNG", "COMMENT", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("db_MusicStoreModel", "FK_DIEM_NGUOIDUNG", "DIEM")]
+        public EntityCollection<DIEM> DIEMs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DIEM>("db_MusicStoreModel.FK_DIEM_NGUOIDUNG", "DIEM");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DIEM>("db_MusicStoreModel.FK_DIEM_NGUOIDUNG", "DIEM", value);
                 }
             }
         }

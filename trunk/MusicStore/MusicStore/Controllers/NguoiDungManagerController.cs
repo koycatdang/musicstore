@@ -143,24 +143,38 @@ namespace MusicStore.Controllers
         {
             var _nguoiDung = StoreDB.NGUOIDUNGs.First(nd => nd.MaNguoiDung == id);
 
-            // DELETE CHITIETPLAYLIST
-            var _chiTietPlayList = StoreDB.CHITIETPLAYLISTs.Select(ctpl => ctpl.PLAYLIST.MaNguoiDung == id).ToList();
-            for (int i = 0; i < _chiTietPlayList.Count(); i++)
-                StoreDB.DeleteObject(_chiTietPlayList[i]);
 
             // DELETE PLAYLIST
-            var _playList = StoreDB.PLAYLISTs.Select(pl => pl.MaNguoiDung == id).ToList();
-            for (int i = 0; i < _playList.Count(); i++)
-                StoreDB.DeleteObject(_playList[i]);
+            var _playList = (from pl in StoreDB.PLAYLISTs
+                             where pl.MaNguoiDung == id
+                             select pl).ToList();
+            foreach (var pl in _playList)
+            {
+                // DELETE CHITIETPLAYLIST
+                var _chiTietPlayList = (from ctpl in StoreDB.CHITIETPLAYLISTs
+                                        where ctpl.MaPlaylist == pl.MaPlaylist
+                                        select ctpl).ToList();
+                foreach (var ctpl in _chiTietPlayList)
+                    StoreDB.CHITIETPLAYLISTs.DeleteObject(ctpl);
+                StoreDB.PLAYLISTs.DeleteObject(pl);
+            }
 
             // DELETE COMMENT
-            var _comment = StoreDB.COMMENTs.Select(cm => cm.MaNguoiDung == id).ToList();
-            for (int i = 0; i < _comment.Count(); i++)
-                StoreDB.DeleteObject(_comment[i]);
+            var _comment = (from cm in StoreDB.COMMENTs
+                            where cm.MaNguoiDung == id
+                            select cm).ToList();
+            foreach (var cm in _comment)
+                StoreDB.COMMENTs.DeleteObject(cm);
 
+            //DELETE DIEM
+            var _diem = (from d in StoreDB.DIEMs
+                         where d.MaNguoiDung == id
+                         select d).ToList();
+            foreach (var d in _diem)
+                StoreDB.DIEMs.DeleteObject(d);
 
             // DELETE BANNICK
-            if (_nguoiDung.MaLoaiNguoiDung == 2)
+            if (_nguoiDung.MaTinhTrangNguoiDung == 2)
             {
                 var _banNick = StoreDB.BANNICKs.First(bn => bn.MaNguoiDung == id);
                 StoreDB.BANNICKs.DeleteObject(_banNick);

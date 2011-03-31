@@ -84,6 +84,8 @@ namespace MusicStore.Controllers
 
             if (TryUpdateModel(_baiHat))
             {
+                if (_baiHat.MaTinhTrangBaiHat == 3)
+                    upDeleted(id);
                 StoreDB.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -104,51 +106,61 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            
+
             var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
             _baiHat.MaTinhTrangBaiHat = 3;
 
             // Xóa BAIHAT <Cập nhật trạng thái thành Delete)
             if (TryUpdateModel(_baiHat))
             {
-                // DELETE COMMENT
-                var _comment = StoreDB.COMMENTs.Select(cm => cm.MaBaiHat == id).ToList();
-                for (int i = 0; i < _comment.Count(); i++)
-                    StoreDB.DeleteObject(_comment[i]);
-                
-
-                //DELETE DIEM
-                var _diem = StoreDB.DIEMs.Select(d => d.MaBaiHat == id).ToList();
-                for (int i = 0; i < _diem.Count(); i++)
-                    StoreDB.DeleteObject(_diem[i]);
-                
-                // DELETE CHITIETALBUM
-                var _chiTietAlbum = StoreDB.CHITIETALBUMs.Select(cta => cta.MaBaiHat == id).ToList();
-                for (int i = 0; i < _chiTietAlbum.Count(); i++)
-                    StoreDB.DeleteObject(_chiTietAlbum[i]);
-                
-                // DELETE CHITIETPLAYLIST & Cập nhật số lượng bài hát ở PLAYLIST
-                var _chiTietPlatlist = from ctpl in StoreDB.CHITIETPLAYLISTs
-                                       where ctpl.MaBaiHat.Equals(id)
-                                       select ctpl;
-                foreach (var item in _chiTietPlatlist)
-                {
-                    // Cập số lượng bài hát trong Playlist
-                    var _playList = StoreDB.PLAYLISTs.First(pl => pl.MaPlaylist == item.MaPlaylist);
-                    _playList.SoLuongBaiHat--;
-                    TryUpdateModel(_playList);
-
-                    // DELETE CHITIETPLAYLIST
-                    StoreDB.DeleteObject(item);
-                }
-                
-               
-
-                StoreDB.SaveChanges();
+                upDeleted(id);
                 return View("Deleted");
             }
             else
-                return View("Index");  
+                return View("Index");
+        }
+
+        // Trạng DELETED của BAIHAT
+        private void upDeleted(int id)
+        {
+            // DELETE COMMENT
+            var _comment = (from cm in StoreDB.COMMENTs
+                            where cm.MaBaiHat == id
+                            select cm).ToList();
+            foreach (var cm in _comment)
+                StoreDB.COMMENTs.DeleteObject(cm);
+
+
+            //DELETE DIEM
+            var _diem = (from d in StoreDB.DIEMs
+                         where d.MaBaiHat == id
+                         select d).ToList();
+            foreach (var d in _diem)
+                StoreDB.DIEMs.DeleteObject(d);
+
+            // DELETE CHITIETALBUM
+            var _chiTietAlbum = (from cta in StoreDB.CHITIETALBUMs
+                                 where cta.MaBaiHat == id
+                                 select cta).ToList();
+            foreach (var cta in _chiTietAlbum)
+                StoreDB.DeleteObject(cta);
+
+            // DELETE CHITIETPLAYLIST & Cập nhật số lượng bài hát ở PLAYLIST
+            var _chiTietPlaylist = (from ctpl in StoreDB.CHITIETPLAYLISTs
+                                    where ctpl.MaBaiHat == id
+                                    select ctpl).ToList();
+            foreach (var item in _chiTietPlaylist)
+            {
+                // Cập số lượng bài hát trong Playlist
+                var _playList = StoreDB.PLAYLISTs.First(pl => pl.MaPlaylist == item.MaPlaylist);
+                _playList.SoLuongBaiHat--;
+                TryUpdateModel(_playList);
+
+                // DELETE CHITIETPLAYLIST
+                StoreDB.DeleteObject(item);
+            }
+
+            StoreDB.SaveChanges();
         }
     }
 }
