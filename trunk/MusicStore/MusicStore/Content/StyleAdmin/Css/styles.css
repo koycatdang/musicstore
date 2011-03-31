@@ -12,6 +12,7 @@ body
 form fieldset
 {
     padding: 15px 0 15px 20px;
+    font-family: Tahoma;
 }
 #logo
 {
@@ -991,16 +992,26 @@ input:hover
 {
     clear: right;
     font-family: Tahoma;
-    font-size:small;
+    font-size: small;
     color: #180da2;
-    text-align:right;
+    text-align: right;
 }
 .sum em
 {
     color: Red;
-    font-size:medium;
-    font-weight:bold;
+    font-size: medium;
+    font-weight: bold;
 }
+.var
+{
+    color: Red;
+    font-size: medium;
+    font-weight: bold;
+    padding-left: 10px;
+    min-height: 25px;
+    font-family: Tahoma;
+}
+
 .field-validation-error
 {
     color: #ff0000;

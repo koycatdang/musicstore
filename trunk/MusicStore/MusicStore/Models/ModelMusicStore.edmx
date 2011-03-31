@@ -130,7 +130,7 @@
           <Key>
             <PropertyRef Name="MaBaiHat" />
           </Key>
-          <Property Name="MaBaiHat" Type="int" Nullable="false" />
+          <Property Name="MaBaiHat" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="TenBaiHat" Type="nvarchar(max)" />
           <Property Name="MaNhacSi" Type="int" />
           <Property Name="MaTinhTrangBaiHat" Type="int" />
@@ -757,7 +757,7 @@
           <Key>
             <PropertyRef Name="MaBaiHat" />
           </Key>
-          <Property Name="MaBaiHat" Type="Int32" Nullable="false" />
+          <Property Name="MaBaiHat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenBaiHat" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="MaNhacSi" Type="Int32" />
           <Property Name="MaTinhTrangBaiHat" Type="Int32" />

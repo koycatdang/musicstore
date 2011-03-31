@@ -38,12 +38,14 @@ namespace MusicStore.Controllers
         //
         // POST: /SongManager/Create
         [HttpPost]
-        public ActionResult Create(BAIHAT _baiHat)
+        public ActionResult Create(BAIHAT _song)
         {
             if (ModelState.IsValid)
             {
-                _baiHat.NgayTiepNhan = DateTime.Now;
-                StoreDB.BAIHATs.AddObject(_baiHat);
+                _song.NgayTiepNhan = DateTime.Now;
+                _song.SoLuongNghe = _song.SoLuotDownload = 0;
+                _song.Diem = 0;
+                StoreDB.BAIHATs.AddObject(_song);
                 StoreDB.SaveChanges();
 
                 return RedirectToAction("Index");
@@ -56,7 +58,7 @@ namespace MusicStore.Controllers
             ViewBag.CaSi = StoreDB.CASIs.OrderBy(cs => cs.MaCaSi).ToList();
             ViewBag.NhacSi = StoreDB.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
 
-            return View(_baiHat);
+            return View(_song);
         }
 
         //
@@ -70,9 +72,9 @@ namespace MusicStore.Controllers
             ViewBag.CaSi = StoreDB.CASIs.OrderBy(cs => cs.MaCaSi).ToList();
             ViewBag.NhacSi = StoreDB.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
 
-            var _baiHat = StoreDB.BAIHATs.Single(bh => bh.MaBaiHat == id);
+            var _song = StoreDB.BAIHATs.Single(bh => bh.MaBaiHat == id);
 
-            return View(_baiHat);
+            return View(_song);
         }
 
         //
@@ -80,25 +82,25 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
+            var _song = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
 
-            if (TryUpdateModel(_baiHat))
+            if (TryUpdateModel(_song))
             {
-                if (_baiHat.MaTinhTrangBaiHat == 3)
+                if (_song.MaTinhTrangBaiHat == 3)
                     upDeleted(id);
                 StoreDB.SaveChanges();
                 return RedirectToAction("Index");
             }
             else
-                return View(_baiHat);
+                return View(_song);
         }
 
         //
         // GET: /SongManager/Delete/5
         public ActionResult Delete(int id)
         {
-            var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
-            return View(_baiHat);
+            var _song = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
+            return View(_song);
         }
 
         //
@@ -107,20 +109,58 @@ namespace MusicStore.Controllers
         public ActionResult Delete(int id, FormCollection collection)
         {
 
-            var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
-            _baiHat.MaTinhTrangBaiHat = 3;
+            var _song = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
+            _song.MaTinhTrangBaiHat = 3;
 
             // Xóa BAIHAT <Cập nhật trạng thái thành Delete)
-            if (TryUpdateModel(_baiHat))
+            if (TryUpdateModel(_song))
             {
                 upDeleted(id);
+                StoreDB.SaveChanges();
                 return View("Deleted");
             }
             else
                 return View("Index");
         }
 
-        // Trạng DELETED của BAIHAT
+        //
+        // GET: /SongManager/Waiting
+        public ActionResult Waiting()
+        {
+            var _song = (from bh in StoreDB.BAIHATs
+                         where bh.MaTinhTrangBaiHat == 2
+                         select bh).ToList();
+            List<BAIHAT> lstbh = new List<BAIHAT>();
+            foreach (var bh in _song)
+                lstbh.Add(bh);
+
+            return View(lstbh);
+        }
+
+        // GET: /SongManager/Accept
+        public ActionResult Accept(int id)
+        {
+            var _song = StoreDB.BAIHATs.First(bh => bh.MaTinhTrangBaiHat == id);
+            return View(_song);
+        }
+
+        // POST: /SongManager/Accept
+        [HttpPost]
+        public ActionResult Accept(int id, FormCollection collection)
+        {
+            var _song = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
+            _song.MaTinhTrangBaiHat = 1;
+
+            if (TryUpdateModel(_song))
+            {
+                StoreDB.SaveChanges();
+                return RedirectToAction("Waiting");
+            }
+            else
+                return View(_song);
+        }
+
+        // Trạng thái DELETED của BAIHAT
         private void upDeleted(int id)
         {
             // DELETE COMMENT
@@ -159,8 +199,6 @@ namespace MusicStore.Controllers
                 // DELETE CHITIETPLAYLIST
                 StoreDB.DeleteObject(item);
             }
-
-            StoreDB.SaveChanges();
         }
     }
 }

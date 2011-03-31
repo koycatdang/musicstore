@@ -86,9 +86,60 @@ namespace MusicStore.Controllers
         public ActionResult Delete(int id, FormCollection collection)
         {
             var _artist = StoreDB.NHACSIs.First(ns => ns.MaNhacSi == id);
+            var _song = (from bh in StoreDB.BAIHATs
+                         where bh.MaNhacSi == _artist.MaNhacSi
+                         select bh).ToList();
+            foreach (var bh in _song)
+                deleteAll(bh.MaBaiHat);
+            
             StoreDB.NHACSIs.DeleteObject(_artist);
             StoreDB.SaveChanges();
             return View("Deleted");
+        }
+
+        // Xóa toàn bộ thông tin liên quan của nhạc sĩ tương ứng
+        private void  deleteAll(int id)
+        {
+            // DELETE COMMENT
+            var _comment = (from cm in StoreDB.COMMENTs
+                            where cm.MaBaiHat == id
+                            select cm).ToList();
+            foreach (var cm in _comment)
+                StoreDB.COMMENTs.DeleteObject(cm);
+
+
+            //DELETE DIEM
+            var _diem = (from d in StoreDB.DIEMs
+                         where d.MaBaiHat == id
+                         select d).ToList();
+            foreach (var d in _diem)
+                StoreDB.DIEMs.DeleteObject(d);
+
+            // DELETE CHITIETALBUM
+            var _chiTietAlbum = (from cta in StoreDB.CHITIETALBUMs
+                                 where cta.MaBaiHat == id
+                                 select cta).ToList();
+            foreach (var cta in _chiTietAlbum)
+                StoreDB.DeleteObject(cta);
+
+            // DELETE CHITIETPLAYLIST & Cập nhật số lượng bài hát ở PLAYLIST
+            var _chiTietPlaylist = (from ctpl in StoreDB.CHITIETPLAYLISTs
+                                    where ctpl.MaBaiHat == id
+                                    select ctpl).ToList();
+            foreach (var item in _chiTietPlaylist)
+            {
+                // Cập số lượng bài hát trong Playlist
+                var _playList = StoreDB.PLAYLISTs.First(pl => pl.MaPlaylist == item.MaPlaylist);
+                _playList.SoLuongBaiHat--;
+                TryUpdateModel(_playList);
+
+                // DELETE CHITIETPLAYLIST
+                StoreDB.DeleteObject(item);
+            }      
+
+            //DELETE BAIHAT
+            var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
+            StoreDB.BAIHATs.DeleteObject(_baiHat);
         }
     }
 }

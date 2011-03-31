@@ -7,13 +7,13 @@
 
 <h2>Xóa ca sĩ</h2>
 
-<h3>Bạn có chắc muốn xóa ca sĩ với tên là @Model.TenCaSi</h3>
+<h3>Bạn có chắc muốn xóa ca sĩ với tên là <em>@Model.TenCaSi</em></h3>
 @using (Html.BeginForm()) {
     <p>
         <input type="submit" value="Xóa" />
     </p>
-    <p>
-        @Html.ActionLink("Quay lại", "Index")
+    <p class="goback">
+        @Html.ActionLink("<<Quay lại", "Index")
     </p>
 }
 

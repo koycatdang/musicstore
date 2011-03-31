@@ -54,32 +54,11 @@
             @Html.ValidationMessageFor(model => model.MaChatLuongAmThanh)
         </div>
         <div class="editor-label">
-            Số lượt nghe:
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.SoLuongNghe)
-            @Html.ValidationMessageFor(model => model.SoLuongNghe)
-        </div>
-        <div class="editor-label">
             Tình trạng bài hát:
         </div>
         <div class="editor-field">
             @Html.DropDownList("MaTinhTrangBaiHat", new SelectList(ViewBag.TinhTrangBaiHat as System.Collections.IEnumerable, "MaTinhTrangBaiHat", "TenTinhTrangBaiHat", Model.MaTinhTrangBaiHat), "--SELECT ONE--")
             @Html.ValidationMessageFor(model => model.MaTinhTrangBaiHat)
-        </div>
-        <div class="editor-label">
-            Điểm:
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Diem)
-            @Html.ValidationMessageFor(model => model.Diem)
-        </div>
-        <div class="editor-label">
-            Số lượt Download:
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.SoLuotDownload)
-            @Html.ValidationMessageFor(model => model.SoLuotDownload)
         </div>
         <p>
             <input type="submit" value="Create" />

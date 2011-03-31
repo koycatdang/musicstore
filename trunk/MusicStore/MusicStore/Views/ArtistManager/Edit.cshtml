@@ -9,7 +9,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Thông tin nhạc sĩ</legend>
+        <legend>Thông tin nhạc sĩ <em>@Model.TenNhacSi</em></legend>
         @Html.HiddenFor(model => model.MaNhacSi)
         <div class="editor-label">
             Tên nhạc sĩ:
@@ -30,6 +30,6 @@
         </p>
     </fieldset>
 }
-<div>
-    @Html.ActionLink("Quay lại", "Index")
+<div class="goback">
+    @Html.ActionLink("<<Quay lại", "Index")
 </div>

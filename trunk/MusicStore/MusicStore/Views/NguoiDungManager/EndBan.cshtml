@@ -1,0 +1,73 @@
+﻿@model MusicStore.Models.BANNICK
+@{
+    ViewBag.Title = "Gỡ ban";
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Gỡ bỏ bannick</h2>
+<h3>
+    Bạn có chắc muốn ngừng ban nick tài khoản này?</h3>
+<fieldset>
+    <legend>Thông tin tài khoản</legend>
+    <table>
+        <tr>
+            <td>
+                Họ tên người dùng:
+            </td>
+            <td class="var">@Model.NGUOIDUNG.TenNguoiDung
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tên tài khoản:
+            </td>
+            <td class="var">@Model.NGUOIDUNG.UserName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mật khẩu:
+            </td>
+            <td class="var">@Model.NGUOIDUNG.PassWord
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ngày sinh:
+            </td>
+            <td class="var">@Model.NGUOIDUNG.NgaySinh
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Nơi sống:
+            </td>
+            <td class="var">@Model.NGUOIDUNG.NoiSong
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ngày Hết hạn:
+            </td>
+            <td class="var">@String.Format("{0:g}", Model.NgayHetHan)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Thời gian còn lại(Ngày):
+            </td>
+            <td class="var">@Html.Encode(@String.Format("{0:dd}", @Model.NgayHetHan - DateTime.Now))
+            </td>
+        </tr>
+    </table>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Đồng ý" />
+        |
+    </p>
+    <p class="goback">
+        @Html.ActionLink("<<Quay lại", "Ban")
+    </p>
+}

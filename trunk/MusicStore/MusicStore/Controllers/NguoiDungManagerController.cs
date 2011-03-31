@@ -185,5 +185,40 @@ namespace MusicStore.Controllers
             StoreDB.SaveChanges();
             return View("Deleted");
         }
+
+        //
+        // GET: /NguoiDungManager/Ban
+        public ActionResult Ban()
+        {
+            var _bn = StoreDB.BANNICKs.ToList();
+            return View(_bn);
+        }
+
+        //
+        // GET: /NguoiDungManager/EndBan
+        public ActionResult EndBan(int id)
+        {
+            var _bn = StoreDB.BANNICKs.First(bn => bn.MaNguoiDung == id);
+            return View(_bn);
+        }
+
+        //
+        // POST: /NguoiDungManager/EndBan
+        [HttpPost]
+        public ActionResult EndBan(int id, FormCollection collection)
+        {
+            var _bn = StoreDB.BANNICKs.First(bn => bn.MaNguoiDung == id);
+            
+            // DELETE BANNICK
+            StoreDB.BANNICKs.DeleteObject(_bn);
+
+            // UPDATE TrangThai NGUOIDUNGS
+            var _nguoiDung = StoreDB.NGUOIDUNGs.First(nd => nd.MaNguoiDung == id);
+            _nguoiDung.MaTinhTrangNguoiDung = 1;
+            TryUpdateModel(_nguoiDung);
+
+            StoreDB.SaveChanges();
+            return View("EndedBan");
+        }
     }
 }

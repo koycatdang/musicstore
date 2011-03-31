@@ -10,7 +10,7 @@
 {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Thông tin bài hát @Model.TenBaiHat</legend>
+        <legend>Thông tin bài hát <em>@Model.TenBaiHat</em></legend>
         @Html.HiddenFor(model => model.MaBaiHat)
         <div class="editor-label">
             Tên bài hát:

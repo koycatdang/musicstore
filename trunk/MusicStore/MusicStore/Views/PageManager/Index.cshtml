@@ -8,93 +8,140 @@
 <p>
     @Html.ActionLink("Cập nhật", "Edit/1")
 </p>
-<table>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                Quy định số ngày ban nick 1 tài khoản tối đa: @item.QuyDinhSoNgayBanNickToiDa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số lượng Playlist được tạo tối đa của 1 tài khoản: @item.SoLuongPlaylistDuocTaoToiDa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số lượng bài hát nghe nhiều nhất theo từng thể loại được liệt kê tối đa: @item.SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số lượng bài hát mới nhất được liệt kê tối đa: @item.SoLuongBaiHatMoiNhatDuocLietKeToiDa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số lượng bài hát có điểm trung bình cao nhất được liệt kê tối đa: @item.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số lượng bài hát cùng ca sĩ được liệt kê tối đa: @item.SoLuongBaiHatCungCaSiDuocLietKeToiDa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số lượng bài hát được liệt kê mỗi trang tối đa: @item.SoLuongBaiHatLietKeMoiTrangToiDa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số lượng bài hát được tìm thấy tối đa: @item.SoLuongBaiHatDuocTimThayToiDa
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số giấy chờ Download tối thiểu: @item.SoGiayChoDownloadToiThieu
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Tên logo: @item.TenLogo
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Lời giới thiệu: @item.GioiThieu
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Ngôn ngữ: @item.NgonNgu
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Thông tin liên lạc: @item.ThongTinLienLac
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Tên file flash: @item.Flash
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số lượng thể loại được liệt kê trên menu tối đa: @item.SoLuongTheLoaiDuocLietKetTrenMenu
-            </td>
-        </tr>
-        <tr>
-            <td>
-            Số lượng ca sĩ được liệt kê trên menu tối đa: @item.SoLuongCaSiLietKeTrenMenu
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Số lượng Playlist xem nhiều nhất được liệt kê trên menu tối đa: @item.SoLuongPlaylistXemNhieuNhatTrenMenu
-            </td>
-        </tr>
-    }
-</table>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        Quy định số ngày ban nick 1 tài khoản tối đa
+                    </td>
+                    <td class="var">
+                        @item.QuyDinhSoNgayBanNickToiDa
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng Playlist được tạo tối đa của 1 tài khoản
+                    </td>
+                    <td class="var">
+                        @item.SoLuongPlaylistDuocTaoToiDa
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng bài hát nghe nhiều nhất theo từng thể loại được liệt kê tối đa
+                    </td>
+                    <td class="var">
+                        @item.SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng bài hát mới nhất được liệt kê tối đa
+                    </td>
+                    <td class="var">
+                        @item.SoLuongBaiHatMoiNhatDuocLietKeToiDa
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng bài hát có điểm trung bình cao nhất được liệt kê tối đa
+                    </td>
+                    <td class="var">@item.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng bài hát cùng ca sĩ được liệt kê tối đa
+                    </td>
+                    <td class="var">
+                        @item.SoLuongBaiHatCungCaSiDuocLietKeToiDa
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng bài hát được liệt kê mỗi trang tối đa
+                    </td>
+                    <td class="var">
+                        @item.SoLuongBaiHatLietKeMoiTrangToiDa
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng bài hát được tìm thấy tối đa
+                    </td>
+                    <td class="var">
+                        @item.SoLuongBaiHatDuocTimThayToiDa
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số giấy chờ Download tối thiểu
+                    </td>
+                    <td class="var">
+                        @item.SoGiayChoDownloadToiThieu
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Tên logo
+                    </td>
+                    <td class="var">@item.TenLogo
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Lời giới thiệu
+                    </td>
+                    <td class="var">@item.GioiThieu
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ngôn ngữ
+                    </td>
+                    <td class="var">@item.NgonNgu
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Thông tin liên lạc
+                    </td>
+                    <td class="var">@item.ThongTinLienLac
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Tên file flash
+                    </td>
+                    <td class="var">@item.Flash
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng thể loại được liệt kê trên menu tối đa
+                    </td>
+                    <td class="var">@item.SoLuongTheLoaiDuocLietKetTrenMenu
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng ca sĩ được liệt kê trên menu tối đa
+                    </td>
+                    <td class="var">@item.SoLuongCaSiLietKeTrenMenu
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Số lượng Playlist xem nhiều nhất được liệt kê trên menu tối đa
+                    </td>
+                    <td class="var">@item.SoLuongPlaylistXemNhieuNhatTrenMenu
+                    </td>
+                </tr>
+            }
+        </table>
+    </fieldset>
+}
