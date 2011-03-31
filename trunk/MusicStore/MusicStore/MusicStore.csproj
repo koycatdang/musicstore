@@ -230,6 +230,7 @@
     <Content Include="Views\PageManager\Index.cshtml" />
     <Content Include="Views\PageManager\Edit.cshtml" />
     <Content Include="Views\SongManager\Index.cshtml" />
+    <Content Include="Views\BaiHat\BaiHatYeuThich.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

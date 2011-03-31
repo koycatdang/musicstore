@@ -444,7 +444,7 @@ h3
 {
     /* Leftcolumn */
     position: absolute;
-    width: 225px;
+    width: 16.7%;
     height: 1326px;
     z-index: 12;
     background-image: url(../Images/bg_leftcolumn.jpg);
@@ -541,7 +541,7 @@ h3
 {
     /* Content */
     position: absolute;
-    width: 771px;
+    width: 83%;
     height: 1141px;
     z-index: 14;
     left: 226px;
@@ -872,6 +872,7 @@ h3
 {
     width: 100%;
     border: 1px;
+    border-color:#485dc5;
 }
 
 .webgrid-table caption
@@ -889,13 +890,20 @@ h3
     color: White;
     text-align: left;
     vertical-align: middle;
+    font-family:Tahoma;
 }
 
-.webgrid-totalRow
+.webgrid-row
 {
-    font-weight: bold;
+    font-family:Tahoma;
+    background-color: #f4ed52;
 }
 
+.webgrid-alternatingRow
+{
+    background-color: #a0dae8;
+    font-family:Tahoma;
+}
 .paging-number
 {
     text-align: left;

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<MusicStore.Models.BAIHAT>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="@Url.Action("../BaiHat/Detail", new { id = item.MaBaiHat })"><span style="color: #9b9993;
+            text-decoration: underline">@item.TenBaiHat</span> </a></li>
+    }
+</ul>
