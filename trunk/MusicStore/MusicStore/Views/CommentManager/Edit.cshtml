@@ -1,0 +1,41 @@
+﻿@model MusicStore.Models.COMMENT
+@{
+    ViewBag.Title = "Cập nhật comment";
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Cập nhật comment</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Nội dung</legend>
+        @Html.HiddenFor(model => model.MaComment)
+        <div class="editor-label">
+          Người dùng: <em class="var">@Model.NGUOIDUNG.TenNguoiDung</em><br />
+          Tên tài khoản: <em class="var">@Model.NGUOIDUNG.UserName</em><br />
+          Tên bài hát: <em class="var">@Model.BAIHAT.TenBaiHat</em>
+        </div>
+        <div class="editor-label">
+            Nội dung:
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.NoiDung, "Multiline")
+            @Html.ValidationMessageFor(model => model.NoiDung)
+        </div>
+        <div class="editor-label">
+            Ngày comment:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgayComment)
+            @Html.ValidationMessageFor(model => model.NgayComment)
+        </div>
+        <p>
+            <input type="submit" value="Lưu" />
+        </p>
+    </fieldset>
+}
+<div class="goback">
+    @Html.ActionLink("<<Quay lại", "Index")
+</div>

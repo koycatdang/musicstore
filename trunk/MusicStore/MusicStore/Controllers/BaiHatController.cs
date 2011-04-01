@@ -46,7 +46,7 @@ namespace MusicStore.Controllers
             foreach (var item in _soLuongYeuThichDuocLietKe)
             {
                 var _bhYeuThich = (from bh in dbEntity.BAIHATs
-                                   orderby bh.Diem
+                                   orderby bh.Diem descending
                                    select new { bh.MaBaiHat, bh.TenBaiHat }).Take(int.Parse(item.soLuong.ToString())).ToList();
 
                 foreach (var i in _bhYeuThich)

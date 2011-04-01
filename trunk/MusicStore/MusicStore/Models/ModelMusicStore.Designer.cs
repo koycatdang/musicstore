@@ -2358,6 +2358,30 @@ namespace MusicStore.Models
         private Nullable<global::System.Int32> _MaBaiHat;
         partial void OnMaBaiHatChanging(Nullable<global::System.Int32> value);
         partial void OnMaBaiHatChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> NgayComment
+        {
+            get
+            {
+                return _NgayComment;
+            }
+            set
+            {
+                OnNgayCommentChanging(value);
+                ReportPropertyChanging("NgayComment");
+                _NgayComment = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NgayComment");
+                OnNgayCommentChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _NgayComment;
+        partial void OnNgayCommentChanging(Nullable<global::System.DateTime> value);
+        partial void OnNgayCommentChanged();
 
         #endregion
     

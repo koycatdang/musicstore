@@ -35,6 +35,11 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Create(NGUOIDUNG _nguoiDung)
         {
+            var _check = (from nd in dbEntity.NGUOIDUNGs
+                          where nd.UserName == _nguoiDung.UserName
+                          select nd).ToList();
+            if (_check.Count() != 0)
+                return View("ErrorUserName");
             if (ModelState.IsValid)
             {
                 //Save NGUOIDUNG
@@ -86,6 +91,11 @@ namespace MusicStore.Controllers
         public ActionResult Edit(int id, FormCollection collection)
         {
             var _nguoiDung = dbEntity.NGUOIDUNGs.First(nd => nd.MaNguoiDung == id);
+            var _check = (from nd in dbEntity.NGUOIDUNGs
+                          where nd.UserName == _nguoiDung.UserName
+                          select nd).ToList();
+            if (_check.Count() != 0)
+                return View("ErrorUserName");
 
             if (TryUpdateModel(_nguoiDung))
             {

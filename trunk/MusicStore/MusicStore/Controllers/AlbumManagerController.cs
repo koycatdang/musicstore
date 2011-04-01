@@ -94,16 +94,11 @@ namespace MusicStore.Controllers
 
         //
         // GET: /AlbumManager/Detail/3
-        public ActionResult Detail(int id)
+        public ActionResult Details(int id)
         {
-            var _chiTietAlbum = (from cta in dbEntity.CHITIETALBUMs
-                                 where cta.MaAlbum == id
-                                 select cta).ToList();
-            List<CHITIETALBUM> lsta = new List<CHITIETALBUM>();
-            foreach (var cta in _chiTietAlbum)
-                lsta.Add(cta);
+            var _chiTietAlbum = dbEntity.CHITIETALBUMs.Where(cta => cta.MaAlbum == id).ToList();
 
-            return View(lsta);
+            return View(_chiTietAlbum);
         }
 
         //
