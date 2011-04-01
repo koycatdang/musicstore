@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlbumManagerController.cs" />
     <Compile Include="Controllers\ArtistManagerController.cs" />
     <Compile Include="Controllers\BaiHatController.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="Controllers\GenreManagerController.cs" />
     <Compile Include="Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\HomeUserController.cs" />
-    <Compile Include="Controllers\NguoiDungManagerController.cs" />
+    <Compile Include="Controllers\UserManagerController.cs" />
     <Compile Include="Controllers\PageManagerController.cs" />
     <Compile Include="Controllers\PlaylistManagerController.cs" />
     <Compile Include="Controllers\SingerManagerController.cs" />
@@ -200,12 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\StyleAdmin\Images\icons\Thumbs.db" />
-    <Content Include="Views\NguoiDungManager\Index.cshtml" />
+    <Content Include="Views\UserManager\Index.cshtml" />
     <Content Include="Views\HomeAdmin\Index.cshtml" />
-    <Content Include="Views\NguoiDungManager\Create.cshtml" />
-    <Content Include="Views\NguoiDungManager\Edit.cshtml" />
-    <Content Include="Views\NguoiDungManager\Delete.cshtml" />
-    <Content Include="Views\NguoiDungManager\Deleted.cshtml" />
+    <Content Include="Views\UserManager\Create.cshtml" />
+    <Content Include="Views\UserManager\Edit.cshtml" />
+    <Content Include="Views\UserManager\Delete.cshtml" />
+    <Content Include="Views\UserManager\Deleted.cshtml" />
     <Content Include="Views\SongManager\Create.cshtml" />
     <Content Include="Views\SongManager\Edit.cshtml" />
     <Content Include="Views\SongManager\Delete.cshtml" />
@@ -234,9 +235,9 @@
     <Content Include="Views\PageManager\Edit.cshtml" />
     <Content Include="Views\SongManager\Index.cshtml" />
     <Content Include="Views\BaiHat\BaiHatYeuThich.cshtml" />
-    <Content Include="Views\NguoiDungManager\Ban.cshtml" />
-    <Content Include="Views\NguoiDungManager\EndBan.cshtml" />
-    <Content Include="Views\NguoiDungManager\EndedBan.cshtml" />
+    <Content Include="Views\UserManager\Ban.cshtml" />
+    <Content Include="Views\UserManager\EndBan.cshtml" />
+    <Content Include="Views\UserManager\EndedBan.cshtml" />
     <Content Include="Views\SongManager\Waiting.cshtml" />
     <Content Include="Views\SongManager\Accept.cshtml" />
     <Content Include="Views\SongManager\Accepted.cshtml" />
@@ -251,7 +252,7 @@
     <Content Include="Views\AlbumManager\ErrorAddSong.cshtml" />
     <Content Include="Views\PlaylistManager\Index.cshtml" />
     <Content Include="Views\PlaylistManager\Edit.cshtml" />
-    <Content Include="Views\NguoiDungManager\ErrorUserName.cshtml" />
+    <Content Include="Views\UserManager\ErrorUserName.cshtml" />
     <Content Include="Views\PlaylistManager\Deleted.cshtml" />
     <Content Include="Views\PlaylistManager\Delete.cshtml" />
     <Content Include="Views\PlaylistManager\Details.cshtml" />
@@ -262,6 +263,7 @@
     <Content Include="Views\CommentManager\Edit.cshtml" />
     <Content Include="Views\CommentManager\Delete.cshtml" />
     <Content Include="Views\CommentManager\Deleted.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
