@@ -238,6 +238,16 @@
     <Content Include="Views\SongManager\Waiting.cshtml" />
     <Content Include="Views\SongManager\Accept.cshtml" />
     <Content Include="Views\SongManager\Accepted.cshtml" />
+    <Content Include="Views\AlbumManager\Index.cshtml" />
+    <Content Include="Views\AlbumManager\Create.cshtml" />
+    <Content Include="Views\AlbumManager\Delete.cshtml" />
+    <Content Include="Views\AlbumManager\Edit.cshtml" />
+    <Content Include="Views\AlbumManager\Deleted.cshtml" />
+    <Content Include="Views\AlbumManager\Detail.cshtml" />
+    <Content Include="Views\AlbumManager\Remove.cshtml" />
+    <Content Include="Views\AlbumManager\Removed.cshtml" />
+    <Content Include="Views\AlbumManager\AddSong.cshtml" />
+    <Content Include="Views\AlbumManager\ErrorAddSong.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

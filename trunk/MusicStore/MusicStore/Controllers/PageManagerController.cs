@@ -9,12 +9,12 @@ namespace MusicStore.Controllers
 {
     public class PageManagerController : Controller
     {
-        db_MusicStoreEntities StoreDB = new db_MusicStoreEntities();
+        db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
         //
         // GET: /PageManager/
         public ActionResult Index()
         {
-            var _page = StoreDB.THAMSOes.ToList();
+            var _page = dbEntity.THAMSOes.ToList();
             return View(_page);
         }
 
@@ -22,7 +22,7 @@ namespace MusicStore.Controllers
         // GET: /PageManager/Edit/1
         public ActionResult Edit(int id)
         {
-            var _page = StoreDB.THAMSOes.First(ts => ts.id == id);
+            var _page = dbEntity.THAMSOes.First(ts => ts.id == id);
             return View(_page);
         }
 
@@ -31,11 +31,11 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            var _page = StoreDB.THAMSOes.First(ts => ts.id == id);
+            var _page = dbEntity.THAMSOes.First(ts => ts.id == id);
 
             if (TryUpdateModel(_page))
             {
-                StoreDB.SaveChanges();
+                dbEntity.SaveChanges();
                 return RedirectToAction("Index");
             }
             else

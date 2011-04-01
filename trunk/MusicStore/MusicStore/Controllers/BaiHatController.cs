@@ -4,9 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MusicStore.Models;
-using System.Xml;
-using System.Data;
-using MusicStore.Models;
 
 namespace MusicStore.Controllers
 {
@@ -43,7 +40,7 @@ namespace MusicStore.Controllers
         {
             // Lấy số lượng bài hát yêu thích được kiệt kê tối đa
             var _soLuongYeuThichDuocLietKe = from ts in dbEntity.THAMSOes
-                                  select new {soLuong = ts.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa};
+                                             select new { soLuong = ts.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa };
 
             List<BAIHAT> lstBaiHat = new List<BAIHAT>();
             foreach (var item in _soLuongYeuThichDuocLietKe)
@@ -51,14 +48,14 @@ namespace MusicStore.Controllers
                 var _bhYeuThich = (from bh in dbEntity.BAIHATs
                                    orderby bh.Diem
                                    select new { bh.MaBaiHat, bh.TenBaiHat }).Take(int.Parse(item.soLuong.ToString())).ToList();
-               
+
                 foreach (var i in _bhYeuThich)
                 {
                     BAIHAT _baiHat = new Models.BAIHAT();
                     _baiHat.MaBaiHat = i.MaBaiHat;
                     _baiHat.TenBaiHat = i.TenBaiHat;
                     lstBaiHat.Add(_baiHat);
-                }            
+                }
             }
             return PartialView(lstBaiHat);
         }

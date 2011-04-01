@@ -23,28 +23,28 @@
             Nhạc sĩ sáng tác:
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.NHACSI.TenNhacSi)
+            @Html.DropDownList("MaNhacSi", new SelectList(ViewBag.NhacSi as System.Collections.IEnumerable, "MaNhacSi", "TenNhacSi", Model.MaNhacSi), "--SELECT ONE--")
             @Html.ValidationMessageFor(model => model.MaNhacSi)
         </div>
         <div class="editor-label">
             Ca sĩ trình bày:
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.CASI.TenCaSi)
+            @Html.DropDownList("MaCaSiTrinhBay", new SelectList(ViewBag.CaSi as System.Collections.IEnumerable, "MaCaSi", "TenCaSi", Model.MaCaSiTrinhBay), "--SELECT ONE--")
             @Html.ValidationMessageFor(model => model.MaCaSiTrinhBay)
         </div>
         <div class="editor-label">
             Chất lượng âm thanh:
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.CHATLUONGAMTHANH.MaChatLuongAmThanh)
+            @Html.DropDownList("MaChatLuongAmThanh", new SelectList(ViewBag.ChatLuongAmThanh as System.Collections.IEnumerable, "MaChatLuongAmThanh", "TenChatLuongAmThanh", Model.MaChatLuongAmThanh), "--SELECT ONE--")
             @Html.ValidationMessageFor(model => model.MaChatLuongAmThanh)
         </div>
         <div class="editor-label">
             Thể loại:
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.THELOAI.TenTheLoai)
+            @Html.DropDownList("MaTheLoai", new SelectList(ViewBag.TheLoai as System.Collections.IEnumerable, "MaTheLoai", "TenTheLoai", Model.MaTheLoai), "--SELECT ONE--")
             @Html.ValidationMessageFor(model => model.MaTheLoai)
         </div>
         <p>

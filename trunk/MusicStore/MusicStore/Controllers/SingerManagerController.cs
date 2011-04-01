@@ -9,12 +9,12 @@ namespace MusicStore.Controllers
 {
     public class SingerManagerController : Controller
     {
-        db_MusicStoreEntities StoreDB = new db_MusicStoreEntities();
+        db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
         //
         // GET: /SingerManager/
         public ActionResult Index()
         {
-            var _singer = StoreDB.CASIs.ToList();
+            var _singer = dbEntity.CASIs.ToList();
             return View(_singer);
         }
 
@@ -22,8 +22,8 @@ namespace MusicStore.Controllers
         // GET: /SingerManager/Create
         public ActionResult Create()
         {
-            ViewBag.TinhTrangCaSi = StoreDB.TINHTRANGCASIs.OrderBy(ttcs => ttcs.MaTinhTrangCaSi).ToList();
-            ViewBag.KhuVuc = StoreDB.KHUVUCs.OrderBy(kv => kv.MaKhuVuc).ToList();
+            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.OrderBy(ttcs => ttcs.MaTinhTrangCaSi).ToList();
+            ViewBag.KhuVuc = dbEntity.KHUVUCs.OrderBy(kv => kv.MaKhuVuc).ToList();
 
             var _singer = new CASI();
             return View(_singer);
@@ -36,13 +36,13 @@ namespace MusicStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                StoreDB.CASIs.AddObject(_singer);
-                StoreDB.SaveChanges();
+                dbEntity.CASIs.AddObject(_singer);
+                dbEntity.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            ViewBag.TinhTrangCaSi = StoreDB.TINHTRANGCASIs.OrderBy(ttcs => ttcs.MaTinhTrangCaSi).ToList();
-            ViewBag.KhuVuc = StoreDB.KHUVUCs.OrderBy(kv => kv.MaKhuVuc).ToList();
+            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.OrderBy(ttcs => ttcs.MaTinhTrangCaSi).ToList();
+            ViewBag.KhuVuc = dbEntity.KHUVUCs.OrderBy(kv => kv.MaKhuVuc).ToList();
             return View(_singer);
         }
 
@@ -50,10 +50,10 @@ namespace MusicStore.Controllers
         // GET: /SingerManager/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.TinhTrangCaSi = StoreDB.TINHTRANGCASIs.OrderBy(ttcs => ttcs.MaTinhTrangCaSi).ToList();
-            ViewBag.KhuVuc = StoreDB.KHUVUCs.OrderBy(kv => kv.MaKhuVuc).ToList();
+            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.OrderBy(ttcs => ttcs.MaTinhTrangCaSi).ToList();
+            ViewBag.KhuVuc = dbEntity.KHUVUCs.OrderBy(kv => kv.MaKhuVuc).ToList();
 
-            var _singer = StoreDB.CASIs.First(cs => cs.MaCaSi == id);
+            var _singer = dbEntity.CASIs.First(cs => cs.MaCaSi == id);
             return View(_singer);
         }
 
@@ -62,11 +62,11 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            var _singer = StoreDB.CASIs.First(cs => cs.MaCaSi == id);
+            var _singer = dbEntity.CASIs.First(cs => cs.MaCaSi == id);
 
             if (TryUpdateModel(_singer))
             {
-                StoreDB.SaveChanges();
+                dbEntity.SaveChanges();
                 return RedirectToAction("Index");
             }
             else
@@ -77,7 +77,7 @@ namespace MusicStore.Controllers
         // GET: /SingerManager/Delete/5
         public ActionResult Delete(int id)
         {
-            var _singer = StoreDB.CASIs.First(cs => cs.MaCaSi == id);
+            var _singer = dbEntity.CASIs.First(cs => cs.MaCaSi == id);
             return View(_singer);
         }
 
@@ -86,14 +86,14 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            var _singer = StoreDB.CASIs.First(cs => cs.MaCaSi == id);
-            var _song = (from bh in StoreDB.BAIHATs
+            var _singer = dbEntity.CASIs.First(cs => cs.MaCaSi == id);
+            var _song = (from bh in dbEntity.BAIHATs
                          where bh.MaCaSiTrinhBay == _singer.MaCaSi
                          select bh).ToList();
             foreach (var bh in _song)
                 deleteAll(bh.MaBaiHat);
-            StoreDB.CASIs.DeleteObject(_singer);
-            StoreDB.SaveChanges();
+            dbEntity.CASIs.DeleteObject(_singer);
+            dbEntity.SaveChanges();
             return View("Deleted");
         }
 
@@ -101,45 +101,45 @@ namespace MusicStore.Controllers
         private void deleteAll(int id)
         {
             // DELETE COMMENT
-            var _comment = (from cm in StoreDB.COMMENTs
+            var _comment = (from cm in dbEntity.COMMENTs
                             where cm.MaBaiHat == id
                             select cm).ToList();
             foreach (var cm in _comment)
-                StoreDB.COMMENTs.DeleteObject(cm);
+                dbEntity.COMMENTs.DeleteObject(cm);
 
 
             //DELETE DIEM
-            var _diem = (from d in StoreDB.DIEMs
+            var _diem = (from d in dbEntity.DIEMs
                          where d.MaBaiHat == id
                          select d).ToList();
             foreach (var d in _diem)
-                StoreDB.DIEMs.DeleteObject(d);
+                dbEntity.DIEMs.DeleteObject(d);
 
             // DELETE CHITIETALBUM
-            var _chiTietAlbum = (from cta in StoreDB.CHITIETALBUMs
+            var _chiTietAlbum = (from cta in dbEntity.CHITIETALBUMs
                                  where cta.MaBaiHat == id
                                  select cta).ToList();
             foreach (var cta in _chiTietAlbum)
-                StoreDB.DeleteObject(cta);
+                dbEntity.DeleteObject(cta);
 
             // DELETE CHITIETPLAYLIST & Cập nhật số lượng bài hát ở PLAYLIST
-            var _chiTietPlaylist = (from ctpl in StoreDB.CHITIETPLAYLISTs
+            var _chiTietPlaylist = (from ctpl in dbEntity.CHITIETPLAYLISTs
                                     where ctpl.MaBaiHat == id
                                     select ctpl).ToList();
             foreach (var item in _chiTietPlaylist)
             {
                 // Cập số lượng bài hát trong Playlist
-                var _playList = StoreDB.PLAYLISTs.First(pl => pl.MaPlaylist == item.MaPlaylist);
+                var _playList = dbEntity.PLAYLISTs.First(pl => pl.MaPlaylist == item.MaPlaylist);
                 _playList.SoLuongBaiHat--;
                 TryUpdateModel(_playList);
 
                 // DELETE CHITIETPLAYLIST
-                StoreDB.DeleteObject(item);
+                dbEntity.DeleteObject(item);
             }
 
             //DELETE BAIHAT
-            var _baiHat = StoreDB.BAIHATs.First(bh => bh.MaBaiHat == id);
-            StoreDB.BAIHATs.DeleteObject(_baiHat);
+            var _baiHat = dbEntity.BAIHATs.First(bh => bh.MaBaiHat == id);
+            dbEntity.BAIHATs.DeleteObject(_baiHat);
         }
     }
 }

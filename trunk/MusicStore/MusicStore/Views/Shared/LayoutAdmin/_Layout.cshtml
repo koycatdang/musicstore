@@ -120,14 +120,17 @@
     <!--// Dropdown edit starts -->
     <div class="bodytext" id="dropdown">
         <ul id="jsddm">
-            <li><a href="#">What would you like to do today?</a><ul>
-                <li><a href="#">» Write a new Article</a></li>
-                <li><a href="#">» Upload Pictures</a></li>
-                <li><a href="#">» Add new events to Calendar</a></li>
-                <li><a href="#">» Edit my Profile</a></li>
-                <li><a href="#">» View User's Comments</a></li>
-                <li><a href="#">» View Statistics</a></li>
-                <li><a href="@Url.Content("~/PageManager/")">» Manage Homepage</a></li>
+            <li><a href="#">Bạn muốn làm gì trong ngày hôm nay?</a><ul>
+                <li><a href="@Url.Content("~/NguoiDungManager/")">» Quản lí người dùng</a></li>
+                <li><a href="@Url.Content("~/SongManager/")">» Quản lí bài hát</a></li>
+                <li><a href="@Url.Content("~/SingerManager/")">» Quản lí ca sĩ</a></li>
+                <li><a href="@Url.Content("~/ArtistManager/")">» Quản lí nhạc sĩ</a></li>
+                <li><a href="@Url.Content("~/GenreManager/")">» Quản lí thể loại nhạc</a></li>
+                <li><a href="@Url.Content("~/AlbumManager/")">» Quản lí Album</a></li>
+                <li><a href="@Url.Content("~/PageManager/")">» Quản lí Playlist</a></li>
+                <li><a href="@Url.Content("~/NguoiDungManager/Ban")">» Quản lí Các tài khoản bị BAN</a></li>
+                <li><a href="@Url.Content("~/SongManager/Waiting")">» Quản lí Danh sách các bài hát đang chờ</a></li>
+                <li><a href="@Url.Content("~/PageManager/")">» Quản lí trang web</a></li>
             </ul>
             </li>
         </ul>
@@ -220,7 +223,7 @@
                                 height="16" />
                         </td>
                         <td class="navigation">
-                            <a href="3.html">Help &amp; Support</a>
+                            <a href="#">Help &amp; Support</a>
                         </td>
                         <!--// Support -->
                     </tr>
