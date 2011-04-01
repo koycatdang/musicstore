@@ -220,7 +220,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelMusicStore.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MusicStore.idc" />
     <Content Include="Views\SingerManager\Index.cshtml" />
     <Content Include="Views\SingerManager\Create.cshtml" />
     <Content Include="Views\SingerManager\Edit.cshtml" />
