@@ -419,7 +419,7 @@ h3
     width: 100px;
     height: 69px;
     z-index: 11;
-    left: 894px;
+    left: 600px;
     top: 0px;
     background-color: #F4F4F4;
 }
@@ -444,7 +444,7 @@ h3
 {
     /* Hello (user) dropdown DIV */
     position: absolute;
-    width: 204px;
+    width: 300px;
     height: 27px;
     z-index: 16;
     left: 368px;
@@ -541,13 +541,27 @@ h3
 {
     /* Horisontal submenu */
     position: absolute;
-    width: 527px;
+    width: 100%;
     height: 26px;
     z-index: 5;
     left: 248px;
     top: 73px;
 }
+#submenu ul
+{
+    list-style-type: none;
 
+}
+#submenu ul li
+{
+    display:inline;
+    padding:15px;
+    border-right:1px solid #FFF;
+}
+#submenu ul li a
+{
+    color:#FFF;
+}
 #content
 {
     /* Content */
@@ -736,7 +750,7 @@ h3
     background: #478da4;
     padding: 2px 5px;
     text-decoration: none;
-    width: 190px;
+    width: auto;
     color: #FFFFFF;
     white-space: nowrap;
 }

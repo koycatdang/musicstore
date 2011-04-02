@@ -133,6 +133,8 @@
     <Content Include="Content\StyleUser\Images\banner.jpg" />
     <Content Include="Content\StyleUser\Images\banner.swf" />
     <Content Include="Content\StyleUser\Images\bg.jpg" />
+    <Content Include="Content\StyleUser\Images\button.png" />
+    <Content Include="Content\StyleUser\Images\input.png" />
     <Content Include="Content\StyleUser\Images\logo.png" />
     <Content Include="Content\StyleUser\Images\menu-bg.jpg" />
     <Content Include="EFCodeFirstReadMe.txt" />

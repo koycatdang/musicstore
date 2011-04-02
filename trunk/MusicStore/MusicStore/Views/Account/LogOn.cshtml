@@ -4,16 +4,13 @@
 }
 <h2>
     Đăng nhập</h2>
-<p>
-    Bạn hãy đăng ký cho mình một tài khoản @Html.ActionLink("Tại đây", "Register") nếu
-    bạn chưa có tài khoản.
-</p>
+
 @Html.ValidationSummary(true, "Đăng nhập thất bại. Hãy kiểm tra lỗi và thử lại.")
 @using (Html.BeginForm())
 {
-    <div>
-        <fieldset>
-            <legend>Thông tin tài khoản</legend>
+    <div style="margin:auto; width:80%;">
+        <fieldset>  
+            <legend><h3>Thông tin tài khoản</h3></legend>
             <div class="editor-label">
                 Tên tài khoản:
             </div>
@@ -29,8 +26,12 @@
                 @Html.ValidationMessageFor(m => m.PassWord)
             </div>
             <p>
-                <input type="submit" value="Đăng nhập" />
+                <input class="DangNhap" type="submit" value=""/>
             </p>
         </fieldset>
     </div>
 }
+<p style="text-align:center; margin:10px;">
+    Bạn hãy đăng ký cho mình một tài khoản @Html.ActionLink("Tại đây", "Register") nếu
+    bạn chưa có tài khoản.
+</p>

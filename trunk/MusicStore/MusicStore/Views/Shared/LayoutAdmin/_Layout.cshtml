@@ -19,44 +19,24 @@
 <body>
     <!--// Horisontal submenu edit starts -->
     <div class="bodytext" id="submenu">
-        <table width="493" border="0" class="class2">
-            <tr>
-                <td valign="middle">
-                    <a href="@Url.Content("~/HomeAdmin/")">Thống kê</a>
-                </td>
-                <td valign="middle">
-                    <a href="@Url.Content("~/UserManager/")">Người dùng</a>
-                </td>
-                <td valign="middle">
-                    <a href="@Url.Content("~/SongManager/")">Bài hát</a>
-                </td>
-                <td valign="middle">
-                    <a href="@Url.Content("~/SingerManager/")">Ca sĩ</a>
-                </td>
-                <td valign="middle">
-                    <a href="@Url.Content("~/ArtistManager/")">Nhạc sĩ</a>
-                </td>
-                <td valign="middle">
-                    <a href="@Url.Content("~/GenreManager/")">Thể loại</a>
-                </td>
-                <td valign="middle">
-                    <a href="@Url.Content("~/AlbumManager/")">Album</a>
-                </td>
-                <td valign="middle">
-                    <a href="@Url.Content("~/PlaylistManager/")">Playlist</a>
-                </td>
-                <td valign="middle">
-                    <a href="@Url.Content("~/PageManager/")">Trang web</a>
-                </td>
-            </tr>
-        </table>
+    <ul>
+        <li><a href="@Url.Content("~/HomeAdmin/")">Thống kê</a></li>
+        <li> <a href="@Url.Content("~/UserManager/")">Người dùng</a></li>
+        <li> <a href="@Url.Content("~/SongManager/")">Bài hát</a></li>
+        <li><a href="@Url.Content("~/SingerManager/")">Ca sĩ</a></li>
+        <li><a href="@Url.Content("~/ArtistManager/")">Nhạc sĩ</a></li>
+        <li>  <a href="@Url.Content("~/GenreManager/")">Thể loại</a></li>
+        <li> <a href="@Url.Content("~/AlbumManager/")">Album</a></li>
+        <li><a href="@Url.Content("~/PlaylistManager/")">Playlist</a></li>
+        <li> <a href="@Url.Content("~/PageManager/")">Trang web</a></li>
+    </ul>
     </div>
     <!--// Horisontal submenu edit ends -->
     <!--// Logo edit starts -->
     <div id="logo">
         <div align="center">
             <br />
-            <img src="/Content/StyleAdmin/Images/logo.png" alt="logo" width="116" height="34" /><br />
+            <img src="/Content/StyleUser/Images/logo.png" alt="logo" height="50px" /><br />
         </div>
     </div>
     <!--// logo edit ends -->
@@ -69,46 +49,7 @@
             border="0" /><br />
     </div>
     <!--// arrows edit ends -->
-    <!--// Visit site starts -->
-    <div id="visitsite">
-        <div align="center" class="toplinks">
-            <div id="visitsite_icon">
-                <a href="#">
-                    <img src="/Content/StyleAdmin/Images/icons/big_visitsite.png" alt="big_visitsite"
-                        width="30" height="25" border="0" /></a></div>
-            <br />
-            <br />
-            <a href="#"><span class="toplinks">VISIT SITE</span></a></div>
-    </div>
-    <!--// Visit site edit ends -->
-    <!--// Users edit starts -->
-    <div id="users">
-        <div align="center">
-            <div id="users_icon">
-                <a href="#">
-                    <img src="/Content/StyleAdmin/Images/icons/big_users.png" alt="big_users" width="24"
-                        height="26" border="0" /></a></div>
-            <span class="toplinks">
-                <br />
-                <br />
-                <a href="#"><span class="toplinks">USERS</span></a></span></div>
-        <br />
-    </div>
-    <!--// users edit ends -->
-    <!--// Settings edit starts -->
-    <div id="settings">
-        <div align="center">
-            <div id="settings_icon">
-                <a href="#">
-                    <img src="/Content/StyleAdmin/Images/icons/big_settings.png" alt="big_settings" width="25"
-                        height="26" border="0" /></a></div>
-            <span class="toplinks">
-                <br />
-                <br />
-                <a href="@Url.Content("~/PageManager/")"><span class="toplinks">SETTINGS</span></a></span><br />
-        </div>
-    </div>
-    <!--// settings edit ends -->
+    
     <!--// Logout edit starts -->
     <div id="logout">
         <div align="center">
@@ -126,7 +67,8 @@
     <!--// Dropdown edit starts -->
     <div class="bodytext" id="dropdown">
         <ul id="jsddm">
-            <li><a href="#">Bạn muốn làm gì trong ngày hôm nay?</a><ul>
+            <li><a href="#">Bạn muốn làm gì trong ngày hôm nay?</a>
+            <ul>
                 <li><a href="@Url.Content("~/NguoiDungManager/")">» Quản lí người dùng</a></li>
                 <li><a href="@Url.Content("~/SongManager/")">» Quản lí bài hát</a></li>
                 <li><a href="@Url.Content("~/SingerManager/")">» Quản lí ca sĩ</a></li>
@@ -347,14 +289,7 @@
     </div>
     <!--// Buttons ends -->
     <!--// Content ends -->
-    <!--// Searchbox starts -->
-    <div id="searchbox">
-        <label>
-            <input name="serach" type="text" class="search" id="search" onfocus="if (value='Search') {value=''}"
-                onblur="if (value=='') {value='Search'}" value="Search" size="30" maxlength="50" />
-        </label>
-    </div>
-    <!--// Searchbox ends -->
+   
 </body>
 <!-- Mirrored from jannek.fi/themeforest/proadmin/ by HTTrack Website Copier/3.x [XR&CO'2008], Wed, 26 Nov 2008 20:37:11 GMT -->
 </html>

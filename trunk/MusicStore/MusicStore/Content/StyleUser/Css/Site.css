@@ -3,7 +3,47 @@
 *{
 	margin:0;
 	padding:0;
-	border:0;
+}
+img
+{
+    border:0;
+}
+fieldset
+{
+    margin-top:20px;
+    padding:10px;
+}
+input
+{
+    margin-top:5px;
+}
+input.DangNhap
+{
+    margin-top:5px;
+    background:url(../Images/button.png) no-repeat;
+    width:115px;
+    height:30px;
+    border:0;
+}
+input#UserName
+{
+    margin-top:5px;
+    background:url(../Images/input.png) no-repeat;
+    width:201px;
+    height:27px;
+    border:0;
+    margin-bottom:5px;
+    padding-left:5px;
+}
+
+input#PassWord
+{
+    margin-top:5px;
+    background:url(../Images/input.png) no-repeat;
+    width:201px;
+    height:27px;
+    border:0;
+    margin-bottom:5px;
 }
 /* Dinh dang cac the */
 a{
@@ -13,11 +53,13 @@ a{
 a:hover{
 	color:#F0F;
 }
+
+
 /* Body */
 body{
 	font-family:Arial, Helvetica, sans-serif;
 	color:#333;
-	font-size:12px;
+	font-size:12px;s
 }
 /* All */
 #all{
@@ -65,11 +107,14 @@ body{
 	font-size:13px;
 	border-bottom:1px solid #efefef;
 	padding:10px;
-	text-align:center;
+	text-align:center;s
 	font-weight:bold;
 }
 #m-l-content{
 	padding:5px;
+}
+#m-l-content ul li a{
+	text-decoration:none;
 }
 #wrapper{
 	float:left;
