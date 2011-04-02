@@ -72,9 +72,12 @@
     <Compile Include="Controllers\GenreManagerController.cs" />
     <Compile Include="Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\HomeUserController.cs" />
+    <Compile Include="Controllers\PlayListController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\UploadType.cs" />
     <Compile Include="Controllers\UserManagerController.cs" />
     <Compile Include="Controllers\PageManagerController.cs" />
-    <Compile Include="Controllers\PlaylistManagerController.cs" />
+    <Compile Include="Controllers\PlayListManagerController.cs" />
     <Compile Include="Controllers\SingerManagerController.cs" />
     <Compile Include="Controllers\SongManagerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -184,9 +187,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\CaSi\List.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\BaiHat\BrowCaSi.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -251,20 +251,23 @@
     <Content Include="Views\AlbumManager\Removed.cshtml" />
     <Content Include="Views\AlbumManager\AddSong.cshtml" />
     <Content Include="Views\AlbumManager\ErrorAddSong.cshtml" />
-    <Content Include="Views\PlaylistManager\Index.cshtml" />
-    <Content Include="Views\PlaylistManager\Edit.cshtml" />
+    <Content Include="Views\PlayListManager\Index.cshtml" />
+    <Content Include="Views\PlayListManager\Edit.cshtml" />
     <Content Include="Views\UserManager\ErrorUserName.cshtml" />
-    <Content Include="Views\PlaylistManager\Deleted.cshtml" />
-    <Content Include="Views\PlaylistManager\Delete.cshtml" />
-    <Content Include="Views\PlaylistManager\Details.cshtml" />
-    <Content Include="Views\PlaylistManager\Remove.cshtml" />
-    <Content Include="Views\PlaylistManager\Removed.cshtml" />
+    <Content Include="Views\PlayListManager\Deleted.cshtml" />
+    <Content Include="Views\PlayListManager\Delete.cshtml" />
+    <Content Include="Views\PlayListManager\Details.cshtml" />
+    <Content Include="Views\PlayListManager\Remove.cshtml" />
+    <Content Include="Views\PlayListManager\Removed.cshtml" />
     <Content Include="Views\AlbumManager\Index.cshtml" />
     <Content Include="Views\CommentManager\Index.cshtml" />
     <Content Include="Views\CommentManager\Edit.cshtml" />
     <Content Include="Views\CommentManager\Delete.cshtml" />
     <Content Include="Views\CommentManager\Deleted.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\CaSi\ListCaSiVietNam.cshtml" />
+    <Content Include="Views\CaSi\ListCaSiChauA.cshtml" />
+    <Content Include="Views\CaSi\ListCaSiAuMi.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -35,9 +35,7 @@ namespace MusicStore.Controllers
         [HttpPost]
         public ActionResult Create(NGUOIDUNG _nguoiDung)
         {
-            var _check = (from nd in dbEntity.NGUOIDUNGs
-                          where nd.UserName == _nguoiDung.UserName
-                          select nd).ToList();
+            var _check = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == _nguoiDung.UserName).ToList();
             if (_check.Count() != 0)
                 return View("ErrorUserName");
             if (ModelState.IsValid)
@@ -50,14 +48,10 @@ namespace MusicStore.Controllers
                     _banNick.MaNguoiDung = _nguoiDung.MaNguoiDung;
 
                     // Lấy số lượng ngày bị bannick
-                    var _soNgayBanNick = (from ts in dbEntity.THAMSOes
-                                          select new { ts.QuyDinhSoNgayBanNickToiDa });
-
-                    foreach (var item in _soNgayBanNick)
-                    {
-                        DateTime dtHetHan = (DateTime.Now).AddDays(item.QuyDinhSoNgayBanNickToiDa);
-                        _banNick.NgayHetHan = dtHetHan;
-                    }
+                    var _ts = dbEntity.THAMSOes.First(); 
+                       
+                    DateTime dtHetHan = (DateTime.Now).AddDays(int.Parse(_ts.QuyDinhSoNgayBanNickToiDa.ToString()));
+                    _banNick.NgayHetHan = dtHetHan;
 
                     // Add BANNICK
                     dbEntity.BANNICKs.AddObject(_banNick);
@@ -91,12 +85,12 @@ namespace MusicStore.Controllers
         public ActionResult Edit(int id, FormCollection collection)
         {
             var _nguoiDung = dbEntity.NGUOIDUNGs.First(nd => nd.MaNguoiDung == id);
-            var _check = (from nd in dbEntity.NGUOIDUNGs
-                          where nd.UserName == _nguoiDung.UserName
-                          select nd).ToList();
-            if (_check.Count() != 0)
-                return View("ErrorUserName");
-
+            var _check = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == _nguoiDung.UserName).ToList();
+            if (_check.Count() == 1)
+                foreach (var nd in _check)
+                    if (nd.UserName != _nguoiDung.UserName)
+                        return View("ErrorUserName");
+            
             if (TryUpdateModel(_nguoiDung))
             {
                 var _bn = dbEntity.BANNICKs.Where(bn => bn.MaNguoiDung == id).ToList();
@@ -108,14 +102,11 @@ namespace MusicStore.Controllers
                         _banNick.MaNguoiDung = _nguoiDung.MaNguoiDung;
 
                         // Lấy số lượng ngày bị bannick
-                        var _soNgayBanNick = from ts in dbEntity.THAMSOes
-                                             select new { ts.QuyDinhSoNgayBanNickToiDa };
+                        var _ts = dbEntity.THAMSOes.First();
 
-                        foreach (var item in _soNgayBanNick)
-                        {
-                            DateTime dtHetHan = (DateTime.Now).AddDays(item.QuyDinhSoNgayBanNickToiDa);
-                            _banNick.NgayHetHan = dtHetHan;
-                        }
+                        DateTime dtHetHan = (DateTime.Now).AddDays(int.Parse(_ts.QuyDinhSoNgayBanNickToiDa.ToString()));
+                        _banNick.NgayHetHan = dtHetHan;
+
                         // Add BANNICK
                         dbEntity.BANNICKs.AddObject(_banNick);
                     }
@@ -155,31 +146,23 @@ namespace MusicStore.Controllers
 
 
             // DELETE PLAYLIST
-            var _playList = (from pl in dbEntity.PLAYLISTs
-                             where pl.MaNguoiDung == id
-                             select pl).ToList();
+            var _playList = dbEntity.PLAYLISTs.Where(pl => pl.MaNguoiDung == id).ToList();
             foreach (var pl in _playList)
             {
                 // DELETE CHITIETPLAYLIST
-                var _chiTietPlayList = (from ctpl in dbEntity.CHITIETPLAYLISTs
-                                        where ctpl.MaPlaylist == pl.MaPlaylist
-                                        select ctpl).ToList();
+                var _chiTietPlayList = dbEntity.CHITIETPLAYLISTs.Where(ctpl => ctpl.MaPlaylist == pl.MaPlaylist).ToList();
                 foreach (var ctpl in _chiTietPlayList)
                     dbEntity.CHITIETPLAYLISTs.DeleteObject(ctpl);
                 dbEntity.PLAYLISTs.DeleteObject(pl);
             }
 
             // DELETE COMMENT
-            var _comment = (from cm in dbEntity.COMMENTs
-                            where cm.MaNguoiDung == id
-                            select cm).ToList();
+            var _comment = dbEntity.COMMENTs.Where(cm => cm.MaBaiHat == id).ToList();
             foreach (var cm in _comment)
                 dbEntity.COMMENTs.DeleteObject(cm);
 
             //DELETE DIEM
-            var _diem = (from d in dbEntity.DIEMs
-                         where d.MaNguoiDung == id
-                         select d).ToList();
+            var _diem = dbEntity.DIEMs.Where(d => d.MaBaiHat == id).ToList();
             foreach (var d in _diem)
                 dbEntity.DIEMs.DeleteObject(d);
 

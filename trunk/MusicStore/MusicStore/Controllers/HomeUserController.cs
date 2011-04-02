@@ -10,12 +10,12 @@ namespace MusicStore.Controllers
     public class HomeUserController : Controller
     {
         db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
+        
         public ActionResult Index()
         {
             return View();
         }
 
-       
         public ActionResult About()
         {
             return View();

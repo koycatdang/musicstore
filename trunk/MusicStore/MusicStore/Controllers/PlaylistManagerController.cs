@@ -7,7 +7,7 @@ using MusicStore.Models;
 
 namespace MusicStore.Controllers
 {
-    public class PlaylistManagerController : Controller
+    public class PlayListManagerController : Controller
     {
         db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
         //

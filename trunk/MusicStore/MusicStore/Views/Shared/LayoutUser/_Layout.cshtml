@@ -39,38 +39,31 @@
                     <!--BEGIN:MODLEFT-->
                     <div id="mod-left">
                         <div id="m-l-title">
-                            Nhạc hot tháng 3</div>
+                            Nhạc hot tháng @Html.Encode(DateTime.Now.Month)</div>
                         <div id="m-l-content">
                             @{Html.RenderAction("BaiHatYeuThich", "BaiHat");}
                         </div>
-                    </div>
-                    <!--BEGIN:MODLEFT-->
-                    <div id="mod-left">
                         <!---->
                         <div id="m-l-title">
                             Thể loại nhạc</div>
                         <div id="m-l-content">
-                           
                         </div>
-
                         <div id="m-l-title">
                             Ca sĩ Việt Nam</div>
                         <div id="m-l-content">
-                            @*@{Html.RenderAction("List", "CaSi");}*@
+                            @{Html.RenderAction("ListCaSiVietNam", "CaSi");}
                         </div>
-
                         <!---->
                         <div id="m-l-title">
                             Ca sĩ châu Á</div>
                         <div id="m-l-content">
-                           @* @{Html.RenderAction("List", "CaSi");}*@
+                            @{Html.RenderAction("ListCaSiChauA", "CaSi");}
                         </div>
-
                         <!---->
                         <div id="m-l-title">
                             Ca sĩ Âu Mỹ</div>
                         <div id="m-l-content">
-                           @* @{Html.RenderAction("List", "CaSi");}*@
+                            @{Html.RenderAction("ListCaSiAuMi", "CaSi");}
                         </div>
                     </div>
                     <!--END:MODLEFT-->
@@ -95,7 +88,6 @@
                             ĐĂNG NHẬP
                         </div>
                         <div id="m-r-content">
-                            
                         </div>
                     </div>
                 </div>

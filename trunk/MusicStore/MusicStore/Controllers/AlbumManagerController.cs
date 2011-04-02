@@ -119,15 +119,13 @@ namespace MusicStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                var _cta = (from cta in dbEntity.CHITIETALBUMs
-                            where cta.MaAlbum == _chiTietAlbum.MaAlbum
-                            where cta.MaBaiHat == _chiTietAlbum.MaBaiHat
-                            select cta).ToList();
+                var _cta = dbEntity.CHITIETALBUMs.Where(ctab => ctab.MaAlbum == _chiTietAlbum.MaAlbum).Where(cta1 => cta1.MaBaiHat == _chiTietAlbum.MaBaiHat).ToList();
+
                 if (_cta.Count() == 0)
                 {
                     dbEntity.CHITIETALBUMs.AddObject(_chiTietAlbum);
                     dbEntity.SaveChanges();
-                    return RedirectToAction("Detail/", new { id = _chiTietAlbum.MaAlbum});
+                    return RedirectToAction("Details/", new { id = _chiTietAlbum.MaAlbum});
                 }
                 else
                     return View("ErrorAddSong");

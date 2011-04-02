@@ -39,25 +39,11 @@ namespace MusicStore.Controllers
         public ActionResult BaiHatYeuThich()
         {
             // Lấy số lượng bài hát yêu thích được kiệt kê tối đa
-            var _soLuongYeuThichDuocLietKe = from ts in dbEntity.THAMSOes
-                                             select new { soLuong = ts.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa };
+            var sl = dbEntity.THAMSOes.First();
 
-            List<BAIHAT> lstBaiHat = new List<BAIHAT>();
-            foreach (var item in _soLuongYeuThichDuocLietKe)
-            {
-                var _bhYeuThich = (from bh in dbEntity.BAIHATs
-                                   orderby bh.Diem descending
-                                   select new { bh.MaBaiHat, bh.TenBaiHat }).Take(int.Parse(item.soLuong.ToString())).ToList();
-
-                foreach (var i in _bhYeuThich)
-                {
-                    BAIHAT _baiHat = new Models.BAIHAT();
-                    _baiHat.MaBaiHat = i.MaBaiHat;
-                    _baiHat.TenBaiHat = i.TenBaiHat;
-                    lstBaiHat.Add(_baiHat);
-                }
-            }
-            return PartialView(lstBaiHat);
+            var _bhYeuThich = dbEntity.BAIHATs.OrderByDescending(bh => bh.Diem).Take(int.Parse(sl.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa.ToString())).ToList();
+  
+            return PartialView(_bhYeuThich);
         }
     }
 }

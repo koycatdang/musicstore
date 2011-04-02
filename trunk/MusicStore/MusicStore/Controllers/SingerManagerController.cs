@@ -87,9 +87,7 @@ namespace MusicStore.Controllers
         public ActionResult Delete(int id, FormCollection collection)
         {
             var _singer = dbEntity.CASIs.First(cs => cs.MaCaSi == id);
-            var _song = (from bh in dbEntity.BAIHATs
-                         where bh.MaCaSiTrinhBay == _singer.MaCaSi
-                         select bh).ToList();
+            var _song = dbEntity.BAIHATs.Where(bh => bh.MaCaSiTrinhBay == _singer.MaCaSi).ToList();
             foreach (var bh in _song)
                 deleteAll(bh.MaBaiHat);
             dbEntity.CASIs.DeleteObject(_singer);
@@ -97,44 +95,36 @@ namespace MusicStore.Controllers
             return View("Deleted");
         }
 
-        // Xóa toàn bộ thông tin liên quan của nhạc sĩ tương ứng
+        // Xóa toàn bộ thông tin liên quan của ca sĩ sĩ tương ứng
         private void deleteAll(int id)
         {
             // DELETE COMMENT
-            var _comment = (from cm in dbEntity.COMMENTs
-                            where cm.MaBaiHat == id
-                            select cm).ToList();
+            var _comment = dbEntity.COMMENTs.Where(cm => cm.MaBaiHat == id).ToList();
             foreach (var cm in _comment)
                 dbEntity.COMMENTs.DeleteObject(cm);
 
 
             //DELETE DIEM
-            var _diem = (from d in dbEntity.DIEMs
-                         where d.MaBaiHat == id
-                         select d).ToList();
+            var _diem = dbEntity.DIEMs.Where(d => d.MaBaiHat == id).ToList();
             foreach (var d in _diem)
                 dbEntity.DIEMs.DeleteObject(d);
 
             // DELETE CHITIETALBUM
-            var _chiTietAlbum = (from cta in dbEntity.CHITIETALBUMs
-                                 where cta.MaBaiHat == id
-                                 select cta).ToList();
+            var _chiTietAlbum = dbEntity.CHITIETALBUMs.Where(cta => cta.MaBaiHat == id).ToList();
             foreach (var cta in _chiTietAlbum)
                 dbEntity.DeleteObject(cta);
 
             // DELETE CHITIETPLAYLIST & Cập nhật số lượng bài hát ở PLAYLIST
-            var _chiTietPlaylist = (from ctpl in dbEntity.CHITIETPLAYLISTs
-                                    where ctpl.MaBaiHat == id
-                                    select ctpl).ToList();
-            foreach (var item in _chiTietPlaylist)
+            var _chiTietPlaylist = dbEntity.CHITIETPLAYLISTs.Where(ctpl => ctpl.MaBaiHat == id).ToList();
+            foreach (var ctpl in _chiTietPlaylist)
             {
                 // Cập số lượng bài hát trong Playlist
-                var _playList = dbEntity.PLAYLISTs.First(pl => pl.MaPlaylist == item.MaPlaylist);
+                var _playList = dbEntity.PLAYLISTs.First(pl => pl.MaPlaylist == ctpl.MaPlaylist);
                 _playList.SoLuongBaiHat--;
                 TryUpdateModel(_playList);
 
                 // DELETE CHITIETPLAYLIST
-                dbEntity.DeleteObject(item);
+                dbEntity.DeleteObject(ctpl);
             }
 
             //DELETE BAIHAT
