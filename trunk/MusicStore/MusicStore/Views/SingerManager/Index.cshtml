@@ -9,8 +9,6 @@
 <p>
     @Html.ActionLink("Thêm ca sĩ", "Create")
 </p>
-Tổng số ca sĩ hiện tại: @Html.Encode(grid.TotalRowCount)
-<br />
 @grid.GetHtml(
     tableStyle: "webgrid-table",
     headerStyle: "webgrid-header",
@@ -37,3 +35,6 @@ Tổng số ca sĩ hiện tại: @Html.Encode(grid.TotalRowCount)
     </script>
     }
 }
+<p var="class">
+    Tổng số ca sĩ hiện tại: <em class="var">@Html.Encode(grid.TotalRowCount)</em>
+</p>

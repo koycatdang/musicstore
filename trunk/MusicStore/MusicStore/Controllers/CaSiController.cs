@@ -24,10 +24,9 @@ namespace MusicStore.Controllers
         public ActionResult ListCaSiVietNam()
         {
             var sl = dbEntity.THAMSOes.First();
-            List<CASI> _lstCaSiVietNam = new List<CASI>();
-
+            
             var temp = dbEntity.CASIs.Where(cs => cs.MaKhuVuc == 1).OrderByDescending(cs => cs.BAIHATs.Count()).Take(int.Parse(sl.SoLuongCaSiLietKeTrenMenu.ToString())).ToList();
-
+            List<CASI> _lstCaSiVietNam = new List<CASI>();
             foreach (var item in temp)
                 _lstCaSiVietNam.Add(item);
             
@@ -39,8 +38,13 @@ namespace MusicStore.Controllers
         [ChildActionOnly]
         public ActionResult ListCaSiChauA()
         {
-            var lstCaSiChauA = dbEntity.CASIs.Where(g => g.MaKhuVuc == 2).ToList();
-            return PartialView(lstCaSiChauA);
+            var sl = dbEntity.THAMSOes.First();
+
+            var temp = dbEntity.CASIs.Where(cs => cs.MaKhuVuc == 2).OrderByDescending(cs => cs.BAIHATs.Count()).Take(int.Parse(sl.SoLuongCaSiLietKeTrenMenu.ToString())).ToList();
+            List<CASI> _lstCaSiChauA = new List<CASI>();
+            foreach (var item in temp)
+                _lstCaSiChauA.Add(item);
+            return PartialView(_lstCaSiChauA);
         }
 
         //
@@ -48,8 +52,13 @@ namespace MusicStore.Controllers
         [ChildActionOnly]
         public ActionResult ListCaSiAuMi()
         {
-            var lstCaSiAuMy = dbEntity.CASIs.Where(g => g.MaKhuVuc == 3).ToList();
-            return PartialView(lstCaSiAuMy);
+            var sl = dbEntity.THAMSOes.First();
+
+            var temp = dbEntity.CASIs.Where(cs => cs.MaKhuVuc == 3).OrderByDescending(cs => cs.BAIHATs.Count()).Take(int.Parse(sl.SoLuongCaSiLietKeTrenMenu.ToString())).ToList();
+            List<CASI> _lstCaSiAuMy = new List<CASI>();
+            foreach (var item in temp)
+                _lstCaSiAuMy.Add(item);
+            return PartialView(_lstCaSiAuMy);
         }
     }
 }

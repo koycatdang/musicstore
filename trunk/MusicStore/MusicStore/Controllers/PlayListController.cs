@@ -19,29 +19,18 @@ namespace DoAn.Controllers
         }
 
         [ChildActionOnly]
-        public ActionResult PlayList_NgheNhieuNhat()
+        public ActionResult PlayListNgheNhieuNhat()
         {
-            var dt = dbEntity.PLAYLISTs.ToList();
-            return PartialView(dt);
+            var sl = dbEntity.THAMSOes.First();
+            var _playList = dbEntity.PLAYLISTs.OrderByDescending(pl => pl.SoLuotNghe).Take(int.Parse(sl.SoLuongPlaylistXemNhieuNhatTrenMenu.ToString())).ToList();
+            return PartialView(_playList);
         }
 
-        public ActionResult Detail(int Playlist)
+        public ActionResult Detail(int id)
         {
-            var lst = (from bh in dbEntity.BAIHATs
-                             join ctPlayList in dbEntity.CHITIETPLAYLISTs on bh.MaBaiHat equals ctPlayList.MaBaiHat
-                             where ctPlayList.MaPlaylist == Playlist
-                             select new { bh.MaBaiHat, bh.TenBaiHat, bh.LinkDownload}).ToList();
+            var _playlist = dbEntity.CHITIETPLAYLISTs.Where(pl => pl.MaPlaylist == id).ToList(); 
 
-            List<BAIHAT> lstBaiHat = new List<BAIHAT>();
-            foreach (var item in lst)
-            {
-                BAIHAT baiHat = new BAIHAT();
-                baiHat.LinkDownload = item.LinkDownload;
-                baiHat.MaBaiHat = item.MaBaiHat;
-                baiHat.TenBaiHat = item.TenBaiHat;
-                lstBaiHat.Add(baiHat);
-            }
-            return PartialView(lstBaiHat);
+            return PartialView(_playlist);
         }
     }
 }

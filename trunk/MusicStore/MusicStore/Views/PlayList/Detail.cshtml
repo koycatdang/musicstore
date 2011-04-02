@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MusicStore.Models.CHITIETPLAYLIST>
+@{
+    ViewBag.Title = "Chi tiết playlist";
+    Layout = "~/Views/Shared/LayoutUser/_Layout.cshtml";
+}
+<h2>
+    Chi tiết playlist</h2>
+@foreach (var item in Model)
+{
+    <div><a href="@Url.Action("../BaiHat/ListBaiHat", new { id = item.MaBaiHat })">@item.BAIHAT.TenBaiHat</a></div>
+
+}

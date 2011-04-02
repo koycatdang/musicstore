@@ -47,6 +47,7 @@
                         <div id="m-l-title">
                             Thể loại nhạc</div>
                         <div id="m-l-content">
+                            @{Html.RenderAction("ListTheLoai", "TheLoai");}
                         </div>
                         <div id="m-l-title">
                             Ca sĩ Việt Nam</div>
@@ -64,6 +65,11 @@
                             Ca sĩ Âu Mỹ</div>
                         <div id="m-l-content">
                             @{Html.RenderAction("ListCaSiAuMi", "CaSi");}
+                        </div>
+                        <div id="m-l-title">
+                            PlayList Hot</div>
+                        <div id="m-l-content">
+                            @{Html.RenderAction("PlayListNgheNhieuNhat", "PlayList");}
                         </div>
                     </div>
                     <!--END:MODLEFT-->

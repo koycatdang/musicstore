@@ -1,7 +1,20 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Trang chủ | HPT";
     Layout = "~/Views/Shared/LayoutUser/_Layout.cshtml";
 }
-
-<h2>Index</h2>
-
+<h2>
+    Bài hát mới nhất</h2>
+<ul>
+    @foreach (var item in ViewBag.ListBaiHatMoiNhat)
+    {
+        <li><a href="@Url.Action("../BaiHat/ListBaiHat", new { id = item.MaBaiHat })">@item.TenBaiHat</a></li>
+    }
+</ul>
+<h2>
+    Bài hát yêu thích nhất</h2>
+<ul>
+    @foreach (var item in ViewBag.ListBaiHatDiemCaoNhat)
+    {
+        <li><a href="@Url.Action("../BaiHat/ListBaiHat", new { id = item.MaBaiHat})">@item.TenBaiHat</a></li>
+    }
+</ul>

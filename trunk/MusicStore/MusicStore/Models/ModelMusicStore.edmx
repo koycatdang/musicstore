@@ -263,23 +263,23 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="QuyDinhSoNgayBanNickToiDa" Type="int" Nullable="false" />
-          <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="smallint" />
-          <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="smallint" />
-          <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="smallint" />
-          <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="smallint" />
-          <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="smallint" />
-          <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="smallint" />
-          <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="smallint" />
-          <Property Name="SoGiayChoDownloadToiThieu" Type="smallint" />
+          <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="int" Nullable="false" />
+          <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="int" Nullable="false" />
+          <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="int" Nullable="false" />
+          <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="int" Nullable="false" />
+          <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="int" Nullable="false" />
+          <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="int" Nullable="false" />
+          <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="int" Nullable="false" />
+          <Property Name="SoGiayChoDownloadToiThieu" Type="int" Nullable="false" />
           <Property Name="TenLogo" Type="varchar" MaxLength="50" />
           <Property Name="GioiThieu" Type="nvarchar(max)" />
           <Property Name="NgonNgu" Type="varchar" MaxLength="50" />
           <Property Name="ThongTinLienLac" Type="nvarchar(max)" />
           <Property Name="Flash" Type="varchar" MaxLength="50" />
-          <Property Name="SoLuongTheLoaiDuocLietKetTrenMenu" Type="int" />
-          <Property Name="SoLuongCaSiLietKeTrenMenu" Type="int" />
-          <Property Name="SoLuongPlaylistXemNhieuNhatTrenMenu" Type="nchar" MaxLength="10" />
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SoLuongTheLoaiDuocLietKetTrenMenu" Type="int" Nullable="false" />
+          <Property Name="SoLuongCaSiLietKeTrenMenu" Type="int" Nullable="false" />
+          <Property Name="SoLuongPlaylistXemNhieuNhatTrenMenu" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>
@@ -925,23 +925,23 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="QuyDinhSoNgayBanNickToiDa" Type="Int32" Nullable="false" />
-          <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="Int16" />
-          <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="Int16" />
-          <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="Int16" />
-          <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="Int16" />
-          <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="Int16" />
-          <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="Int16" />
-          <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="Int16" />
-          <Property Name="SoGiayChoDownloadToiThieu" Type="Int16" />
+          <Property Name="SoLuongPlaylistDuocTaoToiDa" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongBaiHatMoiNhatDuocLietKeToiDa" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongBaiHatCungCaSiDuocLietKeToiDa" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongBaiHatLietKeMoiTrangToiDa" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongBaiHatDuocTimThayToiDa" Type="Int32" Nullable="false" />
+          <Property Name="SoGiayChoDownloadToiThieu" Type="Int32" Nullable="false" />
           <Property Name="TenLogo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="GioiThieu" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="NgonNgu" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="ThongTinLienLac" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Flash" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="SoLuongTheLoaiDuocLietKetTrenMenu" Type="Int32" />
-          <Property Name="SoLuongCaSiLietKeTrenMenu" Type="Int32" />
-          <Property Name="SoLuongPlaylistXemNhieuNhatTrenMenu" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoLuongTheLoaiDuocLietKetTrenMenu" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongCaSiLietKeTrenMenu" Type="Int32" Nullable="false" />
+          <Property Name="SoLuongPlaylistXemNhieuNhatTrenMenu" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="THELOAI">
           <Key>

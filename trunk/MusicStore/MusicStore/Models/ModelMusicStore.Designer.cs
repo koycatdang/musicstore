@@ -3887,11 +3887,33 @@ namespace MusicStore.Models
         /// Create a new THAMSO object.
         /// </summary>
         /// <param name="quyDinhSoNgayBanNickToiDa">Initial value of the QuyDinhSoNgayBanNickToiDa property.</param>
+        /// <param name="soLuongPlaylistDuocTaoToiDa">Initial value of the SoLuongPlaylistDuocTaoToiDa property.</param>
+        /// <param name="soLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa">Initial value of the SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa property.</param>
+        /// <param name="soLuongBaiHatMoiNhatDuocLietKeToiDa">Initial value of the SoLuongBaiHatMoiNhatDuocLietKeToiDa property.</param>
+        /// <param name="soLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa">Initial value of the SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa property.</param>
+        /// <param name="soLuongBaiHatCungCaSiDuocLietKeToiDa">Initial value of the SoLuongBaiHatCungCaSiDuocLietKeToiDa property.</param>
+        /// <param name="soLuongBaiHatLietKeMoiTrangToiDa">Initial value of the SoLuongBaiHatLietKeMoiTrangToiDa property.</param>
+        /// <param name="soLuongBaiHatDuocTimThayToiDa">Initial value of the SoLuongBaiHatDuocTimThayToiDa property.</param>
+        /// <param name="soGiayChoDownloadToiThieu">Initial value of the SoGiayChoDownloadToiThieu property.</param>
+        /// <param name="soLuongTheLoaiDuocLietKetTrenMenu">Initial value of the SoLuongTheLoaiDuocLietKetTrenMenu property.</param>
+        /// <param name="soLuongCaSiLietKeTrenMenu">Initial value of the SoLuongCaSiLietKeTrenMenu property.</param>
+        /// <param name="soLuongPlaylistXemNhieuNhatTrenMenu">Initial value of the SoLuongPlaylistXemNhieuNhatTrenMenu property.</param>
         /// <param name="id">Initial value of the id property.</param>
-        public static THAMSO CreateTHAMSO(global::System.Int32 quyDinhSoNgayBanNickToiDa, global::System.Int32 id)
+        public static THAMSO CreateTHAMSO(global::System.Int32 quyDinhSoNgayBanNickToiDa, global::System.Int32 soLuongPlaylistDuocTaoToiDa, global::System.Int32 soLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa, global::System.Int32 soLuongBaiHatMoiNhatDuocLietKeToiDa, global::System.Int32 soLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa, global::System.Int32 soLuongBaiHatCungCaSiDuocLietKeToiDa, global::System.Int32 soLuongBaiHatLietKeMoiTrangToiDa, global::System.Int32 soLuongBaiHatDuocTimThayToiDa, global::System.Int32 soGiayChoDownloadToiThieu, global::System.Int32 soLuongTheLoaiDuocLietKetTrenMenu, global::System.Int32 soLuongCaSiLietKeTrenMenu, global::System.Int32 soLuongPlaylistXemNhieuNhatTrenMenu, global::System.Int32 id)
         {
             THAMSO tHAMSO = new THAMSO();
             tHAMSO.QuyDinhSoNgayBanNickToiDa = quyDinhSoNgayBanNickToiDa;
+            tHAMSO.SoLuongPlaylistDuocTaoToiDa = soLuongPlaylistDuocTaoToiDa;
+            tHAMSO.SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa = soLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa;
+            tHAMSO.SoLuongBaiHatMoiNhatDuocLietKeToiDa = soLuongBaiHatMoiNhatDuocLietKeToiDa;
+            tHAMSO.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa = soLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa;
+            tHAMSO.SoLuongBaiHatCungCaSiDuocLietKeToiDa = soLuongBaiHatCungCaSiDuocLietKeToiDa;
+            tHAMSO.SoLuongBaiHatLietKeMoiTrangToiDa = soLuongBaiHatLietKeMoiTrangToiDa;
+            tHAMSO.SoLuongBaiHatDuocTimThayToiDa = soLuongBaiHatDuocTimThayToiDa;
+            tHAMSO.SoGiayChoDownloadToiThieu = soGiayChoDownloadToiThieu;
+            tHAMSO.SoLuongTheLoaiDuocLietKetTrenMenu = soLuongTheLoaiDuocLietKetTrenMenu;
+            tHAMSO.SoLuongCaSiLietKeTrenMenu = soLuongCaSiLietKeTrenMenu;
+            tHAMSO.SoLuongPlaylistXemNhieuNhatTrenMenu = soLuongPlaylistXemNhieuNhatTrenMenu;
             tHAMSO.id = id;
             return tHAMSO;
         }
@@ -3926,9 +3948,9 @@ namespace MusicStore.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> SoLuongPlaylistDuocTaoToiDa
+        public global::System.Int32 SoLuongPlaylistDuocTaoToiDa
         {
             get
             {
@@ -3943,16 +3965,16 @@ namespace MusicStore.Models
                 OnSoLuongPlaylistDuocTaoToiDaChanged();
             }
         }
-        private Nullable<global::System.Int16> _SoLuongPlaylistDuocTaoToiDa;
-        partial void OnSoLuongPlaylistDuocTaoToiDaChanging(Nullable<global::System.Int16> value);
+        private global::System.Int32 _SoLuongPlaylistDuocTaoToiDa;
+        partial void OnSoLuongPlaylistDuocTaoToiDaChanging(global::System.Int32 value);
         partial void OnSoLuongPlaylistDuocTaoToiDaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa
+        public global::System.Int32 SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa
         {
             get
             {
@@ -3967,16 +3989,16 @@ namespace MusicStore.Models
                 OnSoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDaChanged();
             }
         }
-        private Nullable<global::System.Int16> _SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa;
-        partial void OnSoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDaChanging(Nullable<global::System.Int16> value);
+        private global::System.Int32 _SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa;
+        partial void OnSoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDaChanging(global::System.Int32 value);
         partial void OnSoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> SoLuongBaiHatMoiNhatDuocLietKeToiDa
+        public global::System.Int32 SoLuongBaiHatMoiNhatDuocLietKeToiDa
         {
             get
             {
@@ -3991,16 +4013,16 @@ namespace MusicStore.Models
                 OnSoLuongBaiHatMoiNhatDuocLietKeToiDaChanged();
             }
         }
-        private Nullable<global::System.Int16> _SoLuongBaiHatMoiNhatDuocLietKeToiDa;
-        partial void OnSoLuongBaiHatMoiNhatDuocLietKeToiDaChanging(Nullable<global::System.Int16> value);
+        private global::System.Int32 _SoLuongBaiHatMoiNhatDuocLietKeToiDa;
+        partial void OnSoLuongBaiHatMoiNhatDuocLietKeToiDaChanging(global::System.Int32 value);
         partial void OnSoLuongBaiHatMoiNhatDuocLietKeToiDaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa
+        public global::System.Int32 SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa
         {
             get
             {
@@ -4015,16 +4037,16 @@ namespace MusicStore.Models
                 OnSoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDaChanged();
             }
         }
-        private Nullable<global::System.Int16> _SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa;
-        partial void OnSoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDaChanging(Nullable<global::System.Int16> value);
+        private global::System.Int32 _SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa;
+        partial void OnSoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDaChanging(global::System.Int32 value);
         partial void OnSoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> SoLuongBaiHatCungCaSiDuocLietKeToiDa
+        public global::System.Int32 SoLuongBaiHatCungCaSiDuocLietKeToiDa
         {
             get
             {
@@ -4039,16 +4061,16 @@ namespace MusicStore.Models
                 OnSoLuongBaiHatCungCaSiDuocLietKeToiDaChanged();
             }
         }
-        private Nullable<global::System.Int16> _SoLuongBaiHatCungCaSiDuocLietKeToiDa;
-        partial void OnSoLuongBaiHatCungCaSiDuocLietKeToiDaChanging(Nullable<global::System.Int16> value);
+        private global::System.Int32 _SoLuongBaiHatCungCaSiDuocLietKeToiDa;
+        partial void OnSoLuongBaiHatCungCaSiDuocLietKeToiDaChanging(global::System.Int32 value);
         partial void OnSoLuongBaiHatCungCaSiDuocLietKeToiDaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> SoLuongBaiHatLietKeMoiTrangToiDa
+        public global::System.Int32 SoLuongBaiHatLietKeMoiTrangToiDa
         {
             get
             {
@@ -4063,16 +4085,16 @@ namespace MusicStore.Models
                 OnSoLuongBaiHatLietKeMoiTrangToiDaChanged();
             }
         }
-        private Nullable<global::System.Int16> _SoLuongBaiHatLietKeMoiTrangToiDa;
-        partial void OnSoLuongBaiHatLietKeMoiTrangToiDaChanging(Nullable<global::System.Int16> value);
+        private global::System.Int32 _SoLuongBaiHatLietKeMoiTrangToiDa;
+        partial void OnSoLuongBaiHatLietKeMoiTrangToiDaChanging(global::System.Int32 value);
         partial void OnSoLuongBaiHatLietKeMoiTrangToiDaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> SoLuongBaiHatDuocTimThayToiDa
+        public global::System.Int32 SoLuongBaiHatDuocTimThayToiDa
         {
             get
             {
@@ -4087,16 +4109,16 @@ namespace MusicStore.Models
                 OnSoLuongBaiHatDuocTimThayToiDaChanged();
             }
         }
-        private Nullable<global::System.Int16> _SoLuongBaiHatDuocTimThayToiDa;
-        partial void OnSoLuongBaiHatDuocTimThayToiDaChanging(Nullable<global::System.Int16> value);
+        private global::System.Int32 _SoLuongBaiHatDuocTimThayToiDa;
+        partial void OnSoLuongBaiHatDuocTimThayToiDaChanging(global::System.Int32 value);
         partial void OnSoLuongBaiHatDuocTimThayToiDaChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> SoGiayChoDownloadToiThieu
+        public global::System.Int32 SoGiayChoDownloadToiThieu
         {
             get
             {
@@ -4111,8 +4133,8 @@ namespace MusicStore.Models
                 OnSoGiayChoDownloadToiThieuChanged();
             }
         }
-        private Nullable<global::System.Int16> _SoGiayChoDownloadToiThieu;
-        partial void OnSoGiayChoDownloadToiThieuChanging(Nullable<global::System.Int16> value);
+        private global::System.Int32 _SoGiayChoDownloadToiThieu;
+        partial void OnSoGiayChoDownloadToiThieuChanging(global::System.Int32 value);
         partial void OnSoGiayChoDownloadToiThieuChanged();
     
         /// <summary>
@@ -4238,9 +4260,9 @@ namespace MusicStore.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> SoLuongTheLoaiDuocLietKetTrenMenu
+        public global::System.Int32 SoLuongTheLoaiDuocLietKetTrenMenu
         {
             get
             {
@@ -4255,16 +4277,16 @@ namespace MusicStore.Models
                 OnSoLuongTheLoaiDuocLietKetTrenMenuChanged();
             }
         }
-        private Nullable<global::System.Int32> _SoLuongTheLoaiDuocLietKetTrenMenu;
-        partial void OnSoLuongTheLoaiDuocLietKetTrenMenuChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _SoLuongTheLoaiDuocLietKetTrenMenu;
+        partial void OnSoLuongTheLoaiDuocLietKetTrenMenuChanging(global::System.Int32 value);
         partial void OnSoLuongTheLoaiDuocLietKetTrenMenuChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> SoLuongCaSiLietKeTrenMenu
+        public global::System.Int32 SoLuongCaSiLietKeTrenMenu
         {
             get
             {
@@ -4279,16 +4301,16 @@ namespace MusicStore.Models
                 OnSoLuongCaSiLietKeTrenMenuChanged();
             }
         }
-        private Nullable<global::System.Int32> _SoLuongCaSiLietKeTrenMenu;
-        partial void OnSoLuongCaSiLietKeTrenMenuChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _SoLuongCaSiLietKeTrenMenu;
+        partial void OnSoLuongCaSiLietKeTrenMenuChanging(global::System.Int32 value);
         partial void OnSoLuongCaSiLietKeTrenMenuChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String SoLuongPlaylistXemNhieuNhatTrenMenu
+        public global::System.Int32 SoLuongPlaylistXemNhieuNhatTrenMenu
         {
             get
             {
@@ -4298,13 +4320,13 @@ namespace MusicStore.Models
             {
                 OnSoLuongPlaylistXemNhieuNhatTrenMenuChanging(value);
                 ReportPropertyChanging("SoLuongPlaylistXemNhieuNhatTrenMenu");
-                _SoLuongPlaylistXemNhieuNhatTrenMenu = StructuralObject.SetValidValue(value, true);
+                _SoLuongPlaylistXemNhieuNhatTrenMenu = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("SoLuongPlaylistXemNhieuNhatTrenMenu");
                 OnSoLuongPlaylistXemNhieuNhatTrenMenuChanged();
             }
         }
-        private global::System.String _SoLuongPlaylistXemNhieuNhatTrenMenu;
-        partial void OnSoLuongPlaylistXemNhieuNhatTrenMenuChanging(global::System.String value);
+        private global::System.Int32 _SoLuongPlaylistXemNhieuNhatTrenMenu;
+        partial void OnSoLuongPlaylistXemNhieuNhatTrenMenuChanging(global::System.Int32 value);
         partial void OnSoLuongPlaylistXemNhieuNhatTrenMenuChanged();
     
         /// <summary>

@@ -74,6 +74,7 @@
     <Compile Include="Controllers\HomeUserController.cs" />
     <Compile Include="Controllers\PlayListController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\UploadType.cs" />
     <Compile Include="Controllers\UserManagerController.cs" />
     <Compile Include="Controllers\PageManagerController.cs" />
@@ -187,7 +188,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\BaiHat\BrowCaSi.cshtml" />
+    <Content Include="Views\BaiHat\ListBaiHat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\BaiHat\Detail.cshtml" />
@@ -218,10 +219,6 @@
     <Content Include="Views\GenreManager\Edit.cshtml" />
     <Content Include="Views\GenreManager\Delete.cshtml" />
     <Content Include="Views\GenreManager\Deleted.cshtml" />
-    <EntityDeploy Include="Models\ModelMusicStore.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelMusicStore.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Views\SingerManager\Index.cshtml" />
     <Content Include="Views\SingerManager\Create.cshtml" />
     <Content Include="Views\SingerManager\Edit.cshtml" />
@@ -235,7 +232,6 @@
     <Content Include="Views\PageManager\Index.cshtml" />
     <Content Include="Views\PageManager\Edit.cshtml" />
     <Content Include="Views\SongManager\Index.cshtml" />
-    <Content Include="Views\BaiHat\BaiHatYeuThich.cshtml" />
     <Content Include="Views\UserManager\Ban.cshtml" />
     <Content Include="Views\UserManager\EndBan.cshtml" />
     <Content Include="Views\UserManager\EndedBan.cshtml" />
@@ -268,6 +264,14 @@
     <Content Include="Views\CaSi\ListCaSiVietNam.cshtml" />
     <Content Include="Views\CaSi\ListCaSiChauA.cshtml" />
     <Content Include="Views\CaSi\ListCaSiAuMi.cshtml" />
+    <Content Include="Views\TheLoai\ListTheLoai.cshtml" />
+    <EntityDeploy Include="Models\ModelMusicStore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMusicStore.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Views\BaiHat\BaiHatYeuThich.cshtml" />
+    <Content Include="Views\PlayList\PlayListNgheNhieuNhat.cshtml" />
+    <Content Include="Views\PlayList\Detail.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

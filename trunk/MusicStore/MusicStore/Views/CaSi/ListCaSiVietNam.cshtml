@@ -2,6 +2,6 @@
 <ul>
     @foreach (var item in Model)
     {
-        <li>@item.TenCaSi</li>
+        <li><a href="@Url.Action("../BaiHat/ListBaiHat", new { id = item.MaCaSi })">@item.TenCaSi</a></li>
     }
 </ul>
