@@ -1,0 +1,141 @@
+﻿@model MusicStore.Models.THAMSO
+@{
+    ViewBag.Title = "Cập nật trang web";
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Cập nhật trang web</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Thôn tin trang web</legend>
+        <div class="editor-label">
+            Quy định số ngày ban nick tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.QuyDinhSoNgayBanNickToiDa)
+            @Html.ValidationMessageFor(model => model.QuyDinhSoNgayBanNickToiDa)
+        </div>
+        <div class="editor-label">
+            Số lượng Playlist được tạo tối đa của 1 tài khoản:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongPlaylistDuocTaoToiDa)
+            @Html.ValidationMessageFor(model => model.SoLuongPlaylistDuocTaoToiDa)
+        </div>
+        <div class="editor-label">
+            Số lượng bài hát nghe nhiều nhất theo thể loại được liệt kê tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa)
+            @Html.ValidationMessageFor(model => model.SoLuongBaiHatNgheNhieuNhatTheoTheLoaiDuocLietKeToiDa)
+        </div>
+        <div class="editor-label">
+            Số lượng bài hát mới nhất được liệt kê tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongBaiHatMoiNhatDuocLietKeToiDa)
+            @Html.ValidationMessageFor(model => model.SoLuongBaiHatMoiNhatDuocLietKeToiDa)
+        </div>
+        <div class="editor-label">
+            Số lượng bài hát có điểm trung bình cao nhất được liệt kê tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa)
+            @Html.ValidationMessageFor(model => model.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa)
+        </div>
+        <div class="editor-label">
+            Số lượng bài hát cùng ca sĩ được liệt kê tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongBaiHatCungCaSiDuocLietKeToiDa)
+            @Html.ValidationMessageFor(model => model.SoLuongBaiHatCungCaSiDuocLietKeToiDa)
+        </div>
+        <div class="editor-label">
+            Số lượng bài hát được liệt kê mỗi trang tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongBaiHatLietKeMoiTrangToiDa)
+            @Html.ValidationMessageFor(model => model.SoLuongBaiHatLietKeMoiTrangToiDa)
+        </div>
+        <div class="editor-label">
+            Số lượng bài hát được tìm thấy tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongBaiHatDuocTimThayToiDa)
+            @Html.ValidationMessageFor(model => model.SoLuongBaiHatDuocTimThayToiDa)
+        </div>
+        <div class="editor-label">
+            Số giây chờ download tối thiểu:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoGiayChoDownloadToiThieu)
+            @Html.ValidationMessageFor(model => model.SoGiayChoDownloadToiThieu)
+        </div>
+        <div class="editor-label">
+            Tên logo:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TenLogo)
+            @Html.ValidationMessageFor(model => model.TenLogo)
+        </div>
+        <div class="editor-label">
+            Lời giới thiệu:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GioiThieu, "MultiLine")
+            @Html.ValidationMessageFor(model => model.GioiThieu)
+        </div>
+        <div class="editor-label">
+            Ngôn ngữ:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NgonNgu)
+            @Html.ValidationMessageFor(model => model.NgonNgu)
+        </div>
+        <div class="editor-label">
+            Thông tin liên lạc:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ThongTinLienLac)
+            @Html.ValidationMessageFor(model => model.ThongTinLienLac)
+        </div>
+        <div class="editor-label">
+            Tên file Flash:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Flash)
+            @Html.ValidationMessageFor(model => model.Flash)
+        </div>
+        <div class="editor-label">
+            Số lượng thể loại được liệt kê trên menu tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongTheLoaiDuocLietKetTrenMenu)
+            @Html.ValidationMessageFor(model => model.SoLuongTheLoaiDuocLietKetTrenMenu)
+        </div>
+        <div class="editor-label">
+            Số lượng ca sĩ được liệt kê trên menu tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongCaSiLietKeTrenMenu)
+            @Html.ValidationMessageFor(model => model.SoLuongCaSiLietKeTrenMenu)
+        </div>
+        <div class="editor-label">
+            Số lượng playlist được xem nhiều nhất liệt kê trên menu tối đa:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoLuongPlaylistXemNhieuNhatTrenMenu)
+            @Html.ValidationMessageFor(model => model.SoLuongPlaylistXemNhieuNhatTrenMenu)
+        </div>
+        @Html.HiddenFor(model => model.id)
+        <p>
+            <input type="submit" value="Lưu" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Quay lại", "Index")
+</div>

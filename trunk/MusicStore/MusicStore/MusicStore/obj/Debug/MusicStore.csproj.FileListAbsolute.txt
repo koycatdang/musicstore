@@ -1,0 +1,7 @@
+C:\Users\CaoPhung\Desktop\MVC3\MusicStore\bin\MusicStore.dll
+C:\Users\CaoPhung\Desktop\MVC3\MusicStore\bin\MusicStore.pdb
+C:\Users\CaoPhung\Desktop\MVC3\MusicStore\bin\EntityFramework.dll
+C:\Users\CaoPhung\Desktop\MVC3\MusicStore\bin\EntityFramework.xml
+C:\Users\CaoPhung\Desktop\MVC3\MusicStore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\CaoPhung\Desktop\MVC3\MusicStore\obj\Debug\MusicStore.dll
+C:\Users\CaoPhung\Desktop\MVC3\MusicStore\obj\Debug\MusicStore.pdb
