@@ -22,8 +22,8 @@ namespace MusicStore.Controllers
         // GET: /NguoiDungManager/Create
         public ActionResult Create()
         {
-            ViewBag.LoaiNguoiDung = dbEntity.LOAINGUOIDUNGs.OrderBy(lnd => lnd.TenLoaiNguoiDung).ToList();
-            ViewBag.TinhTrangNguoiDung = dbEntity.TINHTRANGNGUOIDUNGs.OrderBy(ttnd => ttnd.TenTinhTrangNguoiDung).ToList();
+            ViewBag.LoaiNguoiDung = dbEntity.LOAINGUOIDUNGs.ToList();
+            ViewBag.TinhTrangNguoiDung = dbEntity.TINHTRANGNGUOIDUNGs.ToList();
 
             var _nguoiDung = new NGUOIDUNG();
 
@@ -61,8 +61,8 @@ namespace MusicStore.Controllers
             }
 
             // Invalid – redisplay with errors
-            ViewBag.LoaiNguoiDung = dbEntity.LOAINGUOIDUNGs.OrderBy(lnd => lnd.TenLoaiNguoiDung).ToList();
-            ViewBag.TinhTrangNguoiDung = dbEntity.TINHTRANGNGUOIDUNGs.OrderBy(ttnd => ttnd.TenTinhTrangNguoiDung).ToList();
+            ViewBag.LoaiNguoiDung = dbEntity.LOAINGUOIDUNGs.ToList();
+            ViewBag.TinhTrangNguoiDung = dbEntity.TINHTRANGNGUOIDUNGs.ToList();
 
             return View(_nguoiDung);
         }
@@ -71,8 +71,8 @@ namespace MusicStore.Controllers
         // GET: /NguoiDungManager/Edit/
         public ActionResult Edit(int id)
         {
-            ViewBag.LoaiNguoiDung = dbEntity.LOAINGUOIDUNGs.OrderBy(lnd => lnd.TenLoaiNguoiDung).ToList();
-            ViewBag.TinhTrangNguoiDung = dbEntity.TINHTRANGNGUOIDUNGs.OrderBy(ttnd => ttnd.TenTinhTrangNguoiDung).ToList();
+            ViewBag.LoaiNguoiDung = dbEntity.LOAINGUOIDUNGs.ToList();
+            ViewBag.TinhTrangNguoiDung = dbEntity.TINHTRANGNGUOIDUNGs.ToList();
 
             var _nguoiDung = dbEntity.NGUOIDUNGs.Single(nd => nd.MaNguoiDung == id);
 

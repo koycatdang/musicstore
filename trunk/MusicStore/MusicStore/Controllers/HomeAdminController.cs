@@ -15,38 +15,36 @@ namespace MusicStore.Controllers
         public ActionResult Index()
         {
             // Tổng số bài hát
-            ViewBag.slbh = (from bh in dbEntity.BAIHATs select bh).Count();
+            ViewBag.slbh = dbEntity.BAIHATs.Count();
             
             // Tổng số bài hát đang chờ
-            ViewBag.slbhc = (from bh in dbEntity.BAIHATs where bh.MaTinhTrangBaiHat == 2 select bh).Count();
+            ViewBag.slbhc = dbEntity.BAIHATs.Where(bh => bh.MaTinhTrangBaiHat == 2).Count();
             
             // Bài hát mới nhất
-            var _temp1 = (from bh in dbEntity.BAIHATs orderby bh.NgayTiepNhan descending select new { bh.TenBaiHat }).Take(1).ToList();
-            String _newSong = "";
-            foreach (var item in _temp1)
-                 _newSong = item.TenBaiHat;
+            var _temp1 = dbEntity.BAIHATs.OrderByDescending(bh => bh.NgayTiepNhan).First();
+            String _newSong = _temp1.TenBaiHat;
             ViewBag.bhm = _newSong;
 
             // Tổng thể loại
-            ViewBag.sltl = (from tl in dbEntity.THELOAIs select tl).Count();
+            ViewBag.sltl = dbEntity.THAMSOes.Count();
             
             // Tổng người dùng
-            ViewBag.slnd = (from nd in dbEntity.NGUOIDUNGs select nd).Count();
+            ViewBag.slnd = dbEntity.NGUOIDUNGs.Count();
             
             // Tổng tài khoản bị ban
-            ViewBag.ban = (from b in dbEntity.BANNICKs select b).Count();
+            ViewBag.ban = dbEntity.BANNICKs.Count();
             
             // Tổng số lượng ca sĩ
-            ViewBag.slcs = (from cs in dbEntity.CASIs select cs).Count();
+            ViewBag.slcs = dbEntity.CASIs.Count();
             
             // Tổng số lượng nhạc sĩ
-            ViewBag.slns = (from ns in dbEntity.NHACSIs select ns).Count();
+            ViewBag.slns = dbEntity.NHACSIs.Count();
             
             // Tổng số lượng Alum
-            ViewBag.sla = (from a in dbEntity.ALBUMs select a).Count();
+            ViewBag.sla = dbEntity.ALBUMs.Count();
             
             // Tổng số lượng playlist
-            ViewBag.slpl = (from pl in dbEntity.PLAYLISTs select pl).Count();               
+            ViewBag.slpl = dbEntity.PLAYLISTs.Count();               
 
             return View();
         }

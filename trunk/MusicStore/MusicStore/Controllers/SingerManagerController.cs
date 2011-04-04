@@ -22,8 +22,8 @@ namespace MusicStore.Controllers
         // GET: /SingerManager/Create
         public ActionResult Create()
         {
-            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.OrderBy(ttcs => ttcs.MaTinhTrangCaSi).ToList();
-            ViewBag.KhuVuc = dbEntity.KHUVUCs.OrderBy(kv => kv.MaKhuVuc).ToList();
+            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.ToList();
+            ViewBag.KhuVuc = dbEntity.KHUVUCs.ToList();
 
             var _singer = new CASI();
             return View(_singer);
@@ -41,8 +41,8 @@ namespace MusicStore.Controllers
 
                 return RedirectToAction("Index");
             }
-            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.OrderBy(ttcs => ttcs.MaTinhTrangCaSi).ToList();
-            ViewBag.KhuVuc = dbEntity.KHUVUCs.OrderBy(kv => kv.MaKhuVuc).ToList();
+            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.ToList();
+            ViewBag.KhuVuc = dbEntity.KHUVUCs.ToList();
             return View(_singer);
         }
 
@@ -50,8 +50,8 @@ namespace MusicStore.Controllers
         // GET: /SingerManager/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.OrderBy(ttcs => ttcs.MaTinhTrangCaSi).ToList();
-            ViewBag.KhuVuc = dbEntity.KHUVUCs.OrderBy(kv => kv.MaKhuVuc).ToList();
+            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.ToList();
+            ViewBag.KhuVuc = dbEntity.KHUVUCs.ToList();
 
             var _singer = dbEntity.CASIs.First(cs => cs.MaCaSi == id);
             return View(_singer);
@@ -69,8 +69,10 @@ namespace MusicStore.Controllers
                 dbEntity.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-                return View(_singer);
+            
+            ViewBag.TinhTrangCaSi = dbEntity.TINHTRANGCASIs.ToList();
+            ViewBag.KhuVuc = dbEntity.KHUVUCs.ToList();
+            return View(_singer);
         }
 
         //

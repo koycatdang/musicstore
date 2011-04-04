@@ -33,7 +33,7 @@
          grid.Column(
             header: "",
             style: "",
-            format: (item) => new HtmlString(Html.ActionLink("Sửa", "Edit", new { id = item.MaBaiHat }).ToString() + " | " +
+            format: (item) => new HtmlString(Html.ActionLink("Sửa", "Edit", new { id = item.MaBaiHat }).ToString() +
                                              Html.ActionLink("Xóa", "Delete", new { id = item.MaBaiHat }).ToString())
         )
         )

@@ -23,7 +23,7 @@ namespace MusicStore.Controllers
         // GET: /AlbumManager/Create
         public ActionResult Create()
         {
-            ViewBag.TinhTrangAlbum = dbEntity.TINHTRANGALBUMs.OrderBy(tta => tta.MaTinhTrangAlbum).ToList();
+            ViewBag.TinhTrangAlbum = dbEntity.TINHTRANGALBUMs.ToList();
             var _album = new ALBUM();
             return View(_album);
         }
@@ -40,7 +40,7 @@ namespace MusicStore.Controllers
                 return RedirectToAction("Index");
             }
             //Invalid
-            ViewBag.TinhTrangAlbum = dbEntity.TINHTRANGALBUMs.OrderBy(tta => tta.MaTinhTrangAlbum).ToList();
+            ViewBag.TinhTrangAlbum = dbEntity.TINHTRANGALBUMs.ToList();
             return View(_album);
         }
 
@@ -48,7 +48,7 @@ namespace MusicStore.Controllers
         // GET: /AlbumManager/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.TinhTrangAlbum = dbEntity.TINHTRANGALBUMs.OrderBy(tta => tta.MaTinhTrangAlbum).ToList();
+            ViewBag.TinhTrangAlbum = dbEntity.TINHTRANGALBUMs.ToList();
             var _album = dbEntity.ALBUMs.First(a => a.MaAlbum == id);
             return View(_album);
         }
@@ -64,7 +64,7 @@ namespace MusicStore.Controllers
                 dbEntity.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TinhTrangAlbum = dbEntity.TINHTRANGALBUMs.OrderBy(tta => tta.MaTinhTrangAlbum).ToList();
+            ViewBag.TinhTrangAlbum = dbEntity.TINHTRANGALBUMs.ToList();
             return View(_album);
         }
 
@@ -82,9 +82,7 @@ namespace MusicStore.Controllers
         public ActionResult Delete(int id, FormCollection collection)
         {
             var _album = dbEntity.ALBUMs.First(a => a.MaAlbum == id);
-            var _chiTietAlbum = (from cta in dbEntity.CHITIETALBUMs
-                                 where cta.MaAlbum == id
-                                 select cta).ToList();
+            var _chiTietAlbum = dbEntity.CHITIETALBUMs.Where(cta => cta.MaAlbum == id).ToList();
             foreach (var cta in _chiTietAlbum)
                 dbEntity.CHITIETALBUMs.DeleteObject(cta);
             dbEntity.ALBUMs.DeleteObject(_album);

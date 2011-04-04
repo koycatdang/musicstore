@@ -24,7 +24,7 @@ namespace MusicStore.Controllers
         // GET: /Artist/Create
         public ActionResult Create()
         {
-            ViewBag.TinhTrangNhacSi = dbEntity.TINHTRANGNHACSIs.OrderBy(ttns => ttns.MaTinhTrangNhacSi).ToList();
+            ViewBag.TinhTrangNhacSi = dbEntity.TINHTRANGNHACSIs.ToList();
 
             var _artist = new NHACSI();
             return View(_artist);
@@ -41,7 +41,7 @@ namespace MusicStore.Controllers
                 dbEntity.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TinhTrangNhacSi = dbEntity.TINHTRANGNHACSIs.OrderBy(ttns => ttns.MaTinhTrangNhacSi).ToList();
+            ViewBag.TinhTrangNhacSi = dbEntity.TINHTRANGNHACSIs.ToList();
             return View(_artist);
         }
 
@@ -49,7 +49,7 @@ namespace MusicStore.Controllers
         // GET: /Artist/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.TinhTrangNhacSi = dbEntity.TINHTRANGNHACSIs.OrderBy(ttns => ttns.MaTinhTrangNhacSi).ToList();
+            ViewBag.TinhTrangNhacSi = dbEntity.TINHTRANGNHACSIs.ToList();
             var _artist = dbEntity.NHACSIs.First(ns => ns.MaNhacSi == id);
             return View(_artist);
         }
@@ -65,7 +65,7 @@ namespace MusicStore.Controllers
                 dbEntity.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TinhTrangNhacSi = dbEntity.TINHTRANGNHACSIs.OrderBy(ttns => ttns.MaTinhTrangNhacSi).ToList();
+            ViewBag.TinhTrangNhacSi = dbEntity.TINHTRANGNHACSIs.ToList();
             return View(_artist);
         }
 

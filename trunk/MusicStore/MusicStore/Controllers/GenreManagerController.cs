@@ -22,7 +22,7 @@ namespace MusicStore.Controllers
         // GET: /GenreManager/Create
         public ActionResult Create()
         {
-            ViewBag.TinhTrangTheLoai = dbEntity.TINHTRANGTHELOAIs.OrderBy(tttl => tttl.MaTinhTrangTheLoai).ToList();
+            ViewBag.TinhTrangTheLoai = dbEntity.TINHTRANGTHELOAIs.ToList();
 
             var _genre = new THELOAI();
             return View(_genre);
@@ -40,7 +40,7 @@ namespace MusicStore.Controllers
 
                 return RedirectToAction("Index");
             }
-            ViewBag.TinhTrangTheLoai = dbEntity.TINHTRANGTHELOAIs.OrderBy(tttl => tttl.MaTinhTrangTheLoai).ToList();
+            ViewBag.TinhTrangTheLoai = dbEntity.TINHTRANGTHELOAIs.ToList();
             return View(_genre);
         }
         
@@ -48,7 +48,7 @@ namespace MusicStore.Controllers
         // GET: /GenreManager/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.TinhTrangTheLoai = dbEntity.TINHTRANGTHELOAIs.OrderBy(tttl => tttl.MaTinhTrangTheLoai).ToList();
+            ViewBag.TinhTrangTheLoai = dbEntity.TINHTRANGTHELOAIs.ToList();
             var _genre = dbEntity.THELOAIs.Single(tl => tl.MaTheLoai == id);
             return View(_genre);
         }
@@ -65,9 +65,8 @@ namespace MusicStore.Controllers
                 return RedirectToAction("Index");
             }
             else
-            {
-                return View(_genre);
-            }
+            ViewBag.TinhTrangTheLoai = dbEntity.TINHTRANGTHELOAIs.ToList();
+            return View(_genre);
         }
 
         //

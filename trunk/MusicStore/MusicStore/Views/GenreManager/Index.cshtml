@@ -9,8 +9,6 @@
 <p>
     @Html.ActionLink("Thêm thể loại bài hát", "Create")
 </p>
-Tổng số thể loại nhạc hiện tại: @Html.Encode(grid.TotalRowCount)
-<br />
 @grid.GetHtml(
     tableStyle: "webgrid-table",
     headerStyle: "webgrid-header",
@@ -36,3 +34,5 @@ Tổng số thể loại nhạc hiện tại: @Html.Encode(grid.TotalRowCount)
     </script>
     }
 }
+<p class="var">
+    Tổng số thể loại nhạc hiện tại: <em>@Html.Encode(grid.TotalRowCount)</em></p>

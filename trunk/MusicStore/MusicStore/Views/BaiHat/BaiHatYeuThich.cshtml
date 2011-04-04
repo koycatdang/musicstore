@@ -3,6 +3,6 @@
 <ul>
 @foreach (var item in @Model)
 {
-    <li><a href="@Url.Action("../BaiHat/ListBaiHat", new { id = item.MaBaiHat })">@item.TenBaiHat</a></li>
+    <li><a href="@Url.Action("../BaiHat/Detail", new { id = item.MaBaiHat })">@item.TenBaiHat</a></li>
 }    
 </ul>

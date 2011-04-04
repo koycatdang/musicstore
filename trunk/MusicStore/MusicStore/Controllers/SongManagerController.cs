@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MusicStore.Models;
 using System.Collections;
+using System.IO;
 
 namespace MusicStore.Controllers
 {
@@ -23,11 +24,11 @@ namespace MusicStore.Controllers
         // GET: /SongManager/Create
         public ActionResult Create()
         {
-            ViewBag.TinhTrangBaiHat = dbEntity.TINHTRANGBAIHATs.OrderBy(ttbh => ttbh.TenTinhTrangBaiHat).ToList();
-            ViewBag.TheLoai = dbEntity.THELOAIs.OrderBy(tl => tl.TenTheLoai).ToList();
-            ViewBag.ChatLuongAmThanh = dbEntity.CHATLUONGAMTHANHs.OrderBy(clat => clat.MaChatLuongAmThanh).ToList();
-            ViewBag.CaSi = dbEntity.CASIs.OrderBy(cs => cs.MaCaSi).ToList();
-            ViewBag.NhacSi = dbEntity.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
+            ViewBag.TinhTrangBaiHat = dbEntity.TINHTRANGBAIHATs.ToList();
+            ViewBag.TheLoai = dbEntity.THELOAIs.ToList();
+            ViewBag.ChatLuongAmThanh = dbEntity.CHATLUONGAMTHANHs.ToList();
+            ViewBag.CaSi = dbEntity.CASIs.ToList();
+            ViewBag.NhacSi = dbEntity.NHACSIs.ToList();
 
             var _song = new BAIHAT();
 
@@ -37,24 +38,25 @@ namespace MusicStore.Controllers
         //
         // POST: /SongManager/Create
         [HttpPost]
-        public ActionResult Create(BAIHAT _song)
+        public ActionResult Create(BAIHAT _song, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                _song.LinkDownload =  Path.GetFileName(file.FileName);
                 _song.NgayTiepNhan = DateTime.Now;
                 _song.SoLuongNghe = _song.SoLuotDownload = 0;
                 _song.Diem = 0;
                 dbEntity.BAIHATs.AddObject(_song);
                 dbEntity.SaveChanges();
-
+                file.SaveAs(Server.MapPath("~/MusicFiles/") + _song.LinkDownload);
                 return RedirectToAction("Index");
             }
             //Invalid
-            ViewBag.TinhTrangBaiHat = dbEntity.TINHTRANGBAIHATs.OrderBy(ttbh => ttbh.TenTinhTrangBaiHat).ToList();
-            ViewBag.TheLoai = dbEntity.THELOAIs.OrderBy(tl => tl.TenTheLoai).ToList();
-            ViewBag.ChatLuongAmThanh = dbEntity.CHATLUONGAMTHANHs.OrderBy(clat => clat.MaChatLuongAmThanh).ToList();
-            ViewBag.CaSi = dbEntity.CASIs.OrderBy(cs => cs.MaCaSi).ToList();
-            ViewBag.NhacSi = dbEntity.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
+            ViewBag.TinhTrangBaiHat = dbEntity.TINHTRANGBAIHATs.ToList();
+            ViewBag.TheLoai = dbEntity.THELOAIs.ToList();
+            ViewBag.ChatLuongAmThanh = dbEntity.CHATLUONGAMTHANHs.ToList();
+            ViewBag.CaSi = dbEntity.CASIs.ToList();
+            ViewBag.NhacSi = dbEntity.NHACSIs.ToList();
 
             return View(_song);
         }
@@ -63,11 +65,11 @@ namespace MusicStore.Controllers
         // GET: /SongManager/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.TinhTrangBaiHat = dbEntity.TINHTRANGBAIHATs.OrderBy(ttbh => ttbh.TenTinhTrangBaiHat).ToList();
-            ViewBag.TheLoai = dbEntity.THELOAIs.OrderBy(tl => tl.TenTheLoai).ToList();
-            ViewBag.ChatLuongAmThanh = dbEntity.CHATLUONGAMTHANHs.OrderBy(clat => clat.MaChatLuongAmThanh).ToList();
-            ViewBag.CaSi = dbEntity.CASIs.OrderBy(cs => cs.MaCaSi).ToList();
-            ViewBag.NhacSi = dbEntity.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
+            ViewBag.TinhTrangBaiHat = dbEntity.TINHTRANGBAIHATs.ToList();
+            ViewBag.TheLoai = dbEntity.THELOAIs.ToList();
+            ViewBag.ChatLuongAmThanh = dbEntity.CHATLUONGAMTHANHs.ToList();
+            ViewBag.CaSi = dbEntity.CASIs.ToList();
+            ViewBag.NhacSi = dbEntity.NHACSIs.ToList();
 
             var _song = dbEntity.BAIHATs.Single(bh => bh.MaBaiHat == id);
 
@@ -90,11 +92,11 @@ namespace MusicStore.Controllers
             }
             else
             {
-                ViewBag.TinhTrangBaiHat = dbEntity.TINHTRANGBAIHATs.OrderBy(ttbh => ttbh.TenTinhTrangBaiHat).ToList();
-                ViewBag.TheLoai = dbEntity.THELOAIs.OrderBy(tl => tl.TenTheLoai).ToList();
-                ViewBag.ChatLuongAmThanh = dbEntity.CHATLUONGAMTHANHs.OrderBy(clat => clat.MaChatLuongAmThanh).ToList();
-                ViewBag.CaSi = dbEntity.CASIs.OrderBy(cs => cs.MaCaSi).ToList();
-                ViewBag.NhacSi = dbEntity.NHACSIs.OrderBy(ns => ns.MaNhacSi).ToList();
+                ViewBag.TinhTrangBaiHat = dbEntity.TINHTRANGBAIHATs.ToList();
+                ViewBag.TheLoai = dbEntity.THELOAIs.ToList();
+                ViewBag.ChatLuongAmThanh = dbEntity.CHATLUONGAMTHANHs.ToList();
+                ViewBag.CaSi = dbEntity.CASIs.ToList();
+                ViewBag.NhacSi = dbEntity.NHACSIs.ToList();
                 return View(_song);
             }
         }
