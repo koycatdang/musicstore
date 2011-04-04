@@ -1,4 +1,29 @@
 <?xml version="1.0"?>
 <playlist>
-      <tracklist />
+      <tracklist>
+            <track>
+                  <title>Bình Yên Nhé</title>
+                  <location>/MusicFiles/</location>
+            </track>
+            <track>
+                  <title>Cắn Rứt</title>
+                  <location>/MusicFiles/</location>
+            </track>
+            <track>
+                  <title>Cào Cào Lá Tre</title>
+                  <location>/MusicFiles/</location>
+            </track>
+            <track>
+                  <title>Cầu Vồng Khuyết</title>
+                  <location>/MusicFiles/</location>
+            </track>
+            <track>
+                  <title>Cây Lá Và Gió</title>
+                  <location>/MusicFiles/</location>
+            </track>
+            <track>
+                  <title>Happy Together</title>
+                  <location>/MusicFiles/The Turtles - Happy Together.mp3</location>
+            </track>
+      </tracklist>
 </playlist>
