@@ -12,7 +12,7 @@
 <ul>
     @foreach (var bh in Model)
     {
-        <li>@bh.TenBaiHat<b style="text-align: right">@bh.SoLuongNghe</b>
+        <li><a href="@Url.Action("../BaiHat/Detail", new { id = bh.MaBaiHat })">@bh.TenBaiHat</a><b style="text-align: right">@bh.SoLuongNghe</b>
             @bh.CASI.TenCaSi ---- @bh.NHACSI.TenNhacSi</li>
     }
 </ul>

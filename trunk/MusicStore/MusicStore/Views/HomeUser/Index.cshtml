@@ -7,7 +7,7 @@
 <ul>
     @foreach (var bhmn in ViewBag.ListBaiHatMoiNhat)
     {
-        <li><a href="@Url.Action("../BaiHat/ListBaiHat", new { id = bhmn.MaBaiHat })">@bhmn.TenBaiHat</a></li>
+        <li><a href="@Url.Action("../BaiHat/Detail", new { id = bhmn.MaBaiHat })">@bhmn.TenBaiHat</a></li>
     }
 </ul>
 <h2>
@@ -15,7 +15,7 @@
 <ul>
     @foreach (var bhyt in ViewBag.ListBaiHatDiemCaoNhat)
     {
-        <li><a href="@Url.Action("../BaiHat/ListBaiHat", new { id = bhyt.MaBaiHat })">@bhyt.TenBaiHat</a></li>
+        <li><a href="@Url.Action("../BaiHat/Detail", new { id = bhyt.MaBaiHat })">@bhyt.TenBaiHat</a></li>
     }
 </ul>
 <h2>
@@ -23,6 +23,6 @@
 <ul>
     @foreach (var bhttl in ViewBag.ListBaiHatTheoTheLoai)
     {
-        <li><a href="@Url.Action("../BaiHat/ListBaiHat", new { id = bhttl.MaBaiHat })">@bhttl.TenBaiHat</a></li>
+        <li><a href="@Url.Action("../BaiHat/Detail", new { id = bhttl.MaBaiHat })">@bhttl.TenBaiHat</a></li>
     }
 </ul>

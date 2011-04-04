@@ -19,15 +19,15 @@ namespace MusicStore.Controllers
         }
 
         //
-        // Get: /BaiHat/Detail/2
-        public ActionResult ListBaiHat(int id)
+        // Get: /BaiHat/PlaylistBaiHat/2
+        public ActionResult PlaylistBaiHat(int id)
         {
             var lstBaiHat = dbEntity.BAIHATs.Where(bh => bh.MaCaSiTrinhBay == id).Where(bh => bh.MaTinhTrangBaiHat != 3).ToList();
             return View(lstBaiHat);
         }
 
         //
-        // Get: /BaiHat/Detail/Detail
+        // Get: /BaiHat/Detail/
         public ActionResult Detail(int id)
         {
             var baihat = dbEntity.BAIHATs.Single(bh => bh.MaBaiHat == id);

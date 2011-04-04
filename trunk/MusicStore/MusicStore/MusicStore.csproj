@@ -190,7 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\BaiHat\Detail.cshtml" />
-    <Content Include="Views\BaiHat\ListBaiHat.cshtml">
+    <Content Include="Views\BaiHat\PlaylistBaiHat.cshtml">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>
