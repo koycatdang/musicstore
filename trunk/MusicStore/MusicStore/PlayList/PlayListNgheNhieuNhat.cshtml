@@ -1,8 +1,0 @@
-﻿@model IEnumerable<MusicStore.Models.PLAYLIST>
-
-<ul>
-@foreach (var pl in @Model)
-{
-    <li><a href="@Url.Action("../PlayList/Detail", new { id = pl.MaPlaylist })">@pl.TenPlaylist</a></li>
-}    
-</ul>
