@@ -1,0 +1,7 @@
+﻿@model IEnumerable<MusicStore.Models.CASI>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="@Url.Action("../BaiHat/BaiHatTheoCaSi", new { id = item.MaCaSi })">@item.TenCaSi</a></li>
+    }
+</ul>
