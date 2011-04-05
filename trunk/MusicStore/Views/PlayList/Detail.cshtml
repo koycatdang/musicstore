@@ -12,16 +12,19 @@
     <div>
         <a href="@Url.Action("../BaiHat/PlaylistBaiHat", new { id = item.MaBaiHat })">@item.BAIHAT.TenBaiHat</a></div>
 }
-<div class="sidenav">
+<div class="sidenav"  style="text-align:center;">
     <div class="navhead">
         <h3 style="cursor: pointer">
             Nghe toàn bộ playlist</h3>
     </div>
     <div class="subnav">
         <ul class="submenu">
-            <script type='text/javascript' src='jwplayer/jwplayer.js'></script>
+            <script type='text/javascript' src='/Plugins/MediaPlayer/jwplayer.js'></script>
+
             <div id='mediaplayer'>
             </div>
+
+
             <script type='text/javascript'>
     jwplayer('mediaplayer').setup(
     {
@@ -31,7 +34,8 @@
         'height': '500',
         'allowscriptaccess': 'always',
         'wmode': 'opaque',
-        'backcolor': 'FFFFFF',
+        'backcolor': '000000',
+        'frontcolor' : 'ffffff',
         'allowfullscreen': 'true',
         'autostart': 'true',
         'repeat': 'always',
@@ -41,41 +45,14 @@
                         
                         @foreach (var item in Model)
                         {
-                            var content = new HtmlString("{ file: 'Music/" + @item.BAIHAT.LinkDownload + "', title: '" + @item.BAIHAT.TenBaiHat + "', image: 'jwplayer/hinh.jpg'},");
+                            var content = new HtmlString("{ file: '/MusicFiles/" + @item.BAIHAT.LinkDownload + "', title: '" + @item.BAIHAT.TenBaiHat + "', image: '/Plugins/MediaPlayer/bg.jpg'},");
                             @content;
                         }                        
                     ]
         });
 
             </script>
+
         </ul>
     </div>
 </div>
-<div id='mediaplayer'>
-            </div>
-            <script type='text/javascript'>
-    jwplayer('mediaplayer').setup(
-    {
-        'flashplayer': '/Plugins/MediaPlayer/player.swf',
-        'id': 'playerID',
-        'width': '400',
-        'height': '500',
-        'allowscriptaccess': 'always',
-        'wmode': 'opaque',
-        'backcolor': 'FFFFFF',
-        'allowfullscreen': 'true',
-        'autostart': 'true',
-        'repeat': 'always',
-        'playlist.position': 'bottom',
-        'playlist.size': '150',
-        'playlist': [
-                        
-                        @foreach (var item in Model)
-                        {
-                            var content = new HtmlString("{ file: 'Music/" + @item.BAIHAT.LinkDownload + "', title: '" + @item.BAIHAT.TenBaiHat + "', image: 'jwplayer/hinh.jpg'},");
-                            @content;
-                        }                        
-                    ]
-        });
-
-            </script>
