@@ -1,6 +1,6 @@
 ﻿@model MusicStore.Models.BAIHAT
 @{
-    ViewBag.Title = "Playlist";
+    ViewBag.Title = @Model.TenBaiHat;
 }
 <h2>
     Bạn đang nghe nhạc tại HPT</h2>
@@ -43,7 +43,6 @@ bgcolor='undefined'
 allowscriptaccess='always'
 allowfullscreen='true'
 wmode='transparent'
-flashvars='file=/MusicFiles/@Model.LinkDownload&backcolor=000000&frontcolor=FFFFFF&autostart=true&repeat=always'
-/>
+flashvars='file=/MusicFiles/@Model.LinkDownload&backcolor=000000&frontcolor=FFFFFF&autostart=true&repeat=always'/>
     </object>
 </div>

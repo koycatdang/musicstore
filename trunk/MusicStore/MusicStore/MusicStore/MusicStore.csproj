@@ -73,6 +73,7 @@
     <Compile Include="Controllers\FindController.cs" />
     <Compile Include="Controllers\GenreManagerController.cs" />
     <Compile Include="Controllers\HomeAdminController.cs" />
+    <Compile Include="Controllers\HomeGuestController.cs" />
     <Compile Include="Controllers\HomeUserController.cs" />
     <Compile Include="Controllers\PlayListController.cs" />
     <Compile Include="Controllers\TheLoaiController.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\ModelMusicStore.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,6 +136,28 @@
     <Content Include="Content\StyleAdmin\Js\jquery-ui-personalized-1.5.2.packed.js" />
     <Content Include="Content\StyleAdmin\Js\jquery.min.js" />
     <Content Include="Content\StyleAdmin\Js\sprinkle.js" />
+    <Content Include="Content\StyleGuest\Css\Site.css" />
+    <Content Include="Content\StyleGuest\Css\style.css" />
+    <Content Include="Content\StyleGuest\Images\banner.jpg" />
+    <Content Include="Content\StyleGuest\Images\banner.swf" />
+    <Content Include="Content\StyleGuest\Images\bg.jpg" />
+    <Content Include="Content\StyleGuest\Images\bg_header.jpg" />
+    <Content Include="Content\StyleGuest\Images\border.jpg" />
+    <Content Include="Content\StyleGuest\Images\bullet-list.gif" />
+    <Content Include="Content\StyleGuest\Images\content.jpg" />
+    <Content Include="Content\StyleGuest\Images\footer.jpg" />
+    <Content Include="Content\StyleGuest\Images\left_bottom.jpg" />
+    <Content Include="Content\StyleGuest\Images\left_content.jpg" />
+    <Content Include="Content\StyleGuest\Images\left_title.jpg" />
+    <Content Include="Content\StyleGuest\Images\line.jpg" />
+    <Content Include="Content\StyleGuest\Images\logo.swf" />
+    <Content Include="Content\StyleGuest\Images\menu_a.jpg" />
+    <Content Include="Content\StyleGuest\Images\player_mp3.swf" />
+    <Content Include="Content\StyleGuest\Images\right_bottom.jpg" />
+    <Content Include="Content\StyleGuest\Images\right_title.jpg" />
+    <Content Include="Content\StyleGuest\Images\slideshow.swf" />
+    <Content Include="Content\StyleGuest\Images\topmenu_bg.jpg" />
+    <Content Include="Content\StyleGuest\Images\web.png" />
     <Content Include="Content\StyleUser\Css\Site.css" />
     <Content Include="Content\StyleUser\Css\style.css" />
     <Content Include="Content\StyleUser\Images\banner.jpg" />
@@ -294,6 +318,12 @@
     <Content Include="Views\BaiHat\BaiHatTheoTheLoai.cshtml" />
     <Content Include="Views\BaiHat\BaiHatTheoCaSi.cshtml" />
     <Content Include="Views\Find\Index.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\LayoutGuest\_Layout.cshtml" />
+    <Content Include="Views\Shared\LayoutGuest\Error.cshtml" />
+    <Content Include="Views\HomeUser\About.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

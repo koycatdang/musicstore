@@ -1,19 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using System.Web.Security;
-using System.Globalization;
-using System.Security.Principal;
 using MusicStore.Models;
 
 namespace MusicStore.Controllers
 {
-    
+   
     public class AccountController : Controller
     {
-        db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
+
+        public IFormsAuthenticationService FormsService { get; set; }
+        public IMembershipService MembershipService { get; set; }
+
+        protected override void Initialize(RequestContext requestContext)
+        {
+            if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
+            if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
+
+            base.Initialize(requestContext);
+        }
+
+        // **************************************
+        // URL: /Account/LogOn
+        // **************************************
 
         public ActionResult LogOn()
         {
@@ -21,103 +36,109 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult LogOn(NGUOIDUNG _nguoiDung)
+        public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
-            var _check = (from nd in dbEntity.NGUOIDUNGs
-                          where nd.UserName == _nguoiDung.UserName
-                          where nd.PassWord == _nguoiDung.PassWord
-                          select nd).ToList();
-            NGUOIDUNG _nd = new NGUOIDUNG();
-            foreach (var item in _check)
-                _nd.MaLoaiNguoiDung = item.MaLoaiNguoiDung;
-            if (_check.Count() == 0)
+            if (ModelState.IsValid)
             {
-                return View();
-            }
-            else
-            {
-                if (_nd.MaLoaiNguoiDung == 2)
+                if (MembershipService.ValidateUser(model.UserName, model.Password))
                 {
-                    return View("../HomeAdmin/Index");
+                    FormsService.SignIn(model.UserName, model.RememberMe);
+                    if (Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
                 else
                 {
-                    return View("../HomeUser/Index");
+                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
                 }
-            }    
-        }    
-   }
-
-    // The FormsAuthentication type is sealed and contains static members, so it is difficult to
-    // unit test code that calls its members. The interface and helper class below demonstrate
-    // how to create an abstract wrapper around such a type in order to make the AccountController
-    // code unit testable.
-
-    public interface IFormsAuthentication
-    {
-        void SignIn(string userName, bool createPersistentCookie);
-        void SignOut();
-    }
-
-    public class FormsAuthenticationService : IFormsAuthentication
-    {
-        public void SignIn(string userName, bool createPersistentCookie)
-        {
-            FormsAuthentication.SetAuthCookie(userName, createPersistentCookie);
-        }
-        public void SignOut()
-        {
-            FormsAuthentication.SignOut();
-        }
-    }
-
-    public interface IMembershipService
-    {
-        int MinPasswordLength { get; }
-
-        bool ValidateUser(string userName, string password);
-        MembershipCreateStatus CreateUser(string userName, string password, string email);
-        bool ChangePassword(string userName, string oldPassword, string newPassword);
-    }
-
-    public class AccountMembershipService : IMembershipService
-    {
-        private MembershipProvider _provider;
-
-        public AccountMembershipService()
-            : this(null)
-        {
-        }
-
-        public AccountMembershipService(MembershipProvider provider)
-        {
-            _provider = provider ?? Membership.Provider;
-        }
-
-        public int MinPasswordLength
-        {
-            get
-            {
-                return _provider.MinRequiredPasswordLength;
             }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
         }
 
-        public bool ValidateUser(string userName, string password)
+        // **************************************
+        // URL: /Account/LogOff
+        // **************************************
+
+        public ActionResult LogOff()
         {
-            return _provider.ValidateUser(userName, password);
+            FormsService.SignOut();
+
+            return RedirectToAction("Index", "Home");
         }
 
-        public MembershipCreateStatus CreateUser(string userName, string password, string email)
+        // **************************************
+        // URL: /Account/Register
+        // **************************************
+
+        public ActionResult Register()
         {
-            MembershipCreateStatus status;
-            _provider.CreateUser(userName, password, email, null, null, true, null, out status);
-            return status;
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
+            return View();
         }
 
-        public bool ChangePassword(string userName, string oldPassword, string newPassword)
+        [HttpPost]
+        public ActionResult Register(NGUOIDUNG model)
         {
-            MembershipUser currentUser = _provider.GetUser(userName, true /* userIsOnline */);
-            return currentUser.ChangePassword(oldPassword, newPassword);
+            if (ModelState.IsValid)
+            {     
+                db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
+                model.MaLoaiNguoiDung = 1;
+                model.MaTinhTrangNguoiDung = 1;
+                dbEntity.NGUOIDUNGs.AddObject(model);
+                dbEntity.SaveChanges();
+                FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+                return RedirectToAction("Index", "Home");
+            }
+            return View(model);
         }
+
+        // **************************************
+        // URL: /Account/ChangePassword
+        // **************************************
+
+        [Authorize]
+        public ActionResult ChangePassword()
+        {
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult ChangePassword(ChangePasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (MembershipService.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword))
+                {
+                    return RedirectToAction("ChangePasswordSuccess");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
+            return View(model);
+        }
+
+        // **************************************
+        // URL: /Account/ChangePasswordSuccess
+        // **************************************
+
+        public ActionResult ChangePasswordSuccess()
+        {
+            return View();
+        }
+
     }
 }

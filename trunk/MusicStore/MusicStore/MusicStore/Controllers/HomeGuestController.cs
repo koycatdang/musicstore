@@ -7,10 +7,10 @@ using MusicStore.Models;
 
 namespace MusicStore.Controllers
 {
-    public class HomeUserController : Controller
+    public class HomeGuestController : Controller
     {
         db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
-        
+
         public ActionResult Index()
         {
             var sl = dbEntity.THAMSOes.First();
@@ -30,13 +30,6 @@ namespace MusicStore.Controllers
 
             ViewBag.ListBaiHatTheoTheLoai = lstBaiHat;
 
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            var sl = dbEntity.THAMSOes.First();
-            ViewBag.gt = sl.GioiThieu;
             return View();
         }
     }

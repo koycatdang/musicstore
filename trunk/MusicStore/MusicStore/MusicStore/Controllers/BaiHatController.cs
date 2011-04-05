@@ -31,6 +31,10 @@ namespace MusicStore.Controllers
         public ActionResult Detail(int id)
         {
             var baihat = dbEntity.BAIHATs.Single(bh => bh.MaBaiHat == id);
+            // tăng số lượng nghe lên một
+            baihat.SoLuongNghe += 1;
+            TryUpdateModel(baihat);
+            dbEntity.SaveChanges();
             return View(baihat);
         }
 
