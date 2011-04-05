@@ -6,15 +6,14 @@
 <div style="margin-bottom: 10px;">
     Sáng tác: @Model.NHACSI.TenNhacSi
     | Thể loại: @Model.THELOAI.TenTheLoai
-    | Đăng bởi: Admin
-    | Chất lượng: @Model.CHATLUONGAMTHANH.TenChatLuongAmThanh
+    | Đăng bởi: Admin | Chất lượng: @Model.CHATLUONGAMTHANH.TenChatLuongAmThanh
     | Lượt nghe: @Model.SoLuongNghe
     | Số lượt download: @Model.SoLuotDownload
     | Ngày tiếp nhận: @Model.NgayTiepNhan
-    
-    </div>
+</div>
 <script type="text/javascript" src="/Plugins/MediaPlayer/swfobject.js"></script>
 <script type="text/javascript" src="/Plugins/MediaPlayer/jwplayer.js"></script>
+<script type="text/javascript" src="/Scripts/jquery.js"></script>
 <div style="text-align: center">
     <object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' width='400' height='275'
         id='single1' name='single1'>
@@ -37,8 +36,19 @@ wmode='transparent'
 flashvars='file=/MusicFiles/@Model.LinkDownload&backcolor=000000&frontcolor=FFFFFF&autostart=true&repeat=always&image=/Plugins/MediaPlayer/bg.jpg'/>
     </object>
 </div>
-<div style="text-align:center;">
-<a href="/MusicFiles/@Model.LinkDownload"><img src="/Content/StyleUser/Images/download-icon.gif" width="180px" /></a>
+@if (Session["UserName"] == "")
+{
+}
+@if (Session["UserName"] != "")
+{
+    <div style="text-align: center">
+        <a href="/MusicFiles/@Model.LinkDownload">
+            <img src="/Content/StyleUser/Images/download-icon.gif" width="180px" /></a>
+    </div>
+}
+<div style="margin-top: 5px;">
+    <p>
+        Link nhạc: @Html.TextBox("Link nhạc", "http://localhost/BaiHat/Detail/" + @Model.MaBaiHat)</p>
 </div>
-<div><p>Link nhạc: @Html.TextBox("Link nhạc","http://localhost/BaiHat/Detail/" + @Model.MaBaiHat)</p></div>
+
 
