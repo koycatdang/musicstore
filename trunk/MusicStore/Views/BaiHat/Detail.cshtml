@@ -5,9 +5,12 @@
 <h2>@Model.TenBaiHat - <a href="@Url.Action("../BaiHat/BaiHatTheoCaSi/", new { id = @Model.CASI.MaCaSi })">@Model.CASI.TenCaSi</a></a></h2>
 <div style="margin-bottom: 10px;">
     Sáng tác: @Model.NHACSI.TenNhacSi
-    | Thể loại nhạc: @Model.THELOAI.TenTheLoai
+    | Thể loại: @Model.THELOAI.TenTheLoai
+    | Đăng bởi: Admin
     | Chất lượng: @Model.CHATLUONGAMTHANH.TenChatLuongAmThanh
-    | Lượt nghe: @Model.SoLuongNghe</div>
+    | Lượt nghe: @Model.SoLuongNghe
+    
+    </div>
 <script type="text/javascript" src="/Plugins/MediaPlayer/swfobject.js"></script>
 <script type="text/javascript" src="/Plugins/MediaPlayer/jwplayer.js"></script>
 <div style="text-align: center">
