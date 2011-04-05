@@ -1418,8 +1418,6 @@ namespace MusicStore.Models
         }
 
         #endregion
-
-        public string Lin { get; set; }
     }
     
     /// <summary>
@@ -3586,7 +3584,7 @@ namespace MusicStore.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Double> SoLuotNghe
+        public Nullable<global::System.Int32> SoLuotNghe
         {
             get
             {
@@ -3601,8 +3599,8 @@ namespace MusicStore.Models
                 OnSoLuotNgheChanged();
             }
         }
-        private Nullable<global::System.Double> _SoLuotNghe;
-        partial void OnSoLuotNgheChanging(Nullable<global::System.Double> value);
+        private Nullable<global::System.Int32> _SoLuotNghe;
+        partial void OnSoLuotNgheChanging(Nullable<global::System.Int32> value);
         partial void OnSoLuotNgheChanged();
     
         /// <summary>

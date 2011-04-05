@@ -1,11 +1,25 @@
-﻿@model IEnumerable<MusicStore.Models.PLAYLIST>
+﻿@model IEnumerable<MusicStore.Models.CHITIETPLAYLIST>
+
 @{
-    ViewBag.Title = "My Playlist";
+    ViewBag.Title = "Chi tiết Playlist";
+    Layout = "~/Views/Shared/LayoutGuest/_Layout.cshtml";
+}
+<h2>
+    Quản lí chi tiết Playlist</h2>
+    <p>@Html.ActionLink("Thêm bài hát", "ThemBaiHat")</p>
+<ul>
+    @foreach (var pl in ViewBag.pl)
+    {
+        <li style="border-bottom: 1px solid #efefef; padding: 3px;"><a href="@Url.Action("../BaiHat/Detail", new { id = pl.MaBaiHat })">@pl.BAIHATs.TenBaiHat</a></li>
+    }
+</ul>
+@*@{
+    ViewBag.Title = "Quản lí playlist";
     Layout = "~/Views/Shared/LayoutGuest/_Layout.cshtml";
     var grid = new WebGrid(source: Model, canSort: true, canPage: true, rowsPerPage: 10);
 }
 <h2>
-    Quản lí Playlist</h2>
+    Quản lí chi tiết Playlist</h2>
 @grid.GetHtml(
     tableStyle: "webgrid-table",
     headerStyle: "webgrid-header",
@@ -13,17 +27,12 @@
     alternatingRowStyle: "webgrid-alternatingRow",
     rowStyle: "webgrid-row",
     columns: grid.Columns(
-        grid.Column("TenPlaylist", "Tên playlist"),
-        grid.Column("SoLuotNghe", "Số lượt nghe"),
-        grid.Column("SoLuongBaiHat", "Số lượng bài hát"),
-        grid.Column("SoLuotDownload", "Số lượt Download"),
-        grid.Column("NgayTao", "Ngày tạo"),
+        grid.Column("MaChiTietPlayList", "Mã chi tiết Playlist"),
+        grid.Column("MaBaiHat", "Mã bài hát"),
         grid.Column(
             header: "",
             style: "",
-            format: (item) => new HtmlString(Html.ActionLink("Sửa", "Edit", new { id = item.MaPlaylist }).ToString() + " | " +
-                                             Html.ActionLink("Xóa", "Delete", new { id = item.MaPlaylist }).ToString() + " | " +
-                                             Html.ActionLink("Chi tiết", "Details", new { id = item.MaPlaylist }).ToString())
+            format: (item) => new HtmlString(Html.ActionLink("Xóa", "Remove", new { id = item.MaChiTietPlaylist }).ToString())
         )
             )
 )
@@ -36,4 +45,4 @@
     }
 }
 <p class="sum">
-    Tổng số playlist hiện có: <em>@Html.Encode(grid.TotalRowCount)</em></p>
+    Tổng số lượng bài hát hiện có trong Playlist này: <em>@Html.Encode(grid.TotalRowCount)</em></p>*@

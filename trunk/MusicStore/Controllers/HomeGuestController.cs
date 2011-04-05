@@ -13,6 +13,10 @@ namespace MusicStore.Controllers
 
         public ActionResult Index()
         {
+            if (Session["MaNguoiDung"].ToString() == null)
+            {
+                return RedirectToAction("Index", "HomeUser");
+            }
             var sl = dbEntity.THAMSOes.First();
 
             ViewBag.ListBaiHatDiemCaoNhat = dbEntity.BAIHATs.Where(bh => bh.MaTinhTrangBaiHat != 3).OrderByDescending(bh => bh.Diem).Take(int.Parse(sl.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa.ToString())).ToList();

@@ -14,6 +14,11 @@ namespace MusicStore.Controllers
         // GET: /HomeAdmin/
         public ActionResult Index()
         {
+            if (Session["MaNguoiDung"].ToString() == null || int.Parse(Session["MaLoaiNguoiDung"].ToString()) != 2)
+            {
+                return RedirectToAction("Index", "HomeUser");
+            }
+
             // Tổng số bài hát
             ViewBag.slbh = dbEntity.BAIHATs.Count();
             

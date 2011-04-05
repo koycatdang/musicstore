@@ -45,9 +45,12 @@ namespace MusicStore.Controllers
                     var _user = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == _nguoiDung.UserName).Where(nd => nd.PassWord == _nguoiDung.PassWord).ToList();
                     if (_user.Count != 0)
                     {
+                        Session["UserName"] = _nguoiDung.UserName;
+                        Session["MaNguoiDung"] = _nguoiDung.MaNguoiDung;
+                        Session["MaLoaiNguoiDung"] = _nguoiDung.MaLoaiNguoiDung;
                         if (_user[0].MaLoaiNguoiDung == 1)
                             return RedirectToAction("Index", "HomeGuest");
-                        else
+                        else           
                             return RedirectToAction("Index", "HomeAdmin");
                     }
                 }
@@ -56,6 +59,7 @@ namespace MusicStore.Controllers
                     return View("ErrorLogOn");
                 }
             }
+            Session["UserName"] = Session["MaNguoiDung"] = Session["MaLoaiNguoiDung"] = null;
             return View("ErrorLogOn");
         }
 
@@ -66,7 +70,8 @@ namespace MusicStore.Controllers
         public ActionResult LogOff()
         {
             FormsService.SignOut();
-
+            Session["UserName"] = "";
+            Session["MaNguoiDung"] = "";
             return RedirectToAction("Index", "HomeUser");
         }
 
@@ -76,7 +81,6 @@ namespace MusicStore.Controllers
 
         public ActionResult Register()
         {
-            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
@@ -85,15 +89,7 @@ namespace MusicStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var _UserName = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == model.UserName).First();
-                    if (_UserName.UserName != "")
-                        return View("ErrorRegister");
-                }
-                catch (Exception)
-                {
-                }
+                db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
                 model.MaLoaiNguoiDung = 1;
                 model.MaTinhTrangNguoiDung = 1;
                 dbEntity.NGUOIDUNGs.AddObject(model);
@@ -101,7 +97,7 @@ namespace MusicStore.Controllers
                 FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
                 return RedirectToAction("Index", "HomeUser");
             }
-            return View("ErrorRegister");
+            return View(model);
         }
 
         // **************************************

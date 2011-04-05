@@ -244,7 +244,7 @@
           <Property Name="TenPlaylist" Type="nvarchar(max)" />
           <Property Name="NgayTao" Type="date" />
           <Property Name="MaNguoiDung" Type="int" />
-          <Property Name="SoLuotNghe" Type="float" />
+          <Property Name="SoLuotNghe" Type="int" />
           <Property Name="SoLuongBaiHat" Type="int" />
           <Property Name="SoLuotDownload" Type="int" />
         </EntityType>
@@ -904,7 +904,7 @@
           <Property Name="TenPlaylist" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="NgayTao" Type="DateTime" />
           <Property Name="MaNguoiDung" Type="Int32" />
-          <Property Name="SoLuotNghe" Type="Double" />
+          <Property Name="SoLuotNghe" Type="Int32" />
           <Property Name="SoLuongBaiHat" Type="Int32" />
           <Property Name="SoLuotDownload" Type="Int32" />
           <NavigationProperty Name="CHITIETPLAYLISTs" Relationship="db_MusicStoreModel.FK_CHITIETPLAYLIST_PLAYLIST" FromRole="PLAYLIST" ToRole="CHITIETPLAYLIST" />
