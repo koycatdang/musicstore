@@ -11,7 +11,7 @@ using MusicStore.Models;
 
 namespace MusicStore.Controllers
 {
-   
+
     public class AccountController : Controller
     {
         db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
@@ -37,7 +37,7 @@ namespace MusicStore.Controllers
 
         [HttpPost]
         public ActionResult LogOn(NGUOIDUNG _nguoiDung, string returnUrl)
-        {   
+        {
             if (ModelState.IsValid)
             {
                 try
@@ -49,12 +49,12 @@ namespace MusicStore.Controllers
                             return RedirectToAction("Index", "HomeGuest");
                         else
                             return RedirectToAction("Index", "HomeAdmin");
-                    }     
+                    }
                 }
                 catch (Exception)
                 {
                     return View("ErrorLogOn");
-                }             
+                }
             }
             return View("ErrorLogOn");
         }
@@ -76,6 +76,7 @@ namespace MusicStore.Controllers
 
         public ActionResult Register()
         {
+            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
@@ -83,14 +84,22 @@ namespace MusicStore.Controllers
         public ActionResult Register(NGUOIDUNG model)
         {
             if (ModelState.IsValid)
-            {     
-                db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
-                model.MaLoaiNguoiDung = 1;
-                model.MaTinhTrangNguoiDung = 1;
-                dbEntity.NGUOIDUNGs.AddObject(model);
-                dbEntity.SaveChanges();
-                FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
-                return RedirectToAction("Index", "HomeUser");
+            {
+                try
+                {
+                    var _UserName = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == model.UserName);
+                    return View(model);
+                }
+                catch (Exception)
+                {
+
+                    model.MaLoaiNguoiDung = 1;
+                    model.MaTinhTrangNguoiDung = 1;
+                    dbEntity.NGUOIDUNGs.AddObject(model);
+                    dbEntity.SaveChanges();
+                    FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+                    return RedirectToAction("Index", "HomeUser");
+                }
             }
             return View(model);
         }

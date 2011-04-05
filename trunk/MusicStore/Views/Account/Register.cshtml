@@ -1,9 +1,7 @@
-﻿@model MusicStore.Models.NGUOIDUNG
+﻿@model MusicStore.Models.RegisterModel
 @{
     ViewBag.Title = "Đăng kí";
 }
-<h2>
-    Đăng kí tài khoản mới</h2>
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 @using (Html.BeginForm())
 {
@@ -31,10 +29,10 @@
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
             <div class="editor-label">
-                Mật khẩu xác nhận:
+                Xác nhận mật khẩu:
             </div>
             <div class="editor-field">
-                @Html.ValidationMessageFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
             <div class="editor-label">

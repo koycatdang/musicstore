@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Trang chủ | HPT";
+    Layout = "~/Views/Shared/LayoutGuest/_Layout.cshtml";
+}
+<h2>
+    Bài hát mới nhất</h2>
+<ul>
+    @foreach (var bhmn in ViewBag.ListBaiHatMoiNhat)
+    {
+        <div style="border-bottom: 1px solid #efefef; padding: 3px;">
+            <li><a href="@Url.Action("../BaiHat/Detail", new { id = bhmn.MaBaiHat })">@bhmn.TenBaiHat</a></li>
+        </div>
+    }
+</ul>
+<h2>
+    Bài hát yêu thích nhất nhiều nhất</h2>
+<ul>
+    @foreach (var bhyt in ViewBag.ListBaiHatDiemCaoNhat)
+    {
+        <div style="border-bottom: 1px solid #efefef; padding: 3px;">
+            <li><a href="@Url.Action("../BaiHat/Detail", new { id = bhyt.MaBaiHat })">@bhyt.TenBaiHat</a></li>
+        </div>
+    }
+</ul>
+<h2>
+    Bài hát theo mỗi thể loại</h2>
+<ul>
+    @foreach (var bhttl in ViewBag.ListBaiHatTheoTheLoai)
+    {
+        <div style="border-bottom: 1px solid #efefef; padding: 3px;">
+            <li><a href="@Url.Action("../BaiHat/Detail", new { id = bhttl.MaBaiHat })">@bhttl.TenBaiHat</a></li>
+        </div>
+    }
+</ul>

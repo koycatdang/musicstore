@@ -314,10 +314,8 @@
     <Content Include="Views\BaiHat\BaiHatMoiNhat.cshtml" />
     <Content Include="Views\BaiHat\BaiHatTheoTheLoai.cshtml" />
     <Content Include="Views\BaiHat\BaiHatTheoCaSi.cshtml" />
-    <Content Include="Views\Find\Index.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\LayoutGuest\_Layout.cshtml" />
     <Content Include="Views\Shared\LayoutGuest\Error.cshtml" />
     <Content Include="Views\HomeUser\About.cshtml" />
@@ -325,6 +323,10 @@
     <Content Include="Views\Account\ErrorLogOn.cshtml" />
     <Content Include="Views\HomeGuest\Index.cshtml" />
     <Content Include="Views\HomeGuest\About.cshtml" />
+    <Content Include="Views\PlayList\Index.cshtml" />
+    <Content Include="Views\Find\Find.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Find\FindResult.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

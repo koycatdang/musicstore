@@ -5,17 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 using MusicStore.Models;
 
-namespace DoAn.Controllers
+namespace MusicStore.Controllers
 {
     public class PlayListController : Controller
     {
         db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
         //
-        // GET: /PlayList/
-
+        // GET: /Playlist/
         public ActionResult Index()
         {
-            return View();
+            var _playList = dbEntity.CHITIETPLAYLISTs.ToList();
+            return View(_playList);
         }
 
         [ChildActionOnly]

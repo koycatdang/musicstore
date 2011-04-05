@@ -1,0 +1,35 @@
+﻿@model MusicStore.Models.BAIHAT
+@{
+    ViewBag.Title = "Tìm kiếm";
+    Layout = "~/Views/Shared/LayoutUser/_Layout.cshtml"; 
+}
+<h2>
+    Tìm kiếm bài hát</h2>
+@using (Html.BeginForm("Find", "Find", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <fieldset>
+        <legend>Thông tin cần tìm</legend>
+        <div class="editor-label">
+            Bài hát:
+            <input id="baihat" name="baihat" type="text" />
+        </div>
+        <div class="editor-label">
+            Ca sĩ:
+            <input id="casi" name="casi" type="text" />
+        </div>
+        <div class="editor-label">
+            Người đăng:
+            <input id="nguoidung" type="text" name="nguoidung" />
+        </div>
+        <div class="editor-label">
+            Chất lượng âm thanh:<input id="chatluongamthanh" type="text" name="chatluongamthanh" />
+        </div>
+        <div class="editor-label">
+            Thể loại:
+            <input id="theloai" type="text" name="theloai" />
+        </div>
+        <p>
+            <input type="submit" value="Tìm kiếm" />
+        </p>
+    </fieldset>
+}
