@@ -35,7 +35,12 @@ namespace MusicStore.Controllers
             baihat.SoLuongNghe += 1;
             TryUpdateModel(baihat);
             dbEntity.SaveChanges();
-            return View(baihat);
+
+            int idCaSi = int.Parse(baihat.MaCaSiTrinhBay.ToString());
+            var sl = dbEntity.THAMSOes.First();
+            ViewBag.BaiHatTheoCaSi = dbEntity.BAIHATs.Where(bh => bh.MaTinhTrangBaiHat != 3).Where(bh => bh.MaCaSiTrinhBay == idCaSi).OrderByDescending(bh => bh.NgayTiepNhan).Take(int.Parse(sl.SoLuongBaiHatLietKeMoiTrangToiDa.ToString())).ToList();
+            
+           return View(baihat);
         }
 
         [ChildActionOnly]
@@ -45,7 +50,7 @@ namespace MusicStore.Controllers
             var sl = dbEntity.THAMSOes.First();
 
             var _bhYeuThich = dbEntity.BAIHATs.Where(bh => bh.MaTinhTrangBaiHat != 3).OrderByDescending(bh => bh.Diem).Take(int.Parse(sl.SoLuongBaiHatCoDiemTrungBinhCaoNhatDuocLietKeToiDa.ToString())).ToList();
-  
+
             return PartialView(_bhYeuThich);
         }
 
@@ -83,6 +88,14 @@ namespace MusicStore.Controllers
         {
             var sl = dbEntity.THAMSOes.First();
             return PartialView();
+        }
+
+        public void UpdateLuotDownLoad(int id)
+        {
+            var baihat = dbEntity.BAIHATs.Single(bh => bh.MaBaiHat == id);
+            baihat.SoLuotDownload += 1;
+            TryUpdateModel(baihat);
+            dbEntity.SaveChanges();
         }
     }
 }
