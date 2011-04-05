@@ -87,21 +87,21 @@ namespace MusicStore.Controllers
             {
                 try
                 {
-                    var _UserName = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == model.UserName);
-                    return View(model);
+                    var _UserName = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == model.UserName).First();
+                    if (_UserName.UserName != "")
+                        return View("ErrorRegister");
                 }
                 catch (Exception)
                 {
-
-                    model.MaLoaiNguoiDung = 1;
-                    model.MaTinhTrangNguoiDung = 1;
-                    dbEntity.NGUOIDUNGs.AddObject(model);
-                    dbEntity.SaveChanges();
-                    FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "HomeUser");
                 }
+                model.MaLoaiNguoiDung = 1;
+                model.MaTinhTrangNguoiDung = 1;
+                dbEntity.NGUOIDUNGs.AddObject(model);
+                dbEntity.SaveChanges();
+                FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+                return RedirectToAction("Index", "HomeUser");
             }
-            return View(model);
+            return View("ErrorRegister");
         }
 
         // **************************************
