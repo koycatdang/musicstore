@@ -72,7 +72,6 @@
     <Compile Include="Controllers\CommentManagerController.cs" />
     <Compile Include="Controllers\FindController.cs" />
     <Compile Include="Controllers\GenreManagerController.cs" />
-    <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayListController.cs" />
