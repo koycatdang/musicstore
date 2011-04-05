@@ -72,9 +72,9 @@
     <Compile Include="Controllers\CommentManagerController.cs" />
     <Compile Include="Controllers\FindController.cs" />
     <Compile Include="Controllers\GenreManagerController.cs" />
+    <Compile Include="Controllers\GuestController.cs" />
     <Compile Include="Controllers\HomeAdminController.cs" />
-    <Compile Include="Controllers\HomeGuestController.cs" />
-    <Compile Include="Controllers\HomeUserController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayListController.cs" />
     <Compile Include="Controllers\TheLoaiController.cs" />
     <Compile Include="Controllers\UploadType.cs" />
@@ -242,7 +242,7 @@
     <Content Include="Views\Shared\LayoutAdmin\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\HomeUser\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\StyleAdmin\Images\icons\Thumbs.db" />
@@ -323,7 +323,8 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\LayoutGuest\_Layout.cshtml" />
     <Content Include="Views\Shared\LayoutGuest\Error.cshtml" />
-    <Content Include="Views\HomeUser\About.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Guest.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
