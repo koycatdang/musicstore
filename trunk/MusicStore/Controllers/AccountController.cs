@@ -14,7 +14,7 @@ namespace MusicStore.Controllers
    
     public class AccountController : Controller
     {
-
+        db_MusicStoreEntities dbEntity = new db_MusicStoreEntities();
         public IFormsAuthenticationService FormsService { get; set; }
         public IMembershipService MembershipService { get; set; }
 
@@ -36,30 +36,27 @@ namespace MusicStore.Controllers
         }
 
         [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
-        {
+        public ActionResult LogOn(NGUOIDUNG _nguoiDung, string returnUrl)
+        {   
             if (ModelState.IsValid)
             {
-                if (MembershipService.ValidateUser(model.UserName, model.Password))
+                try
                 {
-                    FormsService.SignIn(model.UserName, model.RememberMe);
-                    if (Url.IsLocalUrl(returnUrl))
+                    var _user = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == _nguoiDung.UserName).Where(nd => nd.PassWord == _nguoiDung.PassWord).ToList();
+                    if (_user.Count != 0)
                     {
-                        return Redirect(returnUrl);
-                    }
-                    else
-                    {
-                        return RedirectToAction("Index", "Home");
-                    }
+                        if (_user[0].MaLoaiNguoiDung == 1)
+                            return RedirectToAction("Index", "HomeUser");
+                        else
+                            return RedirectToAction("Index", "HomeAdmin");
+                    }     
                 }
-                else
+                catch (Exception)
                 {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                }
+                    return View("ErrorLogOn");
+                }             
             }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            return View("ErrorLogOn");
         }
 
         // **************************************
@@ -70,7 +67,7 @@ namespace MusicStore.Controllers
         {
             FormsService.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "HomeUser");
         }
 
         // **************************************
@@ -79,7 +76,6 @@ namespace MusicStore.Controllers
 
         public ActionResult Register()
         {
-            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
@@ -94,7 +90,7 @@ namespace MusicStore.Controllers
                 dbEntity.NGUOIDUNGs.AddObject(model);
                 dbEntity.SaveChanges();
                 FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "HomeUser");
             }
             return View(model);
         }

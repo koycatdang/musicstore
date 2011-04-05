@@ -322,6 +322,7 @@
     <Content Include="Views\Shared\LayoutGuest\Error.cshtml" />
     <Content Include="Views\HomeUser\About.cshtml" />
     <Content Include="Views\HomeUser\Index.cshtml" />
+    <Content Include="Views\Account\ErrorLogOn.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
