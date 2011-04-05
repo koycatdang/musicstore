@@ -58,7 +58,7 @@ namespace MusicStore.Controllers
         {
             var sl = dbEntity.THAMSOes.First();
 
-            var _bhTheoTheLoai = dbEntity.BAIHATs.Where(bh => bh.MaTheLoai == id).OrderByDescending(bh => bh.NgayTiepNhan).Take(int.Parse(sl.SoLuongBaiHatLietKeMoiTrangToiDa.ToString())).ToList();
+            var _bhTheoTheLoai = dbEntity.BAIHATs.Where(bh => bh.MaTheLoai == id).Where(bh => bh.MaTinhTrangBaiHat != 3).OrderByDescending(bh => bh.NgayTiepNhan).Take(int.Parse(sl.SoLuongBaiHatLietKeMoiTrangToiDa.ToString())).ToList();
 
             return View(_bhTheoTheLoai);
         }

@@ -85,11 +85,11 @@ namespace MusicStore.Controllers
         public ActionResult Edit(int id, FormCollection collection)
         {
             var _nguoiDung = dbEntity.NGUOIDUNGs.First(nd => nd.MaNguoiDung == id);
-            var _check = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == _nguoiDung.UserName).ToList();
-            if (_check.Count() == 1)
-                foreach (var nd in _check)
-                    if (nd.UserName != _nguoiDung.UserName)
-                        return View("ErrorUserName");
+            //var _check = dbEntity.NGUOIDUNGs.Where(nd => nd.UserName == _nguoiDung.UserName).ToList();
+            //if (_check.Count() != 0)
+            //    foreach (var nd in _check)
+            //        if (nd.MaNguoiDung != _nguoiDung.MaNguoiDung)
+            //            return View("ErrorUserName");
             
             if (TryUpdateModel(_nguoiDung))
             {

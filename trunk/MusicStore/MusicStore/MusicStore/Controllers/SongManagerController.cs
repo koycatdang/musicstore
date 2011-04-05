@@ -42,13 +42,13 @@ namespace MusicStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                _song.LinkDownload =  Path.GetFileName(file.FileName);
+                _song.LinkDownload =  Path.GetFileName(file.FileName); // ----------
                 _song.NgayTiepNhan = DateTime.Now;
                 _song.SoLuongNghe = _song.SoLuotDownload = 0;
                 _song.Diem = 0;
                 dbEntity.BAIHATs.AddObject(_song);
                 dbEntity.SaveChanges();
-                file.SaveAs(Server.MapPath("~/MusicFiles/") + _song.LinkDownload);
+                file.SaveAs(Server.MapPath("~/MusicFiles/") + _song.LinkDownload); // ---------- up bài hát lên seb
                 return RedirectToAction("Index");
             }
             //Invalid
@@ -79,7 +79,7 @@ namespace MusicStore.Controllers
         //
         // POST: /SongManager/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, FormCollection collection, HttpPostedFileBase file)
         {
             var _song = dbEntity.BAIHATs.First(bh => bh.MaBaiHat == id);
 
@@ -87,7 +87,10 @@ namespace MusicStore.Controllers
             {
                 if (_song.MaTinhTrangBaiHat == 3)
                     upDeleted(id);
+                _song.LinkDownload = Path.GetFileName(file.FileName);
+                
                 dbEntity.SaveChanges();
+                file.SaveAs(Server.MapPath("~/MusicFiles/") + _song.LinkDownload);
                 return RedirectToAction("Index");
             }
             else
