@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C2F719F6-D536-4217-885F-3913FA842BD0}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicStore</RootNamespace>
+    <AssemblyName>MusicStore</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10311.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages" />
+    <Reference Include="System.Web.Helpers" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlbumManagerController.cs" />
+    <Compile Include="Controllers\ArtistManagerController.cs" />
+    <Compile Include="Controllers\BaiHatController.cs" />
+    <Compile Include="Controllers\CaSiController.cs" />
+    <Compile Include="Controllers\CommentManagerController.cs" />
+    <Compile Include="Controllers\FindController.cs" />
+    <Compile Include="Controllers\GenreManagerController.cs" />
+    <Compile Include="Controllers\HomeAdminController.cs" />
+    <Compile Include="Controllers\HomeGuestController.cs" />
+    <Compile Include="Controllers\HomeUserController.cs" />
+    <Compile Include="Controllers\PlayListController.cs" />
+    <Compile Include="Controllers\TheLoaiController.cs" />
+    <Compile Include="Controllers\UploadType.cs" />
+    <Compile Include="Controllers\UserManagerController.cs" />
+    <Compile Include="Controllers\PageManagerController.cs" />
+    <Compile Include="Controllers\PlayListManagerController.cs" />
+    <Compile Include="Controllers\SingerManagerController.cs" />
+    <Compile Include="Controllers\SongManagerController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\ModelMusicStore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMusicStore.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\db_MusicStore.mdf" />
+    <Content Include="App_Data\db_MusicStore_log.ldf">
+      <DependentUpon>db_MusicStore.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\StyleAdmin\Css\login.css" />
+    <Content Include="Content\StyleAdmin\Css\styles.css" />
+    <Content Include="Content\StyleAdmin\Images\arrows.jpg" />
+    <Content Include="Content\StyleAdmin\Images\bg_leftcolumn.jpg" />
+    <Content Include="Content\StyleAdmin\Images\bg_slice.jpg" />
+    <Content Include="Content\StyleAdmin\Images\icons\add.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\add_table.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\articles.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\attention.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\big_logout.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\big_settings.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\big_users.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\big_visitsite.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\calendar.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\dashboard.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\edit.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\gallery.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\negative.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\positive.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\remove.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\settings.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\statistics.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\support.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\user.png" />
+    <Content Include="Content\StyleAdmin\Images\icons\users.png" />
+    <Content Include="Content\StyleAdmin\Images\login_background.jpg" />
+    <Content Include="Content\StyleAdmin\Images\login_box.jpg" />
+    <Content Include="Content\StyleAdmin\Images\logo.png" />
+    <Content Include="Content\StyleAdmin\Images\logo_bg.jpg" />
+    <Content Include="Content\StyleAdmin\Images\navi_bg.jpg" />
+    <Content Include="Content\StyleAdmin\Images\table_bg.jpg" />
+    <Content Include="Content\StyleAdmin\Images\title_bg.png" />
+    <Content Include="Content\StyleAdmin\Js\dropmenu.js" />
+    <Content Include="Content\StyleAdmin\Js\jquery-1.2.6.min.js" />
+    <Content Include="Content\StyleAdmin\Js\jquery-ui-personalized-1.5.2.packed.js" />
+    <Content Include="Content\StyleAdmin\Js\jquery.min.js" />
+    <Content Include="Content\StyleAdmin\Js\sprinkle.js" />
+    <Content Include="Content\StyleGuest\Css\Site.css" />
+    <Content Include="Content\StyleGuest\Css\style.css" />
+    <Content Include="Content\StyleGuest\Images\banner.jpg" />
+    <Content Include="Content\StyleGuest\Images\banner.swf" />
+    <Content Include="Content\StyleGuest\Images\bg.jpg" />
+    <Content Include="Content\StyleGuest\Images\bg_header.jpg" />
+    <Content Include="Content\StyleGuest\Images\border.jpg" />
+    <Content Include="Content\StyleGuest\Images\bullet-list.gif" />
+    <Content Include="Content\StyleGuest\Images\content.jpg" />
+    <Content Include="Content\StyleGuest\Images\footer.jpg" />
+    <Content Include="Content\StyleGuest\Images\left_bottom.jpg" />
+    <Content Include="Content\StyleGuest\Images\left_content.jpg" />
+    <Content Include="Content\StyleGuest\Images\left_title.jpg" />
+    <Content Include="Content\StyleGuest\Images\line.jpg" />
+    <Content Include="Content\StyleGuest\Images\logo.swf" />
+    <Content Include="Content\StyleGuest\Images\menu_a.jpg" />
+    <Content Include="Content\StyleGuest\Images\player_mp3.swf" />
+    <Content Include="Content\StyleGuest\Images\right_bottom.jpg" />
+    <Content Include="Content\StyleGuest\Images\right_title.jpg" />
+    <Content Include="Content\StyleGuest\Images\slideshow.swf" />
+    <Content Include="Content\StyleGuest\Images\topmenu_bg.jpg" />
+    <Content Include="Content\StyleGuest\Images\web.png" />
+    <Content Include="Content\StyleUser\Css\Site.css" />
+    <Content Include="Content\StyleUser\Css\style.css" />
+    <Content Include="Content\StyleUser\Images\banner.jpg" />
+    <Content Include="Content\StyleUser\Images\banner.swf" />
+    <Content Include="Content\StyleUser\Images\bg.jpg" />
+    <Content Include="Content\StyleUser\Images\bg_header.jpg" />
+    <Content Include="Content\StyleUser\Images\border.jpg" />
+    <Content Include="Content\StyleUser\Images\bullet-list.gif" />
+    <Content Include="Content\StyleUser\Images\content.jpg" />
+    <Content Include="Content\StyleUser\Images\footer.jpg" />
+    <Content Include="Content\StyleUser\Images\left_bottom.jpg" />
+    <Content Include="Content\StyleUser\Images\left_content.jpg" />
+    <Content Include="Content\StyleUser\Images\left_title.jpg" />
+    <Content Include="Content\StyleUser\Images\line.jpg" />
+    <Content Include="Content\StyleUser\Images\logo.swf" />
+    <Content Include="Content\StyleUser\Images\menu_a.jpg" />
+    <Content Include="Content\StyleUser\Images\player_mp3.swf" />
+    <Content Include="Content\StyleUser\Images\right_bottom.jpg" />
+    <Content Include="Content\StyleUser\Images\right_title.jpg" />
+    <Content Include="Content\StyleUser\Images\slideshow.swf" />
+    <Content Include="Content\StyleUser\Images\topmenu_bg.jpg" />
+    <Content Include="Content\StyleUser\Images\web.png" />
+    <Content Include="EFCodeFirstReadMe.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="MusicFiles\Anh nho em nhieu.mp3" />
+    <Content Include="MusicFiles\NuHonGio.mp3" />
+    <Content Include="Plugins\MediaPlayer\bg.jpg" />
+    <Content Include="Plugins\MediaPlayer\jwplayer.js" />
+    <Content Include="Plugins\MediaPlayer\player.swf" />
+    <Content Include="Plugins\MediaPlayer\swfobject.js" />
+    <Content Include="Scripts\functions.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\slide.js" />
+    <Content Include="Scripts\slideshow.js" />
+    <Content Include="Scripts\swfobject.js" />
+    <Content Include="Scripts\time.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\LayoutUser\Error.cshtml" />
+    <Content Include="Views\Shared\LayoutUser\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="XMLFiles\playlist.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BaiHat\Detail.cshtml" />
+    <Content Include="Views\BaiHat\PlaylistBaiHat.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\LayoutAdmin\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\LayoutAdmin\Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\StyleAdmin\Images\icons\Thumbs.db" />
+    <Content Include="Views\UserManager\Index.cshtml" />
+    <Content Include="Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Views\UserManager\Create.cshtml" />
+    <Content Include="Views\UserManager\Edit.cshtml" />
+    <Content Include="Views\UserManager\Delete.cshtml" />
+    <Content Include="Views\UserManager\Deleted.cshtml" />
+    <Content Include="Views\SongManager\Create.cshtml" />
+    <Content Include="Views\SongManager\Edit.cshtml" />
+    <Content Include="Views\SongManager\Delete.cshtml" />
+    <Content Include="Views\SongManager\Deleted.cshtml" />
+    <Content Include="Views\GenreManager\Index.cshtml" />
+    <Content Include="Views\GenreManager\Create.cshtml" />
+    <Content Include="Views\GenreManager\Edit.cshtml" />
+    <Content Include="Views\GenreManager\Delete.cshtml" />
+    <Content Include="Views\GenreManager\Deleted.cshtml" />
+    <Content Include="Views\SingerManager\Index.cshtml" />
+    <Content Include="Views\SingerManager\Create.cshtml" />
+    <Content Include="Views\SingerManager\Edit.cshtml" />
+    <Content Include="Views\SingerManager\Delete.cshtml" />
+    <Content Include="Views\SingerManager\Deleted.cshtml" />
+    <Content Include="Views\ArtistManager\Index.cshtml" />
+    <Content Include="Views\ArtistManager\Create.cshtml" />
+    <Content Include="Views\ArtistManager\Edit.cshtml" />
+    <Content Include="Views\ArtistManager\Delete.cshtml" />
+    <Content Include="Views\ArtistManager\Deleted.cshtml" />
+    <Content Include="Views\PageManager\Index.cshtml" />
+    <Content Include="Views\PageManager\Edit.cshtml" />
+    <Content Include="Views\SongManager\Index.cshtml" />
+    <Content Include="Views\UserManager\Ban.cshtml" />
+    <Content Include="Views\UserManager\EndBan.cshtml" />
+    <Content Include="Views\UserManager\EndedBan.cshtml" />
+    <Content Include="Views\SongManager\Waiting.cshtml" />
+    <Content Include="Views\SongManager\Accept.cshtml" />
+    <Content Include="Views\SongManager\Accepted.cshtml" />
+    <Content Include="Views\AlbumManager\Create.cshtml" />
+    <Content Include="Views\AlbumManager\Delete.cshtml" />
+    <Content Include="Views\AlbumManager\Edit.cshtml" />
+    <Content Include="Views\AlbumManager\Deleted.cshtml" />
+    <Content Include="Views\AlbumManager\Details.cshtml" />
+    <Content Include="Views\AlbumManager\Remove.cshtml" />
+    <Content Include="Views\AlbumManager\Removed.cshtml" />
+    <Content Include="Views\AlbumManager\AddSong.cshtml" />
+    <Content Include="Views\AlbumManager\ErrorAddSong.cshtml" />
+    <Content Include="Views\PlayListManager\Index.cshtml" />
+    <Content Include="Views\PlayListManager\Edit.cshtml" />
+    <Content Include="Views\UserManager\ErrorUserName.cshtml" />
+    <Content Include="Views\PlayListManager\Deleted.cshtml" />
+    <Content Include="Views\PlayListManager\Delete.cshtml" />
+    <Content Include="Views\PlayListManager\Details.cshtml" />
+    <Content Include="Views\PlayListManager\Remove.cshtml" />
+    <Content Include="Views\PlayListManager\Removed.cshtml" />
+    <Content Include="Views\AlbumManager\Index.cshtml" />
+    <Content Include="Views\CommentManager\Index.cshtml" />
+    <Content Include="Views\CommentManager\Edit.cshtml" />
+    <Content Include="Views\CommentManager\Delete.cshtml" />
+    <Content Include="Views\CommentManager\Deleted.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
+    <Content Include="Views\CaSi\ListCaSiVietNam.cshtml" />
+    <Content Include="Views\CaSi\ListCaSiChauA.cshtml" />
+    <Content Include="Views\CaSi\ListCaSiAuMi.cshtml" />
+    <Content Include="Views\TheLoai\ListTheLoai.cshtml" />
+    <EntityDeploy Include="Models\ModelMusicStore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMusicStore.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Views\BaiHat\BaiHatYeuThich.cshtml" />
+    <Content Include="Views\PlayList\PlayListNgheNhieuNhat.cshtml" />
+    <Content Include="Views\PlayList\Detail.cshtml" />
+    <Content Include="Views\BaiHat\BaiHatMoiNhat.cshtml" />
+    <Content Include="Views\BaiHat\BaiHatTheoTheLoai.cshtml" />
+    <Content Include="Views\BaiHat\BaiHatTheoCaSi.cshtml" />
+    <Content Include="Views\Find\Index.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\LayoutGuest\_Layout.cshtml" />
+    <Content Include="Views\Shared\LayoutGuest\Error.cshtml" />
+    <Content Include="Views\HomeUser\About.cshtml" />
+    <Content Include="Views\HomeUser\Index.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2746</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,18 @@
+﻿@model MusicStore.Models.PLAYLIST
+@{
+    ViewBag.Title = "Xóa Playlist | " + @Model.TenPlaylist;
+    Layout = "~/Views/Shared/LayoutAdmin/_Layout.cshtml";
+}
+<h2>
+    Xóa Playlist</h2>
+<h3>
+    Bạn có chắc là muốn xóa Playlist <em>@Model.TenPlaylist</em> hay không?</h3>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Xóa" />
+    </p>
+    <p class="goback">
+        @Html.ActionLink("<<Quay lại", "Index")
+    </p>
+}

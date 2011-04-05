@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="/Script/swfobject.js" type="text/javascript"></script>
+    <script src="/Script/jquery.js" type="text/javascript"></script>
+    <script src="/Script/functions.js" type="text/javascript"></script>
+    <link href="@Url.Content("~/Content/StyleUser/Css/style.css")" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <!--BEGIN:BODY-->
+    <div id="wrapper">
+        <!--BEGIN:HEADER-->
+        <div id="header">
+        </div>
+        <!--END:HEADER-->
+        <!--BEGIN:BANNER-->
+        <div id="banner">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0"
+                width="1000" height="200">
+                <param name="movie" value="/Content/StyleUser/Images/banner.swf" />
+                <param name="quality" value="high" />
+                <param name="allowScriptAccess" value="always" />
+                <param name="wmode" value="transparent">
+                <embed src="/Content/StyleUser/Images/banner.swf" quality="high" type="application/x-shockwave-flash"
+                    wmode="transparent" width="1000" height="200" pluginspage="http://www.macromedia.com/go/getflashplayer"
+                    allowscriptaccess="always" />
+            </object>
+        </div>
+        <!--END:BANNER-->
+        <!--BEGIN:TOPMENU-->
+        <div id="topmenu">
+            <div id="ngay">
+                <script language="javascript" src="js/time.js"></script>
+            </div>
+            <ul>
+                <li><a href="/Home">TRANG CHỦ</a></li>
+                <li><a href="">TÌM KIẾM</a></li>
+                <li><a href="/Account/LogOn">ĐĂNG NHẬP</a></li>
+                <li><a href="/Account/Register">ĐĂNG KÍ</a></li>
+                <li><a href="/Home/About">GIỚI THIỆU</a></li>
+            </ul>
+        </div>
+        <!--END:TOPMENU-->
+        <!--BEGIN:COLUMN LEFT-->
+        <div id="column_left">
+            <!--BEGIN:MODULES LEFT-->
+            <div id="modules_left">
+                <div id="left_title">
+                    Nhạc hot tháng @Html.Encode(DateTime.Now.Month)</div>
+                <div id="left_content">
+                    @{Html.RenderAction("BaiHatYeuThich", "BaiHat");}
+                </div>
+                <div id="left_bottom">
+                </div>
+            </div>
+            <!---->
+            <!--BEGIN:MODULES LEFT-->
+            <div id="modules_left">
+                <div id="left_title">
+                    Thể loại nhạc</div>
+                <div id="left_content">
+                    @{Html.RenderAction("ListTheLoai", "TheLoai");}
+                </div>
+                <div id="left_bottom">
+                </div>
+            </div>
+            <!---->
+            <!--BEGIN:MODULES LEFT-->
+            <div id="modules_left">
+                <div id="left_title">
+                    Ca sĩ Việt Nam</div>
+                <div id="left_content">
+                    @{Html.RenderAction("ListCaSiVietNam", "CaSi");}
+                </div>
+                <div id="left_bottom">
+                </div>
+            </div>
+            <!---->
+            <!--BEGIN:MODULES LEFT-->
+            <div id="modules_left">
+                <div id="left_title">
+                    Ca sĩ châu Á</div>
+                <div id="left_content">
+                    @{Html.RenderAction("ListCaSiChauA", "CaSi");}
+                </div>
+                <div id="left_bottom">
+                </div>
+            </div>
+            <!---->
+            <!--BEGIN:MODULES LEFT-->
+            <div id="modules_left">
+                <div id="left_title">
+                    Ca sĩ Âu Mỹ</div>
+                <div id="left_content">
+                    @{Html.RenderAction("ListCaSiAuMi", "CaSi");}
+                </div>
+                <div id="left_bottom">
+                </div>
+            </div>
+            <!---->
+            <!--BEGIN:MODULES LEFT-->
+            <div id="modules_left">
+                <div id="left_title">
+                    PlayList Hot</div>
+                <div id="left_content">
+                    @{Html.RenderAction("PlayListNgheNhieuNhat", "PlayList");}
+                </div>
+                <div id="left_bottom">
+                </div>
+            </div>
+            <!---->
+        </div>
+        <!--END:COLUMN LEFT-->
+        <!--BEGIN:COLUMN CONTAINER-->
+        <div id="container">
+            <div id="c_title_l">
+            </div>
+            <div id="c_title">
+            </div>
+            <div id="c_title_r">
+            </div>
+            <div id="c_content">
+                <h1>
+                    NHẠC CỦA TUI</h1>
+                <p>
+                    @RenderBody()
+                </p>
+            </div>
+            <div id="c_bottom_l">
+            </div>
+            <div id="c_bottom">
+            </div>
+            <div id="c_bottom_r">
+            </div>
+        </div>
+        <!--END:COLUMN CONTAINER-->
+        <!--BEGIN:COLUMN RIGHT-->
+        <div id="column_right">
+            <!--BEGIN:MODULES RIGHT-->
+            <div id="modules_right">
+                <div id="right_title">
+                    TITLE</div>
+                <div id="right_content">
+                </div>
+                <div id="right_bottom">
+                </div>
+            </div>
+            <!--END:MODULES RIGHT-->
+            <!--BEGIN:MODULES RIGHT-->
+            <div id="modules_right">
+                <div id="right_notitle">
+                </div>
+                <div id="right_content">
+                </div>
+                <div id="right_bottom">
+                </div>
+            </div>
+            <!--END:MODULES RIGHT-->
+        </div>
+        <!--END:COLUMN RIGHT-->
+        <!--BEGIN:COLUMN FOOTER-->
+        <div id="footer">
+            <p class="f1">
+                CÔNG TY CỔ PHẨN GIẢI TRÍ HPT</p>
+            <p class="copyright">
+                Văn phòng đặt tại lầu 11, tòa nhà I - 227 Nguyễn Văn Cừ<br />
+                CEO: Nguyễn Nhật Trường (98% cổ phần) - đồng sáng lập : Nguyễn Cao Phụng + Đoàn
+                Duy Hưng (2% cổ phần)<br />
+                Website: http://www.hpt.vn
+            </p>
+        </div>
+        <!--END:COLUMN FOOTER-->
+    </div>
+    <!--END:BODY-->
+</body>
+</html>
