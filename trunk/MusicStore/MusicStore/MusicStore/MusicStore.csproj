@@ -184,9 +184,9 @@
     <Content Include="Global.asax" />
     <Content Include="MusicFiles\Anh nho em nhieu.mp3" />
     <Content Include="MusicFiles\NuHonGio.mp3" />
+    <Content Include="Plugins\MediaPlayer\bg.jpg" />
     <Content Include="Plugins\MediaPlayer\jwplayer.js" />
     <Content Include="Plugins\MediaPlayer\player.swf" />
-    <Content Include="Plugins\MediaPlayer\preview.jpg" />
     <Content Include="Plugins\MediaPlayer\swfobject.js" />
     <Content Include="Scripts\functions.js" />
     <Content Include="Scripts\jquery.js" />

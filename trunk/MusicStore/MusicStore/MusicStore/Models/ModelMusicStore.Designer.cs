@@ -1418,6 +1418,8 @@ namespace MusicStore.Models
         }
 
         #endregion
+
+        public string Lin { get; set; }
     }
     
     /// <summary>
