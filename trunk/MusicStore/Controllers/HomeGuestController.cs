@@ -32,5 +32,12 @@ namespace MusicStore.Controllers
 
             return View();
         }
+
+        public ActionResult About()
+        {
+            var sl = dbEntity.THAMSOes.First();
+            ViewBag.gt = sl.GioiThieu;
+            return View();
+        }
     }
 }

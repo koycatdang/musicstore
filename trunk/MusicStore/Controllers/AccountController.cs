@@ -46,7 +46,7 @@ namespace MusicStore.Controllers
                     if (_user.Count != 0)
                     {
                         if (_user[0].MaLoaiNguoiDung == 1)
-                            return RedirectToAction("Index", "HomeUser");
+                            return RedirectToAction("Index", "HomeGuest");
                         else
                             return RedirectToAction("Index", "HomeAdmin");
                     }     
